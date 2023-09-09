@@ -7,6 +7,6 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainViewController: BaseViewController<MainViewModel> {
 
 }
