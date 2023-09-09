@@ -10,16 +10,18 @@ import Alamofire
 
 class RiotAPIRequestContext: APIRequestContextProtocol {
     static var baseURL: String {
-        AppConfigure.isProductRelease ? "" : ""
+        AppConfigure.isProductRelease
+        ? "https://ddragon.leagueoflegends.com"
+        : "https://test-ddragon.leagueoflegends.com"
     }
+    static var version = "13.16.1"
+    static var local = "en_US"
 
-    var resultCode: String {
-        ""
-    }
+    var resultCode: String? { nil }
 
     var requestURL: String
 
-    var params: [String : Any]
+    var params: [String : Any]?
 
     var requestUIMode: APIRequestUIMode
 
@@ -31,12 +33,12 @@ class RiotAPIRequestContext: APIRequestContextProtocol {
 
     init(
         path: String,
-        params: [String: Any],
+        params: [String: Any]?,
         requestUIMode: APIRequestUIMode,
         resultUIMode: APIResultUIMode,
         encoding: ParameterEncoding = JSONEncoding.default,
         headers: HTTPHeaders = ["Content-Type": "application/json"]) {
-            self.requestURL = "\(RiotAPIRequestContext.baseURL)/\(path)"
+            self.requestURL = "\(RiotAPIRequestContext.baseURL)/cdn/\(RiotAPIRequestContext.version)/data/\(RiotAPIRequestContext.local)/\(path)"
             self.params = params
             self.requestUIMode = requestUIMode
             self.resultUIMode = resultUIMode

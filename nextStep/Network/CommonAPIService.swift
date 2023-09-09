@@ -18,27 +18,7 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
         self.requestContext = requestContext
     }
 
-    func getMethod() -> Observable<Result<Wrapper, NetworkError>> {
-        request(method: .get)
-    }
-
-    func postMethod() -> Observable<Result<Wrapper, NetworkError>> {
-        request(method: .post)
-    }
-
-    func deleteMethod() -> Observable<Result<Wrapper, NetworkError>> {
-        request(method: .delete)
-    }
-
-    func patchMethod() -> Observable<Result<Wrapper, NetworkError>> {
-        request(method: .patch)
-    }
-
-    func putMethod() -> Observable<Result<Wrapper, NetworkError>> {
-        request(method: .put)
-    }
-
-    private func request(method: HTTPMethod) -> Observable<Result<Wrapper, NetworkError>> {
+    func request(method: HTTPMethod) -> Observable<Result<Wrapper, NetworkError>> {
         //MARK: RequestUIMode 처리
 
         var optionalDisposeBag: DisposeBag? = DisposeBag()
@@ -52,7 +32,7 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
             .subscribe()
             .disposed(by: disposeBag)
 
-        let _ = responseData(methode: .get)
+        let _ = responseData(methode: method)
             .do(onSubscribe: {
                 //MARK: RequestUIMode 처리
                 print("subscribe")
@@ -63,10 +43,10 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
                 optionalDisposeBag = nil
                 return self.result(statusCode: statusCode, data: data)
             }
-//            .catch {
-//                //MARK: RequestUIMode 처리
-//
-//            }
+            .catch {
+                print("🚨 request error: [requestURL: \(requestContext.requestURL), errorMessage: \($0.localizedDescription)]")
+                return Observable.just(.failure(.clientError("disposeBag is null")))
+            }
             .subscribe(subject)
 
         return subject
@@ -75,7 +55,7 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
     private func responseData(methode: HTTPMethod) -> Observable<(HTTPURLResponse, Data)> {
         AF.request(
             requestContext.requestURL,
-            method: .get,
+            method: methode,
             parameters: requestContext.params,
             encoding: requestContext.encoding,
             headers: requestContext.headers
@@ -90,10 +70,12 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
                 if api.resultCode == requestContext.resultCode {
                     return .success(api)
                 } else {
+                    print("🚨 resultCode is not success [resultCode: \(api.resultCode ?? ""), resultMessage: \(api.resultMessage ?? "")]")
                     return .failure(.serverError(api.resultCode, api.resultMessage))
                 }
             } catch {
-                let message = "json parsing error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL)]"
+                let message = "json parsing error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL), errorMessage: \(error.localizedDescription)]"
+                print("🚨 \(message)")
                 return .failure(.jsonParsingError(message))
             }
         }
@@ -101,11 +83,13 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
         if statusCode == 403 {
             //MARK: Autho Error 규격에 맞게 다시 설계하면 좋을것 같다.
             let message = "authorization error"
+            print("🚨 \(message)")
             return .failure(.authorizationError(message))
         }
 
         if 400..<500 ~= statusCode {
             let message = "client error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL)]"
+            print("🚨 \(message)")
             return .failure(.clientError(message))
         }
 
@@ -115,11 +99,13 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
                 let api = try JSONDecoder().decode(Wrapper.self, from: data)
                 return .failure(.serverError(api.resultCode, api.resultMessage))
             } catch {
-                let message = "json parsing error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL)]"
+                let message = "json parsing error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL), errorMessage: \(error.localizedDescription)]"
+                print("🚨 \(message)")
                 return .failure(.jsonParsingError(message))
             }
         }
         let message = "unkownError error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL)]"
+        print("🚨 \(message)")
         return .failure(.unkownError(message))
 
     }

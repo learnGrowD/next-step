@@ -8,5 +8,5 @@
 import Foundation
 
 class AppConfigure {
-    static let isProductRelease = false
+    static let isProductRelease = true
 }

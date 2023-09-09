@@ -21,11 +21,11 @@ import Alamofire
 //params
 //method
 protocol APIRequestContextProtocol {
-    var resultCode: String { get }
+    var resultCode: String? { get }
     static var baseURL: String { get }
 
     var requestURL: String { get set }
-    var params: [String: Any] { get set }
+    var params: [String: Any]? { get set }
     var requestUIMode: APIRequestUIMode { get set }
     var resultUIMode: APIResultUIMode { get set }
 
