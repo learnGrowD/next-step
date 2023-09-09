@@ -13,4 +13,8 @@ extension Dictionary {
         let jsonString = String(data: jsonData, encoding: .utf8)
         return jsonString
     }
+
+    func toArray() -> [Dictionary<Key, Value>.Values.Element] {
+        Array(self.values)
+    }
 }

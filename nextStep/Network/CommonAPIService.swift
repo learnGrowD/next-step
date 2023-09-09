@@ -11,18 +11,19 @@ import RxAlamofire
 import RxSwift
 import RxCocoa
 
-//한건의 Request를 담당
+// 한건의 Request를 담당
+// *** API Request 추상화
 struct CommonAPIService<Wrapper: APIWrapperProtocol> {
-    let requestContext: APIRequestContextProtocol
+    private let requestContext: APIRequestContextProtocol
     init(requestContext: APIRequestContextProtocol) {
         self.requestContext = requestContext
     }
 
-    func request(method: HTTPMethod) -> Observable<Result<Wrapper, NetworkError>> {
+    func request(method: HTTPMethod) -> Observable<Result<Wrapper.Data, NetworkError>> {
         //MARK: RequestUIMode 처리
 
         var optionalDisposeBag: DisposeBag? = DisposeBag()
-        let subject = PublishSubject<Result<Wrapper, NetworkError>>()
+        let subject = PublishSubject<Result<Wrapper.Data, NetworkError>>()
 
         guard let disposeBag = optionalDisposeBag else {
             return Observable.just(.failure(.clientError("disposeBag is null")))
@@ -62,13 +63,14 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
         ).rx.responseData()
     }
 
-    private func result(statusCode: Int, data: Data) -> Result<Wrapper, NetworkError> {
+    private func result(statusCode: Int, data: Data) -> Result<Wrapper.Data, NetworkError> {
         //MARK: ResponseUIMode 처리
         if 200..<300 ~= statusCode {
             do {
                 let api = try JSONDecoder().decode(Wrapper.self, from: data)
                 if api.resultCode == requestContext.resultCode {
-                    return .success(api)
+                    guard let data = api.data else { return .failure(.resultDataIsNull(api.resultCode, api.resultMessage)) }
+                    return .success(data)
                 } else {
                     print("🚨 resultCode is not success [resultCode: \(api.resultCode ?? ""), resultMessage: \(api.resultMessage ?? "")]")
                     return .failure(.serverError(api.resultCode, api.resultMessage))

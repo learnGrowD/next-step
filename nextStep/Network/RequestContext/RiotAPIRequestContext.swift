@@ -15,7 +15,7 @@ class RiotAPIRequestContext: APIRequestContextProtocol {
         : "https://test-ddragon.leagueoflegends.com"
     }
     static var version = "13.16.1"
-    static var local = "en_US"
+    static var local = "ko_KR"
 
     var resultCode: String? { nil }
 
@@ -38,7 +38,7 @@ class RiotAPIRequestContext: APIRequestContextProtocol {
         resultUIMode: APIResultUIMode,
         encoding: ParameterEncoding = JSONEncoding.default,
         headers: HTTPHeaders = ["Content-Type": "application/json"]) {
-            self.requestURL = "\(RiotAPIRequestContext.baseURL)/cdn/\(RiotAPIRequestContext.version)/data/\(RiotAPIRequestContext.local)/\(path)"
+            self.requestURL = "\(RiotAPIRequestContext.baseURL)/cdn/\(RiotAPIRequestContext.version)/data/\(RiotAPIRequestContext.local)\(path)"
             self.params = params
             self.requestUIMode = requestUIMode
             self.resultUIMode = resultUIMode
