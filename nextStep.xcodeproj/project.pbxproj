@@ -11,6 +11,7 @@
 		B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */; };
 		B837A8D22AAC621500A5F407 /* BaseUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */; };
 		B837A8D42AAC629300A5F407 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D32AAC629300A5F407 /* BaseUIView.swift */; };
+		B837A8D92AAC6C4100A5F407 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D82AAC6C4100A5F407 /* R.generated.swift */; };
 		B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991D2AAC5540004C0A42 /* AppDelegate.swift */; };
 		B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */; };
 		B83A99272AAC5541004C0A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83A99262AAC5541004C0A42 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionViewCell.swift; sourceTree = "<group>"; };
 		B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITableViewCell.swift; sourceTree = "<group>"; };
 		B837A8D32AAC629300A5F407 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
+		B837A8D82AAC6C4100A5F407 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = nextStep/Support/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B83A991A2AAC5540004C0A42 /* nextStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nextStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83A991D2AAC5540004C0A42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		B83A99332AAC557B004C0A42 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				B837A8D82AAC6C4100A5F407 /* R.generated.swift */,
 				B83A991D2AAC5540004C0A42 /* AppDelegate.swift */,
 				B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */,
 				B83A99262AAC5541004C0A42 /* Assets.xcassets */,
@@ -226,6 +229,7 @@
 			buildConfigurationList = B83A992E2AAC5541004C0A42 /* Build configuration list for PBXNativeTarget "nextStep" */;
 			buildPhases = (
 				0E2963AB88B37B0EFF22AF6F /* [CP] Check Pods Manifest.lock */,
+				B837A8D62AAC6B1100A5F407 /* R.swift */,
 				B83A99162AAC5540004C0A42 /* Sources */,
 				B83A99172AAC5540004C0A42 /* Frameworks */,
 				B83A99182AAC5540004C0A42 /* Resources */,
@@ -325,6 +329,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nextStep/Pods-nextStep-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B837A8D62AAC6B1100A5F407 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$SRCROOT/R.generated.swift\n\n",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/nextStep/Support/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -343,6 +367,7 @@
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,
 				B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */,
 				B89F51EC2AAC58E900C8AE64 /* NSObject+extension.swift in Sources */,
+				B837A8D92AAC6C4100A5F407 /* R.generated.swift in Sources */,
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B89F51E82AAC580500C8AE64 /* BaseViewController.swift in Sources */,
 				B837A8CE2AAC612E00A5F407 /* BaseViewProtocol.swift in Sources */,

@@ -8,7 +8,6 @@
 import UIKit
 import RxGesture
 import SnapKit
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
