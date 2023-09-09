@@ -1,18 +1,11 @@
 //
-//  APIWrapperProtocol.swift
+//  RiotWrapper.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/09.
 //
 
 import Foundation
-
-protocol APIWrapperProtocol: Codable {
-    associatedtype Data
-    var resultCode: String? {get set}
-    var resultMessage: String? {get set}
-    var data: Data? {get set}
-}
 
 struct RiotWrapper<T: Codable>: APIWrapperProtocol {
     typealias Data = T
@@ -29,4 +22,3 @@ struct RiotWrapper<T: Codable>: APIWrapperProtocol {
 
     var data: T?
 }
-
