@@ -131,6 +131,15 @@
 			path = Emuns;
 			sourceTree = "<group>";
 		};
+		B837A8FC2AACA02600A5F407 /* RequestContext */ = {
+			isa = PBXGroup;
+			children = (
+				B837A8E72AAC73CA00A5F407 /* APIRequestContextProtocol.swift */,
+				B837A8EB2AAC7FC500A5F407 /* RiotAPIRequestContext.swift */,
+			);
+			path = RequestContext;
+			sourceTree = "<group>";
+		};
 		B83A99112AAC5540004C0A42 = {
 			isa = PBXGroup;
 			children = (
@@ -220,10 +229,9 @@
 		B89F51DC2AAC56F900C8AE64 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B837A8F12AAC809500A5F407 /* Model */,
-				B837A8E72AAC73CA00A5F407 /* APIRequestContextProtocol.swift */,
-				B837A8EB2AAC7FC500A5F407 /* RiotAPIRequestContext.swift */,
 				B837A8ED2AAC7FE200A5F407 /* CommonAPIService.swift */,
+				B837A8F12AAC809500A5F407 /* Model */,
+				B837A8FC2AACA02600A5F407 /* RequestContext */,
 			);
 			path = Network;
 			sourceTree = "<group>";
