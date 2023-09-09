@@ -27,6 +27,17 @@ class BaseUICollectionViewCell: UICollectionViewCell, BaseViewProtocol {
         disposeBag = DisposeBag()
     }
 
+    /*
+     ViewModel이 필요한 CollectioViewCell이면 bind를 사용
+     */
+    func bind<ViewModel: BaseViewModel, Data>(
+        viewModel: ViewModel,
+        data: Data) {
+        setUI(data: data)
+    }
+    /*
+     ViewModel이 필요 없는 collectionViewCell이면 setUI 사용
+     */
     func setUI<T>(data: T) {}
 
     func attribute() {}

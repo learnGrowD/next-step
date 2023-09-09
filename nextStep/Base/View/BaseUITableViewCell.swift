@@ -27,6 +27,17 @@ class BaseUITableViewCell: UITableViewCell, BaseViewProtocol {
         disposeBag = DisposeBag()
     }
 
+    /*
+     ViewModel이 필요한 tableViewCell이면 bind를 사용
+     */
+    func bind<ViewModel: BaseViewModel, Data>(
+        viewModel: ViewModel,
+        data: Data) {
+        setUI(data: data)
+    }
+    /*
+     ViewModel이 필요 없는 tableViewCell이면 setUI 사용
+     */
     func setUI<T>(data: T) {}
 
     func attribute() {
