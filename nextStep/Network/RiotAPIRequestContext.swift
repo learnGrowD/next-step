@@ -21,9 +21,9 @@ class RiotAPIRequestContext: APIRequestContextProtocol {
 
     var params: [String : Any]
 
-    var requestUIMode: String
+    var requestUIMode: APIRequestUIMode
 
-    var resultUIMode: String
+    var resultUIMode: APIResultUIMode
 
     var encoding: ParameterEncoding
 
@@ -32,8 +32,8 @@ class RiotAPIRequestContext: APIRequestContextProtocol {
     init(
         path: String,
         params: [String: Any],
-        requestUIMode: String,
-        resultUIMode: String,
+        requestUIMode: APIRequestUIMode,
+        resultUIMode: APIResultUIMode,
         encoding: ParameterEncoding = JSONEncoding.default,
         headers: HTTPHeaders = ["Content-Type": "application/json"]) {
             self.requestURL = "\(RiotAPIRequestContext.baseURL)/\(path)"

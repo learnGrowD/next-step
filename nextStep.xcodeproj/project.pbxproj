@@ -19,6 +19,8 @@
 		B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8E92AAC7F6300A5F407 /* AppConfigure.swift */; };
 		B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8EB2AAC7FC500A5F407 /* RiotAPIRequestContext.swift */; };
 		B837A8EE2AAC7FE200A5F407 /* CommonAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8ED2AAC7FE200A5F407 /* CommonAPIService.swift */; };
+		B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8EF2AAC808300A5F407 /* APIRequestUIMode.swift */; };
+		B837A8F42AAC80AC00A5F407 /* APIResultUIMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8F32AAC80AC00A5F407 /* APIResultUIMode.swift */; };
 		B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991D2AAC5540004C0A42 /* AppDelegate.swift */; };
 		B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */; };
 		B83A99272AAC5541004C0A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83A99262AAC5541004C0A42 /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		B837A8E92AAC7F6300A5F407 /* AppConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigure.swift; sourceTree = "<group>"; };
 		B837A8EB2AAC7FC500A5F407 /* RiotAPIRequestContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotAPIRequestContext.swift; sourceTree = "<group>"; };
 		B837A8ED2AAC7FE200A5F407 /* CommonAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAPIService.swift; sourceTree = "<group>"; };
+		B837A8EF2AAC808300A5F407 /* APIRequestUIMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestUIMode.swift; sourceTree = "<group>"; };
+		B837A8F32AAC80AC00A5F407 /* APIResultUIMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResultUIMode.swift; sourceTree = "<group>"; };
 		B83A991A2AAC5540004C0A42 /* nextStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nextStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83A991D2AAC5540004C0A42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B837A8F12AAC809500A5F407 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B837A8F22AAC809C00A5F407 /* Emuns */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B837A8F22AAC809C00A5F407 /* Emuns */ = {
+			isa = PBXGroup;
+			children = (
+				B837A8EF2AAC808300A5F407 /* APIRequestUIMode.swift */,
+				B837A8F32AAC80AC00A5F407 /* APIResultUIMode.swift */,
+			);
+			path = Emuns;
+			sourceTree = "<group>";
+		};
 		B83A99112AAC5540004C0A42 = {
 			isa = PBXGroup;
 			children = (
@@ -125,11 +146,11 @@
 		B83A991C2AAC5540004C0A42 /* nextStep */ = {
 			isa = PBXGroup;
 			children = (
+				B83A99332AAC557B004C0A42 /* Support */,
 				B89F51DC2AAC56F900C8AE64 /* Network */,
 				B89F51DB2AAC56F000C8AE64 /* Extension */,
 				B89F51DA2AAC56EA00C8AE64 /* Base */,
 				B83A99342AAC5585004C0A42 /* Feature */,
-				B83A99332AAC557B004C0A42 /* Support */,
 			);
 			path = nextStep;
 			sourceTree = "<group>";
@@ -193,6 +214,7 @@
 		B89F51DC2AAC56F900C8AE64 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B837A8F12AAC809500A5F407 /* Model */,
 				B837A8E72AAC73CA00A5F407 /* APIRequestContextProtocol.swift */,
 				B837A8EB2AAC7FC500A5F407 /* RiotAPIRequestContext.swift */,
 				B837A8ED2AAC7FE200A5F407 /* CommonAPIService.swift */,
@@ -396,8 +418,10 @@
 				B837A8D92AAC6C4100A5F407 /* R.generated.swift in Sources */,
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B89F51E82AAC580500C8AE64 /* BaseViewController.swift in Sources */,
+				B837A8F42AAC80AC00A5F407 /* APIResultUIMode.swift in Sources */,
 				B837A8E42AAC707100A5F407 /* Dictionary+extension.swift in Sources */,
 				B837A8E82AAC73CA00A5F407 /* APIRequestContextProtocol.swift in Sources */,
+				B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */,
 				B837A8CE2AAC612E00A5F407 /* BaseViewProtocol.swift in Sources */,
 				B837A8E62AAC712200A5F407 /* Codable+extension.swift in Sources */,
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,
