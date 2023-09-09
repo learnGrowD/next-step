@@ -19,15 +19,13 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
         self.requestContext = requestContext
     }
 
-    func request(method: HTTPMethod) -> Observable<Result<Wrapper.Data, NetworkError>> {
+    func request(method: HTTPMethod) -> Observable<Wrapper.Data> {
         //MARK: RequestUIMode 처리
 
         var optionalDisposeBag: DisposeBag? = DisposeBag()
-        let subject = PublishSubject<Result<Wrapper.Data, NetworkError>>()
+        let subject = PublishSubject<Wrapper.Data>()
 
-        guard let disposeBag = optionalDisposeBag else {
-            return Observable.just(.failure(.clientError("disposeBag is null")))
-        }
+        guard let disposeBag = optionalDisposeBag else { return Observable<Wrapper.Data>.empty() }
 
         subject
             .subscribe()
@@ -42,11 +40,16 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
                 let statusCode = $0.0.statusCode
                 let data = $0.1
                 optionalDisposeBag = nil
-                return self.result(statusCode: statusCode, data: data)
+                do {
+                    return try self.result(statusCode: statusCode, data: data)
+                } catch {
+                    throw error
+                }
             }
             .catch {
-                print("🚨 request error: [requestURL: \(requestContext.requestURL), errorMessage: \($0.localizedDescription)]")
-                return Observable.just(.failure(.clientError("disposeBag is null")))
+                let message = "🚨 request error: [requestURL: \(requestContext.requestURL), errorMessage: \($0.localizedDescription)]"
+                print(message)
+                throw NetworkError.clientError(message)
             }
             .subscribe(subject)
 
@@ -63,22 +66,22 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
         ).rx.responseData()
     }
 
-    private func result(statusCode: Int, data: Data) -> Result<Wrapper.Data, NetworkError> {
+    private func result(statusCode: Int, data: Data) throws -> Wrapper.Data {
         //MARK: ResponseUIMode 처리
         if 200..<300 ~= statusCode {
             do {
                 let api = try JSONDecoder().decode(Wrapper.self, from: data)
                 if api.resultCode == requestContext.resultCode {
-                    guard let data = api.data else { return .failure(.resultDataIsNull(api.resultCode, api.resultMessage)) }
-                    return .success(data)
+                    guard let data = api.data else { throw NetworkError.resultDataIsNull(api.resultCode, api.resultMessage) }
+                    return data
                 } else {
                     print("🚨 resultCode is not success [resultCode: \(api.resultCode ?? ""), resultMessage: \(api.resultMessage ?? "")]")
-                    return .failure(.serverError(api.resultCode, api.resultMessage))
+                    throw NetworkError.serverError(api.resultCode, api.resultMessage)
                 }
             } catch {
                 let message = "json parsing error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL), errorMessage: \(error.localizedDescription)]"
                 print("🚨 \(message)")
-                return .failure(.jsonParsingError(message))
+                throw NetworkError.jsonParsingError(message)
             }
         }
 
@@ -86,29 +89,28 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
             //MARK: Autho Error 규격에 맞게 다시 설계하면 좋을것 같다.
             let message = "authorization error"
             print("🚨 \(message)")
-            return .failure(.authorizationError(message))
+            throw NetworkError.authorizationError(message)
         }
 
         if 400..<500 ~= statusCode {
             let message = "client error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL)]"
             print("🚨 \(message)")
-            return .failure(.clientError(message))
+            throw NetworkError.clientError(message)
         }
 
         if 500..<600 ~= statusCode {
             //MARK: 500 Error 규격에 맞게 다시 설계하면 좋을것 같다.
             do {
                 let api = try JSONDecoder().decode(Wrapper.self, from: data)
-                return .failure(.serverError(api.resultCode, api.resultMessage))
+                throw NetworkError.serverError(api.resultCode, api.resultMessage)
             } catch {
                 let message = "json parsing error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL), errorMessage: \(error.localizedDescription)]"
                 print("🚨 \(message)")
-                return .failure(.jsonParsingError(message))
+                throw NetworkError.jsonParsingError(message)
             }
         }
         let message = "unkownError error [statusCode: \(statusCode), requestApi: \(requestContext.requestURL)]"
         print("🚨 \(message)")
-        return .failure(.unkownError(message))
-
+        throw NetworkError.unkownError(message)
     }
 }
