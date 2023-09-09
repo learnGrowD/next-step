@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B837A8CE2AAC612E00A5F407 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8CD2AAC612E00A5F407 /* BaseUIView.swift */; };
+		B837A8CE2AAC612E00A5F407 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8CD2AAC612E00A5F407 /* BaseViewProtocol.swift */; };
+		B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */; };
+		B837A8D22AAC621500A5F407 /* BaseUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */; };
+		B837A8D42AAC629300A5F407 /* BaseUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D32AAC629300A5F407 /* BaseUIView.swift */; };
 		B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991D2AAC5540004C0A42 /* AppDelegate.swift */; };
 		B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */; };
 		B83A99272AAC5541004C0A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83A99262AAC5541004C0A42 /* Assets.xcassets */; };
@@ -29,7 +32,10 @@
 /* Begin PBXFileReference section */
 		12AE311590C75C16080BA59C /* Pods_nextStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nextStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3654FD23050B227F30D63276 /* Pods-nextStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.release.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.release.xcconfig"; sourceTree = "<group>"; };
-		B837A8CD2AAC612E00A5F407 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
+		B837A8CD2AAC612E00A5F407 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
+		B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionViewCell.swift; sourceTree = "<group>"; };
+		B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITableViewCell.swift; sourceTree = "<group>"; };
+		B837A8D32AAC629300A5F407 /* BaseUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIView.swift; sourceTree = "<group>"; };
 		B83A991A2AAC5540004C0A42 /* nextStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nextStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83A991D2AAC5540004C0A42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +79,10 @@
 		B837A8CC2AAC611F00A5F407 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B837A8CD2AAC612E00A5F407 /* BaseUIView.swift */,
+				B837A8CD2AAC612E00A5F407 /* BaseViewProtocol.swift */,
+				B837A8D32AAC629300A5F407 /* BaseUIView.swift */,
+				B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */,
+				B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +332,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B837A8D22AAC621500A5F407 /* BaseUITableViewCell.swift in Sources */,
+				B837A8D42AAC629300A5F407 /* BaseUIView.swift in Sources */,
 				B89F51F42AAC5C4D00C8AE64 /* Array+extension.swift in Sources */,
 				B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */,
 				B83A99322AAC5565004C0A42 /* MainViewController.swift in Sources */,
@@ -334,7 +345,8 @@
 				B89F51EC2AAC58E900C8AE64 /* NSObject+extension.swift in Sources */,
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B89F51E82AAC580500C8AE64 /* BaseViewController.swift in Sources */,
-				B837A8CE2AAC612E00A5F407 /* BaseUIView.swift in Sources */,
+				B837A8CE2AAC612E00A5F407 /* BaseViewProtocol.swift in Sources */,
+				B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */,
 				B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */,
 				B83A99372AAC55A9004C0A42 /* MainViewModel.swift in Sources */,
 			);
