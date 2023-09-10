@@ -16,33 +16,30 @@ class RiotAPIRequestContext: APIRequestContextProtocol {
     }
     static var version = "13.16.1"
     static var local = "ko_KR"
-
+    
+    var serverName: String { "riot-api server" }
     var resultCode: String? { nil }
 
     var requestURL: String
 
-    var params: [String : Any]?
+    var params: [String : Any]
 
     var requestUIMode: APIRequestUIMode
 
     var resultUIMode: APIResultUIMode
 
-    var encoding: ParameterEncoding
-
     var headers: HTTPHeaders
 
     init(
         path: String,
-        params: [String: Any]?,
+        params: [String: Any],
         requestUIMode: APIRequestUIMode,
         resultUIMode: APIResultUIMode,
-        encoding: ParameterEncoding = JSONEncoding.default,
         headers: HTTPHeaders = ["Content-Type": "application/json"]) {
             self.requestURL = "\(RiotAPIRequestContext.baseURL)/cdn/\(RiotAPIRequestContext.version)/data/\(RiotAPIRequestContext.local)\(path)"
             self.params = params
             self.requestUIMode = requestUIMode
             self.resultUIMode = resultUIMode
-            self.encoding = encoding
             self.headers = headers
         }
 }
