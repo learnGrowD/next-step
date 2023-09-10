@@ -29,15 +29,11 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
 
     private func request(method: HTTPMethod, encoding: ParameterEncoding) -> Observable<Wrapper.Data> {
         //MARK: RequestUIMode 처리
-
-        var optionalDisposeBag: DisposeBag? = DisposeBag()
         let subject = PublishSubject<Wrapper.Data>()
 
-        guard let disposeBag = optionalDisposeBag else { return Observable<Wrapper.Data>.empty() }
-
-        subject
+        let _ = subject
+            .take(1)
             .subscribe()
-            .disposed(by: disposeBag)
 
         let _ = responseData(methode: method, encoding: encoding)
             .do(onSubscribe: {
@@ -45,11 +41,8 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
                 print("subscribe")
             }).map { [self] in
                 //MARK: RequestUIMode 처리
-                let statusCode = $0.0.statusCode
-                let data = $0.1
-                optionalDisposeBag = nil
                 do {
-                    return try self.result(statusCode: statusCode, data: data)
+                    return try self.result(statusCode: $0.0.statusCode, data: $0.1)
                 } catch {
                     throw error
                 }
@@ -58,7 +51,6 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
                 throw requestUnknownError(error: $0)
             }
             .subscribe(subject)
-
         return subject
     }
 
@@ -74,36 +66,31 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
 
     private func result(statusCode: Int, data: Data) throws -> Wrapper.Data {
         //MARK: ResponseUIMode 처리
-        if 200..<300 ~= statusCode {
-            do {
-                let api = try JSONDecoder().decode(Wrapper.self, from: data)
-                if api.resultCode == requestContext.resultCode {
-                    guard let data = api.data else { throw resultDataIsNull(statusCode: statusCode, api: api) }
-                    return data
-                } else {
-                    throw resultCodeIsNotSuccess(statusCode: statusCode, api: api)
-                }
-            } catch {
-                throw jsonParsingError(statusCode: statusCode, error: error)
-            }
+        let api = try? JSONDecoder().decode(Wrapper.self, from: data)
+        if let api = api,
+           let apiData = (200..<300 ~= statusCode && api.resultCode == requestContext.resultCode) ? api.data : nil {
+            return apiData
         }
-
+        if let api = api,
+           200..<300 ~= statusCode && api.resultCode == requestContext.resultCode && api.data == nil {
+            throw resultDataIsNull(statusCode: statusCode, api: api)
+        }
+        if let api = api,
+           200..<300 ~= statusCode && api.resultCode != requestContext.resultCode {
+            throw resultCodeIsNotSuccess(statusCode: statusCode, api: api)
+        }
         if statusCode == 403 {
-            throw athorizationError(statusCode: statusCode)
+            throw athorizationIsNotInvalid(statusCode: statusCode)
         }
-
         if 400..<500 ~= statusCode {
             throw clientError(statusCode: statusCode)
         }
-
-        if 500..<600 ~= statusCode {
-            //MARK: 500 Error 규격에 맞게 다시 설계하면 좋을것 같다.
-            do {
-                let api = try JSONDecoder().decode(Wrapper.self, from: data)
-                throw serverError(statusCode: statusCode, api: api)
-            } catch {
-                throw jsonParsingError(statusCode: statusCode, error: error)
-            }
+        if let api = api,
+           500..<600 ~= statusCode {
+            throw serverError(statusCode: statusCode, api: api)
+        }
+        if api == nil {
+            throw jsonParsingError(statusCode: statusCode)
         }
         throw resultUnknownError(statusCode: statusCode)
     }
@@ -145,7 +132,7 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
         return NetworkError.serverError(api.resultCode, api.resultMessage)
     }
 
-    private func athorizationError(statusCode: Int) -> Error {
+    private func athorizationIsNotInvalid(statusCode: Int) -> Error {
         //MARK: Autho Error 규격에 맞게 다시 설계하면 좋을것 같다.
         let message = """
         🚨 \(requestContext.serverName) - athorization error:
@@ -184,13 +171,12 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
         return NetworkError.clientError(message)
     }
 
-    private func jsonParsingError(statusCode: Int, error: Error) -> Error {
+    private func jsonParsingError(statusCode: Int) -> Error {
         let message = """
         🚨 \(requestContext.serverName) - json parsing error:
         \(errorInformation(
         statusCode: statusCode,
-        requestURL: requestContext.requestURL,
-        errorMessage: error.localizedDescription
+        requestURL: requestContext.requestURL
         ))
         """
         print(message)
