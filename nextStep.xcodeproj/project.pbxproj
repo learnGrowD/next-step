@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80623632AAD9BCB000CD278 /* CommonToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80623622AAD9BCB000CD278 /* CommonToast.swift */; };
 		B837A8CE2AAC612E00A5F407 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8CD2AAC612E00A5F407 /* BaseViewProtocol.swift */; };
 		B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */; };
 		B837A8D22AAC621500A5F407 /* BaseUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		12AE311590C75C16080BA59C /* Pods_nextStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nextStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3654FD23050B227F30D63276 /* Pods-nextStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.release.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.release.xcconfig"; sourceTree = "<group>"; };
+		B80623622AAD9BCB000CD278 /* CommonToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonToast.swift; sourceTree = "<group>"; };
 		B837A8CD2AAC612E00A5F407 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
 		B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionViewCell.swift; sourceTree = "<group>"; };
 		B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITableViewCell.swift; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 				12AE311590C75C16080BA59C /* Pods_nextStep.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B80623612AAD9BBC000CD278 /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				B80623622AAD9BCB000CD278 /* CommonToast.swift */,
+			);
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 		B837A8CC2AAC611F00A5F407 /* View */ = {
@@ -192,6 +202,7 @@
 		B83A99342AAC5585004C0A42 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				B80623612AAD9BBC000CD278 /* CommonUI */,
 				B83A99352AAC559E004C0A42 /* Main */,
 			);
 			path = Feature;
@@ -448,6 +459,7 @@
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,
 				B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */,
 				B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */,
+				B80623632AAD9BCB000CD278 /* CommonToast.swift in Sources */,
 				B83A99372AAC55A9004C0A42 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
