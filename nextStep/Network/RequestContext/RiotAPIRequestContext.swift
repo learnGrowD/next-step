@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class RiotAPIRequestContext: APIRequestContextProtocol {
+struct RiotAPIRequestContext: APIRequestContextProtocol {
     static var baseURL: String {
         AppConfigure.isProductRelease
         ? "https://ddragon.leagueoflegends.com"
