@@ -40,6 +40,9 @@
 		B85411072AB5D5DA00957BB1 /* CommonEmptyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411062AB5D5DA00957BB1 /* CommonEmptyLabel.swift */; };
 		B85411092AB5D60900957BB1 /* CommonRetryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411082AB5D60900957BB1 /* CommonRetryView.swift */; };
 		B854110C2AB5D62A00957BB1 /* RetryEnableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B854110B2AB5D62A00957BB1 /* RetryEnableProtocol.swift */; };
+		B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */; };
+		B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411102AB5D78000957BB1 /* CommonLoadingView.swift */; };
+		B85411132AB5D7AA00957BB1 /* CommonBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */; };
 		B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */; };
 		B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */; };
 		B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */; };
@@ -90,6 +93,9 @@
 		B85411062AB5D5DA00957BB1 /* CommonEmptyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEmptyLabel.swift; sourceTree = "<group>"; };
 		B85411082AB5D60900957BB1 /* CommonRetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRetryView.swift; sourceTree = "<group>"; };
 		B854110B2AB5D62A00957BB1 /* RetryEnableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryEnableProtocol.swift; sourceTree = "<group>"; };
+		B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewProtocol.swift; sourceTree = "<group>"; };
+		B85411102AB5D78000957BB1 /* CommonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLoadingView.swift; sourceTree = "<group>"; };
+		B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBlurView.swift; sourceTree = "<group>"; };
 		B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerLifeCycleStatus.swift; sourceTree = "<group>"; };
 		B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -298,6 +304,9 @@
 		B854110D2AB5D73C00957BB1 /* IntroView */ = {
 			isa = PBXGroup;
 			children = (
+				B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */,
+				B85411102AB5D78000957BB1 /* CommonLoadingView.swift */,
+				B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */,
 			);
 			path = IntroView;
 			sourceTree = "<group>";
@@ -536,6 +545,7 @@
 				B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */,
 				B85411052AB5D58700957BB1 /* LottieResourceManager.swift in Sources */,
 				B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */,
+				B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */,
 				B85410ED2AB5BCBB00957BB1 /* StorageProtocol.swift in Sources */,
 				B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */,
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,
@@ -543,6 +553,7 @@
 				B85410FA2AB5D31700957BB1 /* CommonToast.swift in Sources */,
 				B85410F32AB5C6EF00957BB1 /* AppContext.swift in Sources */,
 				B89F51EC2AAC58E900C8AE64 /* NSObject+extension.swift in Sources */,
+				B85411132AB5D7AA00957BB1 /* CommonBlurView.swift in Sources */,
 				B837A8D92AAC6C4100A5F407 /* R.generated.swift in Sources */,
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B89F51E82AAC580500C8AE64 /* BaseViewController.swift in Sources */,
@@ -553,6 +564,7 @@
 				B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */,
 				B837A8E62AAC712200A5F407 /* Codable+extension.swift in Sources */,
 				B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */,
+				B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */,
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,
 				B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */,
 				B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */,
