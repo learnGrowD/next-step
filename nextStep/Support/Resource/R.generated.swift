@@ -155,7 +155,7 @@ struct _R {
     }
   }
 
-  /// This `_R.file` struct is generated, and contains static references to 2 resource files.
+  /// This `_R.file` struct is generated, and contains static references to 3 resource files.
   struct file {
     let bundle: Foundation.Bundle
 
@@ -164,6 +164,9 @@ struct _R {
 
     /// Resource file `NotoSans-SemiBold.ttf`.
     var notoSansSemiBoldTtf: RswiftResources.FileResource { .init(name: "NotoSans-SemiBold", pathExtension: "ttf", bundle: bundle, locale: LocaleReference.none) }
+
+    /// Resource file `defaultLoading.json`.
+    var defaultLoadingJson: RswiftResources.FileResource { .init(name: "defaultLoading", pathExtension: "json", bundle: bundle, locale: LocaleReference.none) }
   }
 
   /// This `_R.storyboard` struct is generated, and contains static references to 1 storyboards.

@@ -188,11 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				B85410F82AB5D2CA00957BB1 /* CommonUI */,
-				B83A99332AAC557B004C0A42 /* Support */,
 				B89F51DC2AAC56F900C8AE64 /* Network */,
 				B89F51DB2AAC56F000C8AE64 /* Extension */,
 				B89F51DA2AAC56EA00C8AE64 /* Base */,
 				B83A99342AAC5585004C0A42 /* Feature */,
+				B83A99332AAC557B004C0A42 /* Support */,
 			);
 			path = nextStep;
 			sourceTree = "<group>";
