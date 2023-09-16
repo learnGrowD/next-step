@@ -8,6 +8,8 @@
 import UIKit
 
 protocol StorageProtocol {}
+extension UIView: StorageProtocol {}
+extension UIViewController: StorageProtocol {}
 extension StorageProtocol {
     var appDelegate: AppDelegate? {
         UIApplication.shared.delegate as? AppDelegate
