@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class BaseUICollectionViewCell: UICollectionViewCell, BaseViewProtocol {
+class BaseUICollectionViewCell: UICollectionViewCell {
     var disposeBag = DisposeBag()
 
     override init(frame: CGRect) {

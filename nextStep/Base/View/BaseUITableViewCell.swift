@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class BaseUITableViewCell: UITableViewCell, BaseViewProtocol {
+class BaseUITableViewCell: UITableViewCell {
     var disposeBag = DisposeBag()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
