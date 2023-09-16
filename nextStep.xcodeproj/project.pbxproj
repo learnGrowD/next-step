@@ -34,6 +34,7 @@
 		B85410ED2AB5BCBB00957BB1 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */; };
 		B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410EF2AB5BD8100957BB1 /* CommonRepository.swift */; };
 		B85410F32AB5C6EF00957BB1 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410F22AB5C6EF00957BB1 /* AppContext.swift */; };
+		B85410F72AB5CEFC00957BB1 /* BasePanModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410F62AB5CEFC00957BB1 /* BasePanModalPresentable.swift */; };
 		B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */; };
 		B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */; };
 		B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */; };
@@ -78,6 +79,7 @@
 		B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		B85410EF2AB5BD8100957BB1 /* CommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRepository.swift; sourceTree = "<group>"; };
 		B85410F22AB5C6EF00957BB1 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		B85410F62AB5CEFC00957BB1 /* BasePanModalPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePanModalPresentable.swift; sourceTree = "<group>"; };
 		B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerLifeCycleStatus.swift; sourceTree = "<group>"; };
 		B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			children = (
 				B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */,
 				B89F51E72AAC580500C8AE64 /* BaseViewController.swift */,
+				B85410F62AB5CEFC00957BB1 /* BasePanModalPresentable.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				B837A9002AACAA2F00A5F407 /* RiotWrapper.swift in Sources */,
 				B837A8FB2AAC8F4000A5F407 /* APIWrapperProtocol.swift in Sources */,
 				B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */,
+				B85410F72AB5CEFC00957BB1 /* BasePanModalPresentable.swift in Sources */,
 				B83A99322AAC5565004C0A42 /* MainViewController.swift in Sources */,
 				B837A8F62AAC87EC00A5F407 /* NetworkError.swift in Sources */,
 				B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */,

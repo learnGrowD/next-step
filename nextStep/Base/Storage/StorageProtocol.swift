@@ -11,6 +11,7 @@ import XLPagerTabStrip
 protocol StorageProtocol {}
 extension UIView: StorageProtocol {}
 extension UIViewController: StorageProtocol {}
+extension BaseViewModel: StorageProtocol {}
 extension StorageProtocol {
     var appDelegate: AppDelegate? {
         UIApplication.shared.delegate as? AppDelegate
