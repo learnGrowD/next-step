@@ -33,6 +33,10 @@
 		B85410F32AB5C6EF00957BB1 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410F22AB5C6EF00957BB1 /* AppContext.swift */; };
 		B85410F72AB5CEFC00957BB1 /* BasePanModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410F62AB5CEFC00957BB1 /* BasePanModalPresentable.swift */; };
 		B85410FA2AB5D31700957BB1 /* CommonToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410F92AB5D31700957BB1 /* CommonToast.swift */; };
+		B85411002AB5D51500957BB1 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B85410FE2AB5D51500957BB1 /* NotoSans-Regular.ttf */; };
+		B85411012AB5D51500957BB1 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B85410FF2AB5D51500957BB1 /* NotoSans-SemiBold.ttf */; };
+		B85411032AB5D54F00957BB1 /* defaultLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = B85411022AB5D54F00957BB1 /* defaultLoading.json */; };
+		B85411052AB5D58700957BB1 /* LottieResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411042AB5D58700957BB1 /* LottieResourceManager.swift */; };
 		B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */; };
 		B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */; };
 		B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */; };
@@ -49,7 +53,7 @@
 		3654FD23050B227F30D63276 /* Pods-nextStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.release.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.release.xcconfig"; sourceTree = "<group>"; };
 		B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionViewCell.swift; sourceTree = "<group>"; };
 		B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITableViewCell.swift; sourceTree = "<group>"; };
-		B837A8D82AAC6C4100A5F407 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = nextStep/Support/R.generated.swift; sourceTree = SOURCE_ROOT; };
+		B837A8D82AAC6C4100A5F407 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = nextStep/Support/Resource/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B837A8E02AAC6E2800A5F407 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B837A8E12AAC6E2900A5F407 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B837A8E32AAC707100A5F407 /* Dictionary+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+extension.swift"; sourceTree = "<group>"; };
@@ -76,6 +80,10 @@
 		B85410F22AB5C6EF00957BB1 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		B85410F62AB5CEFC00957BB1 /* BasePanModalPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePanModalPresentable.swift; sourceTree = "<group>"; };
 		B85410F92AB5D31700957BB1 /* CommonToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonToast.swift; sourceTree = "<group>"; };
+		B85410FE2AB5D51500957BB1 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		B85410FF2AB5D51500957BB1 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		B85411022AB5D54F00957BB1 /* defaultLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = defaultLoading.json; sourceTree = "<group>"; };
+		B85411042AB5D58700957BB1 /* LottieResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieResourceManager.swift; sourceTree = "<group>"; };
 		B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerLifeCycleStatus.swift; sourceTree = "<group>"; };
 		B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -180,8 +188,7 @@
 		B83A99332AAC557B004C0A42 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				B837A8D82AAC6C4100A5F407 /* R.generated.swift */,
-				B837A8DF2AAC6E1500A5F407 /* Localizable.strings */,
+				B85410FB2AB5D4B400957BB1 /* Resource */,
 				B83A991D2AAC5540004C0A42 /* AppDelegate.swift */,
 				B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */,
 				B83A99262AAC5541004C0A42 /* Assets.xcassets */,
@@ -239,6 +246,35 @@
 				B85410F92AB5D31700957BB1 /* CommonToast.swift */,
 			);
 			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		B85410FB2AB5D4B400957BB1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B837A8D82AAC6C4100A5F407 /* R.generated.swift */,
+				B837A8DF2AAC6E1500A5F407 /* Localizable.strings */,
+				B85410FD2AB5D4C700957BB1 /* Font */,
+				B85410FC2AB5D4BB00957BB1 /* Lottie */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		B85410FC2AB5D4BB00957BB1 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				B85411042AB5D58700957BB1 /* LottieResourceManager.swift */,
+				B85411022AB5D54F00957BB1 /* defaultLoading.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		B85410FD2AB5D4C700957BB1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				B85410FE2AB5D51500957BB1 /* NotoSans-Regular.ttf */,
+				B85410FF2AB5D51500957BB1 /* NotoSans-SemiBold.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		B89F51DA2AAC56EA00C8AE64 /* Base */ = {
@@ -383,8 +419,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85411002AB5D51500957BB1 /* NotoSans-Regular.ttf in Resources */,
+				B85411012AB5D51500957BB1 /* NotoSans-SemiBold.ttf in Resources */,
 				B83A992A2AAC5541004C0A42 /* LaunchScreen.storyboard in Resources */,
 				B837A8DD2AAC6E1500A5F407 /* Localizable.strings in Resources */,
+				B85411032AB5D54F00957BB1 /* defaultLoading.json in Resources */,
 				B83A99272AAC5541004C0A42 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +488,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/nextStep/Support/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/nextStep/Support/Resource/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -468,6 +507,7 @@
 				B83A99322AAC5565004C0A42 /* MainViewController.swift in Sources */,
 				B837A8F62AAC87EC00A5F407 /* NetworkError.swift in Sources */,
 				B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */,
+				B85411052AB5D58700957BB1 /* LottieResourceManager.swift in Sources */,
 				B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */,
 				B85410ED2AB5BCBB00957BB1 /* StorageProtocol.swift in Sources */,
 				B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */,
