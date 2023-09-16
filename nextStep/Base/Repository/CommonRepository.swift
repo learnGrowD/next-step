@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CommonRepository {
-    static let shared = CommonRepository()
+protocol CommonRepositoryProtocol {}
+class CommonRepository: CommonRepositoryProtocol {
     private init() {}
 }

@@ -8,13 +8,12 @@
 import UIKit
 import RxSwift
 import RxCocoa
-
+import XLPagerTabStrip
 
 protocol BaseViewControllerProtocol: UIViewController {
     associatedtype ViewModel: BaseViewModel
     var viewModel: ViewModel { get set }
-    func bindToView(_ viewModel: ViewModel)
-    func bindToViewModel(_ viewModel: ViewModel)
+    func bind(_ viewModel: ViewModel)
     func attribute()
     func layout()
 }
@@ -31,13 +30,16 @@ extension BaseViewControllerProtocol {
     }
 
     func mViewDidLoad() {
+        acceptJudgeViewController(value: self)
+
         layout()
-        bindToView(viewModel)
-        bindToViewModel(viewModel)
+        bind(viewModel)
         viewModel.lifeCycleStatus.accept(.viewDidLoad)
         print("🍎 viewDidLoad: \(className)")
     }
     func mViewWillAppear(_ animated: Bool) {
+        acceptJudgeViewController(value: self)
+
         viewModel.lifeCycleStatus.accept(.viewWillAppear)
         print("🍎 viewWillAppear: \(className)")
     }
@@ -54,6 +56,8 @@ extension BaseViewControllerProtocol {
         print("🍎 viewDidLayoutSubviews: \(className)")
     }
     func mViewWillDisappear(_ animated: Bool) {
+        acceptJudgeViewController(value: nil)
+        
         viewModel.lifeCycleStatus.accept(.viewWillDisAppear)
         print("🍎 viewWillDisappear: \(className)")
     }
@@ -64,6 +68,16 @@ extension BaseViewControllerProtocol {
     func mDeinit() {
         viewModel.lifeCycleStatus.accept(.mDeinit)
         print("🍎 ViewController deinit: \(className)")
+    }
+}
+
+extension BaseViewControllerProtocol {
+    func acceptJudgeViewController(value: UIViewController?) {
+        //XLPager의 자식이 아닌 다른 ViewController에서는 depthViewController를 업데이트 시켜준다.
+        if !(self is UIViewController & IndicatorInfoProvider) {
+            appContext?.judgeViewController.accept(value)
+            print("🧊 accept depthViewController: \(String(describing: value.self))")
+        }
     }
 }
 

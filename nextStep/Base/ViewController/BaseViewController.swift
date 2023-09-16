@@ -26,9 +26,7 @@ class BaseViewController<ViewModel: BaseViewModel>: UIViewController, BaseViewCo
         fatalError("init(coder:) has not been implemented")
     }
 
-    func bindToView(_ viewModel: ViewModel) {}
-
-    func bindToViewModel(_ viewModel: ViewModel) {}
+    func bind(_ viewModel: ViewModel) {}
 
     func attribute() {}
 
