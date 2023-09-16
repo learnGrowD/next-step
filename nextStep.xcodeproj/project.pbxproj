@@ -31,6 +31,7 @@
 		B83A992A2AAC5541004C0A42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83A99282AAC5541004C0A42 /* LaunchScreen.storyboard */; };
 		B83A99322AAC5565004C0A42 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A99312AAC5565004C0A42 /* MainViewController.swift */; };
 		B83A99372AAC55A9004C0A42 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A99362AAC55A9004C0A42 /* MainViewModel.swift */; };
+		B85410ED2AB5BCBB00957BB1 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */; };
 		B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */; };
 		B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */; };
 		B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */; };
@@ -73,6 +74,7 @@
 		B83A992B2AAC5541004C0A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B83A99312AAC5565004C0A42 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B83A99362AAC55A9004C0A42 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
 		B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerLifeCycleStatus.swift; sourceTree = "<group>"; };
 		B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -217,9 +219,18 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		B85410EB2AB5BCAC00957BB1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		B89F51DA2AAC56EA00C8AE64 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B85410EB2AB5BCAC00957BB1 /* Storage */,
 				B837A8CC2AAC611F00A5F407 /* View */,
 				B89F51DF2AAC574100C8AE64 /* ViewController */,
 				B89F51DE2AAC572400C8AE64 /* ViewModel */,
@@ -442,6 +453,7 @@
 				B837A8F62AAC87EC00A5F407 /* NetworkError.swift in Sources */,
 				B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */,
 				B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */,
+				B85410ED2AB5BCBB00957BB1 /* StorageProtocol.swift in Sources */,
 				B89F51EA2AAC584400C8AE64 /* BaseBottomModal.swift in Sources */,
 				B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */,
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,

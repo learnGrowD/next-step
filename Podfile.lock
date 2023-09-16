@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (5.6.4)
   - Kingfisher (7.8.1)
+  - lottie-ios (4.1.2)
   - PanModal (1.2.7)
   - R.swift (7.3.0)
   - RxAlamofire (6.1.1):
@@ -20,10 +21,12 @@ PODS:
   - SnapKit (5.6.0)
   - Toast-Swift (5.0.1)
   - UIColor_Hex_Swift (5.1.9)
+  - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire (= 5.6.4)
   - Kingfisher (= 7.8.1)
+  - lottie-ios (= 4.1.2)
   - PanModal (= 1.2.7)
   - R.swift (= 7.3.0)
   - RxAlamofire (= 6.1.1)
@@ -33,11 +36,13 @@ DEPENDENCIES:
   - SnapKit (= 5.6.0)
   - Toast-Swift (~> 5.0.1)
   - UIColor_Hex_Swift (~> 5.1.9)
+  - XLPagerTabStrip (= 9.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - lottie-ios
     - PanModal
     - R.swift
     - RxAlamofire
@@ -48,10 +53,12 @@ SPEC REPOS:
     - SnapKit
     - Toast-Swift
     - UIColor_Hex_Swift
+    - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   Kingfisher: 63f677311d36a3473f6b978584f8a3845d023dc5
+  lottie-ios: b3846a9fa8ca1a1a3bebfa256ebe8b6fd4aaaaad
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   R.swift: cef1c530541cb49412752721797f10dae6b32d11
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
@@ -62,7 +69,8 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 8ab975a6c04069ab4075b344b65fba5596cd542c
+PODFILE CHECKSUM: 4c36a8801c1e7c129738e4e30921e61726751a7b
 
 COCOAPODS: 1.12.1

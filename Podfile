@@ -13,9 +13,13 @@ target 'nextStep' do
     pod 'SnapKit', '5.6.0'
     pod 'UIColor_Hex_Swift', '~> 5.1.9'
     pod 'PanModal', '1.2.7'
+    pod 'Toast-Swift', '~> 5.0.1'
+
+    pod 'lottie-ios', '4.1.2'
+    pod 'R.swift', '7.3.0'
+    pod 'XLPagerTabStrip', '9.0.0'
+
     pod 'Alamofire', '5.6.4'
     pod 'RxAlamofire', '6.1.1'
-    pod 'Toast-Swift', '~> 5.0.1'
-    pod 'R.swift', '7.3.0'
 
 end

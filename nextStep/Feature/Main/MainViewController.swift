@@ -21,6 +21,7 @@ final class MainViewController: BaseViewController<MainViewModel> {
                 return Observable<[String: Champion]>.empty()
             }
             .bind(onNext: {
+
                 print($0)
             })
             .disposed(by: disposeBag)
