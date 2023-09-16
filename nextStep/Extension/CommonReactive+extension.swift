@@ -10,6 +10,21 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
+extension Reactive where Base: UIViewController {
+
+    func dismiss(animated: Bool = true, completion: @escaping () -> Void = {}) -> Binder<UITapGestureRecognizer> {
+        Binder(base) { viewController, data in
+            base.dismiss(animated: animated, completion: completion)
+        }
+    }
+
+    func dismiss(animated: Bool = true, completion: @escaping () -> Void = {}) -> Binder<Void> {
+        Binder(base) { viewController, data in
+            base.dismiss(animated: animated, completion: completion)
+        }
+    }
+}
+
 extension Reactive where Base: UICollectionView {
     func reloadData<T: Collection>() -> Binder<T> {
         Binder(base) { collectionView, data in
