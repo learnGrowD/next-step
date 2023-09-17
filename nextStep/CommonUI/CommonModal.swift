@@ -23,7 +23,6 @@ import Then
      .build()
      .show()
  */
-
 final class CommonModal: BaseViewController<BaseViewModel> {
     private let backgroundView = UIView()
     private let containerView = UIView()
