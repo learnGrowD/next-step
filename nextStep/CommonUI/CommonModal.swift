@@ -100,10 +100,9 @@ final class CommonModal: BaseViewController<BaseViewModel> {
         messageFont: UIFont?,
         buttonFont: UIFont?
     ) -> Self {
-        let isImageNotExist = (imageUrl?.isEmpty == true) && image == nil
+        let isImageNotExist = (imageUrl?.isEmpty == true) || image == nil
         self.layout(title: title, isImageNotExist: isImageNotExist, imageWidth: imgWidth, imageHeight: imgHeight)
 
-        self.titleLabel?.isHidden = title.isEmpty
         self.messageLabel.text = message
 
 
@@ -173,7 +172,7 @@ final class CommonModal: BaseViewController<BaseViewModel> {
         super.attribute()
         view.backgroundColor = .clear
 
-        backgroundView.backgroundColor = .black.withAlphaComponent(0.3)
+        backgroundView.backgroundColor = .black.withAlphaComponent(0.7)
 
         containerView.layer.cornerRadius = 16
         containerView.backgroundColor = .white
@@ -193,6 +192,15 @@ final class CommonModal: BaseViewController<BaseViewModel> {
     }
 
     private func layout(title: String, isImageNotExist: Bool, imageWidth: CGFloat, imageHeight: CGFloat) {
+        view.addSubViews(
+            backgroundView,
+            containerView,
+            messageLabel,
+            underlineView,
+            buttonStackView,
+            pillarlineView
+        )
+
         if !title.isEmpty {
             titleLabel = UILabel()
             titleLabel?.numberOfLines = 1
@@ -206,14 +214,6 @@ final class CommonModal: BaseViewController<BaseViewModel> {
             guard let imageView = imageView else { return }
             view.addSubview(imageView)
         }
-        view.addSubViews(
-            backgroundView,
-            containerView,
-            messageLabel,
-            underlineView,
-            buttonStackView,
-            pillarlineView
-        )
 
         backgroundView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -229,7 +229,6 @@ final class CommonModal: BaseViewController<BaseViewModel> {
                 $0.top.equalTo(titleLabel).offset(-16)
                 $0.bottom.equalTo(buttonStackView)
             }
-
             titleLabel.snp.makeConstraints {
                 $0.top.equalTo(containerView)
                 $0.leading.trailing.equalTo(containerView).inset(16)
