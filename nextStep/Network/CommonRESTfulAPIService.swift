@@ -215,12 +215,7 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: StorageProtocol {
     }
 
     private func respondToErrorsWithUI(errorCodeShownInClient: Int) {
-        let message = """
-        현재 일시적인 오류가 발생했습니다.
-        담당자에게 문의해주세요.
-        [010-8705-1693]
-        [\(String(errorCodeShownInClient))]
-        """
+        let message = "현재 일시적인 오류가 발생했습니다.\n담당자에게 문의해주세요.\n[010-8705-1693]\n[\(String(errorCodeShownInClient))]"
         switch requestContext.resultUIMode {
         case .showWarning:
             CommonModal.Builder()

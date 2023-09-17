@@ -54,14 +54,14 @@ class CommonToast: UIView, CommonToastProtocol {
             .disposed(by: disposeBag)
     }
 
-    fileprivate func setUI(data: CommonToastCreateContext) -> Self {
+    fileprivate func setUI(data: CommonToastCreateContext) {
         self.messageLabel.text = data.message
         self.onClickDelegate = data.onClickDeleage
-        frame = CGRect(x: 0, y: 0, width: intrinsicContentSize.width, height: intrinsicContentSize.height)
-        return self
+        self.frame = CGRect(x: 0, y: 0, width: intrinsicContentSize.width, height: intrinsicContentSize.height)
     }
 
     fileprivate func attribute() {
+        messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.font = .systemFont(ofSize: 16)
         messageLabel.textColor = .white
@@ -86,28 +86,26 @@ class CommonToast: UIView, CommonToastProtocol {
         }
 
         func build(status: CommonToastStatus) -> CommonToastProtocol {
+            let commonToastCreateContext = CommonToastCreateContext(
+                status: status,
+                message: message,
+                onClickDeleage: onClickDelegate
+            )
             switch status {
             case .top:
-                return TopCommonToast().setUI(data: CommonToastCreateContext(
-                    status: status,
-                    message: message,
-                    onClickDeleage: onClickDelegate
-                ))
+                return TopCommonToast().then {
+                    $0.setUI(data: commonToastCreateContext)
+                }
             case .center:
-                return CenterCommonToast().setUI(data: CommonToastCreateContext(
-                    status: status,
-                    message: message,
-                    onClickDeleage: onClickDelegate
-                ))
+                return CenterCommonToast().then {
+                    $0.setUI(data: commonToastCreateContext)
+                }
             case .bottom:
-                return BottomCommonToast().setUI(data: CommonToastCreateContext(
-                    status: status,
-                    message: message,
-                    onClickDeleage: onClickDelegate
-                ))
+                return BottomCommonToast().then {
+                    $0.setUI(data: commonToastCreateContext)
+                }
             }
         }
-
     }
 }
 
@@ -116,7 +114,7 @@ private final class TopCommonToast: CommonToast {
 
     override var intrinsicContentSize: CGSize {
         let width: CGFloat = UIScreen.main.bounds.width
-        let height: CGFloat = 56
+        let height: CGFloat = 16 + messageLabel.intrinsicContentSize.height + 16
         return CGSize(width: width, height: height)
     }
 
@@ -124,14 +122,12 @@ private final class TopCommonToast: CommonToast {
         super.show()
         topMostViewController?.view.showToast(self, duration: 1, position: .top)
     }
-    override func setUI(data: CommonToastCreateContext) -> Self {
-        let _ = super.setUI(data: data)
-        return self
-    }
+
     override func attribute() {
         super.attribute()
         backgroundColor = .systemBlue
     }
+
     override func layout() {
         super.layout()
         messageLabel.snp.makeConstraints {
@@ -142,7 +138,7 @@ private final class TopCommonToast: CommonToast {
 
 //MARK: - center
 private final class CenterCommonToast: CommonToast {
-    let imageView = UIImageView()
+    private let imageView = UIImageView()
     override var intrinsicContentSize: CGSize {
         let width: CGFloat = 256
 
@@ -156,14 +152,10 @@ private final class CenterCommonToast: CommonToast {
         super.show()
         topMostViewController?.view.showToast(self, duration: 1, position: .center)
     }
-    override func setUI(data: CommonToastCreateContext) -> Self {
-        let _ = super.setUI(data: data)
-        return self
-    }
+
     override func attribute() {
         super.attribute()
         backgroundColor = .systemGray
-        messageLabel.numberOfLines = 0
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 28
         imageView.kf.setImage(with: URL(string: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRHIv7WPWnOqjiHtk-2_Vm34hus7ceXLqeh6Cjw0LdoA&s"))
@@ -188,17 +180,13 @@ private final class BottomCommonToast: CommonToast {
 
     override var intrinsicContentSize: CGSize {
         let width: CGFloat = UIScreen.main.bounds.width
-        let height: CGFloat = 56
+        let height: CGFloat = 16 + messageLabel.intrinsicContentSize.height + 16
         return CGSize(width: width, height: height)
     }
 
     override func show() {
         super.show()
         topMostViewController?.view.showToast(self, duration: 1, position: .bottom)
-    }
-    override func setUI(data: CommonToastCreateContext) -> Self {
-        let _ = super.setUI(data: data)
-        return self
     }
     override func attribute() {
         super.attribute()
