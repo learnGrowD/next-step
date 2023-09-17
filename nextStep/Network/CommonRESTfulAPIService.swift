@@ -13,7 +13,7 @@ import RxCocoa
 
 // 한건의 Request를 담당
 // *** API Request 추상화
-struct CommonAPIService<Wrapper: APIWrapperProtocol> {
+struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
     private let requestContext: APIRequestContextProtocol
     init(requestContext: APIRequestContextProtocol) {
         self.requestContext = requestContext
@@ -25,6 +25,14 @@ struct CommonAPIService<Wrapper: APIWrapperProtocol> {
 
     func postMapping() -> Observable<Wrapper.Data> {
         request(method: .post, encoding: JSONEncoding.default)
+    }
+
+    func deleteMapping() -> Observable<Wrapper.Data> {
+        request(method: .delete, encoding: URLEncoding.default)
+    }
+
+    func patchMappding() -> Observable<Wrapper.Data> {
+        request(method: .patch, encoding: JSONEncoding.default)
     }
 
     private func request(method: HTTPMethod, encoding: ParameterEncoding) -> Observable<Wrapper.Data> {

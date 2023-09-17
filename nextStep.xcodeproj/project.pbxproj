@@ -16,7 +16,7 @@
 		B837A8E82AAC73CA00A5F407 /* APIRequestContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8E72AAC73CA00A5F407 /* APIRequestContextProtocol.swift */; };
 		B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8E92AAC7F6300A5F407 /* AppConfigure.swift */; };
 		B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8EB2AAC7FC500A5F407 /* RiotAPIRequestContext.swift */; };
-		B837A8EE2AAC7FE200A5F407 /* CommonAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8ED2AAC7FE200A5F407 /* CommonAPIService.swift */; };
+		B837A8EE2AAC7FE200A5F407 /* CommonRESTfulAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8ED2AAC7FE200A5F407 /* CommonRESTfulAPIService.swift */; };
 		B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8EF2AAC808300A5F407 /* APIRequestUIMode.swift */; };
 		B837A8F42AAC80AC00A5F407 /* APIResultUIMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8F32AAC80AC00A5F407 /* APIResultUIMode.swift */; };
 		B837A8F62AAC87EC00A5F407 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8F52AAC87EC00A5F407 /* NetworkError.swift */; };
@@ -69,7 +69,7 @@
 		B837A8E72AAC73CA00A5F407 /* APIRequestContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestContextProtocol.swift; sourceTree = "<group>"; };
 		B837A8E92AAC7F6300A5F407 /* AppConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigure.swift; sourceTree = "<group>"; };
 		B837A8EB2AAC7FC500A5F407 /* RiotAPIRequestContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotAPIRequestContext.swift; sourceTree = "<group>"; };
-		B837A8ED2AAC7FE200A5F407 /* CommonAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAPIService.swift; sourceTree = "<group>"; };
+		B837A8ED2AAC7FE200A5F407 /* CommonRESTfulAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRESTfulAPIService.swift; sourceTree = "<group>"; };
 		B837A8EF2AAC808300A5F407 /* APIRequestUIMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestUIMode.swift; sourceTree = "<group>"; };
 		B837A8F32AAC80AC00A5F407 /* APIResultUIMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResultUIMode.swift; sourceTree = "<group>"; };
 		B837A8F52AAC87EC00A5F407 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -260,6 +260,7 @@
 		B85410F82AB5D2CA00957BB1 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				B8D9AC1D2AB6E6D1007A12E3 /* CommonBottomModal */,
 				B854110D2AB5D73C00957BB1 /* IntroView */,
 				B854110A2AB5D61100957BB1 /* RetryView */,
 				B85410F92AB5D31700957BB1 /* CommonToast.swift */,
@@ -347,7 +348,7 @@
 		B89F51DC2AAC56F900C8AE64 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B837A8ED2AAC7FE200A5F407 /* CommonAPIService.swift */,
+				B837A8ED2AAC7FE200A5F407 /* CommonRESTfulAPIService.swift */,
 				B837A8F12AAC809500A5F407 /* Model */,
 				B837A8FC2AACA02600A5F407 /* RequestContext */,
 			);
@@ -386,6 +387,13 @@
 				B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		B8D9AC1D2AB6E6D1007A12E3 /* CommonBottomModal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonBottomModal;
 			sourceTree = "<group>";
 		};
 		E99248A8AA0FF149D34BFD04 /* Pods */ = {
@@ -540,7 +548,7 @@
 				B85411072AB5D5DA00957BB1 /* CommonEmptyLabel.swift in Sources */,
 				B837A8D22AAC621500A5F407 /* BaseUITableViewCell.swift in Sources */,
 				B89F51F42AAC5C4D00C8AE64 /* Array+extension.swift in Sources */,
-				B837A8EE2AAC7FE200A5F407 /* CommonAPIService.swift in Sources */,
+				B837A8EE2AAC7FE200A5F407 /* CommonRESTfulAPIService.swift in Sources */,
 				B837A9002AACAA2F00A5F407 /* RiotWrapper.swift in Sources */,
 				B837A8FB2AAC8F4000A5F407 /* APIWrapperProtocol.swift in Sources */,
 				B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */,
