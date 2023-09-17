@@ -13,7 +13,7 @@ import RxCocoa
 final class CommonLoadingView: IntroViewProtocol, StorageProtocol {
     private var disposeBag: DisposeBag? = DisposeBag()
     private var loadingView: LottieAnimationView? = LottieAnimationView(name: LottieResourceManager.defaultLoadingName)
-    private var milliseconds = 0
+    private var milliseconds = 800
 
     init(milliseconds: Int = 800) {
         self.milliseconds = milliseconds
@@ -28,13 +28,13 @@ final class CommonLoadingView: IntroViewProtocol, StorageProtocol {
     func show() {
         blockTouch()
 
-        loadingView?.isHidden = false
+        loadingView?.isHidden = true
         UIView.animate(withDuration: 0.8, animations: { [weak self] in
             self?.loadingView?.alpha = 1
         })
 
         guard let disposeBag = disposeBag else { return }
-        Observable<Int>.interval(.microseconds(milliseconds), scheduler: MainScheduler.instance)
+        Observable<Int>.interval(.milliseconds(milliseconds), scheduler: MainScheduler.instance)
             .bind(onNext: { [weak self] in
                 guard let self = self else { return }
                 if $0 == 0 {

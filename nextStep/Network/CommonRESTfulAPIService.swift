@@ -13,7 +13,7 @@ import RxCocoa
 
 // 한건의 Request를 담당
 // *** API Request 추상화
-struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
+struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: StorageProtocol {
     private let requestContext: APIRequestContextProtocol
     init(requestContext: APIRequestContextProtocol) {
         self.requestContext = requestContext
@@ -36,29 +36,33 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
     }
 
     private func request(method: HTTPMethod, encoding: ParameterEncoding) -> Observable<Wrapper.Data> {
-        //MARK: RequestUIMode 처리
+        var introView: IntroViewProtocol? = nil
         let subject = PublishSubject<Wrapper.Data>()
 
-        let _ = subject
+        _ = subject
             .take(1)
             .subscribe()
 
-        let _ = responseData(methode: method, encoding: encoding)
+        _ = responseData(methode: method, encoding: encoding)
             .do(onSubscribe: {
-                //MARK: RequestUIMode 처리
-                print("subscribe")
+                switch requestContext.requestUIMode {
+                case .blur:
+                    introView = CommonBlurView()
+                case .loading:
+                    introView = CommonLoadingView()
+                }
+                introView?.show()
             }).map { [self] in
-                //MARK: RequestUIMode 처리
+                introView?.dismiss()
+                introView = nil
                 do {
                     return try self.result(statusCode: $0.0.statusCode, data: $0.1)
                 } catch {
                     throw error
                 }
             }
-            .catch {
-                throw requestUnknownError(error: $0)
-            }
             .subscribe(subject)
+
         return subject
     }
 
@@ -104,15 +108,17 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
     }
 
     private func requestUnknownError(error: Error) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0001)
         let message = """
         🚨 \(requestContext.serverName) - request unknown error:
         \(errorInformation(requestURL: requestContext.requestURL, errorMessage: error.localizedDescription))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return error
     }
 
     private func resultDataIsNull(statusCode: Int, api: Wrapper) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0002)
         let message = """
         🚨 \(requestContext.serverName) - result data is null:
         \(errorInformation(
@@ -122,11 +128,12 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
         resultMessage: api.resultMessage
         ))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return NetworkError.resultDataIsNull(api.resultCode, api.resultMessage)
     }
 
     private func resultCodeIsNotSuccess(statusCode: Int, api: Wrapper) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0003)
         let message = """
         🚨 \(requestContext.serverName) - resultCode is not success:
         \(errorInformation(
@@ -136,12 +143,12 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
         resultMessage: api.resultMessage
         ))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return NetworkError.serverError(api.resultCode, api.resultMessage)
     }
 
     private func athorizationIsNotInvalid(statusCode: Int) -> Error {
-        //MARK: Autho Error 규격에 맞게 다시 설계하면 좋을것 같다.
+        respondToErrorsWithUI(errorCodeShownInClient: 0004)
         let message = """
         🚨 \(requestContext.serverName) - athorization error:
         \(errorInformation(
@@ -149,11 +156,12 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
         requestURL: requestContext.requestURL
         ))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return NetworkError.authorizationError(message)
     }
 
     private func serverError(statusCode: Int, api: Wrapper) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0005)
         let message = """
         🚨 \(requestContext.serverName) - server error:
         \(errorInformation(
@@ -163,11 +171,12 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
         resultMessage: api.resultMessage
         ))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return NetworkError.clientError(message)
     }
 
     private func clientError(statusCode: Int) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0006)
         let message = """
         🚨 \(requestContext.serverName) - client error:
         \(errorInformation(
@@ -175,11 +184,12 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
         requestURL: requestContext.requestURL
         ))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return NetworkError.clientError(message)
     }
 
     private func jsonParsingError(statusCode: Int) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0007)
         let message = """
         🚨 \(requestContext.serverName) - json parsing error:
         \(errorInformation(
@@ -187,11 +197,12 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
         requestURL: requestContext.requestURL
         ))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return NetworkError.jsonParsingError(message)
     }
 
     private func resultUnknownError(statusCode: Int) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0008)
         let message = """
         🚨 \(requestContext.serverName) - result unknownError error:
         \(errorInformation(
@@ -199,8 +210,45 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol> {
         requestURL: requestContext.requestURL
         ))
         """
-        print(message)
+        errorMessagePrint(message: message)
         return NetworkError.unkownError(message)
+    }
+
+    private func respondToErrorsWithUI(errorCodeShownInClient: Int) {
+        let message = """
+        현재 일시적인 오류가 발생했습니다.
+        담당자에게 문의해주세요.
+        [010-8705-1693]
+        [\(String(errorCodeShownInClient))]
+        """
+        switch requestContext.resultUIMode {
+        case .showWarning:
+            CommonModal.Builder()
+                .setMessage(message)
+                .setImage(UIImage(systemName: "exclamationmark.circle.fill"), width: 44, height: 44)
+                .setPositiveButton("확인") {
+                    $0.dismiss(animated: true)
+                }
+                .build()
+                .show()
+        case .showToast:
+            CommonToast.Builder()
+                .setMessage(message: message)
+                .build(status: .bottom)
+                .show()
+            break
+        case .showRetryView:
+            if let retryHost = depthViewController as? RetryEnabledProtocol {
+                let commonRetryView = CommonRetryView(host: retryHost)
+                commonRetryView.layoutRetryContainerView()
+            }
+        }
+    }
+
+    private func errorMessagePrint(message: String) {
+        #if DEBUG
+        print(message)
+        #endif
     }
 
     private func errorInformation(

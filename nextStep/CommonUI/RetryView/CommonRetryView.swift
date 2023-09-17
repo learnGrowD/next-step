@@ -10,13 +10,14 @@ import RxSwift
 import RxCocoa
 
 final class CommonRetryView: UIView {
+    private let host: RetryEnabledProtocol?
     private let disposeBag = DisposeBag()
-    private lazy var retryView = RetryView()
+    private lazy var retryView = RetryView(host: host)
 
-    override init(frame: CGRect) {
+    init(frame: CGRect = .zero, host: RetryEnabledProtocol) {
+        self.host = host
         super.init(frame: frame)
         attribute()
-        layout()
     }
 
     required init?(coder: NSCoder) {
@@ -24,13 +25,12 @@ final class CommonRetryView: UIView {
     }
 
     private func attribute() {
+        alpha = 0.0
         backgroundColor = .white
     }
 
-    private func layout() {
-        let depthViewController = depthViewController
-        guard let retryViewController = depthViewController as? UIViewController & RetryEnabledProtocol else { return }
-        let superView = retryViewController.retryContainerView
+    func layoutRetryContainerView() {
+        guard let superView = host?.retryContainerView else { return }
 
         superView.addSubview(self)
         addSubview(retryView)
@@ -40,11 +40,16 @@ final class CommonRetryView: UIView {
         retryView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+
+        UIView.animate(withDuration: 0.8, animations: { [weak self] in
+            self?.alpha = 1
+        })
     }
 
     final class RetryView: UIView {
         private let disposeBag = DisposeBag()
-
+        
+        private let host: RetryEnabledProtocol?
         private let imageView = UIImageView()
         private  let retryButton = UIView()
         private let retryButtonLabel = UILabel()
@@ -58,7 +63,8 @@ final class CommonRetryView: UIView {
             return CGSize(width: width, height: height)
         }
 
-        override init(frame: CGRect) {
+        init(frame: CGRect = .zero, host: RetryEnabledProtocol?) {
+            self.host = host
             super.init(frame: frame)
             attribute()
             layout()
@@ -70,14 +76,11 @@ final class CommonRetryView: UIView {
             fatalError("init(coder:) has not been implemented")
         }
 
-        func bind() {
+        private func bind() {
             retryButton.rx.tapGesture()
                 .when(.recognized)
                 .bind(onNext: { [weak self] _ in
-                    let depthViewController = self?.depthViewController
-                    guard let retryViewController = depthViewController as? UIViewController & RetryEnabledProtocol else { return }
-                    retryViewController.processRetry()
-
+                    self?.host?.processRetry()
                     self?.removeFromSuperview()
                 })
                 .disposed(by: disposeBag)
@@ -120,6 +123,13 @@ final class CommonRetryView: UIView {
                 $0.center.equalTo(retryButton)
             }
         }
+
+        deinit {
+            print("죽는지1")
+        }
+    }
+    deinit {
+        print("죽는지2")
     }
 }
 

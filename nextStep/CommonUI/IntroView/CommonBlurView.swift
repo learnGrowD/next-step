@@ -43,20 +43,13 @@ final class CommonBlurView: UIView, IntroViewProtocol {
     func dismiss() {
         allowTouch()
 
-        guard let disposeBag = disposeBag else { return }
-        Observable<Int>.interval(.microseconds(300), scheduler: MainScheduler.instance)
-            .bind(onNext: { [weak self] in
-                if $0 == 0 {
-                    self?.disposeBag = nil
-                    self?.commonLoadingView?.dismiss()
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self?.alpha = 0
-                    }, completion: { _ in
-                        self?.isHidden = true
-                    })
-                }
-            })
-            .disposed(by: disposeBag)
+        disposeBag = nil
+        commonLoadingView?.dismiss()
+        UIView.animate(withDuration: 0.3, animations: { [weak self] in
+            self?.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.isHidden = true
+        })
     }
 
     private func attribute() {

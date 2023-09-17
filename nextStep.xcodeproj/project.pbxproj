@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80E74162AB703D6007440D6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E74152AB703D6007440D6 /* SplashViewController.swift */; };
 		B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */; };
 		B837A8D22AAC621500A5F407 /* BaseUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */; };
 		B837A8D92AAC6C4100A5F407 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837A8D82AAC6C4100A5F407 /* R.generated.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		12AE311590C75C16080BA59C /* Pods_nextStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nextStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3654FD23050B227F30D63276 /* Pods-nextStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.release.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.release.xcconfig"; sourceTree = "<group>"; };
+		B80E74152AB703D6007440D6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B837A8CF2AAC620900A5F407 /* BaseUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUICollectionViewCell.swift; sourceTree = "<group>"; };
 		B837A8D12AAC621500A5F407 /* BaseUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUITableViewCell.swift; sourceTree = "<group>"; };
 		B837A8D82AAC6C4100A5F407 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = nextStep/Support/Resource/R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				B83A99352AAC559E004C0A42 /* Main */,
+				B80E74152AB703D6007440D6 /* SplashViewController.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				B85411092AB5D60900957BB1 /* CommonRetryView.swift in Sources */,
 				B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */,
 				B8D9AC1F2AB6EA11007A12E3 /* CommonBottomModalAction.swift in Sources */,
+				B80E74162AB703D6007440D6 /* SplashViewController.swift in Sources */,
 				B837A8E62AAC712200A5F407 /* Codable+extension.swift in Sources */,
 				B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */,
 				B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */,

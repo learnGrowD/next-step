@@ -70,7 +70,7 @@ class CommonToast: UIView, CommonToastProtocol {
         addSubview(messageLabel)
     }
 
-    class Builder {
+    final class Builder {
         private var status: CommonToastStatus = .bottom
         private var message: String = ""
         private var onClickDelegate: (CommonToast) -> Void = { _ in }
