@@ -21,7 +21,7 @@ final class MainViewController: BaseViewController<MainViewModel>, RetryEnabledP
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let requestContext = RiotAPIRequestContext(path: "/champion.jso", params: [:], requestUIMode: .blur, resultUIMode: .showWarning)
+        let requestContext = RiotAPIRequestContext(path: "/champion.jso", params: [:], requestUIMode: .blur, resultUIMode: .showRetryView)
         let api = CommonRESTfulAPIService<RiotWrapper<[String: Champion]>>(requestContext: requestContext)
         api.getMapping()
             .catchAndReturn(["dd": Champion(id: "", title: "")])
