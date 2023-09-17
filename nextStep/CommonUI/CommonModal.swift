@@ -48,6 +48,11 @@ final class CommonModal: BaseViewController<BaseViewModel> {
     override func bind(_ viewModel: BaseViewModel) {
         super.bind(viewModel)
 
+        backgroundView.rx.tapGesture()
+            .when(.recognized)
+            .bind(to: rx.dismiss())
+            .disposed(by: disposeBag)
+
         nagativeButton.rx.tapGesture()
             .when(.recognized)
             .bind(onNext: { [weak self] _ in

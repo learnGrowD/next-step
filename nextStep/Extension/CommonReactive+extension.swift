@@ -14,14 +14,14 @@ import PanModal
 extension Reactive where Base: UIViewController {
 
     func dismiss(animated: Bool = true, completion: @escaping () -> Void = {}) -> Binder<UITapGestureRecognizer> {
-        Binder(base) { viewController, data in
-            base.dismiss(animated: animated, completion: completion)
+        Binder(base) { [weak base] _, _ in
+            base?.dismiss(animated: animated, completion: completion)
         }
     }
 
     func dismiss(animated: Bool = true, completion: @escaping () -> Void = {}) -> Binder<Void> {
-        Binder(base) { viewController, data in
-            base.dismiss(animated: animated, completion: completion)
+        Binder(base) { [weak base] _, _ in
+            base?.dismiss(animated: animated, completion: completion)
         }
     }
 }
