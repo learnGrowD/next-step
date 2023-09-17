@@ -214,11 +214,9 @@ final class CommonModal: BaseViewController<BaseViewModel> {
             guard let imageView = imageView else { return }
             view.addSubview(imageView)
         }
-
         backgroundView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-
         //title 0, iamge 0, message 0,
         if !title.isEmpty && !isImageNotExist {
             guard let titleLabel = titleLabel,
@@ -244,7 +242,6 @@ final class CommonModal: BaseViewController<BaseViewModel> {
                 $0.leading.trailing.equalTo(containerView).inset(16)
             }
         }
-
         //title 0, image x, message 0,
         if !title.isEmpty && isImageNotExist {
             guard let titleLabel = titleLabel else { return }
@@ -265,7 +262,6 @@ final class CommonModal: BaseViewController<BaseViewModel> {
                 $0.leading.trailing.equalTo(containerView).inset(16)
             }
         }
-
         //title x, image 0, message 0,
         if title.isEmpty && !isImageNotExist {
             guard let imageView = imageView else { return }
@@ -280,7 +276,7 @@ final class CommonModal: BaseViewController<BaseViewModel> {
                 $0.width.equalTo(imageWidth)
                 $0.height.equalTo(imageHeight)
                 $0.top.equalTo(containerView)
-                $0.leading.trailing.equalTo(containerView).inset(16)
+                $0.centerX.equalTo(containerView).inset(16)
             }
 
             messageLabel.snp.makeConstraints {
@@ -288,7 +284,6 @@ final class CommonModal: BaseViewController<BaseViewModel> {
                 $0.leading.trailing.equalTo(containerView).inset(16)
             }
         }
-
         //title x, image x, messag 0
         if title.isEmpty && isImageNotExist  {
             containerView.snp.makeConstraints {
@@ -303,7 +298,6 @@ final class CommonModal: BaseViewController<BaseViewModel> {
                 $0.leading.trailing.equalTo(containerView).inset(16)
             }
         }
-
         underlineView.snp.makeConstraints {
             $0.height.equalTo(1)
             $0.top.equalTo(messageLabel.snp.bottom).offset(16)

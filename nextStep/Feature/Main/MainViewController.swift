@@ -22,7 +22,7 @@ final class MainViewController: BaseViewController<MainViewModel> {
             .when(.recognized)
             .bind(onNext: { [weak self] _ in
                 CommonModal.Builder()
-                    .setTitle("HELLO")
+//                    .setTitle("HELLO")
                     .setMessage("HELLO")
                     .setImage(UIImage(systemName: "pencil"), width: 44, height: 44)
                     .setNagativeButton("부정") {
