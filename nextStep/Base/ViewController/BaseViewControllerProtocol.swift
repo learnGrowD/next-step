@@ -56,8 +56,6 @@ extension BaseViewControllerProtocol {
         print("🍎 viewDidLayoutSubviews: \(className)")
     }
     func mViewWillDisappear(_ animated: Bool) {
-        acceptJudgeViewController(value: nil)
-        
         viewModel.lifeCycleStatus.accept(.viewWillDisAppear)
         print("🍎 viewWillDisappear: \(className)")
     }
