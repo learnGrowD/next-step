@@ -21,5 +21,6 @@ target 'nextStep' do
 
     pod 'Alamofire', '5.6.4'
     pod 'RxAlamofire', '6.1.1'
+    pod 'Then', '3.0.0'
 
 end

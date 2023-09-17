@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Then
 /*
  이런식으로 쓰면 됌.
  WilldModal.Builder()
@@ -99,7 +100,7 @@ final class CommonModal: BaseViewController<BaseViewModel> {
         titleFont: UIFont?,
         messageFont: UIFont?,
         buttonFont: UIFont?
-    ) -> Self {
+    ) {
         let isImageNotExist = (imageUrl?.isEmpty == true) || image == nil
         self.layout(title: title, isImageNotExist: isImageNotExist, imageWidth: imgWidth, imageHeight: imgHeight)
 
@@ -154,8 +155,6 @@ final class CommonModal: BaseViewController<BaseViewModel> {
         self.messageLabel.font = messageFont
         self.nagativeButton.font = buttonFont
         self.positiveButton.font = buttonFont
-
-        return self
     }
 
     private func setImage(image: UIImage?, imageURL: String?) {
@@ -446,27 +445,29 @@ final class CommonModal: BaseViewController<BaseViewModel> {
         }
 
         func build() -> CommonModal {
-            CommonModal(viewModel: BaseViewModel()).configure(
-                title: title,
-                message: message,
-                image: image,
-                imageUrl: imageUrl,
-                imgWidth: imageWidth,
-                imgHeight: imageHeight,
-                nagativeButtonStr: nagativeButtonStr,
-                nagativeButtonDelegate: nagativeButtonDelegate,
-                positiveButtonStr: positiveButtonStr,
-                positiveButtonDelegate: positiveButtonDelegate,
-                titleColor: titleColor,
-                messageColor: messageColor,
-                nagativeButtonColor: nagativeButtonColor,
-                positiveButtonColor: positiveButtonColor,
-                modalBackgroundColor: modalBackgroindColor,
-                lineColor: lineColor,
-                titleFont: titleFont,
-                messageFont: messageFont,
-                buttonFont: buttonFont
-            )
+            CommonModal(viewModel: BaseViewModel()).then {
+                $0.configure(
+                    title: title,
+                    message: message,
+                    image: image,
+                    imageUrl: imageUrl,
+                    imgWidth: imageWidth,
+                    imgHeight: imageHeight,
+                    nagativeButtonStr: nagativeButtonStr,
+                    nagativeButtonDelegate: nagativeButtonDelegate,
+                    positiveButtonStr: positiveButtonStr,
+                    positiveButtonDelegate: positiveButtonDelegate,
+                    titleColor: titleColor,
+                    messageColor: messageColor,
+                    nagativeButtonColor: nagativeButtonColor,
+                    positiveButtonColor: positiveButtonColor,
+                    modalBackgroundColor: modalBackgroindColor,
+                    lineColor: lineColor,
+                    titleFont: titleFont,
+                    messageFont: messageFont,
+                    buttonFont: buttonFont
+                )
+            }
         }
     }
 

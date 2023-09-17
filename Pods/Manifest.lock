@@ -19,6 +19,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.6.0)
+  - Then (3.0.0)
   - Toast-Swift (5.0.1)
   - UIColor_Hex_Swift (5.1.9)
   - XLPagerTabStrip (9.0.0)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - RxGesture (= 4.0.4)
   - RxSwift (= 6.5.0)
   - SnapKit (= 5.6.0)
+  - Then (= 3.0.0)
   - Toast-Swift (~> 5.0.1)
   - UIColor_Hex_Swift (~> 5.1.9)
   - XLPagerTabStrip (= 9.0.0)
@@ -51,6 +53,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
+    - Then
     - Toast-Swift
     - UIColor_Hex_Swift
     - XLPagerTabStrip
@@ -67,10 +70,11 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   UIColor_Hex_Swift: 20cb4e8d51b63e168a9da6933bc5d39cd8fb4ab5
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 4c36a8801c1e7c129738e4e30921e61726751a7b
+PODFILE CHECKSUM: 58ca58a3df7051fc9911838d070609b59534576c
 
 COCOAPODS: 1.12.1

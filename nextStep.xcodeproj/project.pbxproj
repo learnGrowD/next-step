@@ -53,6 +53,8 @@
 		B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51EF2AAC5AD000C8AE64 /* UIView+extension.swift */; };
 		B89F51F42AAC5C4D00C8AE64 /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51F32AAC5C4D00C8AE64 /* Array+extension.swift */; };
 		B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC1B2AB6C618007A12E3 /* CommonModal.swift */; };
+		B8D9AC1F2AB6EA11007A12E3 /* CommonBottomModalAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC1E2AB6EA11007A12E3 /* CommonBottomModalAction.swift */; };
+		B8D9AC212AB6EA26007A12E3 /* CommonBottomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC202AB6EA26007A12E3 /* CommonBottomModal.swift */; };
 		CE199A6A49A0DC63443490A5 /* Pods_nextStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AE311590C75C16080BA59C /* Pods_nextStep.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		B89F51EF2AAC5AD000C8AE64 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		B89F51F32AAC5C4D00C8AE64 /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
 		B8D9AC1B2AB6C618007A12E3 /* CommonModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModal.swift; sourceTree = "<group>"; };
+		B8D9AC1E2AB6EA11007A12E3 /* CommonBottomModalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomModalAction.swift; sourceTree = "<group>"; };
+		B8D9AC202AB6EA26007A12E3 /* CommonBottomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomModal.swift; sourceTree = "<group>"; };
 		FFEC3DCDE4A74EC40E0A4C65 /* Pods-nextStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.debug.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -392,6 +396,8 @@
 		B8D9AC1D2AB6E6D1007A12E3 /* CommonBottomModal */ = {
 			isa = PBXGroup;
 			children = (
+				B8D9AC1E2AB6EA11007A12E3 /* CommonBottomModalAction.swift */,
+				B8D9AC202AB6EA26007A12E3 /* CommonBottomModal.swift */,
 			);
 			path = CommonBottomModal;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B85411072AB5D5DA00957BB1 /* CommonEmptyLabel.swift in Sources */,
+				B8D9AC212AB6EA26007A12E3 /* CommonBottomModal.swift in Sources */,
 				B837A8D22AAC621500A5F407 /* BaseUITableViewCell.swift in Sources */,
 				B89F51F42AAC5C4D00C8AE64 /* Array+extension.swift in Sources */,
 				B837A8EE2AAC7FE200A5F407 /* CommonRESTfulAPIService.swift in Sources */,
@@ -577,6 +584,7 @@
 				B837A8E82AAC73CA00A5F407 /* APIRequestContextProtocol.swift in Sources */,
 				B85411092AB5D60900957BB1 /* CommonRetryView.swift in Sources */,
 				B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */,
+				B8D9AC1F2AB6EA11007A12E3 /* CommonBottomModalAction.swift in Sources */,
 				B837A8E62AAC712200A5F407 /* Codable+extension.swift in Sources */,
 				B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */,
 				B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */,
