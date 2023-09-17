@@ -26,6 +26,10 @@ extension BasePanModalPresentable {
         return 0.0
     }
 
+    var panScrollable: UIScrollView? {
+        return nil
+    }
+
     var shortFormHeight: PanModalHeight {
         return .maxHeight
     }

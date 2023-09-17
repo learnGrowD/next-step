@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Kingfisher
+import PanModal
 
 extension Reactive where Base: UIViewController {
 

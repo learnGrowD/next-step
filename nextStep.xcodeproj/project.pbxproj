@@ -43,6 +43,7 @@
 		B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */; };
 		B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411102AB5D78000957BB1 /* CommonLoadingView.swift */; };
 		B85411132AB5D7AA00957BB1 /* CommonBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */; };
+		B85411172AB5E4D100957BB1 /* PanModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411162AB5E4D100957BB1 /* PanModal.swift */; };
 		B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */; };
 		B89F51E42AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */; };
 		B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */; };
@@ -51,6 +52,7 @@
 		B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51ED2AAC5A4100C8AE64 /* CommonReactive+extension.swift */; };
 		B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51EF2AAC5AD000C8AE64 /* UIView+extension.swift */; };
 		B89F51F42AAC5C4D00C8AE64 /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51F32AAC5C4D00C8AE64 /* Array+extension.swift */; };
+		B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC1B2AB6C618007A12E3 /* CommonModal.swift */; };
 		CE199A6A49A0DC63443490A5 /* Pods_nextStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AE311590C75C16080BA59C /* Pods_nextStep.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,7 @@
 		B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewProtocol.swift; sourceTree = "<group>"; };
 		B85411102AB5D78000957BB1 /* CommonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLoadingView.swift; sourceTree = "<group>"; };
 		B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBlurView.swift; sourceTree = "<group>"; };
+		B85411162AB5E4D100957BB1 /* PanModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanModal.swift; sourceTree = "<group>"; };
 		B89F51E02AAC575E00C8AE64 /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		B89F51E32AAC57B600C8AE64 /* BaseViewControllerLifeCycleStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerLifeCycleStatus.swift; sourceTree = "<group>"; };
 		B89F51E52AAC57D500C8AE64 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -104,6 +107,7 @@
 		B89F51ED2AAC5A4100C8AE64 /* CommonReactive+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommonReactive+extension.swift"; sourceTree = "<group>"; };
 		B89F51EF2AAC5AD000C8AE64 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		B89F51F32AAC5C4D00C8AE64 /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
+		B8D9AC1B2AB6C618007A12E3 /* CommonModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModal.swift; sourceTree = "<group>"; };
 		FFEC3DCDE4A74EC40E0A4C65 /* Pods-nextStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.debug.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				B83A99352AAC559E004C0A42 /* Main */,
+				B85411162AB5E4D100957BB1 /* PanModal.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				B854110A2AB5D61100957BB1 /* RetryView */,
 				B85410F92AB5D31700957BB1 /* CommonToast.swift */,
 				B85411062AB5D5DA00957BB1 /* CommonEmptyLabel.swift */,
+				B8D9AC1B2AB6C618007A12E3 /* CommonModal.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -543,6 +549,7 @@
 				B837A8F62AAC87EC00A5F407 /* NetworkError.swift in Sources */,
 				B854110C2AB5D62A00957BB1 /* RetryEnableProtocol.swift in Sources */,
 				B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */,
+				B85411172AB5E4D100957BB1 /* PanModal.swift in Sources */,
 				B85411052AB5D58700957BB1 /* LottieResourceManager.swift in Sources */,
 				B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */,
 				B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */,
@@ -564,6 +571,7 @@
 				B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */,
 				B837A8E62AAC712200A5F407 /* Codable+extension.swift in Sources */,
 				B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */,
+				B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */,
 				B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */,
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,
 				B837A8D02AAC620900A5F407 /* BaseUICollectionViewCell.swift in Sources */,
