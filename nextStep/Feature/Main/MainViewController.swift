@@ -21,16 +21,24 @@ final class MainViewController: BaseViewController<MainViewModel> {
         testButton.rx.tapGesture()
             .when(.recognized)
             .bind(onNext: { [weak self] _ in
-                CommonModal.Builder()
-//                    .setTitle("HELLO")
-                    .setMessage("HELLO")
-                    .setImage(UIImage(systemName: "pencil"), width: 44, height: 44)
-                    .setNagativeButton("부정") {
-                        $0.dismiss(animated: true)
-                    }
-                    .setPositiveButton("긍정") {
-                        $0.dismiss(animated: true)
-                    }
+                let action1 = CommonBottomModalActionContext(titleString: "HELLO", titleColorString: "#00CED1") {
+                    $0.dismiss(animated: true)
+                }
+                let action2 = CommonBottomModalActionContext(titleString: "HELLO", titleColorString: "#BA55D3") {
+                    $0.dismiss(animated: true)
+                }
+                let action3 = CommonBottomModalActionContext(titleString: "HELLO", titleColorString: "#FF69B4") {
+                    $0.dismiss(animated: true)
+                }
+                let action4 = CommonBottomModalActionContext(titleString: "HELLO", titleColorString: "#32CD32") {
+                    $0.dismiss(animated: true)
+                }
+                let action5 = CommonBottomModalActionContext(titleString: "HELLO", titleColorString: "#87CEEB") {
+                    $0.dismiss(animated: true)
+                }
+                CommonBottomModal.Builder()
+                    .setActions([action1, action2, action3, action4, action5])
+                    .setActionBackgroundColor(.systemRed)
                     .build()
                     .show()
             })

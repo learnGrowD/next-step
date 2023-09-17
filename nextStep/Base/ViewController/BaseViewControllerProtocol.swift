@@ -74,6 +74,7 @@ extension BaseViewControllerProtocol {
 extension BaseViewControllerProtocol {
     func acceptJudgeViewController(value: UIViewController?) {
         //XLPager의 자식이 아닌 다른 ViewController에서는 depthViewController를 업데이트 시켜준다.
+        guard !(self is CommonBottomModal) else { return }
         guard !(self is CommonModal) else { return }
         guard !(self is UIViewController & IndicatorInfoProvider) else { return }
         appContext?.judgeViewController.accept(value)
