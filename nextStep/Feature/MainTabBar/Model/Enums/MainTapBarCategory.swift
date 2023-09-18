@@ -7,18 +7,18 @@
 
 import UIKit
 
-enum MainTapBarCategory {
-    case home
-    case lookAround
-    case gallery
+enum MainTapBarCategory: Int {
+    case home = 0
+    case lookAround = 1
+    case gallery = 2
 
     static func getCategory(index: Int?) -> MainTapBarCategory {
         switch index {
-        case 0:
+        case MainTapBarCategory.home.rawValue:
             return MainTapBarCategory.home
-        case 1:
+        case MainTapBarCategory.lookAround.rawValue:
             return MainTapBarCategory.lookAround
-        case 2:
+        case MainTapBarCategory.gallery.rawValue:
             return MainTapBarCategory.gallery
         default:
             return MainTapBarCategory.home
