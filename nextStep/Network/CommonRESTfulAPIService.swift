@@ -231,12 +231,13 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: StorageProtocol {
                 .setMessage(message: message)
                 .build(status: .bottom)
                 .show()
-            break
         case .showRetryView:
             if let retryHost = depthViewController as? RetryEnabledProtocol {
                 let commonRetryView = CommonRetryView(host: retryHost)
                 commonRetryView.layoutRetryContainerView()
             }
+        case .validation:
+            break
         }
     }
 

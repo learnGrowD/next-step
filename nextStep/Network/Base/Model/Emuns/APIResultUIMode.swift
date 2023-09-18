@@ -8,6 +8,7 @@
 import Foundation
 
 enum APIResultUIMode {
+    case validation
     case showWarning
     case showToast
     case showRetryView

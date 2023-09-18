@@ -70,6 +70,7 @@ final class MainTabBarController: UITabBarController {
         }
     }
 
+    let emptyView = UIViewController()
     private func attribute() {
         delegate = self
         createViewController(category: .home)
