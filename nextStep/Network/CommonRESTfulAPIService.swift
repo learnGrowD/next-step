@@ -31,6 +31,10 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: StorageProtocol {
         request(method: .delete, encoding: URLEncoding.default)
     }
 
+    func putMappding() -> Observable<Wrapper.Data> {
+        request(method: .put, encoding: JSONEncoding.default)
+    }
+
     func patchMappding() -> Observable<Wrapper.Data> {
         request(method: .patch, encoding: JSONEncoding.default)
     }

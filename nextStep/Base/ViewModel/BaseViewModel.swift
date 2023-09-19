@@ -9,10 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class BaseViewModel {
-    var className: String {
-        String(describing: type(of: self))
-    }
+class BaseViewModel: NSObject {
     let disposeBag = DisposeBag()
 
     //ovverride에 의해서 Observer가 모두 세팅이 되었을때 lifeCycleStatus가 갱신

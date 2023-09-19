@@ -19,10 +19,6 @@ protocol BaseViewControllerProtocol: UIViewController {
 }
 
 extension BaseViewControllerProtocol {
-    var className: String {
-        String(describing: type(of: self))
-    }
-
     func mInit() {
         attribute()
         viewModel.lifeCycleStatus.accept(.mInit)

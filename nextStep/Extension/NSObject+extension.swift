@@ -16,6 +16,14 @@ extension NSObject {
         String(describing: String(describing: type(of: self)))
     }
 
+    var tag: String {
+        NSObject.tag
+    }
+
+    var className: String {
+        NSObject.className
+    }
+
     func printMemoryAdress() {
         #if DEBUG
         print("\(Self.className) Memory Adress: \(Unmanaged.passUnretained(self).toOpaque())")

@@ -5,7 +5,7 @@
 //  Created by 도학태 on 2023/09/09.
 //
 
-import Foundation
+import UIKit
 import RxSwift
 import RxCocoa
 import Kingfisher

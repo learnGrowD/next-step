@@ -51,9 +51,6 @@ final class HomeBannerView: UIView {
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.isPagingEnabled = true
         collectionView.backgroundColor = R.color.nestStepBlack()
-
-
-
     }
 
     private func layout() {
