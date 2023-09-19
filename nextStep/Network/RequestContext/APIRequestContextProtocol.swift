@@ -8,17 +8,6 @@
 import Foundation
 import Alamofire
 
-//resultCode
-//url
-//encoding
-//headers
-
-
-//path
-//requestUI
-//resultUI
-//params
-//method
 protocol APIRequestContextProtocol {
     static var baseURL: String { get }
     var serverName: String { get }
