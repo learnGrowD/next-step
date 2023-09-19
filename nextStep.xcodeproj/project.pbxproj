@@ -34,7 +34,7 @@
 		B83A99272AAC5541004C0A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83A99262AAC5541004C0A42 /* Assets.xcassets */; };
 		B83A992A2AAC5541004C0A42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83A99282AAC5541004C0A42 /* LaunchScreen.storyboard */; };
 		B83A99322AAC5565004C0A42 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A99312AAC5565004C0A42 /* MainTabBarController.swift */; };
-		B85410ED2AB5BCBB00957BB1 /* StorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */; };
+		B85410ED2AB5BCBB00957BB1 /* AppStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410EC2AB5BCBB00957BB1 /* AppStorageProtocol.swift */; };
 		B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410EF2AB5BD8100957BB1 /* CommonRepository.swift */; };
 		B85410F32AB5C6EF00957BB1 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410F22AB5C6EF00957BB1 /* AppContext.swift */; };
 		B85410F72AB5CEFC00957BB1 /* BasePanModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85410F62AB5CEFC00957BB1 /* BasePanModalPresentable.swift */; };
@@ -103,7 +103,7 @@
 		B83A99292AAC5541004C0A42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B83A992B2AAC5541004C0A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B83A99312AAC5565004C0A42 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProtocol.swift; sourceTree = "<group>"; };
+		B85410EC2AB5BCBB00957BB1 /* AppStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageProtocol.swift; sourceTree = "<group>"; };
 		B85410EF2AB5BD8100957BB1 /* CommonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRepository.swift; sourceTree = "<group>"; };
 		B85410F22AB5C6EF00957BB1 /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		B85410F62AB5CEFC00957BB1 /* BasePanModalPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePanModalPresentable.swift; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 		B85410EB2AB5BCAC00957BB1 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				B85410EC2AB5BCBB00957BB1 /* StorageProtocol.swift */,
+				B85410EC2AB5BCBB00957BB1 /* AppStorageProtocol.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -716,7 +716,7 @@
 				B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */,
 				B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */,
 				B8BDDD6D2ABA5E21003D863D /* UICollectionViewCell+extension.swift in Sources */,
-				B85410ED2AB5BCBB00957BB1 /* StorageProtocol.swift in Sources */,
+				B85410ED2AB5BCBB00957BB1 /* AppStorageProtocol.swift in Sources */,
 				B8E7C0472AB9204100E310AF /* HomeBannerItemAttribute.swift in Sources */,
 				B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */,
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,

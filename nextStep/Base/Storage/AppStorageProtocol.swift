@@ -1,5 +1,5 @@
 //
-//  StorageProtocol.swift
+//  AppStorageProtocol.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/16.
@@ -8,11 +8,11 @@
 import UIKit
 import XLPagerTabStrip
 
-protocol StorageProtocol {}
-extension UIView: StorageProtocol {}
-extension UIViewController: StorageProtocol {}
-extension BaseViewModel: StorageProtocol {}
-extension StorageProtocol {
+protocol AppStorageProtocol {}
+extension UIView: AppStorageProtocol {}
+extension UIViewController: AppStorageProtocol {}
+extension BaseViewModel: AppStorageProtocol {}
+extension AppStorageProtocol {
     var appDelegate: AppDelegate? {
         UIApplication.shared.delegate as? AppDelegate
     }

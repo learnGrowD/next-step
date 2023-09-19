@@ -10,7 +10,7 @@ import Lottie
 import RxSwift
 import RxCocoa
 
-final class CommonLoadingView: IntroViewProtocol, StorageProtocol {
+final class CommonLoadingView: IntroViewProtocol, AppStorageProtocol {
     private var disposeBag: DisposeBag? = DisposeBag()
     private var loadingView: LottieAnimationView? = LottieAnimationView(name: LottieResourceManager.defaultLoadingName)
     private var milliseconds = 800

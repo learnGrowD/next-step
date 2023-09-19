@@ -13,7 +13,7 @@ import RxCocoa
 
 // 한건의 Request를 담당
 // *** API Request 추상화
-struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: StorageProtocol {
+struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol {
     private let requestContext: APIRequestContextProtocol
     init(requestContext: APIRequestContextProtocol) {
         self.requestContext = requestContext
