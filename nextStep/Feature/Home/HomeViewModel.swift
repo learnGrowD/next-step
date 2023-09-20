@@ -6,7 +6,31 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class HomeViewModel: BaseViewModel {
-    
+    let homeLayoutCategoryList = BehaviorRelay<[HomeLayoutCategory]>(value: [
+        .banner,
+        .top,
+        .middle,
+        .jungle,
+        .bottom,
+        .support
+    ])
+
+    let homeBannerList = BehaviorRelay<[HomeBannerItemAttribute]>(value: [])
+    let homeBannerButtonTap = PublishRelay<HomeBannerItemAttribute>()
+
+    func getHomeLayoutCategoryList() -> Observable<[HomeLayoutCategory]> {
+        homeLayoutCategoryList
+            .filter { !$0.isEmpty }
+            .asObservable()
+    }
+
+    func getHomeBannerList() -> Observable<[HomeBannerItemAttribute]> {
+        homeBannerList
+            .filter { !$0.isEmpty }
+            .asObservable()
+    }
 }

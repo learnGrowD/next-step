@@ -11,6 +11,7 @@ import RxCocoa
 
 final class HomeBannerCollectionViewCell: UICollectionViewCell {
     private var disposeBag = DisposeBag()
+    private let backgroundImageView = UIImageView()
     private let recommendLabel = UILabel()
     private let titleLabel = UILabel()
 
@@ -20,17 +21,19 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
     private let rightThumbnailImageView = UIImageView()
     private let championInformationLabel = UILabel()
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        attribute()
+        layout()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
-    }
-
-    func bind(viewModel: HomeViewModel, data: HomeBannerItemAttribute) {
-        setUI(data: data)
-    }
-
-    private func setUI(data: HomeBannerItemAttribute) {
-        
     }
 
     private func attribute() {
@@ -65,6 +68,7 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
 
     private func layout() {
         addSubViews(
+            backgroundImageView,
             recommendLabel,
             titleLabel,
             skinCountAndDateLabel,
@@ -74,6 +78,9 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
             championInformationLabel
         )
 
+        backgroundImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         recommendLabel.snp.makeConstraints {
             $0.top.equalTo(contentView.safeAreaLayoutGuide)
             $0.leading.equalToSuperview().inset(16)
@@ -105,5 +112,30 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
             $0.top.equalTo(centerThubnailImageView.snp.bottom).offset(8)
             $0.leading.equalTo(recommendLabel)
         }
+    }
+
+    func bind(viewModel: HomeViewModel, data: HomeBannerItemAttribute) {
+        setUI(data: data)
+        contentView.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in data }
+            .bind(to: viewModel.homeBannerButtonTap)
+            .disposed(by: disposeBag)
+    }
+
+    private func setUI(data: HomeBannerItemAttribute) {
+        backgroundImageView.bindImage(imageURL: data.backgroundImageURL)
+        recommendLabel.text = "\(data.categoryText) 추천"
+        titleLabel.text = data.title
+        let dateString = data.date.toString(format: "yyyy.MM.dd")
+        skinCountAndDateLabel.text = "스킨 \(data.allCount) 개 \(dateString)"
+        [
+            centerThubnailImageView,
+            leftThumbnailImageView,
+            rightThumbnailImageView
+        ].enumerated().forEach { index, imageView in
+            imageView.bindImage(imageURL: data.skinImageURLList[safe: index])
+        }
+        championInformationLabel.text = "\(data.championInformation)"
     }
 }

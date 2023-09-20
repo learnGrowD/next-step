@@ -8,6 +8,7 @@
 import Foundation
 
 struct HomeBannerItemAttribute {
+    let id: Int
     let backgroundImageURL: String
     let categoryText: String
     let title: String

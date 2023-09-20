@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6628EC41909A45E3E15EB3ED /* Pods_nextStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B6616B31D89259F1F8D943 /* Pods_nextStep.framework */; };
+		A967FA37C57DE80DFA7F40E2 /* Pods_nextStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F31F88F030049DFCB836D0 /* Pods_nextStep.framework */; };
 		B80E741B2AB71CF2007440D6 /* LookAroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */; };
 		B80E741D2AB71CFB007440D6 /* LookAroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */; };
 		B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741E2AB71D51007440D6 /* GalleryViewController.swift */; };
@@ -57,7 +57,9 @@
 		B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51ED2AAC5A4100C8AE64 /* CommonReactive+extension.swift */; };
 		B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51EF2AAC5AD000C8AE64 /* UIView+extension.swift */; };
 		B89F51F42AAC5C4D00C8AE64 /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89F51F32AAC5C4D00C8AE64 /* Array+extension.swift */; };
-		B8BDDD6D2ABA5E21003D863D /* UICollectionViewCell+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDDD6C2ABA5E21003D863D /* UICollectionViewCell+extension.swift */; };
+		B8BDDD6D2ABA5E21003D863D /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDDD6C2ABA5E21003D863D /* UICollectionView+extension.swift */; };
+		B8BDDD702ABA617E003D863D /* UIImageView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDDD6F2ABA617E003D863D /* UIImageView+extension.swift */; };
+		B8BDDD722ABA620D003D863D /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDDD712ABA620D003D863D /* Date+extension.swift */; };
 		B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC1B2AB6C618007A12E3 /* CommonModal.swift */; };
 		B8D9AC1F2AB6EA11007A12E3 /* CommonBottomModalAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC1E2AB6EA11007A12E3 /* CommonBottomModalAction.swift */; };
 		B8D9AC212AB6EA26007A12E3 /* CommonBottomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC202AB6EA26007A12E3 /* CommonBottomModal.swift */; };
@@ -69,11 +71,13 @@
 		B8E7C0402AB91B3700E310AF /* CGFloat+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C03F2AB91B3700E310AF /* CGFloat+extension.swift */; };
 		B8E7C0432AB91BC000E310AF /* NestStepCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0422AB91BC000E310AF /* NestStepCornerRadius.swift */; };
 		B8E7C0472AB9204100E310AF /* HomeBannerItemAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0462AB9204100E310AF /* HomeBannerItemAttribute.swift */; };
+		B8EF40EF2ABA6EE80046D2CB /* UITableView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EF40EE2ABA6EE80046D2CB /* UITableView+extension.swift */; };
+		B8EF40F12ABA6F330046D2CB /* HomeLayoutCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EF40F02ABA6F330046D2CB /* HomeLayoutCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		175194C0FD94D0830FE25A66 /* Pods-nextStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.debug.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.debug.xcconfig"; sourceTree = "<group>"; };
-		3EE7090BF53ECDD35CEA5A0C /* Pods-nextStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.release.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.release.xcconfig"; sourceTree = "<group>"; };
+		14F31F88F030049DFCB836D0 /* Pods_nextStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nextStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		401AE0E326BB00AAADE86895 /* Pods-nextStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.release.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.release.xcconfig"; sourceTree = "<group>"; };
 		B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewController.swift; sourceTree = "<group>"; };
 		B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewModel.swift; sourceTree = "<group>"; };
 		B80E741E2AB71D51007440D6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +130,9 @@
 		B89F51ED2AAC5A4100C8AE64 /* CommonReactive+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommonReactive+extension.swift"; sourceTree = "<group>"; };
 		B89F51EF2AAC5AD000C8AE64 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		B89F51F32AAC5C4D00C8AE64 /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
-		B8BDDD6C2ABA5E21003D863D /* UICollectionViewCell+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+extension.swift"; sourceTree = "<group>"; };
+		B8BDDD6C2ABA5E21003D863D /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
+		B8BDDD6F2ABA617E003D863D /* UIImageView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extension.swift"; sourceTree = "<group>"; };
+		B8BDDD712ABA620D003D863D /* Date+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extension.swift"; sourceTree = "<group>"; };
 		B8D9AC1B2AB6C618007A12E3 /* CommonModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModal.swift; sourceTree = "<group>"; };
 		B8D9AC1E2AB6EA11007A12E3 /* CommonBottomModalAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomModalAction.swift; sourceTree = "<group>"; };
 		B8D9AC202AB6EA26007A12E3 /* CommonBottomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomModal.swift; sourceTree = "<group>"; };
@@ -138,7 +144,9 @@
 		B8E7C03F2AB91B3700E310AF /* CGFloat+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+extension.swift"; sourceTree = "<group>"; };
 		B8E7C0422AB91BC000E310AF /* NestStepCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestStepCornerRadius.swift; sourceTree = "<group>"; };
 		B8E7C0462AB9204100E310AF /* HomeBannerItemAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerItemAttribute.swift; sourceTree = "<group>"; };
-		F7B6616B31D89259F1F8D943 /* Pods_nextStep.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nextStep.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EF40EE2ABA6EE80046D2CB /* UITableView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extension.swift"; sourceTree = "<group>"; };
+		B8EF40F02ABA6F330046D2CB /* HomeLayoutCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLayoutCategory.swift; sourceTree = "<group>"; };
+		CACE0F6D3A65DB219F5FDE00 /* Pods-nextStep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.debug.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6628EC41909A45E3E15EB3ED /* Pods_nextStep.framework in Frameworks */,
+				A967FA37C57DE80DFA7F40E2 /* Pods_nextStep.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +259,7 @@
 				B83A991C2AAC5540004C0A42 /* nextStep */,
 				B83A991B2AAC5540004C0A42 /* Products */,
 				E99248A8AA0FF149D34BFD04 /* Pods */,
-				F587E38311F57CB2C54B52F7 /* Frameworks */,
+				C71E4FBA5E4084E5B4BF9614 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -411,6 +419,7 @@
 				B837A8E32AAC707100A5F407 /* Dictionary+extension.swift */,
 				B837A8E52AAC712200A5F407 /* Codable+extension.swift */,
 				B8E7C03F2AB91B3700E310AF /* CGFloat+extension.swift */,
+				B8BDDD712ABA620D003D863D /* Date+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -464,7 +473,9 @@
 			children = (
 				B89F51EF2AAC5AD000C8AE64 /* UIView+extension.swift */,
 				B8E7C03D2AB918A900E310AF /* Font+extension.swift */,
-				B8BDDD6C2ABA5E21003D863D /* UICollectionViewCell+extension.swift */,
+				B8BDDD6C2ABA5E21003D863D /* UICollectionView+extension.swift */,
+				B8EF40EE2ABA6EE80046D2CB /* UITableView+extension.swift */,
+				B8BDDD6F2ABA617E003D863D /* UIImageView+extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -533,25 +544,26 @@
 			isa = PBXGroup;
 			children = (
 				B8E7C0462AB9204100E310AF /* HomeBannerItemAttribute.swift */,
+				B8EF40F02ABA6F330046D2CB /* HomeLayoutCategory.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C71E4FBA5E4084E5B4BF9614 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14F31F88F030049DFCB836D0 /* Pods_nextStep.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E99248A8AA0FF149D34BFD04 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				175194C0FD94D0830FE25A66 /* Pods-nextStep.debug.xcconfig */,
-				3EE7090BF53ECDD35CEA5A0C /* Pods-nextStep.release.xcconfig */,
+				CACE0F6D3A65DB219F5FDE00 /* Pods-nextStep.debug.xcconfig */,
+				401AE0E326BB00AAADE86895 /* Pods-nextStep.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		F587E38311F57CB2C54B52F7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F7B6616B31D89259F1F8D943 /* Pods_nextStep.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,12 +573,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B83A992E2AAC5541004C0A42 /* Build configuration list for PBXNativeTarget "nextStep" */;
 			buildPhases = (
-				2261AFEA886FF0D6529397A9 /* [CP] Check Pods Manifest.lock */,
+				F4634F75545C99E41EA0CE8D /* [CP] Check Pods Manifest.lock */,
 				B837A8D62AAC6B1100A5F407 /* R.swift */,
 				B83A99162AAC5540004C0A42 /* Sources */,
 				B83A99172AAC5540004C0A42 /* Frameworks */,
 				B83A99182AAC5540004C0A42 /* Resources */,
-				DE0194305E0D4B1C8CE68457 /* [CP] Embed Pods Frameworks */,
+				31275AD889E8F98DA1F2E4FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -628,26 +640,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2261AFEA886FF0D6529397A9 /* [CP] Check Pods Manifest.lock */ = {
+		31275AD889E8F98DA1F2E4FB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nextStep/Pods-nextStep-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-nextStep-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-nextStep/Pods-nextStep-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nextStep/Pods-nextStep-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B837A8D62AAC6B1100A5F407 /* R.swift */ = {
@@ -670,21 +677,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/nextStep/Support/Resource/R.generated.swift\"\n";
 		};
-		DE0194305E0D4B1C8CE68457 /* [CP] Embed Pods Frameworks */ = {
+		F4634F75545C99E41EA0CE8D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nextStep/Pods-nextStep-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nextStep/Pods-nextStep-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nextStep-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nextStep/Pods-nextStep-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -701,6 +713,7 @@
 				B837A8EE2AAC7FE200A5F407 /* CommonRESTfulAPIService.swift in Sources */,
 				B80E74252AB71D8C007440D6 /* HomeViewModel.swift in Sources */,
 				B8E7C03C2AB9155C00E310AF /* HomeBannerCollectionViewCell.swift in Sources */,
+				B8EF40F12ABA6F330046D2CB /* HomeLayoutCategory.swift in Sources */,
 				B80E74232AB71D7B007440D6 /* HomeViewController.swift in Sources */,
 				B837A9002AACAA2F00A5F407 /* RiotWrapper.swift in Sources */,
 				B80E74292AB71F04007440D6 /* MainTapBarCategory.swift in Sources */,
@@ -715,11 +728,12 @@
 				B85411052AB5D58700957BB1 /* LottieResourceManager.swift in Sources */,
 				B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */,
 				B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */,
-				B8BDDD6D2ABA5E21003D863D /* UICollectionViewCell+extension.swift in Sources */,
+				B8BDDD6D2ABA5E21003D863D /* UICollectionView+extension.swift in Sources */,
 				B85410ED2AB5BCBB00957BB1 /* AppStorageProtocol.swift in Sources */,
 				B8E7C0472AB9204100E310AF /* HomeBannerItemAttribute.swift in Sources */,
 				B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */,
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,
+				B8BDDD702ABA617E003D863D /* UIImageView+extension.swift in Sources */,
 				B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */,
 				B8E7C0332AB90A0200E310AF /* HomeBannerView.swift in Sources */,
 				B85410FA2AB5D31700957BB1 /* CommonToast.swift in Sources */,
@@ -727,6 +741,7 @@
 				B89F51EC2AAC58E900C8AE64 /* NSObject+extension.swift in Sources */,
 				B85411132AB5D7AA00957BB1 /* CommonBlurView.swift in Sources */,
 				B837A8D92AAC6C4100A5F407 /* R.generated.swift in Sources */,
+				B8BDDD722ABA620D003D863D /* Date+extension.swift in Sources */,
 				B8E7C0402AB91B3700E310AF /* CGFloat+extension.swift in Sources */,
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B89F51E82AAC580500C8AE64 /* BaseViewController.swift in Sources */,
@@ -745,6 +760,7 @@
 				B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */,
 				B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */,
 				B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */,
+				B8EF40EF2ABA6EE80046D2CB /* UITableView+extension.swift in Sources */,
 				B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */,
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,
 				B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */,
@@ -893,7 +909,7 @@
 		};
 		B83A992F2AAC5541004C0A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 175194C0FD94D0830FE25A66 /* Pods-nextStep.debug.xcconfig */;
+			baseConfigurationReference = CACE0F6D3A65DB219F5FDE00 /* Pods-nextStep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -921,7 +937,7 @@
 		};
 		B83A99302AAC5541004C0A42 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EE7090BF53ECDD35CEA5A0C /* Pods-nextStep.release.xcconfig */;
+			baseConfigurationReference = 401AE0E326BB00AAADE86895 /* Pods-nextStep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

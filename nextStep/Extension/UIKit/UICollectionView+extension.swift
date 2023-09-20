@@ -7,6 +7,9 @@
 
 import UIKit
 
+extension UICollectionView {
+    
+}
 extension UICollectionViewCell {
     static var identifier: String { tag }
 }

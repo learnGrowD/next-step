@@ -6,39 +6,47 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-final class HomeBannerView: UIView {
-    private let viewModel: HomeViewModel
+final class HomeBannerTableViewCell: UITableViewCell {
+    private var disposeBag = DisposeBag()
     private let collectionViewFlowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
     private let pageControll = UIPageControl()
 
-    override var intrinsicContentSize: CGSize {
-        let width = UIScreen.main.bounds.width
-        let collectionViewHeight: CGFloat = 416
-        let pageControllHeight: CGFloat = pageControll.intrinsicContentSize.height
-        let height: CGFloat = collectionViewHeight + 8 + pageControllHeight
-        return CGSize(width: width, height: height)
-    }
-
-    init(frame: CGRect = .zero, viewModel: HomeViewModel) {
-        self.viewModel = viewModel
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         attribute()
         layout()
-        bind(viewModel)
-        self.frame = CGRect(x: 0, y: 0, width: intrinsicContentSize.width, height: intrinsicContentSize.height)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func bind(_ viewModel: HomeViewModel) {
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
 
+    func bind(_ viewModel: HomeViewModel) {
+        viewModel.getHomeBannerList()
+            .bind(to: collectionView.rx.items) { collectionView, row, data in
+                let indexPath = IndexPath(row: row, section: 0)
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: HomeBannerCollectionViewCell.identifier,
+                    for: indexPath
+                ) as? HomeBannerCollectionViewCell else { return UICollectionViewCell() }
+                cell.bind(viewModel: viewModel, data: data)
+                return cell
+            }
+            .disposed(by: disposeBag)
+    }
+    
     private func attribute() {
+        selectionStyle = .none
+
         collectionViewFlowLayout.scrollDirection = .horizontal
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
@@ -51,6 +59,10 @@ final class HomeBannerView: UIView {
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.isPagingEnabled = true
         collectionView.backgroundColor = R.color.nestStepBlack()
+        collectionView.register(
+            HomeBannerCollectionViewCell.self,
+            forCellWithReuseIdentifier: HomeBannerCollectionViewCell.identifier
+        )
     }
 
     private func layout() {

@@ -17,11 +17,11 @@ extension NSObject {
     }
 
     var tag: String {
-        NSObject.tag
+        String(describing: String(describing: Self.self))
     }
 
     var className: String {
-        NSObject.className
+        String(describing: String(describing: type(of: self)))
     }
 
     func printMemoryAdress() {
