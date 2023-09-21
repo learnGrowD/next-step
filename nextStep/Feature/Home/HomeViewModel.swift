@@ -12,14 +12,17 @@ import RxCocoa
 final class HomeViewModel: BaseViewModel {
     let homeLayoutCategoryList = BehaviorRelay<[HomeLayoutCategory]>(value: [
         .banner,
-        .top,
-        .middle,
-        .jungle,
-        .bottom,
-        .support
+//        .top,
+//        .middle,
+//        .jungle,
+//        .bottom,
+//        .support
     ])
 
-    let homeBannerList = BehaviorRelay<[HomeBannerItemAttribute]>(value: [])
+    let homeBannerList = BehaviorRelay<[HomeBannerItemAttribute]>(value: [
+        .init(id: 0, backgroundImageURL: "", categoryText: "wef", title: "wef", allCount: 0, date: Date(), skinImageURLList: [], championInformation: "qrr"),
+        .init(id: 0, backgroundImageURL: "", categoryText: "wef", title: "wef", allCount: 0, date: Date(), skinImageURLList: [], championInformation: "qrr"),
+    ])
     let homeBannerButtonTap = PublishRelay<HomeBannerItemAttribute>()
 
     func getHomeLayoutCategoryList() -> Observable<[HomeLayoutCategory]> {

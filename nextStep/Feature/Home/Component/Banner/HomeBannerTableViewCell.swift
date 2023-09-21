@@ -51,14 +51,13 @@ final class HomeBannerTableViewCell: UITableViewCell {
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
         collectionViewFlowLayout.itemSize = CGSize(
-            width: intrinsicContentSize.width,
-            height: intrinsicContentSize.height
+            width: UIScreen.main.bounds.width,
+            height: 308
         )
 
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.isPagingEnabled = true
-        collectionView.backgroundColor = R.color.nestStepBlack()
+        collectionView.backgroundColor = .systemBlue
         collectionView.register(
             HomeBannerCollectionViewCell.self,
             forCellWithReuseIdentifier: HomeBannerCollectionViewCell.identifier
@@ -66,9 +65,13 @@ final class HomeBannerTableViewCell: UITableViewCell {
     }
 
     private func layout() {
-        addSubViews(collectionView, pageControll)
+        contentView.snp.makeConstraints {
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.height.equalTo(316)
+        }
+        contentView.addSubViews(collectionView, pageControll)
         collectionView.snp.makeConstraints {
-            $0.height.equalTo(416)
+            $0.height.equalTo(308)
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }

@@ -13,17 +13,18 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     override func attribute() {
         super.attribute()
         tableView.separatorStyle = .none
-        tableView.backgroundColor = R.color.nestStepBlack()
+        tableView.backgroundColor = .systemRed
         tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: HomeBannerTableViewCell.identifier)
     }
 
     override func layout() {
         super.layout()
         view.addSubview(tableView)
+
         tableView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalToSuperview()
+            $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
 

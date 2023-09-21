@@ -29,6 +29,10 @@ extension AppStorageProtocol {
         sceneDelegate?.window
     }
 
+    var safeAreaTopInsets: CGFloat {
+        window?.safeAreaInsets.top ?? 0.0
+    }
+
     var rootViewController: UIViewController? {
         window?.rootViewController
     }

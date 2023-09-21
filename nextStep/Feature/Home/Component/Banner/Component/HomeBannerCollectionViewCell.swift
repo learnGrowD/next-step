@@ -67,7 +67,7 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
     }
 
     private func layout() {
-        addSubViews(
+        contentView.addSubViews(
             backgroundImageView,
             recommendLabel,
             titleLabel,
@@ -82,7 +82,7 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         recommendLabel.snp.makeConstraints {
-            $0.top.equalTo(contentView.safeAreaLayoutGuide)
+            $0.top.equalToSuperview().inset(safeAreaTopInsets)
             $0.leading.equalToSuperview().inset(16)
         }
         titleLabel.snp.makeConstraints {

@@ -36,7 +36,7 @@ final class MainTabBarController: UITabBarController {
         let resource = getTabBarResource(category: category)
         result.tabBarItem.image = UIImage(named: resource.tabBarImageName)
         result.tabBarItem.title = resource.titleName
-        return result
+        return UINavigationController(rootViewController: result)
     }
 
     private func createViewController(category: MainTapBarCategory) {
