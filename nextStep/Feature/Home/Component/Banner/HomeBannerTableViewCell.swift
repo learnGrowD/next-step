@@ -52,7 +52,7 @@ final class HomeBannerTableViewCell: UITableViewCell {
         collectionViewFlowLayout.minimumInteritemSpacing = 0
         collectionViewFlowLayout.itemSize = CGSize(
             width: UIScreen.main.bounds.width,
-            height: 308
+            height: 308 + safeAreaTopInsets
         )
 
         collectionView.showsHorizontalScrollIndicator = false
@@ -71,8 +71,8 @@ final class HomeBannerTableViewCell: UITableViewCell {
         }
         contentView.addSubViews(collectionView, pageControll)
         collectionView.snp.makeConstraints {
-            $0.height.equalTo(308)
-            $0.top.equalToSuperview()
+            $0.height.equalTo(308 + safeAreaTopInsets)
+            $0.top.equalToSuperview().inset(-safeAreaTopInsets)
             $0.leading.trailing.equalToSuperview()
         }
         pageControll.snp.makeConstraints {

@@ -10,8 +10,9 @@ import UIKit
 struct DefaultAttributeManager {
 
     static func viewDefailtAttribute() {
-        UIView.appearance().backgroundColor = R.color.nestStepBlack()
+
         UILabel.appearance().textColor = .white
+        UIImageView.appearance().contentMode = .scaleAspectFill
     }
 
     static func navigationBarDefaultAttribute() {
@@ -20,6 +21,11 @@ struct DefaultAttributeManager {
          UINavigationBar 하단에 불투명한 그림자 표시에 관한 속성
          */
         appearance.shadowImage = UIImage()
+        appearance.layer.masksToBounds = true
+        appearance.layer.shadowOffset =  CGSize(width: 0, height: 0)
+        appearance.layer.shadowRadius = 0
+        appearance.layer.shadowColor = UIColor.clear.cgColor
+        appearance.layer.shadowOpacity = 0.0
         
         /*
          뒤로가기 이미지에 대한 속성
@@ -30,17 +36,18 @@ struct DefaultAttributeManager {
         /*
          NavigationBar 투명도에 대한 속성
          */
-        appearance.isTranslucent = false
+        appearance.backgroundColor = .clear
+        appearance.isTranslucent = true
 
         /*
          탭바의 배경화면을 설정하는 속성
          */
-        appearance.barTintColor = R.color.nestStepBlack()
+        appearance.barTintColor = .clear
 
         /*
          NavigationBar 탭바의 아이템 색깔을 설정하는 속성
          */
-        appearance.tintColor = .white
+        appearance.tintColor = .clear
 
         guard let font = R.font.notoSansRegular(size: 16) else { return }
         appearance.titleTextAttributes = [
@@ -56,10 +63,10 @@ struct DefaultAttributeManager {
         let appearance = UITabBar.appearance()
         appearance.layer.masksToBounds = false
         appearance.layer.shadowOffset = CGSize(width: 0, height: 0)
-        appearance.layer.shadowRadius = 1
+        appearance.layer.shadowRadius = 0
 
         appearance.layer.shadowColor = UIColor.clear.cgColor
-        appearance.layer.shadowOpacity = 0
+        appearance.layer.shadowOpacity = 0.0
 
         /*
          Tap Color

@@ -37,6 +37,8 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
     }
 
     private func attribute() {
+        contentView.backgroundColor = .gray
+        
         recommendLabel.font = .nestStepRegular(size: .small)
         recommendLabel.textColor = .white
 

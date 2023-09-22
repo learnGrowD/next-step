@@ -30,7 +30,7 @@ extension AppStorageProtocol {
     }
 
     var safeAreaTopInsets: CGFloat {
-        window?.safeAreaInsets.top ?? 0.0
+        depthViewController?.view.safeAreaInsets.top ?? 0.0
     }
 
     var rootViewController: UIViewController? {

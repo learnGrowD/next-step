@@ -8,5 +8,4 @@
 import UIKit
 
 final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
-    
 }
