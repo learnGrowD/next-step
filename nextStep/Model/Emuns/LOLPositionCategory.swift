@@ -8,9 +8,9 @@
 import Foundation
 
 enum LOLPositionCategory: String {
-    case top
-    case jungle
-    case middle
-    case bottom
-    case support
+    case top = "Top"
+    case jungle = "Jungle"
+    case middle = "Middle"
+    case bottom = "Bottom"
+    case support = "Support"
 }

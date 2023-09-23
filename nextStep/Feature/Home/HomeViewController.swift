@@ -30,10 +30,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         }
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
     override func bind(_ viewModel: HomeViewModel) {
         super.bind(viewModel)
         viewModel.getHomeLayoutCategoryList()

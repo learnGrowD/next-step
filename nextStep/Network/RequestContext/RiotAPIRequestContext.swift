@@ -16,11 +16,11 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
     }
     private static var version = "13.16.1"
     private static var local = "ko_KR"
-    private static let championFullImgPath   = RiotAPIRequestContext.baseURL + "/cdn/img/champion/splash/"
-    private static let championMiddleImgPath = RiotAPIRequestContext.baseURL + "/cdn/img/champion/loading/"
-    private static let championSmallImgPath  = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/champion/"
-    private static let passiveImgPath        = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/passive/"
-    private static let spellImgPath          = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/spell/"
+    private static let championFullImgPath   = RiotAPIRequestContext.baseURL + "/cdn/img/champion/splash"
+    private static let championMiddleImgPath = RiotAPIRequestContext.baseURL + "/cdn/img/champion/loading"
+    private static let championSmallImgPath  = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/champion"
+    private static let passiveImagePath = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/passive"
+    private static let spellImagePath = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/spell"
     
     var serverName: String { "riot-api server" }
     var resultCode: String? { nil }
@@ -57,20 +57,20 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
     ) -> String? {
         switch championImageSizeStatus {
         case .full:
-            return "\(championFullImgPath)\(championID ?? "")_\(skinIndexNumber ?? 0).jpg"
+            return "\(championFullImgPath)/\(championID ?? "")_\(skinIndexNumber ?? 0).jpg"
         case .middle:
-            return "\(championMiddleImgPath)\(championID ?? "")_\(skinIndexNumber ?? 0).jpg"
+            return "\(championMiddleImgPath)/\(championID ?? "")_\(skinIndexNumber ?? 0).jpg"
         case .small:
-            return "\(championSmallImgPath)\(championID ?? "").png"
+            return "\(championSmallImgPath)/\(championID ?? "").png"
         }
     }
 
     static func convertPassiveImgURL(passiveIdentity : String?) -> String? {
-        passiveImgPath + (passiveIdentity ?? "")
+        "\(passiveImagePath)/\(passiveIdentity ?? "")"
     }
 
     static func convertSpellImgURL(spellIdentity : String?) -> String? {
-        spellImgPath + (spellIdentity ?? "")
+        "\(spellImagePath)/\(spellIdentity ?? "")"
     }
 
     static func convertVedioURL(championKey: String?, skillKey: LOLSkillStatus) -> String {

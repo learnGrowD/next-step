@@ -8,11 +8,13 @@
 import Foundation
 
 enum LOLTierCategory: String {
-    case challenger
-    case master
-    case diamond
-    case platinum
-    case gold
-    case silver
-    case bronze
+    case challenger = "Challenger"
+    case master = "Master"
+    case grandmaster = "Grandmaster"
+    case diamond = "Diamond"
+    case platinum = "Platinum"
+    case gold = "Gold"
+    case silver = "Silver"
+    case bronze = "Bronze"
+    case iron = "Iron"
 }

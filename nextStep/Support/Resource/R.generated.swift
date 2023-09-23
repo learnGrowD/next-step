@@ -14,6 +14,7 @@ struct _R {
   let bundle: Foundation.Bundle
   var string: string { .init(bundle: bundle, preferredLanguages: nil, locale: nil) }
   var color: color { .init(bundle: bundle) }
+  var image: image { .init(bundle: bundle) }
   var info: info { .init(bundle: bundle) }
   var font: font { .init(bundle: bundle) }
   var file: file { .init(bundle: bundle) }
@@ -29,6 +30,9 @@ struct _R {
     .init(bundle: bundle, preferredLanguages: preferredLanguages, locale: locale)
   }
   func color(bundle: Foundation.Bundle) -> color {
+    .init(bundle: bundle)
+  }
+  func image(bundle: Foundation.Bundle) -> image {
     .init(bundle: bundle)
   }
   func info(bundle: Foundation.Bundle) -> info {
@@ -91,6 +95,53 @@ struct _R {
 
     /// Color `nestStepBrand`.
     var nestStepBrand: RswiftResources.ColorResource { .init(name: "nestStepBrand", path: [], bundle: bundle) }
+  }
+
+  /// This `_R.image` struct is generated, and contains static references to 14 images.
+  struct image {
+    let bundle: Foundation.Bundle
+
+    /// Image `positionBottom`.
+    var positionBottom: RswiftResources.ImageResource { .init(name: "positionBottom", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `positionJungle`.
+    var positionJungle: RswiftResources.ImageResource { .init(name: "positionJungle", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `positionMiddle`.
+    var positionMiddle: RswiftResources.ImageResource { .init(name: "positionMiddle", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `positionSupport`.
+    var positionSupport: RswiftResources.ImageResource { .init(name: "positionSupport", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `positionTop`.
+    var positionTop: RswiftResources.ImageResource { .init(name: "positionTop", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierBronze`.
+    var tierBronze: RswiftResources.ImageResource { .init(name: "tierBronze", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierChallenger`.
+    var tierChallenger: RswiftResources.ImageResource { .init(name: "tierChallenger", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierDiamond`.
+    var tierDiamond: RswiftResources.ImageResource { .init(name: "tierDiamond", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierGold`.
+    var tierGold: RswiftResources.ImageResource { .init(name: "tierGold", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierGrandmaster`.
+    var tierGrandmaster: RswiftResources.ImageResource { .init(name: "tierGrandmaster", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierIron`.
+    var tierIron: RswiftResources.ImageResource { .init(name: "tierIron", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierMaster`.
+    var tierMaster: RswiftResources.ImageResource { .init(name: "tierMaster", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierPlatinum`.
+    var tierPlatinum: RswiftResources.ImageResource { .init(name: "tierPlatinum", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `tierSilver`.
+    var tierSilver: RswiftResources.ImageResource { .init(name: "tierSilver", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.
