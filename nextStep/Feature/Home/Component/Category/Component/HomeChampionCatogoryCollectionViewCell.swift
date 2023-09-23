@@ -73,8 +73,7 @@ final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
         thumbnailImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
         let thumbnailImageURL = RiotAPIRequestContext.getChampionImageURL(
             championImageSizeStatus: .full,
-            championID: data.id,
-            skinIndexNumber: 0
+            championID: data.id
         )
         thumbnailImageView.bindImage(imageURL: thumbnailImageURL)
 

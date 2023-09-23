@@ -11,7 +11,19 @@ import Kingfisher
 extension UIImageView {
     func bindImage(imageURL: String?) {
         guard let imageURL = imageURL else { return }
-        kf.setImage(with: URL(string: imageURL))
+        let blurView = UIView()
+        blurView.backgroundColor = .darkGray
+        self.addSubview(blurView)
+        blurView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        kf.setImage(with: URL(string: imageURL)) { _ in
+            UIView.animate(withDuration: 0.2, animations: {
+                blurView.alpha = 0.0
+            }, completion: { _ in
+                blurView.removeFromSuperview()
+            })
+        }
     }
 }
 

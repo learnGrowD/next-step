@@ -53,7 +53,7 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
     static func getChampionImageURL(
         championImageSizeStatus: ChampionImageSizeStatus,
         championID: String?,
-        skinIndexNumber: Int?
+        skinIndexNumber: Int? = 0
     ) -> String? {
         switch championImageSizeStatus {
         case .full:
