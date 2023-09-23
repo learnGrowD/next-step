@@ -50,17 +50,17 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
 
         centerThubnailImageView.layer.zPosition = 2
         centerThubnailImageView.clipsToBounds = true
-        centerThubnailImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
+        centerThubnailImageView.layer.cornerRadius = 72
         centerThubnailImageView.contentMode = .scaleAspectFill
 
         leftThumbnailImageView.layer.zPosition = 1
         leftThumbnailImageView.clipsToBounds = true
-        leftThumbnailImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
+        leftThumbnailImageView.layer.cornerRadius = 48
         leftThumbnailImageView.contentMode = .scaleAspectFill
 
         rightThumbnailImageView.layer.zPosition = 1
         rightThumbnailImageView.clipsToBounds = true
-        rightThumbnailImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
+        rightThumbnailImageView.layer.cornerRadius = 48
         rightThumbnailImageView.contentMode = .scaleAspectFill
 
         championInformationLabel.font = .nestStepRegular(size: .extraSmall)

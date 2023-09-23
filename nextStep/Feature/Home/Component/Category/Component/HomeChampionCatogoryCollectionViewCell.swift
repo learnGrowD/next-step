@@ -30,11 +30,19 @@ final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
         disposeBag = DisposeBag()
     }
 
-    private func attribute() {}
+    private func attribute() {
+        contentView.backgroundColor = R.color.nestStepBlack()
+        nameLabel.font = .nestStepRegular(size: .small)
+        nameLabel.textColor = .white
+
+        titleLabel.font = .nestStepRegular(size: .extraSmall)
+        titleLabel.textColor = .white
+    }
 
     private func layout() {
         contentView.addSubViews(thumbnailImageView, nameLabel, titleLabel)
         thumbnailImageView.snp.makeConstraints {
+            $0.size.equalTo(164)
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
         }
@@ -70,10 +78,7 @@ final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
         )
         thumbnailImageView.bindImage(imageURL: thumbnailImageURL)
 
-        nameLabel.font = .nestStepRegular(size: .medium)
-        nameLabel.textColor = .white
-
-        titleLabel.font = .nestStepRegular(size: .small)
-        titleLabel.textColor = .white
+        nameLabel.text = data.championName
+        titleLabel.text = data.title
     }
 }

@@ -15,6 +15,9 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
+    private let collectionViewHeight = 164
+    + String.getRegularHeightSize(size: .small)
+    + String.getRegularHeightSize(size: .extraSmall) + 8
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         attribute()
@@ -33,12 +36,15 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
     private func attribute() {
         contentView.backgroundColor = .systemBlue
         titleLabel.font = .nestStepBold(size: .medium)
+        titleLabel.text = "A"
 
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 8
         flowLayout.minimumInteritemSpacing = 0
-        let size: CGFloat = 164
-        flowLayout.itemSize = CGSize(width: size, height: size + 24)
+
+        let width: CGFloat = 164
+        let height: CGFloat = collectionViewHeight
+        flowLayout.itemSize = CGSize(width: width, height: height)
 
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(
@@ -51,7 +57,8 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
         contentView.addSubViews(titleLabel, collectionView)
         contentView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(208 + 88)
+            let height = titleLabel.intrinsicContentSize.height + collectionViewHeight + 16 + 88
+            $0.height.equalTo(height)
         }
 
         titleLabel.snp.makeConstraints {
@@ -61,7 +68,7 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
         }
 
         collectionView.snp.makeConstraints {
-            $0.height.equalTo(164)
+            $0.height.equalTo(collectionViewHeight)
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.bottom.equalToSuperview().inset(88)
             $0.leading.trailing.equalToSuperview()
