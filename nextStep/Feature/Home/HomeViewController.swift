@@ -16,6 +16,8 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         tableView.backgroundColor = .systemRed
         tableView.backgroundView = UIView()
         tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: HomeBannerTableViewCell.identifier)
+        tableView.register(HomeChampionCatogoryListTableViewCell.self,
+                           forCellReuseIdentifier: HomeChampionCatogoryListTableViewCell.identifier)
     }
 
     override func layout() {
@@ -45,16 +47,13 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                     ) as? HomeBannerTableViewCell else { return UITableViewCell() }
                     cell.bind(viewModel)
                     return cell
-                case .top:
-                    return UITableViewCell()
-                case .jungle:
-                    return UITableViewCell()
-                case .middle:
-                    return UITableViewCell()
-                case .bottom:
-                    return UITableViewCell()
-                case .support:
-                    return UITableViewCell()
+                case .small(let category):
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: HomeChampionCatogoryListTableViewCell.identifier,
+                        for: indexPath
+                    ) as? HomeChampionCatogoryListTableViewCell else { return UITableViewCell() }
+                    cell.bind(category: category, viewModel: viewModel)
+                    return cell
                 }
             }
             .disposed(by: disposeBag)

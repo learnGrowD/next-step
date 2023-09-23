@@ -8,6 +8,6 @@
 import Foundation
 
 protocol CommonRepositoryProtocol {}
-class CommonRepository: CommonRepositoryProtocol {
-    private init() {}
+extension CommonRepositoryProtocol {
+    var riotAPI: RiotAPI { RiotAPI.shared }
 }

@@ -1,19 +1,19 @@
 //
-//  MainBannerCollectionView.swift
+//  ChampionCatogoryListView.swift
 //  nextStep
 //
-//  Created by 도학태 on 2023/09/19.
+//  Created by 도학태 on 2023/09/23.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-final class HomeBannerTableViewCell: UITableViewCell {
+final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
     private var disposeBag = DisposeBag()
+    private let titleLabel = UILabel()
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-    private let pageControll = UIPageControl()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,51 +29,54 @@ final class HomeBannerTableViewCell: UITableViewCell {
         super.prepareForReuse()
         disposeBag = DisposeBag()
     }
+
     private func attribute() {
         contentView.backgroundColor = .systemBlue
+        titleLabel.font = .nestStepBold(size: .medium)
 
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 8
         flowLayout.minimumInteritemSpacing = 0
-        flowLayout.itemSize = CGSize(
-            width: UIScreen.main.bounds.width,
-            height: 308 + safeAreaTopInsets
-        )
-        
+        let size: CGFloat = 164
+        flowLayout.itemSize = CGSize(width: size, height: size + 24)
+
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isPagingEnabled = true
         collectionView.register(
-            HomeBannerCollectionViewCell.self,
-            forCellWithReuseIdentifier: HomeBannerCollectionViewCell.identifier
+            HomeChampionCatogoryCollectionViewCell.self,
+            forCellWithReuseIdentifier: HomeChampionCatogoryCollectionViewCell.identifier
         )
     }
 
     private func layout() {
+        contentView.addSubViews(titleLabel, collectionView)
         contentView.snp.makeConstraints {
-            $0.width.equalTo(UIScreen.main.bounds.width)
-            $0.height.equalTo(316 + 32)
-        }
-        contentView.addSubViews(collectionView, pageControll)
-        collectionView.snp.makeConstraints {
-            $0.height.equalTo(308 + safeAreaTopInsets)
-            $0.top.equalToSuperview().inset(-safeAreaTopInsets)
             $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(208 + 88)
         }
-        pageControll.snp.makeConstraints {
-            $0.top.equalTo(collectionView.snp.bottom).offset(8)
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(32)
+
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.lessThanOrEqualToSuperview().inset(16)
+        }
+
+        collectionView.snp.makeConstraints {
+            $0.height.equalTo(164)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.bottom.equalToSuperview().inset(88)
+            $0.leading.trailing.equalToSuperview()
         }
     }
 
-    func bind(_ viewModel: HomeViewModel) {
-        viewModel.getHomeBannerList()
+    func bind(category: LOLChampionTagCategory, viewModel: HomeViewModel) {
+        titleLabel.text = viewModel.getTitle(category: category)
+        viewModel.getCategoryList(category: category)
             .bind(to: collectionView.rx.items) { collectionView, row, data in
                 let indexPath = IndexPath(row: row, section: 0)
                 guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: HomeBannerCollectionViewCell.identifier,
+                    withReuseIdentifier: HomeChampionCatogoryCollectionViewCell.identifier,
                     for: indexPath
-                ) as? HomeBannerCollectionViewCell else { return UICollectionViewCell() }
+                ) as? HomeChampionCatogoryCollectionViewCell else { return UICollectionViewCell() }
                 cell.bind(viewModel: viewModel, data: data)
                 return cell
             }
