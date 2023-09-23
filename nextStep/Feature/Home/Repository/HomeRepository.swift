@@ -41,6 +41,9 @@ final class HomeRepository: CommonRepositoryProtocol {
                 }
                 return result
             }
+            .catch { _ in
+                Observable<[HomeChampionCategoryAttribute]>.empty()
+            }
 
     }
 }

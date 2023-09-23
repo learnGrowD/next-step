@@ -71,6 +71,9 @@
 		B8D9AC212AB6EA26007A12E3 /* CommonBottomModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D9AC202AB6EA26007A12E3 /* CommonBottomModal.swift */; };
 		B8DDB8BD2ABEB7810068C7C0 /* LOLChampionTagCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8BC2ABEB7810068C7C0 /* LOLChampionTagCategory.swift */; };
 		B8DDB8BF2ABEC4320068C7C0 /* LOLChampionImageSizeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8BE2ABEC4320068C7C0 /* LOLChampionImageSizeStatus.swift */; };
+		B8DDB8C12ABF08F40068C7C0 /* LOLSkillStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8C02ABF08F40068C7C0 /* LOLSkillStatus.swift */; };
+		B8DDB8C32ABF0FE00068C7C0 /* Int+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8C22ABF0FE00068C7C0 /* Int+extension.swift */; };
+		B8DDB8C52ABF10B50068C7C0 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8C42ABF10B50068C7C0 /* String+extension.swift */; };
 		B8E7C0332AB90A0200E310AF /* HomeBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0322AB90A0200E310AF /* HomeBannerTableViewCell.swift */; };
 		B8E7C0362AB9144700E310AF /* LOLPositionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0352AB9144700E310AF /* LOLPositionCategory.swift */; };
 		B8E7C0382AB9148100E310AF /* LOLTierCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */; };
@@ -152,6 +155,9 @@
 		B8D9AC202AB6EA26007A12E3 /* CommonBottomModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBottomModal.swift; sourceTree = "<group>"; };
 		B8DDB8BC2ABEB7810068C7C0 /* LOLChampionTagCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLChampionTagCategory.swift; sourceTree = "<group>"; };
 		B8DDB8BE2ABEC4320068C7C0 /* LOLChampionImageSizeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLChampionImageSizeStatus.swift; sourceTree = "<group>"; };
+		B8DDB8C02ABF08F40068C7C0 /* LOLSkillStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLSkillStatus.swift; sourceTree = "<group>"; };
+		B8DDB8C22ABF0FE00068C7C0 /* Int+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+extension.swift"; sourceTree = "<group>"; };
+		B8DDB8C42ABF10B50068C7C0 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		B8E7C0322AB90A0200E310AF /* HomeBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7C0352AB9144700E310AF /* LOLPositionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLPositionCategory.swift; sourceTree = "<group>"; };
 		B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLTierCategory.swift; sourceTree = "<group>"; };
@@ -471,6 +477,8 @@
 				B837A8E52AAC712200A5F407 /* Codable+extension.swift */,
 				B8E7C03F2AB91B3700E310AF /* CGFloat+extension.swift */,
 				B8BDDD712ABA620D003D863D /* Date+extension.swift */,
+				B8DDB8C22ABF0FE00068C7C0 /* Int+extension.swift */,
+				B8DDB8C42ABF10B50068C7C0 /* String+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -607,6 +615,7 @@
 				B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */,
 				B8DDB8BC2ABEB7810068C7C0 /* LOLChampionTagCategory.swift */,
 				B8DDB8BE2ABEC4320068C7C0 /* LOLChampionImageSizeStatus.swift */,
+				B8DDB8C02ABF08F40068C7C0 /* LOLSkillStatus.swift */,
 			);
 			path = Emuns;
 			sourceTree = "<group>";
@@ -804,6 +813,7 @@
 				B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */,
 				B8BDDD6D2ABA5E21003D863D /* UICollectionView+extension.swift in Sources */,
 				B85410ED2AB5BCBB00957BB1 /* AppStorageProtocol.swift in Sources */,
+				B8DDB8C52ABF10B50068C7C0 /* String+extension.swift in Sources */,
 				B8E7C0472AB9204100E310AF /* HomeBannerItemAttribute.swift in Sources */,
 				B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */,
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,
@@ -835,10 +845,12 @@
 				B85411092AB5D60900957BB1 /* CommonRetryView.swift in Sources */,
 				B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */,
 				B8D9AC1F2AB6EA11007A12E3 /* CommonBottomModalAction.swift in Sources */,
+				B8DDB8C12ABF08F40068C7C0 /* LOLSkillStatus.swift in Sources */,
 				B837A8E62AAC712200A5F407 /* Codable+extension.swift in Sources */,
 				B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */,
 				B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */,
 				B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */,
+				B8DDB8C32ABF0FE00068C7C0 /* Int+extension.swift in Sources */,
 				B8EF40EF2ABA6EE80046D2CB /* UITableView+extension.swift in Sources */,
 				B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */,
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,

@@ -14,8 +14,8 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         ? "https://ddragon.leagueoflegends.com"
         : "https://test-ddragon.leagueoflegends.com"
     }
-    static var version = "13.16.1"
-    static var local = "ko_KR"
+    private static var version = "13.16.1"
+    private static var local = "ko_KR"
     private static let championFullImgPath   = RiotAPIRequestContext.baseURL + "/cdn/img/champion/splash/"
     private static let championMiddleImgPath = RiotAPIRequestContext.baseURL + "/cdn/img/champion/loading/"
     private static let championSmallImgPath  = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/champion/"
@@ -49,6 +49,7 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         self.headers = headers
     }
 
+    //MARK: - ImageURL id, key를 통해서 convert
     static func getChampionImageURL(
         championImageSizeStatus: ChampionImageSizeStatus,
         championID: String?,
@@ -64,11 +65,16 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         }
     }
 
-    static func convertPassiveImgUrl(passiveIdentity : String?) -> URL? {
-        URL(string: passiveImgPath + (passiveIdentity ?? ""))
+    static func convertPassiveImgURL(passiveIdentity : String?) -> String? {
+        passiveImgPath + (passiveIdentity ?? "")
     }
 
-    static func convertSpellImgUrl(spellIdentity : String?) -> URL? {
-        URL(string: spellImgPath + (spellIdentity ?? ""))
+    static func convertSpellImgURL(spellIdentity : String?) -> String? {
+        spellImgPath + (spellIdentity ?? "")
+    }
+
+    static func convertVedioURL(championKey: String?, skillKey: LOLSkillStatus) -> String {
+        let key = championKey?.convertNumberWithZeros() ?? ""
+        return "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/\(key)/ability_\(key)_\(skillKey.rawValue)1.mp4"
     }
 }
