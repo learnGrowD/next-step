@@ -126,10 +126,11 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
 
     private func setUI(data: HomeBannerItemAttribute) {
         backgroundImageView.bindImage(imageURL: data.backgroundImageURL)
-        recommendLabel.text = "\(data.categoryText) 추천"
+        recommendLabel.text = R.string.localizable.homeBannerCollectionViewCellRecommend(data.categoryText)
         titleLabel.text = data.title
         let dateString = data.date.toString(format: "yyyy.MM.dd")
-        skinCountAndDateLabel.text = "스킨 \(data.allCount) 개 \(dateString)"
+        skinCountAndDateLabel.text = R.string.localizable.homeBannerCollectionViewCellSkinCount(data.allCount, dateString)
+
         [
             centerThubnailImageView,
             leftThumbnailImageView,

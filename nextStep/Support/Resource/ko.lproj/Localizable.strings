@@ -5,3 +5,23 @@
   Created by 도학태 on 2023/09/09.
   
 */
+
+//CommonRESTfulAPIService
+"apiServiceResponseToErrorWithUIMessage" = "현재 일시적인 오류가 발생했습니다.\n담당자에게 문의해주세요.\n[010-8705-1693]\n[%@]";
+
+//MainTabBarController
+"homeTabTitle" = "Home";
+"lookAroundTabTitle" = "둘러보기";
+"galleryTabTitle" = "갤러리";
+
+//HomeViewModel
+"homeViewModelAssassin" = "어썌신";
+"homeViewModelFighter" = "파이터";
+"homeViewModelMage" = "메이지";
+"homeViewModelMarksman" = "마크맨";
+"homeViewModelSupport" = "서포터";
+"homeViewModelTank" = "탱커";
+
+//HomeBannerCollectionViewCell
+"homeBannerCollectionViewCellRecommend" = "%@ 추천";
+"homeBannerCollectionViewCellSkinCount" = "스킨 %d 개 %@";

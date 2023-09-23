@@ -77,9 +77,93 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 0 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 12 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
+
+      /// ko translation: 현재 일시적인 오류가 발생했습니다. 담당자에게 문의해주세요. [010-8705-1693] [%@]
+      ///
+      /// Key: apiServiceResponseToErrorWithUIMessage
+      ///
+      /// Locales: ko
+      var apiServiceResponseToErrorWithUIMessage: RswiftResources.StringResource1<String> { .init(key: "apiServiceResponseToErrorWithUIMessage", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 갤러리
+      ///
+      /// Key: galleryTabTitle
+      ///
+      /// Locales: ko
+      var galleryTabTitle: RswiftResources.StringResource { .init(key: "galleryTabTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: %@ 추천
+      ///
+      /// Key: homeBannerCollectionViewCellRecommend
+      ///
+      /// Locales: ko
+      var homeBannerCollectionViewCellRecommend: RswiftResources.StringResource1<String> { .init(key: "homeBannerCollectionViewCellRecommend", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 스킨 %d 개 %@
+      ///
+      /// Key: homeBannerCollectionViewCellSkinCount
+      ///
+      /// Locales: ko
+      var homeBannerCollectionViewCellSkinCount: RswiftResources.StringResource2<Int, String> { .init(key: "homeBannerCollectionViewCellSkinCount", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: Home
+      ///
+      /// Key: homeTabTitle
+      ///
+      /// Locales: ko
+      var homeTabTitle: RswiftResources.StringResource { .init(key: "homeTabTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 어썌신
+      ///
+      /// Key: homeViewModelAssassin
+      ///
+      /// Locales: ko
+      var homeViewModelAssassin: RswiftResources.StringResource { .init(key: "homeViewModelAssassin", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 파이터
+      ///
+      /// Key: homeViewModelFighter
+      ///
+      /// Locales: ko
+      var homeViewModelFighter: RswiftResources.StringResource { .init(key: "homeViewModelFighter", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 메이지
+      ///
+      /// Key: homeViewModelMage
+      ///
+      /// Locales: ko
+      var homeViewModelMage: RswiftResources.StringResource { .init(key: "homeViewModelMage", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 마크맨
+      ///
+      /// Key: homeViewModelMarksman
+      ///
+      /// Locales: ko
+      var homeViewModelMarksman: RswiftResources.StringResource { .init(key: "homeViewModelMarksman", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 서포터
+      ///
+      /// Key: homeViewModelSupport
+      ///
+      /// Locales: ko
+      var homeViewModelSupport: RswiftResources.StringResource { .init(key: "homeViewModelSupport", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 탱커
+      ///
+      /// Key: homeViewModelTank
+      ///
+      /// Locales: ko
+      var homeViewModelTank: RswiftResources.StringResource { .init(key: "homeViewModelTank", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 둘러보기
+      ///
+      /// Key: lookAroundTabTitle
+      ///
+      /// Locales: ko
+      var lookAroundTabTitle: RswiftResources.StringResource { .init(key: "lookAroundTabTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
     }
   }
 

@@ -62,11 +62,11 @@ final class MainTabBarController: UITabBarController {
     private func getTabBarResource(category: MainTapBarCategory) -> (tabBarImageName: String, titleName: String) {
         switch category {
         case .home:
-            return ("", "Home")
+            return ("", R.string.localizable.homeTabTitle())
         case .lookAround:
-            return ("", "둘러보기")
+            return ("", R.string.localizable.lookAroundTabTitle())
         case .gallery:
-            return ("", "갤러리")
+            return ("", R.string.localizable.galleryTabTitle())
         }
     }
 
