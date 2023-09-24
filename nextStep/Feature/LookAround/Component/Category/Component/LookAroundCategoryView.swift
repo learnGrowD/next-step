@@ -32,7 +32,6 @@ final class LookAroundCategoryView: UIView {
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 8
 
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(
             LookAroundCategoryCollectionViewCell.self,
@@ -47,6 +46,7 @@ final class LookAroundCategoryView: UIView {
         snp.makeConstraints {
             $0.height.equalTo(40)
         }
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.snp.makeConstraints {
             $0.height.equalToSuperview()
             $0.top.equalToSuperview()

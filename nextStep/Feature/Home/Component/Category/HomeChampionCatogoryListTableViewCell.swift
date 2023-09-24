@@ -50,7 +50,6 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
         flowLayout.minimumLineSpacing = 12
         flowLayout.minimumInteritemSpacing = 0
 
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(
             HomeChampionSmallCatogoryCollectionViewCell.self,
@@ -74,6 +73,7 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
             $0.trailing.lessThanOrEqualToSuperview().inset(16)
         }
 
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
             $0.bottom.equalToSuperview().inset(48)

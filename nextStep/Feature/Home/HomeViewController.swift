@@ -15,7 +15,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     override func attribute() {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
-        tableView.separatorStyle = .none
         tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: HomeBannerTableViewCell.identifier)
         tableView.register(HomeBetweenBannerTableViewCell.self,
                            forCellReuseIdentifier: HomeBetweenBannerTableViewCell.identifier)
@@ -34,7 +33,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     }
     override func bind(_ viewModel: HomeViewModel) {
         super.bind(viewModel)
-        viewModel.getHomeLayoutCategoryList()
+        viewModel.getHomeLayoutStatusList()
             .bind(to: tableView.rx.items) { tableView, row, category in
                 let indexPath = IndexPath(row: row, section: 0)
                 switch category {

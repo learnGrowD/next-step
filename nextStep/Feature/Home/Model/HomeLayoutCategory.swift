@@ -1,5 +1,5 @@
 //
-//  HomeLayoutCategory.swift
+//  HomeLayoutStatus.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HomeLayoutCategory {
+enum HomeLayoutStatus {
     case banner
     case betweenBanner(betweenBannerAttribute: HomeBetweenBannerAttribute)
     case small(lolChampionTagCategory: LOLChampionTagCategory)

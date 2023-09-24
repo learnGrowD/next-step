@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class HomeViewModel: BaseViewModel {
-    private let homeLayoutCategoryList = BehaviorRelay<[HomeLayoutCategory]>(value: [])
+    private let HomeLayoutStatusList = BehaviorRelay<[HomeLayoutStatus]>(value: [])
     private let homeBannerList = BehaviorRelay<[HomeBannerItemAttribute]>(value: [])
     let homeBannerButtonTap = PublishRelay<HomeBannerItemAttribute>()
 
@@ -43,8 +43,8 @@ final class HomeViewModel: BaseViewModel {
 
     }
 
-    func getHomeLayoutCategoryList() -> Observable<[HomeLayoutCategory]> {
-        homeLayoutCategoryList
+    func getHomeLayoutStatusList() -> Observable<[HomeLayoutStatus]> {
+        HomeLayoutStatusList
             .filter { !$0.isEmpty }
     }
 
@@ -95,7 +95,7 @@ final class HomeViewModel: BaseViewModel {
     private func bind(_ repository: HomeRepository = HomeRepository()) {
         repository.getLayouts()
             .take(1)
-            .bind(to: homeLayoutCategoryList)
+            .bind(to: HomeLayoutStatusList)
             .disposed(by: disposeBag)
 
         repository.getBannerList()
