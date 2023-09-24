@@ -76,7 +76,6 @@ final class HomeBannerTableViewCell: UITableViewCell {
     func bind(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         viewModel.getHomeBannerList()
-            .debug()
             .bind(onNext: { [weak self] _ in
                 self?.collectionView.reloadData()
             })

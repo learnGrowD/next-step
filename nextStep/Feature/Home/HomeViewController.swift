@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class HomeViewController: BaseViewController<HomeViewModel> {
     private let tableView = UITableView()
@@ -17,7 +19,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         tableView.register(HomeChampionCatogoryListTableViewCell.self,
                            forCellReuseIdentifier: HomeChampionCatogoryListTableViewCell.identifier)
     }
-
+    
     override func layout() {
         super.layout()
         view.addSubview(tableView)
@@ -48,8 +50,25 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                     ) as? HomeChampionCatogoryListTableViewCell else { return UITableViewCell() }
                     cell.bind(category, viewModel: viewModel)
                     return cell
+                default:
+                    return UITableViewCell()
                 }
             }
             .disposed(by: disposeBag)
+
+        Observable.merge(
+            viewModel.getHomeBannerButtonTapWithChampionID(),
+            viewModel.getCategoryButtonTapWithChampionID()
+        )
+        .bind(onNext: { [weak self] id in
+            self?.pushChampionDetailViewController(id: id)
+        })
+        .disposed(by: disposeBag)
+    }
+}
+
+extension HomeViewController {
+    func pushChampionDetailViewController(id: String) {
+        print("Champion ID: \(id)")
     }
 }

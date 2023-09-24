@@ -9,5 +9,7 @@ import Foundation
 
 enum HomeLayoutCategory {
     case banner
+    case betweenBanner
     case small(lolChampionTagCategory: LOLChampionTagCategory)
+    case large(lolChampionTagCategory: LOLChampionTagCategory)
 }

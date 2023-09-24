@@ -10,8 +10,6 @@ import RxSwift
 import RxCocoa
 
 final class HomeRepository: CommonRepositoryProtocol {
-    static let shared = HomeRepository()
-
     func getLayouts() -> Observable<[HomeLayoutCategory]> {
         Observable.just([
             .banner,
@@ -24,7 +22,8 @@ final class HomeRepository: CommonRepositoryProtocol {
     }
 
     func getBannerList() -> Observable<[HomeBannerItemAttribute]> {
-        Observable.just(HomeBannerItemAttribute.getMocupData())
+        let sequence = HomeBannerItemAttribute.getMocupData().shuffled()
+        return Observable.just(sequence)
     }
 
     func getCategory() -> Observable<[HomeChampionCategoryAttribute]> {
@@ -43,7 +42,7 @@ final class HomeRepository: CommonRepositoryProtocol {
                         result.append(value)
                     }
                 }
-                return result
+                return result.shuffled()
             }
             .catch { _ in
                 Observable<[HomeChampionCategoryAttribute]>.empty()

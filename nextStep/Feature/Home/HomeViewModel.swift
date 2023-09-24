@@ -13,6 +13,7 @@ final class HomeViewModel: BaseViewModel {
     let homeLayoutCategoryList = BehaviorRelay<[HomeLayoutCategory]>(value: [])
     let homeBannerList = BehaviorRelay<[HomeBannerItemAttribute]>(value: [])
     let homeBannerButtonTap = PublishRelay<HomeBannerItemAttribute>()
+
     let categoryList = BehaviorRelay<[HomeChampionCategoryAttribute]>(value: [])
     let categoryButtonTap = PublishRelay<HomeChampionCategoryAttribute>()
 
@@ -54,6 +55,12 @@ final class HomeViewModel: BaseViewModel {
         homeBannerList.value
     }
 
+    func getHomeBannerButtonTapWithChampionID() -> Observable<String> {
+        homeBannerButtonTap
+            .map { $0.id }
+            .asObservable()
+    }
+
     func getCategoryList(category: LOLChampionTagCategory?) -> Observable<[HomeChampionCategoryAttribute]> {
         categoryList
             .filter { !$0.isEmpty }
@@ -71,7 +78,13 @@ final class HomeViewModel: BaseViewModel {
             }
     }
 
-    private func bind(_ repository: HomeRepository = HomeRepository.shared) {
+    func getCategoryButtonTapWithChampionID() -> Observable<String> {
+        categoryButtonTap
+            .map { $0.id }
+            .asObservable()
+    }
+
+    private func bind(_ repository: HomeRepository = HomeRepository()) {
         repository.getLayouts()
             .take(1)
             .bind(to: homeLayoutCategoryList)
