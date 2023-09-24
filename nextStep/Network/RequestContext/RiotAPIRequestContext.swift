@@ -65,15 +65,15 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         }
     }
 
-    static func convertPassiveImgURL(passiveIdentity : String?) -> String? {
+    static func getPassiveImageURL(passiveIdentity : String?) -> String? {
         "\(passiveImagePath)/\(passiveIdentity ?? "")"
     }
 
-    static func convertSpellImgURL(spellIdentity : String?) -> String? {
+    static func getSpellImageURL(spellIdentity : String?) -> String? {
         "\(spellImagePath)/\(spellIdentity ?? "")"
     }
 
-    static func convertVedioURL(championKey: String?, skillKey: LOLSkillStatus) -> String {
+    static func getChampionSkillVedioURLWithMp4(championKey: String?, skillKey: LOLSkillStatus) -> String {
         let key = championKey?.convertNumberWithZeros() ?? ""
         return "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/\(key)/ability_\(key)_\(skillKey.rawValue)1.mp4"
     }

@@ -56,10 +56,6 @@ final class HomeBannerTableViewCell: UITableViewCell {
     }
 
     private func layout() {
-        contentView.snp.makeConstraints {
-            $0.width.equalTo(UIScreen.main.bounds.width)
-            $0.height.equalTo(HomeBannerCollectionViewCell.heightSize + 8 + 32)
-        }
         contentView.addSubViews(collectionView, pageControll)
         collectionView.snp.makeConstraints {
             $0.height.equalTo(HomeBannerCollectionViewCell.heightSize + safeAreaTopInsets)
@@ -69,17 +65,35 @@ final class HomeBannerTableViewCell: UITableViewCell {
         pageControll.snp.makeConstraints {
             $0.top.equalTo(collectionView.snp.bottom).offset(8)
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(32)
+            $0.bottom.equalToSuperview().inset(16)
         }
     }
 
     func bind(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         viewModel.getHomeBannerList()
-            .bind(onNext: { [weak self] _ in
+            .bind(onNext: { [weak self] in
                 self?.collectionView.reloadData()
+                self?.pageControll.numberOfPages = $0.count
             })
             .disposed(by: prepareDisposeBag)
+
+        collectionView.rx.didScroll
+            .bind(onNext: { [weak self] in
+                self?.didScroll()
+            })
+            .disposed(by: prepareDisposeBag)
+    }
+}
+
+extension HomeBannerTableViewCell {
+    func didScroll() {
+        if collectionView.frame.size.width != 0 {
+            let value = collectionView.contentOffset.x / collectionView.frame.width
+            let indexRow = Int(round(value))
+            pageControll.currentPage = indexRow
+        }
+
     }
 }
 

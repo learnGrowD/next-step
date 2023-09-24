@@ -11,13 +11,15 @@ import RxCocoa
 
 final class HomeRepository: CommonRepositoryProtocol {
     func getLayouts() -> Observable<[HomeLayoutCategory]> {
-        Observable.just([
+        let willdInformationBetweenAttribute = HomeBetweenBannerAttribute.getMockupData()
+        return Observable.just([
             .banner,
             .small(lolChampionTagCategory: .assassin),
+            .betweenBanner(betweenBannerAttribute: willdInformationBetweenAttribute),
             .small(lolChampionTagCategory: .fighter),
             .small(lolChampionTagCategory: .tank),
-            .small(lolChampionTagCategory: .mage),
-            .small(lolChampionTagCategory: .support),
+            .large(lolChampionTagCategory: .mage),
+            .large(lolChampionTagCategory: .support),
         ])
     }
 

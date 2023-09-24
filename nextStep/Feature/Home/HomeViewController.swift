@@ -16,6 +16,8 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         super.attribute()
         tableView.separatorStyle = .none
         tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: HomeBannerTableViewCell.identifier)
+        tableView.register(HomeBetweenBannerTableViewCell.self,
+                           forCellReuseIdentifier: HomeBetweenBannerTableViewCell.identifier)
         tableView.register(HomeChampionCatogoryListTableViewCell.self,
                            forCellReuseIdentifier: HomeChampionCatogoryListTableViewCell.identifier)
     }
@@ -42,16 +44,27 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                     ) as? HomeBannerTableViewCell else { return UITableViewCell() }
                     cell.bind(viewModel: viewModel)
                     return cell
-
+                case .betweenBanner(let betweenBannerAttribute):
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: HomeBetweenBannerTableViewCell.identifier,
+                        for: indexPath
+                    ) as? HomeBetweenBannerTableViewCell else { return UITableViewCell() }
+                    cell.bind(viewModel, data: betweenBannerAttribute)
+                    return cell
                 case .small(let category):
                     guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: HomeChampionCatogoryListTableViewCell.identifier,
                         for: indexPath
                     ) as? HomeChampionCatogoryListTableViewCell else { return UITableViewCell() }
-                    cell.bind(category, viewModel: viewModel)
+                    cell.bind(itemSize: .small, category, viewModel: viewModel)
                     return cell
-                default:
-                    return UITableViewCell()
+                case .large(let category):
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: HomeChampionCatogoryListTableViewCell.identifier,
+                        for: indexPath
+                    ) as? HomeChampionCatogoryListTableViewCell else { return UITableViewCell() }
+                    cell.bind(itemSize: .large, category, viewModel: viewModel)
+                    return cell
                 }
             }
             .disposed(by: disposeBag)
@@ -64,11 +77,21 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             self?.pushChampionDetailViewController(id: id)
         })
         .disposed(by: disposeBag)
+
+        viewModel.getBetweenBannerButtonTapWithWebURL()
+            .bind(onNext: { [weak self] webURL in
+                self?.presentWebView(webURL: webURL)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension HomeViewController {
     func pushChampionDetailViewController(id: String) {
         print("Champion ID: \(id)")
+    }
+
+    func presentWebView(webURL: String?) {
+        print("Present Web View: \(webURL)")
     }
 }

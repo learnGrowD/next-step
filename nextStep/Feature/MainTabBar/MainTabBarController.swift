@@ -60,7 +60,7 @@ final class MainTabBarController: UITabBarController {
         }
         guard let result = result else { return UIViewController() }
         let resource = getTabBarResource(category: category)
-        result.tabBarItem.image = UIImage(named: resource.tabBarImageName)
+        result.tabBarItem.image = UIImage(systemName: resource.tabBarImageName)
         result.tabBarItem.title = resource.titleName
         return result
     }
@@ -88,11 +88,11 @@ final class MainTabBarController: UITabBarController {
     private func getTabBarResource(category: MainTapBarCategory) -> (tabBarImageName: String, titleName: String) {
         switch category {
         case .home:
-            return ("", R.string.localizable.homeTabTitle())
+            return ("house", R.string.localizable.homeTabTitle())
         case .lookAround:
-            return ("", R.string.localizable.lookAroundTabTitle())
+            return ("eyeglasses", R.string.localizable.lookAroundTabTitle())
         case .gallery:
-            return ("", R.string.localizable.galleryTabTitle())
+            return ("person", R.string.localizable.galleryTabTitle())
         }
     }
 }

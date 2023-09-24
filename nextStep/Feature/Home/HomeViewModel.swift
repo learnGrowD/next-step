@@ -17,6 +17,8 @@ final class HomeViewModel: BaseViewModel {
     let categoryList = BehaviorRelay<[HomeChampionCategoryAttribute]>(value: [])
     let categoryButtonTap = PublishRelay<HomeChampionCategoryAttribute>()
 
+    let betweenBannerButtonTap = PublishRelay<HomeBetweenBannerAttribute?>()
+
     override init() {
         super.init()
         bind()
@@ -81,6 +83,12 @@ final class HomeViewModel: BaseViewModel {
     func getCategoryButtonTapWithChampionID() -> Observable<String> {
         categoryButtonTap
             .map { $0.id }
+            .asObservable()
+    }
+
+    func getBetweenBannerButtonTapWithWebURL() -> Observable<String?> {
+        betweenBannerButtonTap
+            .map { $0?.webURL }
             .asObservable()
     }
 

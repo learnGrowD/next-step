@@ -2,19 +2,19 @@
 //  HomeChampionCatogoryCollectionViewCell.swift
 //  nextStep
 //
-//  Created by 도학태 on 2023/09/23.
+//  Created by 도학태 on 2023/09/24.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
+class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
     static var heightSize: CGFloat { 164 }
     private var disposeBag = DisposeBag()
-    private let thumbnailImageView = UIImageView()
-    private let nameLabel = UILabel()
-    private let titleLabel = UILabel()
+    let thumbnailImageView = UIImageView()
+    let nameLabel = UILabel()
+    let titleLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +31,7 @@ final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
         disposeBag = DisposeBag()
     }
 
-    private func attribute() {
+    func attribute() {
         nameLabel.font = .nestStepRegular(size: .small)
         nameLabel.textColor = .white
 
@@ -39,24 +39,8 @@ final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
         titleLabel.textColor = .white
     }
 
-    private func layout() {
+    func layout() {
         contentView.addSubViews(thumbnailImageView, nameLabel, titleLabel)
-        thumbnailImageView.snp.makeConstraints {
-            $0.size.equalTo(164)
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-        }
-
-        nameLabel.snp.makeConstraints {
-            $0.top.equalTo(thumbnailImageView.snp.bottom).offset(4)
-            $0.leading.equalTo(thumbnailImageView)
-        }
-
-        titleLabel.snp.makeConstraints {
-            $0.top.equalTo(nameLabel.snp.bottom).offset(4)
-            $0.leading.equalTo(thumbnailImageView)
-            $0.bottom.equalToSuperview()
-        }
     }
 
     func bind(viewModel: HomeViewModel, data: HomeChampionCategoryAttribute) {
