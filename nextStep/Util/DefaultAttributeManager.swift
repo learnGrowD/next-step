@@ -28,11 +28,6 @@ struct DefaultAttributeManager {
          */
         appearance.setBackgroundImage(UIImage(), for: .default)
         appearance.shadowImage = UIImage()
-        appearance.layer.masksToBounds = true
-        appearance.layer.shadowOffset =  CGSize(width: 0, height: 0)
-        appearance.layer.shadowRadius = 0
-        appearance.layer.shadowColor = UIColor.clear.cgColor
-        appearance.layer.shadowOpacity = 0.0
         
         /*
          뒤로가기 이미지에 대한 속성
@@ -49,12 +44,12 @@ struct DefaultAttributeManager {
         /*
          탭바의 배경화면을 설정하는 속성
          */
-        appearance.barTintColor = .clear
+        appearance.barTintColor = .white
 
         /*
          NavigationBar 탭바의 아이템 색깔을 설정하는 속성
          */
-        appearance.tintColor = .clear
+        appearance.tintColor = .white
 
         guard let font = R.font.notoSansRegular(size: 16) else { return }
         appearance.titleTextAttributes = [

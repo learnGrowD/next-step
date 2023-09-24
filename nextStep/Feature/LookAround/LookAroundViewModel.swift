@@ -6,7 +6,26 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class LookAroundViewModel: BaseViewModel {
-    
+    let categoryList = BehaviorRelay<[LookAroundCategoryAttribute]>(value: [
+        LookAroundCategoryAttribute(
+            categoryStatus: .chart,
+            categoryText: "차트",
+            isSelect: false
+        ),
+        LookAroundCategoryAttribute(
+            categoryStatus: .tier,
+            categoryText: "티어",
+            isSelect: false
+        ),
+        LookAroundCategoryAttribute(
+            categoryStatus: .position,
+            categoryText: "포지션",
+            isSelect: false
+        )
+    ])
+    let categoryButtonTap = PublishRelay<LookAroundCategoryAttribute>()
 }

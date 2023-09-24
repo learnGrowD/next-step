@@ -25,3 +25,7 @@
 //HomeBannerCollectionViewCell
 "homeBannerCollectionViewCellRecommend" = "%@ 추천";
 "homeBannerCollectionViewCellSkinCount" = "스킨 %d 개 %@";
+
+//LookAroundViewController
+"lookAroundViewControllerTitle" = "둘러보기";
+

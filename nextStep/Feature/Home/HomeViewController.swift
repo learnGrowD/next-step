@@ -14,6 +14,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 
     override func attribute() {
         super.attribute()
+        view.backgroundColor = R.color.nestStepBlack()
         tableView.separatorStyle = .none
         tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: HomeBannerTableViewCell.identifier)
         tableView.register(HomeBetweenBannerTableViewCell.self,

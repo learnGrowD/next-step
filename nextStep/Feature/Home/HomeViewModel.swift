@@ -21,7 +21,7 @@ final class HomeViewModel: BaseViewModel {
 
     override init() {
         super.init()
-        bind()
+//        bind()
     }
 
     func getTitle(category: LOLChampionTagCategory?) -> String {
