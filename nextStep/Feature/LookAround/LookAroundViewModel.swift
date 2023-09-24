@@ -28,4 +28,15 @@ final class LookAroundViewModel: BaseViewModel {
         )
     ])
     let categoryButtonTap = PublishRelay<LookAroundCategoryAttribute>()
+
+    func getCategoryList() -> Observable<[LookAroundCategoryAttribute]> {
+        categoryList
+            .filter { !$0.isEmpty }
+    }
+
+    func getCategoryButtonTapWithCategoryStatus() -> Observable<LookAroundCategoryStatus> {
+        categoryButtonTap
+            .map { $0.categoryStatus }
+            .asObservable()
+    }
 }

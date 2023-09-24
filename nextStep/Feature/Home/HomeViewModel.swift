@@ -10,18 +10,18 @@ import RxSwift
 import RxCocoa
 
 final class HomeViewModel: BaseViewModel {
-    let homeLayoutCategoryList = BehaviorRelay<[HomeLayoutCategory]>(value: [])
-    let homeBannerList = BehaviorRelay<[HomeBannerItemAttribute]>(value: [])
+    private let homeLayoutCategoryList = BehaviorRelay<[HomeLayoutCategory]>(value: [])
+    private let homeBannerList = BehaviorRelay<[HomeBannerItemAttribute]>(value: [])
     let homeBannerButtonTap = PublishRelay<HomeBannerItemAttribute>()
 
-    let categoryList = BehaviorRelay<[HomeChampionCategoryAttribute]>(value: [])
+    private let categoryList = BehaviorRelay<[HomeChampionCategoryAttribute]>(value: [])
     let categoryButtonTap = PublishRelay<HomeChampionCategoryAttribute>()
 
     let betweenBannerButtonTap = PublishRelay<HomeBetweenBannerAttribute?>()
 
     override init() {
         super.init()
-//        bind()
+        bind()
     }
 
     func getTitle(category: LOLChampionTagCategory?) -> String {

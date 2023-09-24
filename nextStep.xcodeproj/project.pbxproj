@@ -82,6 +82,7 @@
 		B8DDB8DC2AC04B9A0068C7C0 /* LookAroundCategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8DB2AC04B9A0068C7C0 /* LookAroundCategoryListTableViewCell.swift */; };
 		B8DDB8DF2AC051D00068C7C0 /* LookAroundCategoryAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8DE2AC051D00068C7C0 /* LookAroundCategoryAttribute.swift */; };
 		B8DDB8E12AC052040068C7C0 /* LookAroundCategoryStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8E02AC052040068C7C0 /* LookAroundCategoryStatus.swift */; };
+		B8DDB8E42AC05D280068C7C0 /* LookAroundCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8E32AC05D280068C7C0 /* LookAroundCategoryView.swift */; };
 		B8E7C0332AB90A0200E310AF /* HomeBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0322AB90A0200E310AF /* HomeBannerTableViewCell.swift */; };
 		B8E7C0362AB9144700E310AF /* LOLPositionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0352AB9144700E310AF /* LOLPositionCategory.swift */; };
 		B8E7C0382AB9148100E310AF /* LOLTierCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */; };
@@ -174,6 +175,7 @@
 		B8DDB8DB2AC04B9A0068C7C0 /* LookAroundCategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundCategoryListTableViewCell.swift; sourceTree = "<group>"; };
 		B8DDB8DE2AC051D00068C7C0 /* LookAroundCategoryAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundCategoryAttribute.swift; sourceTree = "<group>"; };
 		B8DDB8E02AC052040068C7C0 /* LookAroundCategoryStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundCategoryStatus.swift; sourceTree = "<group>"; };
+		B8DDB8E32AC05D280068C7C0 /* LookAroundCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundCategoryView.swift; sourceTree = "<group>"; };
 		B8E7C0322AB90A0200E310AF /* HomeBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7C0352AB9144700E310AF /* LOLPositionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLPositionCategory.swift; sourceTree = "<group>"; };
 		B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLTierCategory.swift; sourceTree = "<group>"; };
@@ -596,7 +598,7 @@
 		B8DDB8DA2AC04B670068C7C0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				B8DDB8DB2AC04B9A0068C7C0 /* LookAroundCategoryListTableViewCell.swift */,
+				B8DDB8E22AC05A1D0068C7C0 /* Category */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -608,6 +610,23 @@
 				B8DDB8E02AC052040068C7C0 /* LookAroundCategoryStatus.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B8DDB8E22AC05A1D0068C7C0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B8DDB8DB2AC04B9A0068C7C0 /* LookAroundCategoryListTableViewCell.swift */,
+				B8DDB8E52AC05E2B0068C7C0 /* Component */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		B8DDB8E52AC05E2B0068C7C0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B8DDB8E32AC05D280068C7C0 /* LookAroundCategoryView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		B8E7C0312AB9093000E310AF /* Component */ = {
@@ -888,6 +907,7 @@
 				B80E74212AB71D5F007440D6 /* GalleryViewModel.swift in Sources */,
 				B887C1862ABEB03B008257A0 /* HomeRepository.swift in Sources */,
 				B8DDB8BF2ABEC4320068C7C0 /* LOLChampionImageSizeStatus.swift in Sources */,
+				B8DDB8E42AC05D280068C7C0 /* LookAroundCategoryView.swift in Sources */,
 				B80E74372AB7280C007440D6 /* DefaultAttributeManager.swift in Sources */,
 				B8E7C03E2AB918A900E310AF /* Font+extension.swift in Sources */,
 				B837A8E42AAC707100A5F407 /* Dictionary+extension.swift in Sources */,
