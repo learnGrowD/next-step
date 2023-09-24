@@ -38,7 +38,7 @@ final class HomeBannerTableViewCell: UITableViewCell {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.itemSize = CGSize(
             width: UIScreen.main.bounds.width,
-            height: 308 + safeAreaTopInsets
+            height: HomeBannerCollectionViewCell.heightSize + safeAreaTopInsets
         )
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
@@ -58,11 +58,11 @@ final class HomeBannerTableViewCell: UITableViewCell {
     private func layout() {
         contentView.snp.makeConstraints {
             $0.width.equalTo(UIScreen.main.bounds.width)
-            $0.height.equalTo(316 + 32)
+            $0.height.equalTo(HomeBannerCollectionViewCell.heightSize + 8 + 32)
         }
         contentView.addSubViews(collectionView, pageControll)
         collectionView.snp.makeConstraints {
-            $0.height.equalTo(308 + safeAreaTopInsets)
+            $0.height.equalTo(HomeBannerCollectionViewCell.heightSize + safeAreaTopInsets)
             $0.top.equalToSuperview().inset(-safeAreaTopInsets)
             $0.leading.trailing.equalToSuperview()
         }

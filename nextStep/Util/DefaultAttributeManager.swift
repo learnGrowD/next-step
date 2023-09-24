@@ -26,6 +26,7 @@ struct DefaultAttributeManager {
         /*
          UINavigationBar 하단에 불투명한 그림자 표시에 관한 속성
          */
+        appearance.setBackgroundImage(UIImage(), for: .default)
         appearance.shadowImage = UIImage()
         appearance.layer.masksToBounds = true
         appearance.layer.shadowOffset =  CGSize(width: 0, height: 0)
@@ -63,21 +64,23 @@ struct DefaultAttributeManager {
     }
 
     static func tabBarDefailtAttribute() {
-        /*
-         상단 그림자
-         */
         let appearance = UITabBar.appearance()
+        appearance.backgroundImage = UIImage()
+        appearance.shadowImage = UIImage()
         appearance.layer.masksToBounds = false
         appearance.layer.shadowOffset = CGSize(width: 0, height: 0)
-        appearance.layer.shadowRadius = 0
+        appearance.layer.shadowRadius = 1
 
-        appearance.layer.shadowColor = UIColor.clear.cgColor
-        appearance.layer.shadowOpacity = 0.0
+        appearance.layer.shadowColor = UIColor.white.cgColor
+        appearance.layer.shadowOpacity = 0.5
+
+
+        appearance.backgroundColor = R.color.nestStepBlack()
 
         /*
          Tap Color
          */
-        appearance.tintColor = R.color.nestStepBlack()
-        appearance.unselectedItemTintColor = R.color.nestStepBrand()
+        appearance.tintColor = R.color.nestStepBrand()
+        appearance.unselectedItemTintColor = .white
     }
 }

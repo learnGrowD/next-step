@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
+    static var heightSize: CGFloat { 164 }
     private var disposeBag = DisposeBag()
     private let thumbnailImageView = UIImageView()
     private let nameLabel = UILabel()

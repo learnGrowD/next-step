@@ -19,7 +19,7 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
-    private let collectionViewHeight = 164
+    private let collectionViewHeight = HomeChampionCatogoryCollectionViewCell.heightSize
     + String.getRegularHeightSize(size: .small)
     + String.getRegularHeightSize(size: .extraSmall) + 8
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -45,7 +45,7 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
         flowLayout.minimumLineSpacing = 8
         flowLayout.minimumInteritemSpacing = 0
 
-        let width: CGFloat = 164
+        let width: CGFloat = HomeChampionCatogoryCollectionViewCell.heightSize
         let height: CGFloat = collectionViewHeight
         flowLayout.itemSize = CGSize(width: width, height: height)
 

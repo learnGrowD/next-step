@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class HomeBannerCollectionViewCell: UICollectionViewCell {
+    static var heightSize: CGFloat { 308 }
     private var disposeBag = DisposeBag()
     private let backgroundImageView = UIImageView()
     private let recommendLabel = UILabel()
