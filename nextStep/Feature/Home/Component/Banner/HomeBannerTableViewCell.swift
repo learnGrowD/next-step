@@ -33,8 +33,6 @@ final class HomeBannerTableViewCell: UITableViewCell {
         prepareDisposeBag = DisposeBag()
     }
     private func attribute() {
-        contentView.backgroundColor = .systemBlue
-
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0

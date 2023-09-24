@@ -31,7 +31,6 @@ final class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
     }
 
     private func attribute() {
-        contentView.backgroundColor = R.color.nestStepBlack()
         nameLabel.font = .nestStepRegular(size: .small)
         nameLabel.textColor = .white
 

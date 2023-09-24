@@ -13,8 +13,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     override func attribute() {
         super.attribute()
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .systemRed
-        tableView.backgroundView = UIView()
         tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: HomeBannerTableViewCell.identifier)
         tableView.register(HomeChampionCatogoryListTableViewCell.self,
                            forCellReuseIdentifier: HomeChampionCatogoryListTableViewCell.identifier)
@@ -42,7 +40,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                     ) as? HomeBannerTableViewCell else { return UITableViewCell() }
                     cell.bind(viewModel: viewModel)
                     return cell
-                    
+
                 case .small(let category):
                     guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: HomeChampionCatogoryListTableViewCell.identifier,

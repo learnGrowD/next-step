@@ -38,7 +38,6 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
     }
 
     private func attribute() {
-        contentView.backgroundColor = .systemBlue
         titleLabel.font = .nestStepBold(size: .medium)
         titleLabel.text = "A"
 
