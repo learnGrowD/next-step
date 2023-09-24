@@ -10,7 +10,11 @@ import RxSwift
 import RxCocoa
 
 final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
-    private var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private var prepareDisposeBag = DisposeBag()
+    private var category: LOLChampionTagCategory?
+    private var viewModel: HomeViewModel?
+
     private let titleLabel = UILabel()
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -30,7 +34,7 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = DisposeBag()
+        prepareDisposeBag = DisposeBag()
     }
 
     private func attribute() {
@@ -52,6 +56,10 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
             HomeChampionCatogoryCollectionViewCell.self,
             forCellWithReuseIdentifier: HomeChampionCatogoryCollectionViewCell.identifier
         )
+        collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        collectionView.rx.setDataSource(self)
+            .disposed(by: disposeBag)
     }
 
     private func layout() {
@@ -76,18 +84,34 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
         }
     }
 
-    func bind(category: LOLChampionTagCategory, viewModel: HomeViewModel) {
+    func bind(_ category: LOLChampionTagCategory, viewModel: HomeViewModel) {
+        self.category = category
+        self.viewModel = viewModel
         titleLabel.text = viewModel.getTitle(category: category)
         viewModel.getCategoryList(category: category)
-            .bind(to: collectionView.rx.items) { collectionView, row, data in
-                let indexPath = IndexPath(row: row, section: 0)
-                guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: HomeChampionCatogoryCollectionViewCell.identifier,
-                    for: indexPath
-                ) as? HomeChampionCatogoryCollectionViewCell else { return UICollectionViewCell() }
-                cell.bind(viewModel: viewModel, data: data)
-                return cell
-            }
-            .disposed(by: disposeBag)
+            .bind(onNext: { [weak self] _ in
+                self?.collectionView.reloadData()
+            })
+            .disposed(by: prepareDisposeBag)
     }
 }
+
+extension HomeChampionCatogoryListTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel?.getCategoryPrimitiveList(category: category).count ?? 0
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let viewModel = viewModel else { return UICollectionViewCell() }
+        let data = viewModel.getCategoryPrimitiveList(category: category)[indexPath.row]
+
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: HomeChampionCatogoryCollectionViewCell.identifier,
+            for: indexPath
+        ) as? HomeChampionCatogoryCollectionViewCell else { return UICollectionViewCell() }
+        cell.bind(viewModel: viewModel, data: data)
+        return cell
+    }
+}
+
+

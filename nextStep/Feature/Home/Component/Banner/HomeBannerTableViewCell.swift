@@ -10,7 +10,10 @@ import RxSwift
 import RxCocoa
 
 final class HomeBannerTableViewCell: UITableViewCell {
-    private var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private var prepareDisposeBag = DisposeBag()
+    private var viewModel: HomeViewModel?
+
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let pageControll = UIPageControl()
@@ -27,7 +30,7 @@ final class HomeBannerTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        disposeBag = DisposeBag()
+        prepareDisposeBag = DisposeBag()
     }
     private func attribute() {
         contentView.backgroundColor = .systemBlue
@@ -45,6 +48,13 @@ final class HomeBannerTableViewCell: UITableViewCell {
             HomeBannerCollectionViewCell.self,
             forCellWithReuseIdentifier: HomeBannerCollectionViewCell.identifier
         )
+        collectionView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
+
+        collectionView.rx
+            .setDataSource(self)
+            .disposed(by: disposeBag)
     }
 
     private func layout() {
@@ -65,17 +75,31 @@ final class HomeBannerTableViewCell: UITableViewCell {
         }
     }
 
-    func bind(_ viewModel: HomeViewModel) {
+    func bind(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
         viewModel.getHomeBannerList()
-            .bind(to: collectionView.rx.items) { collectionView, row, data in
-                let indexPath = IndexPath(row: row, section: 0)
-                guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: HomeBannerCollectionViewCell.identifier,
-                    for: indexPath
-                ) as? HomeBannerCollectionViewCell else { return UICollectionViewCell() }
-                cell.bind(viewModel: viewModel, data: data)
-                return cell
-            }
-            .disposed(by: disposeBag)
+            .debug()
+            .bind(onNext: { [weak self] _ in
+                self?.collectionView.reloadData()
+            })
+            .disposed(by: prepareDisposeBag)
+    }
+}
+
+extension HomeBannerTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel?.getHomeBannerPrimitiveList().count ?? 0
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let viewModel = viewModel else { return UICollectionViewCell() }
+        let data = viewModel.getHomeBannerPrimitiveList()[indexPath.row]
+
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: HomeBannerCollectionViewCell.identifier,
+            for: indexPath
+        ) as? HomeBannerCollectionViewCell else { return UICollectionViewCell() }
+        cell.bind(viewModel: viewModel, data: data)
+        return cell
     }
 }

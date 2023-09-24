@@ -21,7 +21,7 @@ final class HomeViewModel: BaseViewModel {
         bind()
     }
 
-    func getTitle(category: LOLChampionTagCategory) -> String {
+    func getTitle(category: LOLChampionTagCategory?) -> String {
         switch category {
         case .assassin:
             return R.string.localizable.homeViewModelAssassin()
@@ -35,6 +35,7 @@ final class HomeViewModel: BaseViewModel {
             return R.string.localizable.homeViewModelSupport()
         case .tank:
             return R.string.localizable.homeViewModelTank()
+        default: return ""
         }
 
     }
@@ -42,16 +43,18 @@ final class HomeViewModel: BaseViewModel {
     func getHomeLayoutCategoryList() -> Observable<[HomeLayoutCategory]> {
         homeLayoutCategoryList
             .filter { !$0.isEmpty }
-            .asObservable()
     }
 
     func getHomeBannerList() -> Observable<[HomeBannerItemAttribute]> {
         homeBannerList
             .filter { !$0.isEmpty }
-            .asObservable()
     }
 
-    func getCategoryList(category: LOLChampionTagCategory) -> Observable<[HomeChampionCategoryAttribute]> {
+    func getHomeBannerPrimitiveList() -> [HomeBannerItemAttribute] {
+        homeBannerList.value
+    }
+
+    func getCategoryList(category: LOLChampionTagCategory?) -> Observable<[HomeChampionCategoryAttribute]> {
         categoryList
             .filter { !$0.isEmpty }
             .map {
@@ -59,13 +62,24 @@ final class HomeViewModel: BaseViewModel {
                     category == $0.category
                 }
             }
-            .asObservable()
+    }
+
+    func getCategoryPrimitiveList(category: LOLChampionTagCategory?) -> [HomeChampionCategoryAttribute] {
+        categoryList.value
+            .filter {
+                category == $0.category
+            }
     }
 
     private func bind(_ repository: HomeRepository = HomeRepository.shared) {
         repository.getLayouts()
             .take(1)
             .bind(to: homeLayoutCategoryList)
+            .disposed(by: disposeBag)
+
+        repository.getBannerList()
+            .take(1)
+            .bind(to: homeBannerList)
             .disposed(by: disposeBag)
 
         repository.getCategory()

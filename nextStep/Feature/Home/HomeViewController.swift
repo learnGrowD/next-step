@@ -29,7 +29,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             $0.leading.trailing.equalToSuperview()
         }
     }
-
     override func bind(_ viewModel: HomeViewModel) {
         super.bind(viewModel)
         viewModel.getHomeLayoutCategoryList()
@@ -41,14 +40,15 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                         withIdentifier: HomeBannerTableViewCell.identifier,
                         for: indexPath
                     ) as? HomeBannerTableViewCell else { return UITableViewCell() }
-                    cell.bind(viewModel)
+                    cell.bind(viewModel: viewModel)
                     return cell
+                    
                 case .small(let category):
                     guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: HomeChampionCatogoryListTableViewCell.identifier,
                         for: indexPath
                     ) as? HomeChampionCatogoryListTableViewCell else { return UITableViewCell() }
-                    cell.bind(category: category, viewModel: viewModel)
+                    cell.bind(category, viewModel: viewModel)
                     return cell
                 }
             }

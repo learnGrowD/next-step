@@ -37,7 +37,9 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
     }
 
     private func attribute() {
-        contentView.backgroundColor = .gray
+        backgroundImageView.clipsToBounds = true
+        backgroundImageView.contentMode = .scaleAspectFill
+
         recommendLabel.font = .nestStepRegular(size: .small)
         recommendLabel.textColor = .white
 
@@ -130,13 +132,12 @@ final class HomeBannerCollectionViewCell: UICollectionViewCell {
         titleLabel.text = data.title
         let dateString = data.date.toString(format: "yyyy.MM.dd")
         skinCountAndDateLabel.text = R.string.localizable.homeBannerCollectionViewCellSkinCount(data.allCount, dateString)
-
         [
             centerThubnailImageView,
             leftThumbnailImageView,
             rightThumbnailImageView
         ].enumerated().forEach { index, imageView in
-            imageView.bindImage(imageURL: data.skinImageURLList[safe: index])
+            imageView.bindImage(imageURL: data.skinImageURLList[index])
         }
         championInformationLabel.text = "\(data.championInformation)"
     }

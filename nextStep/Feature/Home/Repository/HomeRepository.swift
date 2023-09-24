@@ -23,6 +23,10 @@ final class HomeRepository: CommonRepositoryProtocol {
         ])
     }
 
+    func getBannerList() -> Observable<[HomeBannerItemAttribute]> {
+        Observable.just(HomeBannerItemAttribute.getMocupData())
+    }
+
     func getCategory() -> Observable<[HomeChampionCategoryAttribute]> {
         riotAPI.getChampionList()
             .map {

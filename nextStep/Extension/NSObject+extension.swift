@@ -25,8 +25,6 @@ extension NSObject {
     }
 
     func printMemoryAdress() {
-        #if DEBUG
         print("\(Self.className) Memory Adress: \(Unmanaged.passUnretained(self).toOpaque())")
-        #endif
     }
 }
