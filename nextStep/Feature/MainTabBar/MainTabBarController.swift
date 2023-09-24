@@ -16,10 +16,36 @@ final class MainTabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         attribute()
+        layout()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func attribute() {
+        delegate = self
+        createViewController(category: .home)
+        /*
+         동일한 주소를 가진 UIViewController를 register하면 tabBar에 적용이 안된다.
+         다른주소의 emptyViewController를 넣어줘야 한다.
+         */
+        viewControllers = [
+            registerViewController(category: .home),
+            registerViewController(category: .lookAround),
+            registerViewController(category: .gallery),
+        ]
+    }
+
+    private func layout() {
+        let lineView = UIView()
+        lineView.backgroundColor = .white.withAlphaComponent(0.2)
+        tabBar.addSubview(lineView)
+        lineView.snp.makeConstraints {
+            $0.height.equalTo(1)
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+        }
     }
 
     private func registerViewController(category: MainTapBarCategory) -> UIViewController {
@@ -68,21 +94,6 @@ final class MainTabBarController: UITabBarController {
         case .gallery:
             return ("", R.string.localizable.galleryTabTitle())
         }
-    }
-
-    let emptyView = UIViewController()
-    private func attribute() {
-        delegate = self
-        createViewController(category: .home)
-        /*
-         동일한 주소를 가진 UIViewController를 register하면 tabBar에 적용이 안된다.
-         다른주소의 emptyViewController를 넣어줘야 한다.
-         */
-        viewControllers = [
-            registerViewController(category: .home),
-            registerViewController(category: .lookAround),
-            registerViewController(category: .gallery),
-        ]
     }
 }
 

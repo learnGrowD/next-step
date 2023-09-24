@@ -67,16 +67,7 @@ struct DefaultAttributeManager {
         let appearance = UITabBar.appearance()
         appearance.backgroundImage = UIImage()
         appearance.shadowImage = UIImage()
-        appearance.layer.masksToBounds = false
-        appearance.layer.shadowOffset = CGSize(width: 0, height: 0)
-        appearance.layer.shadowRadius = 1
-
-        appearance.layer.shadowColor = UIColor.white.cgColor
-        appearance.layer.shadowOpacity = 0.5
-
-
         appearance.backgroundColor = R.color.nestStepBlack()
-
         /*
          Tap Color
          */

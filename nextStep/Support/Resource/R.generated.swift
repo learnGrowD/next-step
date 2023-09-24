@@ -167,7 +167,7 @@ struct _R {
     }
   }
 
-  /// This `_R.color` struct is generated, and contains static references to 3 colors.
+  /// This `_R.color` struct is generated, and contains static references to 4 colors.
   struct color {
     let bundle: Foundation.Bundle
 
@@ -179,6 +179,9 @@ struct _R {
 
     /// Color `nestStepBrand`.
     var nestStepBrand: RswiftResources.ColorResource { .init(name: "nestStepBrand", path: [], bundle: bundle) }
+
+    /// Color `nestStepLightBlack`.
+    var nestStepLightBlack: RswiftResources.ColorResource { .init(name: "nestStepLightBlack", path: [], bundle: bundle) }
   }
 
   /// This `_R.image` struct is generated, and contains static references to 14 images.
