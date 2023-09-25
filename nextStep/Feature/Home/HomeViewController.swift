@@ -80,7 +80,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 
         viewModel.getBetweenBannerButtonTapWithWebURL()
             .bind(onNext: { [weak self] webURL in
-                self?.presentWebView(webURL: webURL)
+                self?.presentWebViewController(webURL: webURL)
             })
             .disposed(by: disposeBag)
     }
@@ -91,7 +91,7 @@ extension HomeViewController {
         print("Champion ID: \(id)")
     }
 
-    func presentWebView(webURL: String?) {
+    func presentWebViewController(webURL: String?) {
         print("Present Web View: \(webURL)")
     }
 }

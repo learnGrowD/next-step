@@ -41,7 +41,8 @@ class LookAroundRepository: CommonRepositoryProtocol {
             }
     }
 
-    
-
-    
+    func getInterestedGroupList() -> Observable<[LookAroundInterestedGroupAttribute]> {
+        let mockupList = LookAroundInterestedGroupAttribute.getMockupDataList()
+        return Observable<[LookAroundInterestedGroupAttribute]>.just(mockupList)
+    }
 }

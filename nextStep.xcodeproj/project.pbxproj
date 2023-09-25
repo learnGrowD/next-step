@@ -90,6 +90,8 @@
 		B8DDB8F32AC1627F0068C7C0 /* LookAroundInterestedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8F22AC1627F0068C7C0 /* LookAroundInterestedStatus.swift */; };
 		B8DDB8F62AC170540068C7C0 /* LookAroundChartListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8F52AC170540068C7C0 /* LookAroundChartListTableViewCell.swift */; };
 		B8DDB8F92AC18D880068C7C0 /* LookAroundChartChampionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8F82AC18D880068C7C0 /* LookAroundChartChampionCollectionView.swift */; };
+		B8DDB8FC2AC1A9AE0068C7C0 /* LookAroundInterestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8FB2AC1A9AE0068C7C0 /* LookAroundInterestedTableViewCell.swift */; };
+		B8DDB8FF2AC1AB990068C7C0 /* LookAroundInterestedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDB8FE2AC1AB990068C7C0 /* LookAroundInterestedCollectionViewCell.swift */; };
 		B8E7C0332AB90A0200E310AF /* HomeBannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0322AB90A0200E310AF /* HomeBannerTableViewCell.swift */; };
 		B8E7C0362AB9144700E310AF /* LOLPositionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0352AB9144700E310AF /* LOLPositionCategory.swift */; };
 		B8E7C0382AB9148100E310AF /* LOLTierCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */; };
@@ -190,6 +192,8 @@
 		B8DDB8F22AC1627F0068C7C0 /* LookAroundInterestedStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundInterestedStatus.swift; sourceTree = "<group>"; };
 		B8DDB8F52AC170540068C7C0 /* LookAroundChartListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundChartListTableViewCell.swift; sourceTree = "<group>"; };
 		B8DDB8F82AC18D880068C7C0 /* LookAroundChartChampionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundChartChampionCollectionView.swift; sourceTree = "<group>"; };
+		B8DDB8FB2AC1A9AE0068C7C0 /* LookAroundInterestedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundInterestedTableViewCell.swift; sourceTree = "<group>"; };
+		B8DDB8FE2AC1AB990068C7C0 /* LookAroundInterestedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundInterestedCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8E7C0322AB90A0200E310AF /* HomeBannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerTableViewCell.swift; sourceTree = "<group>"; };
 		B8E7C0352AB9144700E310AF /* LOLPositionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLPositionCategory.swift; sourceTree = "<group>"; };
 		B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLTierCategory.swift; sourceTree = "<group>"; };
@@ -615,6 +619,7 @@
 			children = (
 				B8DDB8E22AC05A1D0068C7C0 /* Category */,
 				B8DDB8E62AC05FD90068C7C0 /* Chart */,
+				B8DDB8FA2AC1A9810068C7C0 /* InterestedGroup */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -678,6 +683,23 @@
 			isa = PBXGroup;
 			children = (
 				B8DDB8F82AC18D880068C7C0 /* LookAroundChartChampionCollectionView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B8DDB8FA2AC1A9810068C7C0 /* InterestedGroup */ = {
+			isa = PBXGroup;
+			children = (
+				B8DDB8FB2AC1A9AE0068C7C0 /* LookAroundInterestedTableViewCell.swift */,
+				B8DDB8FD2AC1AB720068C7C0 /* Component */,
+			);
+			path = InterestedGroup;
+			sourceTree = "<group>";
+		};
+		B8DDB8FD2AC1AB720068C7C0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B8DDB8FE2AC1AB990068C7C0 /* LookAroundInterestedCollectionViewCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -944,6 +966,7 @@
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,
 				B8BDDD702ABA617E003D863D /* UIImageView+extension.swift in Sources */,
 				B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */,
+				B8DDB8FC2AC1A9AE0068C7C0 /* LookAroundInterestedTableViewCell.swift in Sources */,
 				B8E7C0332AB90A0200E310AF /* HomeBannerTableViewCell.swift in Sources */,
 				B85410FA2AB5D31700957BB1 /* CommonToast.swift in Sources */,
 				B85410F32AB5C6EF00957BB1 /* AppContext.swift in Sources */,
@@ -989,6 +1012,7 @@
 				B8EF40EF2ABA6EE80046D2CB /* UITableView+extension.swift in Sources */,
 				B8DDB8EA2AC15C730068C7C0 /* LookAroundChartAttribute.swift in Sources */,
 				B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */,
+				B8DDB8FF2AC1AB990068C7C0 /* LookAroundInterestedCollectionViewCell.swift in Sources */,
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,
 				B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */,
 				B8E7C0432AB91BC000E310AF /* NestStepCornerRadius.swift in Sources */,

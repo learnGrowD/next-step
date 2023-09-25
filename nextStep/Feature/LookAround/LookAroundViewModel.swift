@@ -17,6 +17,9 @@ final class LookAroundViewModel: BaseViewModel {
     let chartChampioList = BehaviorRelay<[LookAroundChampionRankAttribute]>(value: [])
     let chartChampionButtonTap = PublishRelay<LookAroundChampionRankAttribute>()
 
+    let interestedList = BehaviorRelay<[LookAroundInterestedGroupAttribute]>(value: [])
+    let interestedButtonTap = PublishRelay<LookAroundInterestedGroupAttribute>()
+
     override init() {
         super.init()
         bind()
@@ -59,6 +62,33 @@ final class LookAroundViewModel: BaseViewModel {
         return filterList.count >= 25 ? Array(filterList[0..<25]) : filterList
     }
 
+    func getChartChampioButtonTapWithChampionID() -> Observable<String> {
+        chartChampionButtonTap
+            .map { $0.id }
+    }
+
+    func getInterestedGroupList(interestedStatus: LookAroundInterestedStatus) -> Observable<[LookAroundInterestedGroupAttribute]> {
+        interestedList
+            .filter { !$0.isEmpty }
+            .map {
+                $0.filter {
+                    interestedStatus == $0.status
+                }
+            }
+    }
+
+    func getInterestedGroupPrimitiveList(interestedStatus: LookAroundInterestedStatus?) -> [LookAroundInterestedGroupAttribute] {
+        interestedList.value
+            .filter {
+                interestedStatus == $0.status
+            }
+    }
+
+    func getInterestedGroupButtonTapWithTitle() -> Observable<String> {
+        interestedButtonTap
+            .map { $0.title }
+    }
+
 
     func getChartCategoryTitle(chartCategory: LOLChampionTagCategory) -> String? {
         switch chartCategory {
@@ -99,6 +129,10 @@ final class LookAroundViewModel: BaseViewModel {
 
         repository.getChartChampionList()
             .bind(to: chartChampioList)
+            .disposed(by: disposeBag)
+
+        repository.getInterestedGroupList()
+            .bind(to: interestedList)
             .disposed(by: disposeBag)
     }
 

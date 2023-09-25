@@ -23,6 +23,10 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
             LookAroundChartListTableViewCell.self,
             forCellReuseIdentifier: LookAroundChartListTableViewCell.identifier
         )
+        tableView.register(
+            LookAroundInterestedListTableViewCell.self,
+            forCellReuseIdentifier: LookAroundInterestedListTableViewCell.identifier
+        )
         
     }
     override func layout() {
@@ -57,7 +61,14 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
                     cell.bind(viewModel: viewModel, data: lookAroundChartAttribute)
                     return cell
                 case .interestedGroup(let interestedStatus):
-                    return UITableViewCell()
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: LookAroundInterestedListTableViewCell.identifier,
+                        for: indexPath
+                    ) as? LookAroundInterestedListTableViewCell else {
+                        return UITableViewCell()
+                    }
+                    cell.bind(viewModel: viewModel, lookAroundInterestedStatus: interestedStatus)
+                    return cell
                 }
             }
             .disposed(by: disposeBag)
@@ -67,11 +78,29 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
                 self?.scrollToCategory(layoutPositionIndex: layoutPositionIndex)
             })
             .disposed(by: disposeBag)
+
+        viewModel.getChartChampioButtonTapWithChampionID()
+            .bind(onNext: { [weak self] championID in
+                self?.pushChampionDetailViewController(championID: championID)
+            })
+            .disposed(by: disposeBag)
+
+        viewModel.getInterestedGroupButtonTapWithTitle()
+            .bind(onNext: { [weak self] title in
+                self?.showInterestedTitleToast(title: title)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
 extension LookAroundViewController {
     private func scrollToCategory(layoutPositionIndex: Int) {
         print("category Status: \(layoutPositionIndex)")
+    }
+    private func pushChampionDetailViewController(championID: String) {
+        print("champion ID: \(championID)")
+    }
+    private func showInterestedTitleToast(title: String) {
+        print("title: \(title)")
     }
 }

@@ -12,7 +12,7 @@ extension UIImageView {
     func bindImage(imageURL: String?) {
         guard let imageURL = imageURL else { return }
         let blurView = UIView()
-        blurView.backgroundColor = R.color.nestStepLightBlack()
+        blurView.backgroundColor = .darkGray
         self.addSubview(blurView)
         blurView.snp.makeConstraints {
             $0.edges.equalToSuperview()
