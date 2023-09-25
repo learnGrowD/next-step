@@ -37,16 +37,29 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
     }
     override func bind(_ viewModel: LookAroundViewModel) {
         super.bind(viewModel)
-        viewModel.getCategoryButtonTapWithCategoryStatus()
-            .bind(onNext: { [weak self] status in
-                self?.scrollToCategory(categoryStatus: status)
+
+        viewModel.getLayoutStatusList()
+            .bind(to: tableView.rx.items) { tableView, row, layoutStatus in
+                let indexPath = IndexPath(row: row, section: 0)
+                switch layoutStatus {
+                case .chart(let championCategory):
+                    return UITableViewCell()
+                case .interestedGroup(let interestedStatus):
+                    return UITableViewCell()
+                }
+            }
+            .disposed(by: disposeBag)
+
+        viewModel.getTopCategoryButtonTapWithLayoutPositionIndex()
+            .bind(onNext: { [weak self] layoutPositionIndex in
+                self?.scrollToCategory(layoutPositionIndex: layoutPositionIndex)
             })
             .disposed(by: disposeBag)
     }
 }
 
 extension LookAroundViewController {
-    private func scrollToCategory(categoryStatus: LookAroundCategoryStatus) {
-        print("category Status: \(categoryStatus)")
+    private func scrollToCategory(layoutPositionIndex: Int) {
+        print("category Status: \(layoutPositionIndex)")
     }
 }

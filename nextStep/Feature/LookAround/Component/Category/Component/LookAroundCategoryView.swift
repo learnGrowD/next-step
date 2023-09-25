@@ -55,7 +55,7 @@ final class LookAroundCategoryView: UIView {
     }
 
     private func bind(_ viewModel: LookAroundViewModel) {
-        viewModel.getCategoryList()
+        viewModel.getTopCategoryList()
             .bind(to: collectionView.rx.items) { collectionView, row, data in
                 let indexPath = IndexPath(row: row, section: 0)
                 guard let cell = collectionView.dequeueReusableCell(
@@ -76,7 +76,7 @@ extension LookAroundCategoryView: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         let dummyCell = LookAroundCategoryCollectionViewCell()
-        dummyCell.setUI(data: viewModel.categoryList.value[indexPath.row])
+        dummyCell.setUI(data: viewModel.topCategoryList.value[indexPath.row])
         return dummyCell.intrinsicContentSize
     }
 }

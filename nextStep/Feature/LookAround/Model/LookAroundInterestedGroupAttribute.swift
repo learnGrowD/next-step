@@ -8,6 +8,7 @@
 import UIKit
 
 struct LookAroundInterestedGroupAttribute {
+    let status: LookAroundInterestedStatus
     let backgroundImageURL: String
     let iconImageUIImage: UIImage?
     let title: String

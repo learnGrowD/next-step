@@ -8,6 +8,7 @@
 import Foundation
 
 struct LookAroundChartAttribute {
+    let championTagCategory: LOLChampionTagCategory
     let title: String
     let subTitle: String
     let description: String

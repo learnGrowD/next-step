@@ -33,7 +33,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     }
     override func bind(_ viewModel: HomeViewModel) {
         super.bind(viewModel)
-        viewModel.getHomeLayoutStatusList()
+        viewModel.gethomeLayoutStatusList()
             .bind(to: tableView.rx.items) { tableView, row, category in
                 let indexPath = IndexPath(row: row, section: 0)
                 switch category {

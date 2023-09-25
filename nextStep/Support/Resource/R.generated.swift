@@ -77,7 +77,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 13 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 21 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -171,6 +171,62 @@ struct _R {
       ///
       /// Locales: ko
       var lookAroundViewControllerTitle: RswiftResources.StringResource { .init(key: "lookAroundViewControllerTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 어쌔신
+      ///
+      /// Key: lookAroundViewModelChartCategoryAssassinTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelChartCategoryAssassinTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryAssassinTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 파이트
+      ///
+      /// Key: lookAroundViewModelChartCategoryFighterTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelChartCategoryFighterTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryFighterTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 메이지
+      ///
+      /// Key: lookAroundViewModelChartCategoryMageTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelChartCategoryMageTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryMageTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 마크맨
+      ///
+      /// Key: lookAroundViewModelChartCategoryMarksmanTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelChartCategoryMarksmanTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryMarksmanTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 서포트
+      ///
+      /// Key: lookAroundViewModelChartCategorySupportTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelChartCategorySupportTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategorySupportTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 탱커
+      ///
+      /// Key: lookAroundViewModelChartCategoryTankTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelChartCategoryTankTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryTankTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 포지션
+      ///
+      /// Key: lookAroundViewModelInterestedStatusPositionTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelInterestedStatusPositionTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelInterestedStatusPositionTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+
+      /// ko translation: 티어
+      ///
+      /// Key: lookAroundViewModelInterestedStatusTierTitle
+      ///
+      /// Locales: ko
+      var lookAroundViewModelInterestedStatusTierTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelInterestedStatusTierTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
     }
   }
 

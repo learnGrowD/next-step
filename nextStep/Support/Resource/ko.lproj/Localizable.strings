@@ -29,3 +29,13 @@
 //LookAroundViewController
 "lookAroundViewControllerTitle" = "둘러보기";
 
+//LookAroundViewModel
+"lookAroundViewModelChartCategoryAssassinTitle" = "어쌔신";
+"lookAroundViewModelChartCategoryFighterTitle" = "파이트";
+"lookAroundViewModelChartCategoryMageTitle" = "메이지";
+"lookAroundViewModelChartCategoryMarksmanTitle" = "마크맨";
+"lookAroundViewModelChartCategorySupportTitle" = "서포트";
+"lookAroundViewModelChartCategoryTankTitle" = "탱커";
+
+"lookAroundViewModelInterestedStatusPositionTitle" = "포지션";
+"lookAroundViewModelInterestedStatusTierTitle" = "티어";

@@ -1,5 +1,5 @@
 //
-//  LookAroundCategoryListTableViewCell.swift
+//  LookAroundtopCategoryListTableViewCell.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/24.
@@ -52,7 +52,7 @@ final class LookAroundCategoryCollectionViewCell: UICollectionViewCell {
         setUI(data: data)
         contentView.rx.tapGesture()
             .map { _ in data }
-            .bind(to: viewModel.categoryButtonTap)
+            .bind(to: viewModel.topCategoryButtonTap)
             .disposed(by: prepareDisposeBag)
     }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 struct LookAroundCategoryAttribute {
-    let categoryStatus: LookAroundCategoryStatus
-    let categoryText: String
-    var isSelect: Bool
+    let index: Int
+    let categoryText: String?
+    var isSelect: Bool = false
 }
