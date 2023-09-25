@@ -11,6 +11,6 @@ import Foundation
 //클라이언트 개발자는 항상 서버를 생각해야 한다.
 enum LookAroundLayoutStatus {
     //주입하기
-    case chart(championTagCategory: LOLChampionTagCategory)
+    case chart(lookAroundChartAttribute: LookAroundChartAttribute)
     case interestedGroup(interestedStatus: LookAroundInterestedStatus)
 }

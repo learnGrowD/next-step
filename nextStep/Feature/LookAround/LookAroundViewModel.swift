@@ -14,6 +14,9 @@ final class LookAroundViewModel: BaseViewModel {
     let topCategoryList = BehaviorRelay<[LookAroundCategoryAttribute]>(value: [])
     let topCategoryButtonTap = PublishRelay<LookAroundCategoryAttribute>()
 
+    let chartChampioList = BehaviorRelay<[LookAroundChampionRankAttribute]>(value: [])
+    let chartChampionButtonTap = PublishRelay<LookAroundChampionRankAttribute>()
+
     override init() {
         super.init()
         bind()
@@ -32,6 +35,28 @@ final class LookAroundViewModel: BaseViewModel {
     func getTopCategoryButtonTapWithLayoutPositionIndex() -> Observable<Int> {
         topCategoryButtonTap
             .map { $0.index }
+    }
+
+    func getChartChampionList(champioTagCategory: LOLChampionTagCategory) -> Observable<[LookAroundChampionRankAttribute]> {
+        chartChampioList
+            .filter { !$0.isEmpty }
+            .map {
+                $0.filter {
+                    champioTagCategory == $0.championTagCategory
+                }
+            }
+            .map { list in
+                return list.count >= 25 ? Array(list[0..<25]) : list
+            }
+    }
+
+    func getChartChampionPrimitiveList(champioTagCategory: LOLChampionTagCategory?) -> [LookAroundChampionRankAttribute] {
+        let filterList = chartChampioList.value
+            .filter {
+                champioTagCategory == $0.championTagCategory
+            }
+
+        return filterList.count >= 25 ? Array(filterList[0..<25]) : filterList
     }
 
 
@@ -71,6 +96,10 @@ final class LookAroundViewModel: BaseViewModel {
             .take(1)
             .bind(to: topCategoryList)
             .disposed(by: disposeBag)
+
+        repository.getChartChampionList()
+            .bind(to: chartChampioList)
+            .disposed(by: disposeBag)
     }
 
     private func bindTopCategoryList() -> Observable<[LookAroundCategoryAttribute]> {
@@ -78,15 +107,15 @@ final class LookAroundViewModel: BaseViewModel {
             .map { statusList in
                 statusList.enumerated().map { [weak self] index ,status in
                     switch status {
-                    case .chart(championTagCategory: let category):
+                    case .chart(let lookAroundChartAttribute):
                         return LookAroundCategoryAttribute(
                             index: index,
-                            categoryText: self?.getChartCategoryTitle(chartCategory: category)
+                            categoryText: self?.getChartCategoryTitle(chartCategory: lookAroundChartAttribute.championTagCategory)
                         )
-                    case .interestedGroup(interestedStatus: let status):
+                    case .interestedGroup(let interestedStatus):
                         return LookAroundCategoryAttribute(
                             index: index,
-                            categoryText: self?.getInterestedStatusTitle(interestedState: status)
+                            categoryText: self?.getInterestedStatusTitle(interestedState: interestedStatus)
                         )
                     }
                 }

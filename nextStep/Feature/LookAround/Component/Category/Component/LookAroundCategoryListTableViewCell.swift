@@ -37,7 +37,7 @@ final class LookAroundCategoryCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 16
         contentView.backgroundColor = R.color.nestStepLightBlack()
 
-        categoryLabel.font = .nestStepRegular(size: .medium)
+        categoryLabel.font = .nestStepRegular(size: .small)
     }
 
     private func layout() {

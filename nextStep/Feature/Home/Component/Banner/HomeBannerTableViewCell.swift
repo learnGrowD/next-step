@@ -72,10 +72,12 @@ final class HomeBannerTableViewCell: UITableViewCell {
     func bind(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         viewModel.getHomeBannerList()
-            .bind(onNext: { [weak self] in
-                self?.collectionView.reloadData()
-                self?.pageControll.numberOfPages = $0.count
-            })
+            .bind(to: collectionView.rx.reloadData())
+            .disposed(by: prepareDisposeBag)
+
+        viewModel.getHomeBannerList()
+            .map { $0.count }
+            .bind(to: pageControll.rx.numberOfPages)
             .disposed(by: prepareDisposeBag)
 
         collectionView.rx.didScroll
@@ -93,7 +95,6 @@ extension HomeBannerTableViewCell {
             let indexRow = Int(round(value))
             pageControll.currentPage = indexRow
         }
-
     }
 }
 

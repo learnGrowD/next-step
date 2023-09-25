@@ -9,7 +9,8 @@ import Foundation
 
 struct LookAroundChampionRankAttribute {
     let id: String
-    let championImageURL: String
+    let championTagCategory: LOLChampionTagCategory
+    let championImageURL: String?
     let championName: String
     let champioDescription: String
 }
