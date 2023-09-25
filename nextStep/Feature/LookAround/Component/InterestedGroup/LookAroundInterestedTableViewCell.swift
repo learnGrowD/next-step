@@ -35,9 +35,9 @@ final class LookAroundInterestedListTableViewCell: UITableViewCell {
 
     private func attribute() {
         flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 32
-        flowLayout.minimumInteritemSpacing = 16
-        let width: CGFloat = (UIScreen.main.bounds.width - 32 - 16) / 2
+        flowLayout.minimumLineSpacing = 8
+        flowLayout.minimumInteritemSpacing = 32
+        let width: CGFloat = (UIScreen.main.bounds.width - 32 - 8) / 2
         let height: CGFloat = 104
         flowLayout.itemSize = CGSize(width: width, height: height)
 

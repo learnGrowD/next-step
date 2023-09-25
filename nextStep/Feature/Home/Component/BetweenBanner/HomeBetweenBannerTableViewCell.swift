@@ -49,7 +49,7 @@ final class HomeBetweenBannerTableViewCell: UITableViewCell {
             $0.height.equalTo(104)
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(48)
+            $0.bottom.equalToSuperview().inset(56)
         }
         informationStackView.snp.makeConstraints {
             $0.centerY.equalToSuperview()

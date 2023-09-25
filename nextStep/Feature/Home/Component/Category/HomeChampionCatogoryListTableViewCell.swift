@@ -76,7 +76,7 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
-            $0.bottom.equalToSuperview().inset(48)
+            $0.bottom.equalToSuperview().inset(56)
             $0.leading.trailing.equalToSuperview()
         }
     }
