@@ -36,7 +36,10 @@ final class HomeRepository: CommonRepositoryProtocol {
                         let value = HomeChampionCategoryAttribute(
                             id: champion.id ?? "",
                             category: tagCategory,
-                            thumbnailImageURL: champion.image?.full ?? "",
+                            thumbnailImageURL: RiotAPIRequestContext.getChampionImageURL(
+                                championImageSizeStatus: .full,
+                                championID: champion.id
+                            ),
                             championName: champion.name ?? "",
                             title: champion.title ?? ""
                         )

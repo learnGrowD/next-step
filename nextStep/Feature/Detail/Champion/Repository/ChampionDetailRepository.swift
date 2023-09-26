@@ -1,0 +1,85 @@
+//
+//  ChampionDetailRepository.swift
+//  nextStep
+//
+//  Created by 도학태 on 2023/09/26.
+//
+
+import Foundation
+import RxSwift
+import RxCocoa
+
+final class ChampionDetailRepository: CommonRepositoryProtocol {
+
+    func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
+        Observable.just([
+            .blur,
+            .description,
+            .description,
+            .description,
+            .description,
+        ])
+    }
+
+    func getChampionDetailPageAttribute(championID: String) -> Observable<ChampionDetailPageAttribute> {
+        riotAPI.getChampionDtail(championID: championID)
+            .flatMap { [weak self] championDetail in
+                guard let self = self,
+                      let championDetail = championDetail else { return Observable<ChampionDetailPageAttribute>.empty() }
+
+                let skinImageURLList = self.convertToSkin(championDetail: championDetail)
+                let skills = self.convertToSkill(championDetail: championDetail)
+
+                let result = ChampionDetailPageAttribute(
+                    skinImageURLList: skinImageURLList,
+                    championName: championDetail.name ?? "",
+                    championTitme: championDetail.title ?? "",
+                    championDescription: championDetail.allytips[safe: 0] ?? "",
+                    skillList: skills
+                )
+                return Observable.just(result)
+            }
+            .catch { _ in
+                Observable<ChampionDetailPageAttribute>.empty()
+            }
+    }
+
+    private func convertToSkin(championDetail: RiotChampionDetailResult) -> [String?] {
+        championDetail.skins.map { skin in
+            RiotAPIRequestContext.getChampionImageURL(
+                championImageSizeStatus: .full,
+                championID: championDetail.id,
+                skinIndexNumber: skin.num
+            )
+        }
+    }
+
+    private func convertToSkill(championDetail: RiotChampionDetailResult) -> [ChampionDetailSkillAttribute] {
+        var skillList: [ChampionDetailSkillAttribute] = []
+        let passive = ChampionDetailSkillAttribute(
+            skillStatus: .passive,
+            skillImageURL: RiotAPIRequestContext.getPassiveImageURL(passiveImagePath: championDetail.passive.passiveImagePath),
+            skillName: championDetail.passive.name ?? "",
+            skillDescription: championDetail.passive.description ?? ""
+        )
+        skillList.append(passive)
+        let skills = championDetail.spells.enumerated().map { index, spell in
+            var skillStatus: LOLSkillStatus = .qSkill
+            switch index {
+            case 0: skillStatus = .qSkill
+            case 1: skillStatus = .wSkill
+            case 2: skillStatus = .eSkill
+            case 3: skillStatus = .rSkill
+            default:break
+            }
+            return ChampionDetailSkillAttribute(
+                skillStatus: skillStatus,
+                skillImageURL: RiotAPIRequestContext.getSpellImageURL(spellID: spell.id),
+                skillName: spell.name ?? "",
+                skillDescription: spell.description ?? ""
+            )
+        }
+        return skills
+    }
+    
+}

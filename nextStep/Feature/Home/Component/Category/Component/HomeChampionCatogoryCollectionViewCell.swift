@@ -55,11 +55,7 @@ class HomeChampionCatogoryCollectionViewCell: UICollectionViewCell {
     private func setUI(data: HomeChampionCategoryAttribute) {
         thumbnailImageView.clipsToBounds = true
         thumbnailImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
-        let thumbnailImageURL = RiotAPIRequestContext.getChampionImageURL(
-            championImageSizeStatus: .full,
-            championID: data.id
-        )
-        thumbnailImageView.bindImage(imageURL: thumbnailImageURL)
+        thumbnailImageView.bindImage(imageURL: data.thumbnailImageURL)
 
         nameLabel.text = data.championName
         titleLabel.text = data.title

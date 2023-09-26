@@ -37,6 +37,9 @@
 		B837AE062AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE052AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift */; };
 		B837AE082AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE072AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift */; };
 		B837AE0D2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE0C2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift */; };
+		B837AE112AC305D600BE7D2C /* ChampionDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE102AC305D600BE7D2C /* ChampionDetailRepository.swift */; };
+		B837AE132AC307FC00BE7D2C /* ChampionDetailPageAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE122AC307FC00BE7D2C /* ChampionDetailPageAttribute.swift */; };
+		B837AE152AC3085500BE7D2C /* ChampionDetailSkillAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE142AC3085500BE7D2C /* ChampionDetailSkillAttribute.swift */; };
 		B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991D2AAC5540004C0A42 /* AppDelegate.swift */; };
 		B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */; };
 		B83A99272AAC5541004C0A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83A99262AAC5541004C0A42 /* Assets.xcassets */; };
@@ -144,6 +147,9 @@
 		B837AE052AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		B837AE072AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailLayoutStatus.swift; sourceTree = "<group>"; };
 		B837AE0C2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailSkinCollectionViewCell.swift; sourceTree = "<group>"; };
+		B837AE102AC305D600BE7D2C /* ChampionDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailRepository.swift; sourceTree = "<group>"; };
+		B837AE122AC307FC00BE7D2C /* ChampionDetailPageAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailPageAttribute.swift; sourceTree = "<group>"; };
+		B837AE142AC3085500BE7D2C /* ChampionDetailSkillAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailSkillAttribute.swift; sourceTree = "<group>"; };
 		B83A991A2AAC5540004C0A42 /* nextStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nextStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83A991D2AAC5540004C0A42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -345,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				B837AE072AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift */,
+				B837AE122AC307FC00BE7D2C /* ChampionDetailPageAttribute.swift */,
+				B837AE142AC3085500BE7D2C /* ChampionDetailSkillAttribute.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +360,7 @@
 		B837ADFC2AC2C8BB00BE7D2C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B837AE102AC305D600BE7D2C /* ChampionDetailRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1049,8 +1058,10 @@
 				B837A8EC2AAC7FC500A5F407 /* RiotAPIRequestContext.swift in Sources */,
 				B887C17E2ABEA27E008257A0 /* HomeChampionCatogoryListTableViewCell.swift in Sources */,
 				B85411052AB5D58700957BB1 /* LottieResourceManager.swift in Sources */,
+				B837AE112AC305D600BE7D2C /* ChampionDetailRepository.swift in Sources */,
 				B837ADFF2AC2D09600BE7D2C /* ChampionDetailInformationView.swift in Sources */,
 				B89F51EE2AAC5A4100C8AE64 /* CommonReactive+extension.swift in Sources */,
+				B837AE132AC307FC00BE7D2C /* ChampionDetailPageAttribute.swift in Sources */,
 				B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */,
 				B8BDDD6D2ABA5E21003D863D /* UICollectionView+extension.swift in Sources */,
 				B85410ED2AB5BCBB00957BB1 /* AppStorageProtocol.swift in Sources */,
@@ -1062,6 +1073,7 @@
 				B8BDDD702ABA617E003D863D /* UIImageView+extension.swift in Sources */,
 				B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */,
 				B837AE012AC2E20700BE7D2C /* ChampionDetailSkinListView.swift in Sources */,
+				B837AE152AC3085500BE7D2C /* ChampionDetailSkillAttribute.swift in Sources */,
 				B8DDB8FC2AC1A9AE0068C7C0 /* LookAroundInterestedTableViewCell.swift in Sources */,
 				B837ADF72AC2C74400BE7D2C /* ChampionDetailViewController.swift in Sources */,
 				B8E7C0332AB90A0200E310AF /* HomeBannerView.swift in Sources */,

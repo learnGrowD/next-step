@@ -54,6 +54,6 @@ final class ChampionDetailSkinListView: UIView {
     }
 
     private func bind(_ viewModel: ChampionDetailViewModel) {
-        
+
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct HomeChampionCategoryAttribute {
     let id: String
     let category: LOLChampionTagCategory
-    let thumbnailImageURL: String
+    let thumbnailImageURL: String?
     let championName: String
     let title: String
 }

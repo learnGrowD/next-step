@@ -10,14 +10,8 @@ import RxSwift
 import RxCocoa
 
 final class ChampionDetailViewModel: BaseViewModel {
-    let layoutStatusList = BehaviorRelay<[ChampionDetailLayoutStatus]>(value: [
-        .blur,
-        .description,
-        .description,
-        .description,
-        .description,
-        
-    ])
+    let layoutStatusList = BehaviorRelay<[ChampionDetailLayoutStatus]>(value: [])
+
     init(championID: String) {
         super.init()
     }
@@ -25,5 +19,16 @@ final class ChampionDetailViewModel: BaseViewModel {
     func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
         layoutStatusList
             .filter { !$0.isEmpty }
+    }
+
+    func getSkinImageURLList() -> [String] {
+
+    }
+
+    private func bind(_ repository: ChampionDetailRepository = ChampionDetailRepository()) {
+        repository.getLayoutStatusList()
+            .take(1)
+            .bind(to: layoutStatusList)
+            .disposed(by: disposeBag)
     }
 }

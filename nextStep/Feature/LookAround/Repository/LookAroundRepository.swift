@@ -39,6 +39,9 @@ class LookAroundRepository: CommonRepositoryProtocol {
                 let shuffledList = result.shuffled()
                 return shuffledList
             }
+            .catch { _ in
+                Observable.just([])
+            }
     }
 
     func getInterestedGroupList() -> Observable<[LookAroundInterestedGroupAttribute]> {
