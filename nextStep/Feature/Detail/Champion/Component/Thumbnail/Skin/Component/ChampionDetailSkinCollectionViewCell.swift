@@ -11,6 +11,8 @@ import RxCocoa
 
 final class ChampionDetailSkinCollectionViewCell: UICollectionViewCell {
     private var prepareDisposeBag = DisposeBag()
+    private let thumnailImageView = UIImageView()
+    private let nameLabel = UILabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,10 +30,25 @@ final class ChampionDetailSkinCollectionViewCell: UICollectionViewCell {
     }
 
     private func attribute() {
-
+        nameLabel.font = .nestStepRegular(size: .medium)
     }
 
     private func layout() {
+        contentView.addSubViews(thumnailImageView, nameLabel)
+        thumnailImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        nameLabel.snp.makeConstraints {
+            $0.leading.bottom.equalToSuperview().inset(8)
+        }
+    }
 
+    private func setUI(data: ChampionDetailSkinAttribute) {
+        thumnailImageView.bindImage(imageURL: data.skinImageURL)
+        nameLabel.text = data.skinName
+    }
+
+    func bind(viewModel: ChampionDetailViewModel, data: ChampionDetailSkinAttribute) {
+        setUI(data: data)
     }
 }

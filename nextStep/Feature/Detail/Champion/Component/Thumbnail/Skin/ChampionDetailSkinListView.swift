@@ -54,6 +54,19 @@ final class ChampionDetailSkinListView: UIView {
     }
 
     private func bind(_ viewModel: ChampionDetailViewModel) {
-
+        viewModel.getSkinImageURLList()
+            .debug()
+            .bind(to: collectionView.rx.items) { collectionView, row, data in
+                let indexPath = IndexPath(row: row, section: 0)
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ChampionDetailSkinCollectionViewCell.identifier,
+                    for: indexPath
+                ) as? ChampionDetailSkinCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                cell.bind(viewModel: viewModel, data: data)
+                return cell
+             }
+            .disposed(by: disposeBag)
     }
 }

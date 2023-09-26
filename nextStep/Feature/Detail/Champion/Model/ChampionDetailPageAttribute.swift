@@ -8,7 +8,7 @@
 import Foundation
 
 struct ChampionDetailPageAttribute {
-    let skinImageURLList: [String?]
+    let skinList: [ChampionDetailSkinAttribute]
     let championName: String
     let championTitme: String
     let championDescription: String

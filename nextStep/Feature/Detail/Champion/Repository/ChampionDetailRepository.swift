@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class ChampionDetailRepository: CommonRepositoryProtocol {
+struct ChampionDetailRepository: CommonRepositoryProtocol {
 
     func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
         Observable.just([
@@ -23,15 +23,14 @@ final class ChampionDetailRepository: CommonRepositoryProtocol {
 
     func getChampionDetailPageAttribute(championID: String) -> Observable<ChampionDetailPageAttribute> {
         riotAPI.getChampionDtail(championID: championID)
-            .flatMap { [weak self] championDetail in
-                guard let self = self,
-                      let championDetail = championDetail else { return Observable<ChampionDetailPageAttribute>.empty() }
+            .flatMap { [self] championDetail in
+                guard let championDetail = championDetail else { return Observable<ChampionDetailPageAttribute>.empty() }
 
-                let skinImageURLList = self.convertToSkin(championDetail: championDetail)
+                let skinList = self.convertToSkin(championDetail: championDetail)
                 let skills = self.convertToSkill(championDetail: championDetail)
 
                 let result = ChampionDetailPageAttribute(
-                    skinImageURLList: skinImageURLList,
+                    skinList: skinList,
                     championName: championDetail.name ?? "",
                     championTitme: championDetail.title ?? "",
                     championDescription: championDetail.allytips[safe: 0] ?? "",
@@ -44,14 +43,18 @@ final class ChampionDetailRepository: CommonRepositoryProtocol {
             }
     }
 
-    private func convertToSkin(championDetail: RiotChampionDetailResult) -> [String?] {
-        championDetail.skins.map { skin in
-            RiotAPIRequestContext.getChampionImageURL(
-                championImageSizeStatus: .full,
-                championID: championDetail.id,
-                skinIndexNumber: skin.num
+    private func convertToSkin(championDetail: RiotChampionDetailResult) -> [ChampionDetailSkinAttribute] {
+        let skins = championDetail.skins.map { skin in
+            ChampionDetailSkinAttribute(
+                skinName: skin.name ?? "",
+                skinImageURL: RiotAPIRequestContext.getChampionImageURL(
+                    championImageSizeStatus: .full,
+                    championID: championDetail.id,
+                    skinIndexNumber: skin.num
+                )
             )
         }
+        return Array(skins[1..<skins.count - 1]).shuffled()
     }
 
     private func convertToSkill(championDetail: RiotChampionDetailResult) -> [ChampionDetailSkillAttribute] {
