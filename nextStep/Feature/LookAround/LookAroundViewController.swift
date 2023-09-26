@@ -121,7 +121,7 @@ extension LookAroundViewController {
     }
     private func scrollToCategory(layoutPositionIndex: Int) {
         let indexPath = IndexPath(row: layoutPositionIndex, section: 0)
-        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 
     private func pushChampionDetailViewController(championID: String) {

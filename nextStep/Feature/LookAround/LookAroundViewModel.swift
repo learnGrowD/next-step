@@ -130,7 +130,7 @@ final class LookAroundViewModel: BaseViewModel {
             return R.string.localizable.lookAroundViewModelInterestedStatusTierTitle()
         }
     }
-
+    
     private func bind(_ repository: LookAroundRepository = LookAroundRepository()) {
         repository.getLayoutList()
             .take(1)

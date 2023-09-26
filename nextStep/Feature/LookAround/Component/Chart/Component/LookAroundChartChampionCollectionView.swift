@@ -41,7 +41,7 @@ final class LookAroundChartChampionCollectionView: UICollectionViewCell {
         championNameLabel.font = .nestStepBold(size: .small)
 
         championDescriptionLabel.font = .nestStepRegular(size: .extraSmall)
-        championDescriptionLabel.textColor = .darkGray
+        championDescriptionLabel.textColor = .white.withAlphaComponent(0.5)
     }
 
     private func layout() {

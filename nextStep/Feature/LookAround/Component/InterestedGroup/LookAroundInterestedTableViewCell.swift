@@ -15,6 +15,7 @@ final class LookAroundInterestedListTableViewCell: UITableViewCell {
     private var lookAroundInterestedStatus: LookAroundInterestedStatus?
     private var viewModel: LookAroundViewModel?
 
+    private let headerLabel = UILabel()
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
@@ -34,6 +35,7 @@ final class LookAroundInterestedListTableViewCell: UITableViewCell {
     }
 
     private func attribute() {
+        headerLabel.font = .nestStepBold(size: .large)
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 8
         flowLayout.minimumInteritemSpacing = 32
@@ -54,9 +56,15 @@ final class LookAroundInterestedListTableViewCell: UITableViewCell {
     }
 
     private func layout() {
-        contentView.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
+        contentView.addSubViews(headerLabel, collectionView)
+        headerLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.lessThanOrEqualToSuperview().inset(16)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(headerLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(56)
         }
@@ -66,6 +74,7 @@ final class LookAroundInterestedListTableViewCell: UITableViewCell {
         self.viewModel = viewModel
         self.lookAroundInterestedStatus = lookAroundInterestedStatus
 
+        headerLabel.text = viewModel.getInterestedStatusTitle(interestedState: lookAroundInterestedStatus)
         viewModel.getInterestedGroupList(interestedStatus: lookAroundInterestedStatus)
             .bind(to: collectionView.rx.reloadData())
             .disposed(by: prepareDisposeBag)

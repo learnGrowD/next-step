@@ -15,6 +15,7 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
     private var lookAroundChartAttribute: LookAroundChartAttribute?
     private var viewModel: LookAroundViewModel?
 
+    private let headerLabel = UILabel()
     private let containerView = UIView()
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
@@ -40,16 +41,16 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
 
     private func attribute() {
         containerView.backgroundColor = R.color.nestStepLightBlack()
-        containerView
-            .layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
+        containerView.layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
 
+        headerLabel.font = .nestStepBold(size: .large)
         titleLabel.font = .nestStepBold(size: .medium)
 
         subTitleLabel.font = .nestStepRegular(size: .extraSmall)
-        subTitleLabel.textColor = .darkGray
+        subTitleLabel.textColor = .white.withAlphaComponent(0.5)
 
         descriptionLabel.font = .nestStepRegular(size: .small)
-        descriptionLabel.textColor = .darkGray
+        descriptionLabel.textColor = .white.withAlphaComponent(0.5)
 
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 0
@@ -74,6 +75,7 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
 
     private func layout() {
         contentView.addSubViews(
+            headerLabel,
             containerView,
             titleLabel,
             subTitleLabel,
@@ -81,20 +83,25 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
             collectionView,
             pageController
         )
-        containerView.snp.makeConstraints {
+        headerLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16)
+            $0.trailing.lessThanOrEqualToSuperview().inset(16)
+        }
+        containerView.snp.makeConstraints {
+            $0.top.equalTo(headerLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(pageController).inset(-8)
         }
 
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16)
+            $0.top.equalTo(containerView).inset(16)
             $0.leading.equalTo(containerView).inset(16)
         }
 
         subTitleLabel.snp.makeConstraints {
             $0.centerY.equalTo(titleLabel)
-            $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
+            $0.leading.equalTo(titleLabel.snp.trailing).offset(12)
             $0.trailing.lessThanOrEqualTo(containerView)
         }
 
@@ -128,6 +135,7 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
         self.lookAroundChartAttribute = data
         self.viewModel = viewModel
 
+        headerLabel.text = viewModel.getChartCategoryTitle(chartCategory: data.championTagCategory)
         viewModel.getChartChampionList(champioTagCategory: data.championTagCategory)
             .bind(to: collectionView.rx.reloadData())
             .disposed(by: prepareDisposeBag)
