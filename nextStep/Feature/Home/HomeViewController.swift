@@ -17,7 +17,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
 
-        tableView.tableHeaderView = bannerView
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 88, right: 0)
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(HomeBetweenBannerTableViewCell.self,
@@ -29,6 +28,8 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     override func layout() {
         super.layout()
         view.addSubview(tableView)
+        
+        tableView.tableHeaderView = bannerView
         tableView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.bottom.equalToSuperview()

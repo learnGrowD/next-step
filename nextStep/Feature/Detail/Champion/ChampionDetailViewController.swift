@@ -22,26 +22,45 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
         tableView.backgroundColor = .clear
     }
 
-    override func layout() {
-        super.layout()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         view.addSubViews(informationView, skinListView, tableView)
         informationView.snp.makeConstraints {
-            $0.height.equalTo(44)
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
         }
         skinListView.snp.makeConstraints {
-            $0.height.equalTo(416)
             $0.top.equalTo(informationView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
         }
-
         tableView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print(informationView.frame.height)
+    }
+
+//    override func layout() {
+//        super.layout()
+//        view.addSubViews(informationView, skinListView, tableView)
+//        informationView.snp.makeConstraints {
+//            $0.top.equalTo(view.safeAreaLayoutGuide)
+//            $0.leading.trailing.equalToSuperview()
+//        }
+//        skinListView.snp.makeConstraints {
+//            $0.top.equalTo(informationView.snp.bottom).offset(16)
+//            $0.leading.trailing.equalToSuperview()
+//        }
+//        tableView.snp.makeConstraints {
+//            $0.top.equalToSuperview()
+//            $0.leading.trailing.equalToSuperview()
+//            $0.bottom.equalToSuperview()
+//        }
+//    }
 
     override func bind(_ viewModel: ChampionDetailViewModel) {
         super.bind(viewModel)

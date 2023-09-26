@@ -10,12 +10,13 @@ import RxGesture
 import SnapKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    var rootViewModel = ChampionDetailViewModel(championID: "Talon")
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
 
-        let rootViewController = MainTabBarController()
+        let rootViewController = ChampionDetailViewController(viewModel: rootViewModel)
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
     }

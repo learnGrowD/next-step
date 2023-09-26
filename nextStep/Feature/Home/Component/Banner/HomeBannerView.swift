@@ -55,6 +55,7 @@ final class HomeBannerView: UIView {
             width: UIScreen.main.bounds.width,
             height: HomeBannerCollectionViewCell.heightSize + 8 + pageControll.intrinsicContentSize.height + 24
         )
+
         collectionView.snp.makeConstraints {
             $0.height.equalTo(HomeBannerCollectionViewCell.heightSize)
             $0.top.equalToSuperview()

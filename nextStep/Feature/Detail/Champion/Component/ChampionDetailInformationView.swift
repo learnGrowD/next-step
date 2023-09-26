@@ -30,7 +30,10 @@ final class ChampionDetailInformationView: UIView {
     }
 
     private func layout() {
-
+        snp.makeConstraints {
+            $0.width.equalTo(UIScreen.main.bounds.width)
+            $0.height.equalTo(56)
+        }
     }
 
     private func bind(_ viewModel: ChampionDetailViewModel) {
