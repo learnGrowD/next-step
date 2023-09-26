@@ -22,12 +22,26 @@ struct RiotAPI {
         )
         let service = CommonRESTfulAPIService<RiotWrapper<[String: RiotChampionResult]>>(requestContext: context)
         return service.getMapping()
-            .map {
+            .map { championDictionary in
                 var result: [RiotChampionResult] = []
-                $0.forEach {
-                    result.append($0.value)
+                championDictionary.forEach { champion in
+                    result.append(champion.value)
                 }
                 return result
+            }
+    }
+
+    func getChampionDtail(championID: String) -> Observable<RiotChampionDetailResult?> {
+        let context = RiotAPIRequestContext(
+            path: "/champion/\(championID).json",
+            params: [:],
+            requestUIMode: .blur,
+            resultUIMode: .showWarning
+        )
+        let service = CommonRESTfulAPIService<RiotWrapper<[String: RiotChampionDetailResult]>>(requestContext: context)
+        return service.getMapping()
+            .map { championDictionary in
+                championDictionary[championID]
             }
     }
 }

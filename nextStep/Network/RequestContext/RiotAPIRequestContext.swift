@@ -65,12 +65,13 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         }
     }
 
-    static func getPassiveImageURL(passiveIdentity : String?) -> String? {
-        "\(passiveImagePath)/\(passiveIdentity ?? "")"
+    static func getPassiveImageURL(passiveImagePath : String?) -> String? {
+        //passiveImagePath like -> Alistar_E.png
+        "\(RiotAPIRequestContext.passiveImagePath)/\(passiveImagePath ?? "")"
     }
 
-    static func getSpellImageURL(spellIdentity : String?) -> String? {
-        "\(spellImagePath)/\(spellIdentity ?? "")"
+    static func getSpellImageURL(spellID : String?) -> String? {
+        "\(spellImagePath)/\(spellID ?? "").png"
     }
 
     static func getChampionSkillVedioURLWithMp4(championKey: String?, skillKey: LOLSkillStatus) -> String {

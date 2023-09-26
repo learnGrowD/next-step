@@ -36,6 +36,7 @@
 		B837AE042AC2ED8000BE7D2C /* ChampionDetailBlurTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE032AC2ED8000BE7D2C /* ChampionDetailBlurTableViewCell.swift */; };
 		B837AE062AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE052AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift */; };
 		B837AE082AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE072AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift */; };
+		B837AE0D2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B837AE0C2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift */; };
 		B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991D2AAC5540004C0A42 /* AppDelegate.swift */; };
 		B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */; };
 		B83A99272AAC5541004C0A42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83A99262AAC5541004C0A42 /* Assets.xcassets */; };
@@ -142,6 +143,7 @@
 		B837AE032AC2ED8000BE7D2C /* ChampionDetailBlurTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailBlurTableViewCell.swift; sourceTree = "<group>"; };
 		B837AE052AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		B837AE072AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailLayoutStatus.swift; sourceTree = "<group>"; };
+		B837AE0C2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailSkinCollectionViewCell.swift; sourceTree = "<group>"; };
 		B83A991A2AAC5540004C0A42 /* nextStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nextStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83A991D2AAC5540004C0A42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83A991F2AAC5540004C0A42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -367,10 +369,35 @@
 		B837AE022AC2ED6600BE7D2C /* Thumbnail */ = {
 			isa = PBXGroup;
 			children = (
-				B837ADFE2AC2D09600BE7D2C /* ChampionDetailInformationView.swift */,
-				B837AE002AC2E20700BE7D2C /* ChampionDetailSkinListView.swift */,
+				B837AE092AC2FDF000BE7D2C /* Information */,
+				B837AE0A2AC2FDF900BE7D2C /* Skin */,
 			);
 			path = Thumbnail;
+			sourceTree = "<group>";
+		};
+		B837AE092AC2FDF000BE7D2C /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				B837ADFE2AC2D09600BE7D2C /* ChampionDetailInformationView.swift */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		B837AE0A2AC2FDF900BE7D2C /* Skin */ = {
+			isa = PBXGroup;
+			children = (
+				B837AE002AC2E20700BE7D2C /* ChampionDetailSkinListView.swift */,
+				B837AE0B2AC2FE0200BE7D2C /* Component */,
+			);
+			path = Skin;
+			sourceTree = "<group>";
+		};
+		B837AE0B2AC2FE0200BE7D2C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B837AE0C2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		B83A99112AAC5540004C0A42 = {
@@ -1050,6 +1077,7 @@
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B887C1812ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift in Sources */,
 				B8DDB8D92AC045350068C7C0 /* HomeChampionLargeCatogoryCollectionViewCell.swift in Sources */,
+				B837AE0D2AC2FE1200BE7D2C /* ChampionDetailSkinCollectionViewCell.swift in Sources */,
 				B89F51E82AAC580500C8AE64 /* BaseViewController.swift in Sources */,
 				B837AE062AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift in Sources */,
 				B837A8F42AAC80AC00A5F407 /* APIResultUIMode.swift in Sources */,

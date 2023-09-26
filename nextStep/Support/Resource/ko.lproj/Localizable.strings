@@ -39,3 +39,6 @@
 
 "lookAroundViewModelInterestedStatusPositionTitle" = "포지션";
 "lookAroundViewModelInterestedStatusTierTitle" = "티어";
+
+//ChampionDetailBlurTableViewCell
+"championDetailInformationViewTitle" = "이 챔피언이 마음에 드시나요?";

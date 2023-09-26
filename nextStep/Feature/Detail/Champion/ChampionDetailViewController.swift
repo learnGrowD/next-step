@@ -17,7 +17,6 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
     override func attribute() {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
-        informationView.backgroundColor = .systemRed
         skinListView.backgroundColor = .systemBlue
         tableView.backgroundColor = .clear
 
