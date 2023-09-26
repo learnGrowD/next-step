@@ -31,9 +31,11 @@ final class ChampionDetailSkinListView: UIView {
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
-        let size: CGFloat = 256
+        let size: CGFloat = 324
         flowLayout.itemSize = CGSize(width: size, height: size)
 
+        collectionView.clipsToBounds = true
+        collectionView.layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(
@@ -49,7 +51,8 @@ final class ChampionDetailSkinListView: UIView {
         }
         addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.size.equalTo(324)
+            $0.center.equalToSuperview()
         }
     }
 

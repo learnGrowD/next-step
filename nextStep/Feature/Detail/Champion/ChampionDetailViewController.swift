@@ -32,7 +32,7 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
 
     override func layout() {
         super.layout()
-        view.addSubViews(informationView, skinListView, tableView)
+        view.addSubViews(informationView, skinListView)
         informationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
@@ -41,11 +41,7 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
             $0.top.equalTo(informationView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
         }
-        tableView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
+        
     }
 
     override func bind(_ viewModel: ChampionDetailViewModel) {
