@@ -49,9 +49,9 @@ final class LookAroundInterestedCollectionViewCell: UICollectionViewCell {
         }
 
         iconImageView.snp.makeConstraints {
-            $0.size.equalTo(64)
+            $0.size.equalTo(56)
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(16)
+            $0.trailing.equalToSuperview().inset(4)
         }
     }
 

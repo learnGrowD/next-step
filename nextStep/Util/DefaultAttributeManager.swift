@@ -16,6 +16,7 @@ struct DefaultAttributeManager {
 
         UICollectionView.appearance().backgroundColor = R.color.nestStepBlack()
         UICollectionViewCell.appearance().backgroundColor = R.color.nestStepBlack()
+        UITableView.appearance().separatorStyle = .none
         UITableView.appearance().backgroundColor = R.color.nestStepBlack()
         UITableViewCell.appearance().backgroundColor = R.color.nestStepBlack()
         UITableViewCell.appearance().selectionStyle = .none
