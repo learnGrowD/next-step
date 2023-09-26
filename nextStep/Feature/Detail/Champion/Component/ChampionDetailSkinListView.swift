@@ -1,5 +1,5 @@
 //
-//  ChampionDetailInformationView.swift
+//  ChampionDefailSkinListView.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/26.
@@ -9,10 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ChampionDetailInformationView: UIView {
+final class ChampionDetailSkinListView: UIView {
     private let disposeBag = DisposeBag()
     private let viewModel: ChampionDetailViewModel
-
     init(frame: CGRect = .zero, viewModel: ChampionDetailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)

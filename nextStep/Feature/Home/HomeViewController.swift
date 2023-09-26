@@ -91,7 +91,9 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 
 extension HomeViewController {
     func pushChampionDetailViewController(championID: String) {
-        print("Champion ID: \(championID)")
+        let championDetailViewModel = ChampionDetailViewModel(championID: championID)
+        let championDetailViewController = ChampionDetailViewController(viewModel: championDetailViewModel)
+        navigationController?.pushViewController(championDetailViewController, animated: true)
     }
 
     func presentWebViewController(webURL: String?) {

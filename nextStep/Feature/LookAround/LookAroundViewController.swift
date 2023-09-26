@@ -125,7 +125,9 @@ extension LookAroundViewController {
     }
 
     private func pushChampionDetailViewController(championID: String) {
-        print("champion ID: \(championID)")
+        let championDetailViewModel = ChampionDetailViewModel(championID: championID)
+        let championDetailViewController = ChampionDetailViewController(viewModel: championDetailViewModel)
+        navigationController?.pushViewController(championDetailViewController, animated: true)
     }
     private func showInterestedTitleToast(title: String) {
         print("title: \(title)")

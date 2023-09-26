@@ -10,5 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class ChampionDetailViewModel: BaseViewModel {
-
+    init(championID: String) {
+        super.init()
+    }
 }

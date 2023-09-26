@@ -68,7 +68,6 @@ final class HomeBannerView: UIView {
     }
 
     func bind(viewModel: HomeViewModel) {
-
         viewModel.getHomeBannerList()
             .bind(to: collectionView.rx.items) { collectionView, row, data in
                 let indexPath = IndexPath(row: row, section: 0)
