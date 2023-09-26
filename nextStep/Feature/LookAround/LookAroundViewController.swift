@@ -37,7 +37,7 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
             $0.leading.trailing.equalToSuperview()
         }
 
-        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 192, right: 0)
         tableView.snp.makeConstraints {
             $0.top.equalTo(categoryView.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview()
@@ -73,8 +73,24 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
             }
             .disposed(by: disposeBag)
 
+        view.rx.swipeGesture(.left, .up, .right, .down)
+            .when(.recognized)
+            .map { _ in true }
+            .bind(to: viewModel.isDidScrollEnabled)
+            .disposed(by: disposeBag)
+
+        tableView.rx.didScroll
+            .flatMap { viewModel.isDidScrollEnabled }
+            .filter { $0 }
+            .bind(onNext: { [weak self] _ in
+                self?.scrollSelectCategory()
+            })
+            .disposed(by: disposeBag)
+
+
         viewModel.getTopCategoryButtonTapWithLayoutPositionIndex()
             .bind(onNext: { [weak self] layoutPositionIndex in
+                self?.selectCategory(index: layoutPositionIndex)
                 self?.scrollToCategory(layoutPositionIndex: layoutPositionIndex)
             })
             .disposed(by: disposeBag)
@@ -94,9 +110,20 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
 }
 
 extension LookAroundViewController {
-    private func scrollToCategory(layoutPositionIndex: Int) {
-        print("category Status: \(layoutPositionIndex)")
+    private func scrollSelectCategory() {
+        let visibleIndexPaths = tableView.indexPathsForVisibleRows ?? []
+        if let indexPath = visibleIndexPaths.first {
+            selectCategory(index: indexPath.row)
+        }
     }
+    private func selectCategory(index: Int) {
+        viewModel.updateSelectTopCategoryList(categoryIndex: index)
+    }
+    private func scrollToCategory(layoutPositionIndex: Int) {
+        let indexPath = IndexPath(row: layoutPositionIndex, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+    }
+
     private func pushChampionDetailViewController(championID: String) {
         print("champion ID: \(championID)")
     }

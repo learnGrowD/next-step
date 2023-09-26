@@ -11,6 +11,8 @@ import RxCocoa
 
 final class LookAroundViewModel: BaseViewModel {
     let layoutStatusList = BehaviorRelay<[LookAroundLayoutStatus]>(value: [])
+
+    let isDidScrollEnabled = BehaviorRelay<Bool>(value: true)
     let topCategoryList = BehaviorRelay<[LookAroundCategoryAttribute]>(value: [])
     let topCategoryButtonTap = PublishRelay<LookAroundCategoryAttribute>()
 
@@ -33,6 +35,19 @@ final class LookAroundViewModel: BaseViewModel {
     func getTopCategoryList() -> Observable<[LookAroundCategoryAttribute]> {
         topCategoryList
             .filter { !$0.isEmpty }
+    }
+
+    func getTopCategoryPrimitiveList() -> [LookAroundCategoryAttribute] {
+        topCategoryList.value
+    }
+
+    func updateSelectTopCategoryList(categoryIndex: Int) {
+        var list = topCategoryList.value
+        for index in 0..<list.count {
+            list[index].isSelect = false
+        }
+        list[categoryIndex].isSelect = true
+        topCategoryList.accept(list)
     }
 
     func getTopCategoryButtonTapWithLayoutPositionIndex() -> Observable<Int> {

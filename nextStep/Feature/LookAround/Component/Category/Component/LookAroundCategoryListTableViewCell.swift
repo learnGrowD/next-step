@@ -51,6 +51,13 @@ final class LookAroundCategoryCollectionViewCell: UICollectionViewCell {
     func bind(viewModel: LookAroundViewModel, data: LookAroundCategoryAttribute) {
         setUI(data: data)
         contentView.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in false }
+            .bind(to: viewModel.isDidScrollEnabled)
+            .disposed(by: prepareDisposeBag)
+        
+        contentView.rx.tapGesture()
+            .when(.recognized)
             .map { _ in data }
             .bind(to: viewModel.topCategoryButtonTap)
             .disposed(by: prepareDisposeBag)
