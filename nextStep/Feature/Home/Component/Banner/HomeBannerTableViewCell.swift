@@ -40,6 +40,7 @@ final class HomeBannerTableViewCell: UITableViewCell {
             width: UIScreen.main.bounds.width,
             height: HomeBannerCollectionViewCell.heightSize + safeAreaTopInsets
         )
+        collectionView.bounces = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.register(
