@@ -20,10 +20,19 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
         informationView.backgroundColor = .systemRed
         skinListView.backgroundColor = .systemBlue
         tableView.backgroundColor = .clear
+
+        tableView.register(
+            ChampionDetailBlurTableViewCell.self,
+            forCellReuseIdentifier: ChampionDetailBlurTableViewCell.identifier
+        )
+        tableView.register(
+            ChampionDetailDescriptionTableViewCell.self,
+            forCellReuseIdentifier: ChampionDetailDescriptionTableViewCell.identifier
+        )
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func layout() {
+        super.layout()
         view.addSubViews(informationView, skinListView, tableView)
         informationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -39,31 +48,38 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
             $0.bottom.equalToSuperview()
         }
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        print(informationView.frame.height)
-    }
-
-//    override func layout() {
-//        super.layout()
-//        view.addSubViews(informationView, skinListView, tableView)
-//        informationView.snp.makeConstraints {
-//            $0.top.equalTo(view.safeAreaLayoutGuide)
-//            $0.leading.trailing.equalToSuperview()
-//        }
-//        skinListView.snp.makeConstraints {
-//            $0.top.equalTo(informationView.snp.bottom).offset(16)
-//            $0.leading.trailing.equalToSuperview()
-//        }
-//        tableView.snp.makeConstraints {
-//            $0.top.equalToSuperview()
-//            $0.leading.trailing.equalToSuperview()
-//            $0.bottom.equalToSuperview()
-//        }
-//    }
 
     override func bind(_ viewModel: ChampionDetailViewModel) {
         super.bind(viewModel)
+
+        viewModel.getLayoutStatusList()
+            .bind(to: tableView.rx.items) { tableView, row, layoutStatus in
+                switch layoutStatus {
+                case .blur:
+                    let indexPath = IndexPath(row: row, section: 0)
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: ChampionDetailBlurTableViewCell.identifier,
+                        for: indexPath
+                    ) as? ChampionDetailBlurTableViewCell else {
+                        return UITableViewCell()
+                    }
+                    cell.bind(viewModel)
+                    return cell
+                case .description:
+                    let indexPath = IndexPath(row: row, section: 0)
+                    guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: ChampionDetailDescriptionTableViewCell.identifier,
+                        for: indexPath
+                    ) as? ChampionDetailDescriptionTableViewCell else {
+                        return UITableViewCell()
+                    }
+                    cell.bind(viewModel)
+                    return cell
+                case .skill:
+                    return UITableViewCell()
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }
 

@@ -10,7 +10,20 @@ import RxSwift
 import RxCocoa
 
 final class ChampionDetailViewModel: BaseViewModel {
+    let layoutStatusList = BehaviorRelay<[ChampionDetailLayoutStatus]>(value: [
+        .blur,
+        .description,
+        .description,
+        .description,
+        .description,
+        
+    ])
     init(championID: String) {
         super.init()
+    }
+
+    func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
+        layoutStatusList
+            .filter { !$0.isEmpty }
     }
 }
