@@ -11,13 +11,15 @@ import RxCocoa
 
 final class HomeViewController: BaseViewController<HomeViewModel> {
     private let tableView = UITableView()
+    private lazy var bannerView = HomeBannerView(viewModel: viewModel)
 
     override func attribute() {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
 
-        
-        tableView.register(HomeBannerTableViewCell.self, forCellReuseIdentifier: HomeBannerTableViewCell.identifier)
+        tableView.tableHeaderView = bannerView
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 88, right: 0)
+        tableView.contentInsetAdjustmentBehavior = .never
         tableView.register(HomeBetweenBannerTableViewCell.self,
                            forCellReuseIdentifier: HomeBetweenBannerTableViewCell.identifier)
         tableView.register(HomeChampionCatogoryListTableViewCell.self,
@@ -36,7 +38,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
     override func bind(_ viewModel: HomeViewModel) {
         super.bind(viewModel)
         tableView.rx.contentOffset
-            .map { 0 < $0.y }
+            .map { 144 < $0.y }
             .bind(to: tableView.rx.bounces)
             .disposed(by: disposeBag)
 
@@ -44,13 +46,6 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             .bind(to: tableView.rx.items) { tableView, row, category in
                 let indexPath = IndexPath(row: row, section: 0)
                 switch category {
-                case .banner:
-                    guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: HomeBannerTableViewCell.identifier,
-                        for: indexPath
-                    ) as? HomeBannerTableViewCell else { return UITableViewCell() }
-                    cell.bind(viewModel: viewModel)
-                    return cell
                 case .betweenBanner(let betweenBannerAttribute):
                     guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: HomeBetweenBannerTableViewCell.identifier,
@@ -73,6 +68,7 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
                     cell.bind(itemSize: .large, category, viewModel: viewModel)
                     return cell
                 }
+
             }
             .disposed(by: disposeBag)
 

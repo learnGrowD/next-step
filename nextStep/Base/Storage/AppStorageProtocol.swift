@@ -30,7 +30,8 @@ extension AppStorageProtocol {
     }
 
     var safeAreaTopInsets: CGFloat {
-        depthViewController?.view.safeAreaInsets.top ?? 0.0
+        let fixedNavigationBarHeightSizde: CGFloat = 44
+        return (window?.safeAreaInsets.top ?? 0.0) + fixedNavigationBarHeightSizde
     }
 
     var rootViewController: UIViewController? {

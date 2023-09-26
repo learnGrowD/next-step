@@ -13,7 +13,6 @@ final class HomeRepository: CommonRepositoryProtocol {
     func getLayouts() -> Observable<[HomeLayoutStatus]> {
         let willdInformationBetweenAttribute = HomeBetweenBannerAttribute.getMockupData()
         return Observable.just([
-            .banner,
             .small(lolChampionTagCategory: .assassin),
             .betweenBanner(betweenBannerAttribute: willdInformationBetweenAttribute),
             .small(lolChampionTagCategory: .fighter),

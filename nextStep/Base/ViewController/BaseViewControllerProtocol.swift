@@ -20,14 +20,14 @@ protocol BaseViewControllerProtocol: UIViewController {
 
 extension BaseViewControllerProtocol {
     func mInit() {
-        attribute()
         viewModel.lifeCycleStatus.accept(.mInit)
         print("🍎 init: \(className)")
     }
 
     func mViewDidLoad() {
         acceptJudgeViewController(value: self)
-
+        attribute()
+        
         layout()
         bind(viewModel)
         viewModel.lifeCycleStatus.accept(.viewDidLoad)

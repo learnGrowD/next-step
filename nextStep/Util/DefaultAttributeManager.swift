@@ -12,10 +12,12 @@ struct DefaultAttributeManager {
     static func viewDefailtAttribute() {
 
         UILabel.appearance().textColor = .white
+        
         UIImageView.appearance().contentMode = .scaleAspectFill
 
         UICollectionView.appearance().backgroundColor = R.color.nestStepBlack()
         UICollectionViewCell.appearance().backgroundColor = R.color.nestStepBlack()
+
         UITableView.appearance().separatorStyle = .none
         UITableView.appearance().backgroundColor = R.color.nestStepBlack()
         UITableViewCell.appearance().backgroundColor = R.color.nestStepBlack()
