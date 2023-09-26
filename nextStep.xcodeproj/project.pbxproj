@@ -97,7 +97,6 @@
 		B8E7C0382AB9148100E310AF /* LOLTierCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */; };
 		B8E7C03C2AB9155C00E310AF /* HomeBannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C03B2AB9155C00E310AF /* HomeBannerCollectionViewCell.swift */; };
 		B8E7C03E2AB918A900E310AF /* Font+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C03D2AB918A900E310AF /* Font+extension.swift */; };
-		B8E7C0402AB91B3700E310AF /* CGFloat+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C03F2AB91B3700E310AF /* CGFloat+extension.swift */; };
 		B8E7C0432AB91BC000E310AF /* NestStepCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0422AB91BC000E310AF /* NestStepCornerRadius.swift */; };
 		B8E7C0472AB9204100E310AF /* HomeBannerItemAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7C0462AB9204100E310AF /* HomeBannerItemAttribute.swift */; };
 		B8EF40EF2ABA6EE80046D2CB /* UITableView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EF40EE2ABA6EE80046D2CB /* UITableView+extension.swift */; };
@@ -199,7 +198,6 @@
 		B8E7C0372AB9148100E310AF /* LOLTierCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLTierCategory.swift; sourceTree = "<group>"; };
 		B8E7C03B2AB9155C00E310AF /* HomeBannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8E7C03D2AB918A900E310AF /* Font+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extension.swift"; sourceTree = "<group>"; };
-		B8E7C03F2AB91B3700E310AF /* CGFloat+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+extension.swift"; sourceTree = "<group>"; };
 		B8E7C0422AB91BC000E310AF /* NestStepCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestStepCornerRadius.swift; sourceTree = "<group>"; };
 		B8E7C0462AB9204100E310AF /* HomeBannerItemAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerItemAttribute.swift; sourceTree = "<group>"; };
 		B8EF40EE2ABA6EE80046D2CB /* UITableView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extension.swift"; sourceTree = "<group>"; };
@@ -369,6 +367,7 @@
 				B80E74172AB71C78007440D6 /* Home */,
 				B80E74192AB71CDB007440D6 /* LookAround */,
 				B80E74182AB71C7E007440D6 /* Gallery */,
+				B8DDB9002AC2A9150068C7C0 /* Detail */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -516,7 +515,6 @@
 				B89F51F32AAC5C4D00C8AE64 /* Array+extension.swift */,
 				B837A8E32AAC707100A5F407 /* Dictionary+extension.swift */,
 				B837A8E52AAC712200A5F407 /* Codable+extension.swift */,
-				B8E7C03F2AB91B3700E310AF /* CGFloat+extension.swift */,
 				B8BDDD712ABA620D003D863D /* Date+extension.swift */,
 				B8DDB8C22ABF0FE00068C7C0 /* Int+extension.swift */,
 				B8DDB8C42ABF10B50068C7C0 /* String+extension.swift */,
@@ -702,6 +700,13 @@
 				B8DDB8FE2AC1AB990068C7C0 /* LookAroundInterestedCollectionViewCell.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		B8DDB9002AC2A9150068C7C0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		B8E7C0312AB9093000E310AF /* Component */ = {
@@ -976,7 +981,6 @@
 				B8DDB8EE2AC15C9A0068C7C0 /* LookAroundInterestedGroupAttribute.swift in Sources */,
 				B8BDDD722ABA620D003D863D /* Date+extension.swift in Sources */,
 				B887C1892ABEB181008257A0 /* RiotAPIResult.swift in Sources */,
-				B8E7C0402AB91B3700E310AF /* CGFloat+extension.swift in Sources */,
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B887C1812ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift in Sources */,
 				B8DDB8D92AC045350068C7C0 /* HomeChampionLargeCatogoryCollectionViewCell.swift in Sources */,

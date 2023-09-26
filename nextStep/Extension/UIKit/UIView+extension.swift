@@ -20,7 +20,7 @@ extension UIView {
             subView.removeAllSubView()
         }
     }
-
+    
     func addSubViews(_ subviews: UIView...) {
         subviews.forEach {
             addSubview($0)
@@ -28,9 +28,9 @@ extension UIView {
     }
 
     func debugBouns() {
-        #if DEBUG
+#if DEBUG
         layer.borderColor = UIColor.magenta.cgColor
         layer.borderWidth = 1
-        #endif
+#endif
     }
 }

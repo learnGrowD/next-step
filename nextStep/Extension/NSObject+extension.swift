@@ -11,20 +11,23 @@ extension NSObject {
     static var tag: String {
         String(describing: String(describing: Self.self))
     }
-
+    
     static var className: String {
         String(describing: String(describing: type(of: self)))
     }
-
+    
     var tag: String {
         String(describing: String(describing: Self.self))
     }
-
+    
     var className: String {
         String(describing: String(describing: type(of: self)))
     }
-
+    
     func printMemoryAdress() {
+#if DEBUG
         print("\(Self.className) Memory Adress: \(Unmanaged.passUnretained(self).toOpaque())")
+#endif
     }
+
 }

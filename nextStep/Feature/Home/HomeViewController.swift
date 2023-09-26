@@ -80,8 +80,8 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
             viewModel.getHomeBannerButtonTapWithChampionID(),
             viewModel.getCategoryButtonTapWithChampionID()
         )
-        .bind(onNext: { [weak self] id in
-            self?.pushChampionDetailViewController(id: id)
+        .bind(onNext: { [weak self] championID in
+            self?.pushChampionDetailViewController(championID: championID)
         })
         .disposed(by: disposeBag)
 
@@ -94,8 +94,8 @@ final class HomeViewController: BaseViewController<HomeViewModel> {
 }
 
 extension HomeViewController {
-    func pushChampionDetailViewController(id: String) {
-        print("Champion ID: \(id)")
+    func pushChampionDetailViewController(championID: String) {
+        print("Champion ID: \(championID)")
     }
 
     func presentWebViewController(webURL: String?) {
