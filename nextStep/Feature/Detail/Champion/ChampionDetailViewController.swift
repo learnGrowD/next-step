@@ -134,8 +134,8 @@ extension ChampionDetailViewController: UICollectionViewDelegateFlowLayout {
             let skillImageHeight: CGFloat = 56
             let between: CGFloat = 16
             let skillDescription = skill.skillDescription.getRegularHeightSize(size: .small, width: width - 32, numberOfLines: 0)
-            let avPlayerContainerHeight: CGFloat = 216
-            let height: CGFloat = skillImageHeight + between + skillDescription + between + avPlayerContainerHeight + 32
+//            let avPlayerContainerHeight: CGFloat = 216
+            let height: CGFloat = skillImageHeight + between + skillDescription + between + 32
             return CGSize(width: width, height: height)
         }
     }

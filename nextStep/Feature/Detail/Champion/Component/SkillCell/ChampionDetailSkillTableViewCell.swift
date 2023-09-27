@@ -15,7 +15,7 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
     private let skillKeyLabel = UILabel()
     private let skillNameLabel = UILabel()
     private let skillDescriptionLabel = UILabel()
-    private let avPlayerContainer = UIView()
+//    private let avPlayerContainer = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,11 +44,11 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
         skillDescriptionLabel.font = .nestStepRegular(size: .small)
         skillDescriptionLabel.numberOfLines = 0
 
-        avPlayerContainer.backgroundColor = .systemBlue
+//        avPlayerContainer.backgroundColor = .systemBlue
     }
 
     private func layout() {
-        contentView.addSubViews(skillImageView, skillKeyLabel, skillNameLabel, skillDescriptionLabel, avPlayerContainer)
+        contentView.addSubViews(skillImageView, skillKeyLabel, skillNameLabel, skillDescriptionLabel)
         skillImageView.snp.makeConstraints {
             $0.size.equalTo(56)
             $0.top.equalToSuperview()
@@ -60,18 +60,19 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
         }
         skillNameLabel.snp.makeConstraints {
             $0.leading.equalTo(skillImageView.snp.trailing).offset(16)
-            $0.centerY.equalToSuperview()
+            $0.centerY.equalTo(skillImageView)
         }
         skillDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(skillImageView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
-        }
-        avPlayerContainer.snp.makeConstraints {
-            $0.height.equalTo(216)
-            $0.top.equalTo(skillDescriptionLabel.snp.bottom).offset(16)
-            $0.leading.trailing.equalTo(skillDescriptionLabel)
             $0.bottom.equalToSuperview().inset(32)
         }
+//        avPlayerContainer.snp.makeConstraints {
+//            $0.height.equalTo(216)
+//            $0.top.equalTo(skillDescriptionLabel.snp.bottom).offset(16)
+//            $0.leading.trailing.equalTo(skillDescriptionLabel)
+//            $0.bottom.equalToSuperview().inset(32)
+//        }
     }
 
     func bind(skillstatus: LOLSkillStatus, viewModel: ChampionDetailViewModel) {
@@ -96,10 +97,10 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
             .bind(to: skillDescriptionLabel.rx.text)
             .disposed(by: prepareDisposeBag)
 
-        avPlayerContainer.rx.tapGesture()
-            .when(.recognized)
-            .map { _ in () }
-            .bind(to: viewModel.avPlayerButtonTap)
-            .disposed(by: prepareDisposeBag)
+//        avPlayerContainer.rx.tapGesture()
+//            .when(.recognized)
+//            .map { _ in () }
+//            .bind(to: viewModel.avPlayerButtonTap)
+//            .disposed(by: prepareDisposeBag)
     }
 }
