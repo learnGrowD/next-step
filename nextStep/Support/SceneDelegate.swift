@@ -10,7 +10,7 @@ import RxGesture
 import SnapKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var rootViewModel = ChampionDetailViewModel(championID: "Talon")
+    var rootViewModel = ChampionDetailViewModel(championID: "Belveth")
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }

@@ -54,7 +54,7 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
                 )
             )
         }
-        return Array(skins[1..<skins.count - 1]).shuffled()
+        return Array(skins[1..<skins.count]).shuffled()
     }
 
     private func convertToSkill(championDetail: RiotChampionDetailResult) -> [ChampionDetailSkillAttribute] {

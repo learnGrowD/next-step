@@ -15,7 +15,8 @@ final class ChampionDetailSkinListView: UIView {
 
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-    private let indicatorLabel = UILabel()
+    private let allCountLabel = UILabel()
+    private let currentCountLabel = UILabel()
     init(frame: CGRect = .zero, viewModel: ChampionDetailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
@@ -44,7 +45,8 @@ final class ChampionDetailSkinListView: UIView {
             forCellWithReuseIdentifier: ChampionDetailSkinCollectionViewCell.identifier
         )
 
-        indicatorLabel.font = .nestStepBold(size: .medium)
+        allCountLabel.font = .nestStepBold(size: .medium)
+        currentCountLabel.font = .nestStepRegular(size: .medium)
     }
 
     private func layout() {
@@ -52,14 +54,19 @@ final class ChampionDetailSkinListView: UIView {
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.height.equalTo(424)
         }
-        addSubViews(collectionView, indicatorLabel)
+        addSubViews(collectionView, allCountLabel, currentCountLabel)
         collectionView.snp.makeConstraints {
             $0.size.equalTo(324)
             $0.center.equalToSuperview()
         }
 
-        indicatorLabel.snp.makeConstraints {
-            $0.top.equalTo(collectionView).inset(8)
+        allCountLabel.snp.makeConstraints {
+            $0.top.trailing.equalTo(collectionView).inset(8)
+        }
+
+        currentCountLabel.snp.makeConstraints {
+            $0.centerY.equalTo(allCountLabel)
+            $0.trailing.equalTo(allCountLabel.snp.leading)
         }
     }
 
@@ -77,6 +84,34 @@ final class ChampionDetailSkinListView: UIView {
                 return cell
              }
             .disposed(by: disposeBag)
+
+        viewModel.getSkinImageURLList()
+            .map { $0.isEmpty }
+            .startWith(true)
+            .bind(to: allCountLabel.rx.isHidden, currentCountLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+
+        viewModel.getSkinImageURLList()
+            .map { "\($0.count)"}
+            .bind(to: allCountLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        collectionView.rx.didScroll
+            .map { [weak self] in
+                guard let self = self else { return 0 }
+                return self.getCurrentCount()
+            }
+            .map { "\($0 + 1) / "}
+            .startWith("1 / ")
+            .bind(to: currentCountLabel.rx.text)
+            .disposed(by: disposeBag)
     }
 
+}
+extension ChampionDetailSkinListView {
+    func getCurrentCount() -> Int {
+        let value = collectionView.contentOffset.x / collectionView.frame.width
+        let result = Int(round(value))
+        return result
+    }
 }
