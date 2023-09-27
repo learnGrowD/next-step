@@ -22,7 +22,7 @@ final class ChampionDetailViewModel: BaseViewModel {
 
     func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
         layoutStatusList
-            .filter { !$0.isEmpty }
+            .asObservable()
     }
 
     func getSkinImageURLList() -> Observable<[ChampionDetailSkinAttribute]> {

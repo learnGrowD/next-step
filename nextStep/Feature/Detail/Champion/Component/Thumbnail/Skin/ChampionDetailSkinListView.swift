@@ -15,6 +15,7 @@ final class ChampionDetailSkinListView: UIView {
 
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    private let indicatorLabel = UILabel()
     init(frame: CGRect = .zero, viewModel: ChampionDetailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
@@ -42,6 +43,8 @@ final class ChampionDetailSkinListView: UIView {
             ChampionDetailSkinCollectionViewCell.self,
             forCellWithReuseIdentifier: ChampionDetailSkinCollectionViewCell.identifier
         )
+
+        indicatorLabel.font = .nestStepBold(size: .medium)
     }
 
     private func layout() {
@@ -49,16 +52,19 @@ final class ChampionDetailSkinListView: UIView {
             $0.width.equalTo(UIScreen.main.bounds.width)
             $0.height.equalTo(424)
         }
-        addSubview(collectionView)
+        addSubViews(collectionView, indicatorLabel)
         collectionView.snp.makeConstraints {
             $0.size.equalTo(324)
             $0.center.equalToSuperview()
+        }
+
+        indicatorLabel.snp.makeConstraints {
+            $0.top.equalTo(collectionView).inset(8)
         }
     }
 
     private func bind(_ viewModel: ChampionDetailViewModel) {
         viewModel.getSkinImageURLList()
-            .debug()
             .bind(to: collectionView.rx.items) { collectionView, row, data in
                 let indexPath = IndexPath(row: row, section: 0)
                 guard let cell = collectionView.dequeueReusableCell(
@@ -72,4 +78,5 @@ final class ChampionDetailSkinListView: UIView {
              }
             .disposed(by: disposeBag)
     }
+
 }

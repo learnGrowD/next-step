@@ -29,12 +29,12 @@ final class LookAroundViewModel: BaseViewModel {
 
     func getLayoutStatusList() -> Observable<[LookAroundLayoutStatus]> {
         layoutStatusList
-            .filter { !$0.isEmpty }
+            .asObservable()
     }
 
     func getTopCategoryList() -> Observable<[LookAroundCategoryAttribute]> {
         topCategoryList
-            .filter { !$0.isEmpty }
+            .asObservable()
     }
 
     func getTopCategoryPrimitiveList() -> [LookAroundCategoryAttribute] {
@@ -57,7 +57,6 @@ final class LookAroundViewModel: BaseViewModel {
 
     func getChartChampionList(champioTagCategory: LOLChampionTagCategory) -> Observable<[LookAroundChampionRankAttribute]> {
         chartChampioList
-            .filter { !$0.isEmpty }
             .map {
                 $0.filter {
                     champioTagCategory == $0.championTagCategory
@@ -84,7 +83,6 @@ final class LookAroundViewModel: BaseViewModel {
 
     func getInterestedGroupList(interestedStatus: LookAroundInterestedStatus) -> Observable<[LookAroundInterestedGroupAttribute]> {
         interestedList
-            .filter { !$0.isEmpty }
             .map {
                 $0.filter {
                     interestedStatus == $0.status

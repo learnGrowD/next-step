@@ -45,12 +45,12 @@ final class HomeViewModel: BaseViewModel {
 
     func gethomeLayoutStatusList() -> Observable<[HomeLayoutStatus]> {
         homeLayoutStatusList
-            .filter { !$0.isEmpty }
+            .asObservable()
     }
 
     func getHomeBannerList() -> Observable<[HomeBannerItemAttribute]> {
         homeBannerList
-            .filter { !$0.isEmpty }
+            .asObservable()
     }
 
     func getHomeBannerPrimitiveList() -> [HomeBannerItemAttribute] {
@@ -65,7 +65,6 @@ final class HomeViewModel: BaseViewModel {
 
     func getCategoryList(category: LOLChampionTagCategory?) -> Observable<[HomeChampionCategoryAttribute]> {
         categoryList
-            .filter { !$0.isEmpty }
             .map {
                 $0.filter {
                     category == $0.category
