@@ -33,7 +33,7 @@ final class ChampionDetailBlurTableViewCell: UITableViewCell {
 
     private func layout() {
         contentView.snp.makeConstraints {
-            $0.height.equalTo(56 + 16 + 424)
+            $0.height.equalTo(56 + 16 + 324 + 32)
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview()

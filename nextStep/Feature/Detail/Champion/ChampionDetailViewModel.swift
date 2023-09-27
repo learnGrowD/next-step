@@ -32,6 +32,30 @@ final class ChampionDetailViewModel: BaseViewModel {
             }
     }
 
+    func getChampionDescription() -> Observable<ChampionDetailDescriptionAttribute> {
+        championDetailData
+            .map {
+                ChampionDetailDescriptionAttribute(
+                    tagList: $0?.championTagList ?? ["Common"],
+                    championName: $0?.championName ?? "",
+                    championTItle: $0?.championTitle ?? "",
+                    championDescription: $0?.championDescription ?? ""
+                )
+            }
+    }
+
+    func getChampionDescriptionPrimitive() -> ChampionDetailDescriptionAttribute? {
+        championDetailData.value
+            .map {
+                ChampionDetailDescriptionAttribute(
+                    tagList: $0.championTagList,
+                    championName: $0.championName,
+                    championTItle: $0.championTitle,
+                    championDescription: $0.championDescription
+                )
+            }
+    }
+
     private func bind(_ repository: ChampionDetailRepository = ChampionDetailRepository()) {
         repository.getLayoutStatusList()
             .take(1)

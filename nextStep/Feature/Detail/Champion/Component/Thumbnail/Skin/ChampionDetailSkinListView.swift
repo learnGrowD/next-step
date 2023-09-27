@@ -52,12 +52,13 @@ final class ChampionDetailSkinListView: UIView {
     private func layout() {
         snp.makeConstraints {
             $0.width.equalTo(UIScreen.main.bounds.width)
-            $0.height.equalTo(424)
+            $0.height.equalTo(324 + 32)
         }
         addSubViews(collectionView, allCountLabel, currentCountLabel)
         collectionView.snp.makeConstraints {
             $0.size.equalTo(324)
-            $0.center.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.centerX.equalToSuperview()
         }
 
         allCountLabel.snp.makeConstraints {

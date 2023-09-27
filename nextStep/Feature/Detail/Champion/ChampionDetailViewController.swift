@@ -17,7 +17,7 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
     override func attribute() {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
-        skinListView.backgroundColor = .systemBlue
+
         tableView.backgroundColor = .clear
 
         tableView.register(
@@ -32,7 +32,8 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
 
     override func layout() {
         super.layout()
-        view.addSubViews(informationView, skinListView)
+        view.addSubViews(informationView, skinListView, tableView)
+
         informationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
@@ -41,7 +42,10 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
             $0.top.equalTo(informationView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
         }
-        
+
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 
     override func bind(_ viewModel: ChampionDetailViewModel) {

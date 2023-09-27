@@ -10,7 +10,8 @@ import Foundation
 struct ChampionDetailPageAttribute {
     let skinList: [ChampionDetailSkinAttribute]
     let championName: String
-    let championTitme: String
+    let championTitle: String
     let championDescription: String
+    let championTagList: [String]
     let skillList: [ChampionDetailSkillAttribute]
 }

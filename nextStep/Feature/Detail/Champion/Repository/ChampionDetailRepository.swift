@@ -15,9 +15,6 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
         Observable.just([
             .blur,
             .description,
-            .description,
-            .description,
-            .description,
         ])
     }
 
@@ -28,12 +25,14 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
 
                 let skinList = self.convertToSkin(championDetail: championDetail)
                 let skills = self.convertToSkill(championDetail: championDetail)
+                let tagList = championDetail.tags
 
                 let result = ChampionDetailPageAttribute(
                     skinList: skinList,
                     championName: championDetail.name ?? "",
-                    championTitme: championDetail.title ?? "",
+                    championTitle: championDetail.title ?? "",
                     championDescription: championDetail.allytips[safe: 0] ?? "",
+                    championTagList: tagList,
                     skillList: skills
                 )
                 return Observable.just(result)
