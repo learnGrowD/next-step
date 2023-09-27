@@ -25,8 +25,8 @@ final class HomeChampionCatogoryListTableViewCell: UITableViewCell {
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
     private let collectionViewHeight = HomeChampionSmallCatogoryCollectionViewCell.heightSize
-    + String.getRegularHeightSize(size: .small)
-    + String.getRegularHeightSize(size: .extraSmall) + 8
+    + "A".getRegularHeightSize(size: .small, width: 164)
+    + "A".getRegularHeightSize(size: .extraSmall, width: 164) + 8
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         attribute()

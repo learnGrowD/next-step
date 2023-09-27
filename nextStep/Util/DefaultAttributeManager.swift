@@ -12,6 +12,7 @@ struct DefaultAttributeManager {
     static func viewDefailtAttribute() {
 
         UILabel.appearance().textColor = .white
+        UILabel.appearance().numberOfLines = 1
         
         UIImageView.appearance().contentMode = .scaleAspectFill
 

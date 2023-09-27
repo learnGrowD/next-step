@@ -36,7 +36,7 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
                     skinList: skinList,
                     championName: championDetail.name ?? "",
                     championTitle: championDetail.title ?? "",
-                    championDescription: championDetail.allytips[safe: 0] ?? "",
+                    championDescription: championDetail.lore ?? "",
                     championTagList: tagList,
                     skillList: skills
                 )
@@ -86,7 +86,8 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
                 skillDescription: spell.description ?? ""
             )
         }
-        return skills
+        skillList += skills
+        return skillList
     }
     
 }

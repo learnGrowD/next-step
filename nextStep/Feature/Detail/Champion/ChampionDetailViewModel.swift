@@ -28,9 +28,18 @@ final class ChampionDetailViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
 
+    func getChampionDetailPageData() -> Observable<ChampionDetailPageAttribute?> {
+        championDetailData
+            .asObservable()
+    }
+
     func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
         layoutStatusList
             .asObservable()
+    }
+
+    func getLayout(indexPath: IndexPath) -> ChampionDetailLayoutStatus {
+        layoutStatusList.value[indexPath.row]
     }
 
     func getSkinImageURLList() -> Observable<[ChampionDetailSkinAttribute]> {
@@ -42,6 +51,7 @@ final class ChampionDetailViewModel: BaseViewModel {
 
     func getChampionDescription() -> Observable<ChampionDetailDescriptionAttribute> {
         championDetailData
+            .filter { $0 != nil }
             .map {
                 ChampionDetailDescriptionAttribute(
                     tagList: $0?.championTagList ?? ["Common"],
@@ -74,6 +84,17 @@ final class ChampionDetailViewModel: BaseViewModel {
             }
             .filter { !$0.isEmpty }
             .map { $0[0] }
+    }
+
+    func getChampionSkillPrimitive(skillStatus: LOLSkillStatus) -> ChampionDetailSkillAttribute? {
+        let mapList = championDetailData.value
+            .map { $0.skillList }
+            .map { skillList in
+                skillList.filter { skill in
+                    skillStatus == skill.skillStatus
+                }
+            }
+        return mapList?[safe: 0]
     }
 
     private func bind(_ repository: ChampionDetailRepository = ChampionDetailRepository()) {

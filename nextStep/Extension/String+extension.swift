@@ -33,27 +33,24 @@ extension String {
         return tempLabel.intrinsicContentSize.width
     }
 
-    static func getRegularHeightSize(size: NestStepSize, textLine: Int = 1) -> CGFloat {
-        let tempLabel = UILabel()
-        tempLabel.numberOfLines = 0
-        var text = "A"
-        (1..<textLine).forEach { _ in
-            text += "\nA"
-        }
-        tempLabel.text = text
-        tempLabel.font = R.font.notoSansRegular(size: size.rawValue)
-        return tempLabel.intrinsicContentSize.height
+    func getRegularHeightSize(size: NestStepSize, width: CGFloat, numberOfLines: Int = 0) -> CGFloat {
+        let label = UILabel()
+        label.font = .nestStepRegular(size: size)
+        label.text = self
+        label.numberOfLines = numberOfLines
+
+        let labelSize = label.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
+        return labelSize.height
+
     }
 
-    static func getBoldHeightSize(size: NestStepSize, textLine: Int = 1) -> CGFloat {
-        let tempLabel = UILabel()
-        tempLabel.numberOfLines = 0
-        var text = "A"
-        (1..<textLine).forEach { _ in
-            text += "\nA"
-        }
-        tempLabel.text = text
-        tempLabel.font = R.font.notoSansSemiBold(size: size.rawValue)
-        return tempLabel.intrinsicContentSize.height
+    func getBoldHeightSize(size: NestStepSize, width: CGFloat, numberOfLines: Int = 0) -> CGFloat {
+        let label = UILabel()
+        label.font = .nestStepBold(size: size)
+        label.text = self
+        label.numberOfLines = numberOfLines
+
+        let labelSize = label.sizeThatFits(CGSize(width: width, height: CGFloat.greatestFiniteMagnitude))
+        return labelSize.height
     }
 }

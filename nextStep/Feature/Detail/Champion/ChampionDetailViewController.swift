@@ -12,27 +12,38 @@ import RxCocoa
 final class ChampionDetailViewController: BaseViewController<ChampionDetailViewModel> {
     private lazy var informationView = ChampionDetailInformationView(viewModel: viewModel)
     private lazy var skinListView = ChampionDetailSkinListView(viewModel: viewModel)
-    private let tableView = UITableView()
+    private let flowLayout = UICollectionViewFlowLayout()
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
     override func attribute() {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
 
-        tableView.backgroundColor = .clear
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
 
-        tableView.register(
-            ChampionDetailBlurTableViewCell.self,
-            forCellReuseIdentifier: ChampionDetailBlurTableViewCell.identifier
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 56, right: 0)
+        collectionView.register(
+            ChampionDetailBlurCollectionViewCell.self,
+            forCellWithReuseIdentifier: ChampionDetailBlurCollectionViewCell.identifier
         )
-        tableView.register(
-            ChampionDetailDescriptionTableViewCell.self,
-            forCellReuseIdentifier: ChampionDetailDescriptionTableViewCell.identifier
+        collectionView.register(
+            ChampionDetailDescriptionCollectionViewCell.self,
+            forCellWithReuseIdentifier: ChampionDetailDescriptionCollectionViewCell.identifier
         )
+        collectionView.register(
+            ChampionDetailSkillCollectionViewCell.self,
+            forCellWithReuseIdentifier: ChampionDetailSkillCollectionViewCell.identifier
+        )
+        collectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
 
     override func layout() {
         super.layout()
-        view.addSubViews(informationView, skinListView, tableView)
+        view.addSubViews(informationView, skinListView, collectionView)
 
         informationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -43,7 +54,7 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
             $0.leading.trailing.equalToSuperview()
         }
 
-        tableView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
@@ -51,34 +62,82 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
     override func bind(_ viewModel: ChampionDetailViewModel) {
         super.bind(viewModel)
 
+        viewModel.getChampionDetailPageData()
+            .map { _ in [""] }
+            .bind(to: collectionView.rx.reloadData())
+            .disposed(by: disposeBag)
+        
         viewModel.getLayoutStatusList()
-            .bind(to: tableView.rx.items) { tableView, row, layoutStatus in
+            .bind(to: collectionView.rx.items) { collectionView, row, layoutStatus in
+
+
+                let indexPath = IndexPath(row: row, section: 0)
                 switch layoutStatus {
                 case .blur:
-                    let indexPath = IndexPath(row: row, section: 0)
-                    guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: ChampionDetailBlurTableViewCell.identifier,
+
+                    guard let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: ChampionDetailBlurCollectionViewCell.identifier,
                         for: indexPath
-                    ) as? ChampionDetailBlurTableViewCell else {
-                        return UITableViewCell()
+                    ) as? ChampionDetailBlurCollectionViewCell else {
+                        return UICollectionViewCell()
                     }
                     cell.bind(viewModel)
                     return cell
                 case .description:
-                    let indexPath = IndexPath(row: row, section: 0)
-                    guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: ChampionDetailDescriptionTableViewCell.identifier,
+                    guard let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: ChampionDetailDescriptionCollectionViewCell.identifier,
                         for: indexPath
-                    ) as? ChampionDetailDescriptionTableViewCell else {
-                        return UITableViewCell()
+                    ) as? ChampionDetailDescriptionCollectionViewCell else {
+                        return UICollectionViewCell()
                     }
                     cell.bind(viewModel)
                     return cell
-                case .skill:
-                    return UITableViewCell()
+                case .skill(let skillStatus):
+                    guard let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: ChampionDetailSkillCollectionViewCell.identifier,
+                        for: indexPath
+                    ) as? ChampionDetailSkillCollectionViewCell else {
+                        return UICollectionViewCell()
+                    }
+                    cell.bind(skillstatus: skillStatus, viewModel: viewModel)
+                    return cell
                 }
             }
             .disposed(by: disposeBag)
+    }
+}
+extension ChampionDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let layout = viewModel.getLayout(indexPath: indexPath)
+        switch layout {
+        case .blur:
+            let width = UIScreen.main.bounds.width
+            let height: CGFloat = 56 + 16 + 324 + 32
+            return CGSize(width: width, height: height)
+        case .description:
+            let width = UIScreen.main.bounds.width
+            guard let description = viewModel.getChampionDescriptionPrimitive() else { return CGSize(width: width, height: 256)}
+            let championNameHeight = description.championName.getBoldHeightSize(size: .medium, width: width - 32, numberOfLines: 1)
+            let championDescriptionHeight = description.championDescription.getRegularHeightSize(size: .small, width: width - 32, numberOfLines: 0)
+            let between: CGFloat = 16
+            let height = between + 40 + between + championNameHeight + between + championDescriptionHeight + 32
+            return CGSize(width: width, height: height)
+        case .skill(let status):
+            let width = UIScreen.main.bounds.width
+            guard let skill = viewModel.getChampionSkillPrimitive(skillStatus: status) else {
+                return CGSize(width: width, height: 256)
+            }
+            let skillImageHeight: CGFloat = 56
+            let between: CGFloat = 16
+            let skillDescription = skill.skillDescription.getRegularHeightSize(size: .small, width: width - 32, numberOfLines: 0)
+            let avPlayerContainerHeight: CGFloat = 216
+            let height: CGFloat = skillImageHeight + between + skillDescription + between + avPlayerContainerHeight + 32
+            return CGSize(width: width, height: height)
+        }
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  ChampionDetailBlurTableViewCell.swift
+//  ChampionDetailBlurCollectionViewCell.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/26.
@@ -9,10 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ChampionDetailBlurTableViewCell: UITableViewCell {
+final class ChampionDetailBlurCollectionViewCell: UICollectionViewCell {
     private var prepareDisposeBag = DisposeBag()
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         attribute()
         layout()
     }

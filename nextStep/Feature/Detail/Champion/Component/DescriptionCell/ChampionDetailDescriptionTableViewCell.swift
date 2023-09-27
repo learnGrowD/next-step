@@ -1,5 +1,5 @@
 //
-//  ChampionDetailDescriptionTableViewCell.swift
+//  ChampionDetailDescriptionCollectionViewCell.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/26.
@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ChampionDetailDescriptionTableViewCell: UITableViewCell {
+final class ChampionDetailDescriptionCollectionViewCell: UICollectionViewCell {
     private let disposeBag = DisposeBag()
     private var prepareDisposeBag = DisposeBag()
     private var viewModel: ChampionDetailViewModel?
@@ -20,8 +20,8 @@ final class ChampionDetailDescriptionTableViewCell: UITableViewCell {
     private let championTitleLabel = UILabel()
     private let championDescriptionLabel = UILabel()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         attribute()
         layout()
     }
@@ -61,17 +61,11 @@ final class ChampionDetailDescriptionTableViewCell: UITableViewCell {
         championTitleLabel.textColor = .white.withAlphaComponent(0.7)
 
         championDescriptionLabel.font = .nestStepRegular(size: .small)
-        championDescriptionLabel.numberOfLines = 3
+        championDescriptionLabel.numberOfLines = 0
     }
 
     private func layout() {
         contentView.addSubViews(tagCollectionView, championNameLabel, championTitleLabel, championDescriptionLabel)
-
-        contentView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            let hegith = 16 + 40 + 16 + String.getBoldHeightSize(size: .medium) + 8 + String.getRegularHeightSize(size: .small, textLine: 3)
-            $0.height.equalTo(hegith)
-        }
 
         tagCollectionView.snp.makeConstraints {
             $0.height.equalTo(40)
@@ -87,18 +81,18 @@ final class ChampionDetailDescriptionTableViewCell: UITableViewCell {
         championTitleLabel.snp.makeConstraints {
             $0.centerY.equalTo(championNameLabel)
             $0.leading.equalTo(championNameLabel.snp.trailing)
+            $0.trailing.lessThanOrEqualToSuperview().inset(16)
         }
 
         championDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(championNameLabel.snp.bottom).offset(8)
+            $0.top.equalTo(self.championNameLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(32)
         }
     }
 
     func bind(_ viewModel: ChampionDetailViewModel) {
         self.viewModel = viewModel
-
         viewModel.getChampionDescription()
             .map { $0.tagList }
             .bind(to: tagCollectionView.rx.reloadData())
@@ -121,7 +115,7 @@ final class ChampionDetailDescriptionTableViewCell: UITableViewCell {
     }
 }
 
-extension ChampionDetailDescriptionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ChampionDetailDescriptionCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel?.getChampionDescriptionPrimitive()?.tagList.count ?? 0
