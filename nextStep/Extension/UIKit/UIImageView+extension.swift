@@ -25,6 +25,22 @@ extension UIImageView {
             })
         }
     }
+
+    func bindImage(url: URL?) {
+        let blurView = UIView()
+        blurView.backgroundColor = .darkGray
+        self.addSubview(blurView)
+        blurView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        kf.setImage(with: url) { _ in
+            UIView.animate(withDuration: 0.2, animations: {
+                blurView.alpha = 0.0
+            }, completion: { _ in
+                blurView.removeFromSuperview()
+            })
+        }
+    }
 }
 
 extension UIImage {

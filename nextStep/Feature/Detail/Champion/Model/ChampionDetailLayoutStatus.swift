@@ -10,5 +10,5 @@ import Foundation
 enum ChampionDetailLayoutStatus {
     case blur
     case description
-    case skill
+    case skill(skillStatus: LOLSkillStatus)
 }

@@ -39,13 +39,14 @@ extension Reactive where Base: UICollectionView {
 extension Reactive where Base: UIImageView {
     var imageURLString: Binder<String> {
         Binder(base) { imageView, data in
-            base.kf.setImage(with: URL(string: data))
+            base.bindImage(imageURL: data)
+
         }
     }
 
     var imageURL: Binder<URL?> {
         Binder(base) { imageView, data in
-            base.kf.setImage(with: data)
+            base.bindImage(url: data)
         }
     }
 }

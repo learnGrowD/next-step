@@ -15,6 +15,11 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
         Observable.just([
             .blur,
             .description,
+            .skill(skillStatus: .passive),
+            .skill(skillStatus: .qSkill),
+            .skill(skillStatus: .wSkill),
+            .skill(skillStatus: .eSkill),
+            .skill(skillStatus: .rSkill),
         ])
     }
 

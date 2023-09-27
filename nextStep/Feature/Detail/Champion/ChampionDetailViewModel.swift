@@ -14,6 +14,8 @@ final class ChampionDetailViewModel: BaseViewModel {
     let layoutStatusList = BehaviorRelay<[ChampionDetailLayoutStatus]>(value: [])
     let championDetailData = BehaviorRelay<ChampionDetailPageAttribute?>(value: nil)
 
+    let avPlayerButtonTap = PublishRelay<Void>()
+
     init(championID: String) {
         self.championID = championID
         super.init()
@@ -60,6 +62,18 @@ final class ChampionDetailViewModel: BaseViewModel {
                     championDescription: $0.championDescription
                 )
             }
+    }
+
+    func getChampionSkill(skillStatus: LOLSkillStatus) -> Observable<ChampionDetailSkillAttribute> {
+        championDetailData
+            .map { $0?.skillList ?? [] }
+            .map { skillList in
+                skillList.filter { skill in
+                    skillStatus == skill.skillStatus
+                }
+            }
+            .filter { !$0.isEmpty }
+            .map { $0[0] }
     }
 
     private func bind(_ repository: ChampionDetailRepository = ChampionDetailRepository()) {
