@@ -21,7 +21,13 @@ final class HomeViewModel: BaseViewModel {
 
     override init() {
         super.init()
-        bind()
+        lifeCycleStatus
+            .filter { $0 == .viewDidLoad }
+            .take(1)
+            .bind(onNext: { [weak self] _ in
+                self?.bind()
+            })
+            .disposed(by: disposeBag)
     }
 
     func getTitle(category: LOLChampionTagCategory?) -> String {

@@ -81,10 +81,10 @@ final class CommonLoadingView: IntroViewProtocol, AppStorageProtocol {
     }
 
     private func blockTouch() {
-        window?.isUserInteractionEnabled = false
+        UIApplication.shared.beginIgnoringInteractionEvents()
     }
 
     private func allowTouch() {
-        window?.isUserInteractionEnabled = true
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
 }

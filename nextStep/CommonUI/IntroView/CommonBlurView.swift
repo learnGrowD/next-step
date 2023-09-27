@@ -26,6 +26,7 @@ final class CommonBlurView: UIView, IntroViewProtocol {
     }
 
     func show() {
+        print("fwwefwe")
         blockTouch()
 
         isHidden = false
@@ -71,10 +72,10 @@ final class CommonBlurView: UIView, IntroViewProtocol {
     }
 
     private func blockTouch() {
-        window?.isUserInteractionEnabled = false
+        UIApplication.shared.beginIgnoringInteractionEvents()
     }
 
     private func allowTouch() {
-        window?.isUserInteractionEnabled = true
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
 }

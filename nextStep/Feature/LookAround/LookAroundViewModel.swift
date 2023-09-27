@@ -24,7 +24,13 @@ final class LookAroundViewModel: BaseViewModel {
 
     override init() {
         super.init()
-        bind()
+        lifeCycleStatus
+            .filter { $0 == .viewDidLoad }
+            .take(1)
+            .bind(onNext: { [weak self] _ in
+                self?.bind()
+            })
+            .disposed(by: disposeBag)
     }
 
     func getLayoutStatusList() -> Observable<[LookAroundLayoutStatus]> {

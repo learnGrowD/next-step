@@ -10,6 +10,7 @@
 		A967FA37C57DE80DFA7F40E2 /* Pods_nextStep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14F31F88F030049DFCB836D0 /* Pods_nextStep.framework */; };
 		B808FCBA2AC4033000EAF39A /* ChampionDetailInformationAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCB92AC4033000EAF39A /* ChampionDetailInformationAttribute.swift */; };
 		B808FCBF2AC40B8D00EAF39A /* ChampionDetailDescriptionTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCBE2AC40B8D00EAF39A /* ChampionDetailDescriptionTagCollectionViewCell.swift */; };
+		B808FCC42AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCC32AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift */; };
 		B80E741B2AB71CF2007440D6 /* LookAroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */; };
 		B80E741D2AB71CFB007440D6 /* LookAroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */; };
 		B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741E2AB71D51007440D6 /* GalleryViewController.swift */; };
@@ -122,6 +123,7 @@
 		401AE0E326BB00AAADE86895 /* Pods-nextStep.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nextStep.release.xcconfig"; path = "Target Support Files/Pods-nextStep/Pods-nextStep.release.xcconfig"; sourceTree = "<group>"; };
 		B808FCB92AC4033000EAF39A /* ChampionDetailInformationAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailInformationAttribute.swift; sourceTree = "<group>"; };
 		B808FCBE2AC40B8D00EAF39A /* ChampionDetailDescriptionTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailDescriptionTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		B808FCC32AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailSkillTableViewCell.swift; sourceTree = "<group>"; };
 		B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewController.swift; sourceTree = "<group>"; };
 		B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewModel.swift; sourceTree = "<group>"; };
 		B80E741E2AB71D51007440D6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +272,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		B808FCC22AC4131400EAF39A /* SkillCell */ = {
+			isa = PBXGroup;
+			children = (
+				B808FCC32AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift */,
+			);
+			path = SkillCell;
+			sourceTree = "<group>";
+		};
 		B80E74172AB71C78007440D6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +414,7 @@
 				B837AE022AC2ED6600BE7D2C /* Thumbnail */,
 				B808FCBC2AC40B5200EAF39A /* BlurCell */,
 				B808FCBB2AC40B4500EAF39A /* DescriptionCell */,
+				B808FCC22AC4131400EAF39A /* SkillCell */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1121,6 +1132,7 @@
 				B837A8D92AAC6C4100A5F407 /* R.generated.swift in Sources */,
 				B8DDB8EE2AC15C9A0068C7C0 /* LookAroundInterestedGroupAttribute.swift in Sources */,
 				B8BDDD722ABA620D003D863D /* Date+extension.swift in Sources */,
+				B808FCC42AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift in Sources */,
 				B887C1892ABEB181008257A0 /* RiotAPIResult.swift in Sources */,
 				B83A991E2AAC5540004C0A42 /* AppDelegate.swift in Sources */,
 				B887C1812ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift in Sources */,

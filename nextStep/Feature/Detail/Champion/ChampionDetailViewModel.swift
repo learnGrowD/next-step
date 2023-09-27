@@ -17,7 +17,13 @@ final class ChampionDetailViewModel: BaseViewModel {
     init(championID: String) {
         self.championID = championID
         super.init()
-        bind()
+        lifeCycleStatus
+            .filter { $0 == .viewDidLoad }
+            .take(1)
+            .bind(onNext: { [weak self] _ in
+                self?.bind()
+            })
+            .disposed(by: disposeBag)
     }
 
     func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
