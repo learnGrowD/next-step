@@ -15,7 +15,6 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
     private let skillKeyLabel = UILabel()
     private let skillNameLabel = UILabel()
     private let skillDescriptionLabel = UILabel()
-//    private let avPlayerContainer = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,8 +42,6 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
         skillNameLabel.font = .nestStepRegular(size: .medium)
         skillDescriptionLabel.font = .nestStepRegular(size: .small)
         skillDescriptionLabel.numberOfLines = 0
-
-//        avPlayerContainer.backgroundColor = .systemBlue
     }
 
     private func layout() {
@@ -67,12 +64,6 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(32)
         }
-//        avPlayerContainer.snp.makeConstraints {
-//            $0.height.equalTo(216)
-//            $0.top.equalTo(skillDescriptionLabel.snp.bottom).offset(16)
-//            $0.leading.trailing.equalTo(skillDescriptionLabel)
-//            $0.bottom.equalToSuperview().inset(32)
-//        }
     }
 
     func bind(skillstatus: LOLSkillStatus, viewModel: ChampionDetailViewModel) {
@@ -96,11 +87,5 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
             .map { $0.skillDescription }
             .bind(to: skillDescriptionLabel.rx.text)
             .disposed(by: prepareDisposeBag)
-
-//        avPlayerContainer.rx.tapGesture()
-//            .when(.recognized)
-//            .map { _ in () }
-//            .bind(to: viewModel.avPlayerButtonTap)
-//            .disposed(by: prepareDisposeBag)
     }
 }
