@@ -9,6 +9,8 @@ import Foundation
 
 struct ChampionDetailSkillAttribute {
     let skillStatus: LOLSkillStatus
+    let championKey: String
+    let championName: String
     let skillImageURL: String?
     let skillName: String
     let skillDescription: String

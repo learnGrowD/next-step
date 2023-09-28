@@ -65,6 +65,8 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
         var skillList: [ChampionDetailSkillAttribute] = []
         let passive = ChampionDetailSkillAttribute(
             skillStatus: .passive,
+            championKey: championDetail.key ?? "",
+            championName: championDetail.name ?? "",
             skillImageURL: RiotAPIRequestContext.getPassiveImageURL(passiveImagePath: championDetail.passive.passiveImagePath),
             skillName: championDetail.passive.name ?? "",
             skillDescription: championDetail.passive.description ?? ""
@@ -81,6 +83,8 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
             }
             return ChampionDetailSkillAttribute(
                 skillStatus: skillStatus,
+                championKey: championDetail.key ?? "",
+                championName: championDetail.name ?? "",
                 skillImageURL: RiotAPIRequestContext.getSpellImageURL(spellID: spell.id),
                 skillName: spell.name ?? "",
                 skillDescription: spell.description ?? ""

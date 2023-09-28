@@ -12,6 +12,8 @@
 		B808FCBF2AC40B8D00EAF39A /* ChampionDetailDescriptionTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCBE2AC40B8D00EAF39A /* ChampionDetailDescriptionTagCollectionViewCell.swift */; };
 		B808FCC42AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCC32AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift */; };
 		B808FCC82AC589D700EAF39A /* ChampionDetailContinerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCC72AC589D700EAF39A /* ChampionDetailContinerView.swift */; };
+		B808FCCB2AC5A45000EAF39A /* SkillDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCCA2AC5A45000EAF39A /* SkillDetailViewModel.swift */; };
+		B808FCCD2AC5A46500EAF39A /* SkillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCCC2AC5A46500EAF39A /* SkillDetailViewController.swift */; };
 		B80E741B2AB71CF2007440D6 /* LookAroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */; };
 		B80E741D2AB71CFB007440D6 /* LookAroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */; };
 		B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741E2AB71D51007440D6 /* GalleryViewController.swift */; };
@@ -126,6 +128,8 @@
 		B808FCBE2AC40B8D00EAF39A /* ChampionDetailDescriptionTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailDescriptionTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		B808FCC32AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailSkillTableViewCell.swift; sourceTree = "<group>"; };
 		B808FCC72AC589D700EAF39A /* ChampionDetailContinerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionDetailContinerView.swift; sourceTree = "<group>"; };
+		B808FCCA2AC5A45000EAF39A /* SkillDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailViewModel.swift; sourceTree = "<group>"; };
+		B808FCCC2AC5A46500EAF39A /* SkillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailViewController.swift; sourceTree = "<group>"; };
 		B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewController.swift; sourceTree = "<group>"; };
 		B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewModel.swift; sourceTree = "<group>"; };
 		B80E741E2AB71D51007440D6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +284,15 @@
 				B808FCC32AC4133900EAF39A /* ChampionDetailSkillTableViewCell.swift */,
 			);
 			path = SkillCell;
+			sourceTree = "<group>";
+		};
+		B808FCC92AC5A44100EAF39A /* Skill */ = {
+			isa = PBXGroup;
+			children = (
+				B808FCCC2AC5A46500EAF39A /* SkillDetailViewController.swift */,
+				B808FCCA2AC5A45000EAF39A /* SkillDetailViewModel.swift */,
+			);
+			path = Skill;
 			sourceTree = "<group>";
 		};
 		B80E74172AB71C78007440D6 /* Home */ = {
@@ -849,6 +862,7 @@
 			isa = PBXGroup;
 			children = (
 				B837ADF82AC2C75900BE7D2C /* Champion */,
+				B808FCC92AC5A44100EAF39A /* Skill */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1161,6 +1175,7 @@
 				B85411092AB5D60900957BB1 /* CommonRetryView.swift in Sources */,
 				B837A8F02AAC808300A5F407 /* APIRequestUIMode.swift in Sources */,
 				B8DDB8D72AC044CC0068C7C0 /* HomeChampionCatogoryCollectionViewCell.swift in Sources */,
+				B808FCCB2AC5A45000EAF39A /* SkillDetailViewModel.swift in Sources */,
 				B8D9AC1F2AB6EA11007A12E3 /* CommonBottomModalAction.swift in Sources */,
 				B837AE082AC2EEAC00BE7D2C /* ChampionDetailLayoutStatus.swift in Sources */,
 				B8DDB8C12ABF08F40068C7C0 /* LOLSkillStatus.swift in Sources */,
@@ -1168,6 +1183,7 @@
 				B85410F02AB5BD8100957BB1 /* CommonRepository.swift in Sources */,
 				B808FCC82AC589D700EAF39A /* ChampionDetailContinerView.swift in Sources */,
 				B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */,
+				B808FCCD2AC5A46500EAF39A /* SkillDetailViewController.swift in Sources */,
 				B8DDB8CC2AC0263D0068C7C0 /* HomeBetweenBannerAttribute.swift in Sources */,
 				B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */,
 				B8DDB8E82AC060B50068C7C0 /* LookAroundLayoutStatus.swift in Sources */,

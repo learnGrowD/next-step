@@ -29,6 +29,7 @@ final class ChampionDetailContinerView: UIView {
 
     private func attribute() {
         skinListView.clipsToBounds = true
+        skinListView.layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
     }
 
     private func layout() {
