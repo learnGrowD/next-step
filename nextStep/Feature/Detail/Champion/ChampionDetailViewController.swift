@@ -61,7 +61,7 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
         viewModel.getChampionTitleName()
             .bind(to: navigationItem.rx.title)
             .disposed(by: disposeBag)
-        
+
         collectionView.rx.contentOffset
             .bind(to: viewModel.contentOffset)
             .disposed(by: disposeBag)
@@ -106,6 +106,18 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
                 }
             }
             .disposed(by: disposeBag)
+
+        viewModel.getSkillButtonTapWithSkillAttribute()
+            .bind(onNext: { [weak self] skillAttribute in
+                self?.presentPanModalSkillDetailViewController(skillAttribute: skillAttribute)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension ChampionDetailViewController {
+    func presentPanModalSkillDetailViewController(skillAttribute: ChampionDetailSkillAttribute) {
+
     }
 }
 
