@@ -40,6 +40,7 @@ final class CommonBlurView: UIView, IntroViewProtocol {
             .disposed(by: disposeBag)
     }
 
+    //MARK: - Dismiss 0.3초 Detail 추가
     func dismiss() {
         guard let disposeBag = disposeBag else { return }
         Observable<Int>.interval(.milliseconds(300), scheduler: MainScheduler.instance)
