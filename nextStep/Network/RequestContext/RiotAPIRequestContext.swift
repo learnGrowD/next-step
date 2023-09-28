@@ -74,8 +74,8 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         "\(spellImagePath)/\(spellID ?? "").png"
     }
 
-    static func getChampionSkillVedioURLWithMp4(championKey: String?, skillKey: LOLSkillStatus) -> String {
+    static func getChampionSkillVedioURLWithMp4(championKey: String?, skillStatus: LOLSkillStatus) -> String {
         let key = championKey?.convertNumberWithZeros() ?? ""
-        return "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/\(key)/ability_\(key)_\(skillKey.rawValue)1.mp4"
+        return "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/\(key)/ability_\(key)_\(skillStatus.rawValue)1.mp4"
     }
 }

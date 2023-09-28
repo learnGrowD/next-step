@@ -19,6 +19,7 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
 
     override func attribute() {
         super.attribute()
+        view.backgroundColor = R.color.nestStepBlack()
         titleLabel.font = .nestStepRegular(size: .small)
 
         avPlayerContainer.backgroundColor = .systemBlue
