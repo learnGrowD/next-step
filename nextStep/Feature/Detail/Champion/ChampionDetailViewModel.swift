@@ -11,10 +11,11 @@ import RxCocoa
 
 final class ChampionDetailViewModel: BaseViewModel {
     let championID: String
+    let contentOffset = BehaviorRelay<CGPoint>(value: CGPoint(x: 0, y: 0))
     let layoutStatusList = BehaviorRelay<[ChampionDetailLayoutStatus]>(value: [])
     let championDetailData = BehaviorRelay<ChampionDetailPageAttribute?>(value: nil)
 
-    let avPlayerButtonTap = PublishRelay<Void>()
+    let skinListSwipeGesture = PublishRelay<UISwipeGestureRecognizer>()
 
     init(championID: String) {
         self.championID = championID
@@ -28,9 +29,22 @@ final class ChampionDetailViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
 
+    func getContentsOffsetY() -> Observable<CGFloat> {
+        contentOffset
+            .map { $0.y }
+            .asObservable()
+    }
+
     func getChampionDetailPageData() -> Observable<ChampionDetailPageAttribute?> {
         championDetailData
             .asObservable()
+    }
+
+    func getChampionTitleName() -> Observable<String?> {
+        championDetailData
+            .map {
+                $0?.championName
+            }
     }
 
     func getLayoutStatusList() -> Observable<[ChampionDetailLayoutStatus]> {
@@ -47,6 +61,14 @@ final class ChampionDetailViewModel: BaseViewModel {
             .map {
                 $0?.skinList ?? []
             }
+    }
+
+    func getSkinImageURLListPrimitvie() -> [ChampionDetailSkinAttribute] {
+        let result = championDetailData.value
+            .map {
+                $0.skinList
+            }
+        return result ?? []
     }
 
     func getChampionDescription() -> Observable<ChampionDetailDescriptionAttribute> {

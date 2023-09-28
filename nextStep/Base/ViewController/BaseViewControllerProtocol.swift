@@ -27,7 +27,6 @@ extension BaseViewControllerProtocol {
     func mViewDidLoad() {
         acceptJudgeViewController(value: self)
         attribute()
-        
         layout()
         bind(viewModel)
         viewModel.lifeCycleStatus.accept(.viewDidLoad)

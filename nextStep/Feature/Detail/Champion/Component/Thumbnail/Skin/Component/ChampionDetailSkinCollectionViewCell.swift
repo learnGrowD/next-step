@@ -31,7 +31,7 @@ final class ChampionDetailSkinCollectionViewCell: UICollectionViewCell {
 
     private func attribute() {
         thumnailImageView.clipsToBounds = true
-        nameLabel.font = .nestStepRegular(size: .medium)
+        nameLabel.font = .nestStepBold(size: .small)
     }
 
     private func layout() {

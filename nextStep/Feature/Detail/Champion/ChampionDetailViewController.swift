@@ -10,8 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class ChampionDetailViewController: BaseViewController<ChampionDetailViewModel> {
-    private lazy var informationView = ChampionDetailInformationView(viewModel: viewModel)
-    private lazy var skinListView = ChampionDetailSkinListView(viewModel: viewModel)
+    private lazy var containerView = ChampionDetailContinerView(viewModel: viewModel)
     private let flowLayout = UICollectionViewFlowLayout()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
@@ -43,24 +42,29 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
 
     override func layout() {
         super.layout()
-        view.addSubViews(informationView, skinListView, collectionView)
+        view.addSubViews(containerView, collectionView)
 
-        informationView.snp.makeConstraints {
+        containerView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.trailing.equalToSuperview()
-        }
-        skinListView.snp.makeConstraints {
-            $0.top.equalTo(informationView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview()
         }
 
         collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
 
     override func bind(_ viewModel: ChampionDetailViewModel) {
         super.bind(viewModel)
+        viewModel.getChampionTitleName()
+            .bind(to: navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.contentOffset
+            .bind(to: viewModel.contentOffset)
+            .disposed(by: disposeBag)
 
         viewModel.getChampionDetailPageData()
             .map { _ in [""] }
@@ -69,8 +73,6 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
         
         viewModel.getLayoutStatusList()
             .bind(to: collectionView.rx.items) { collectionView, row, layoutStatus in
-
-
                 let indexPath = IndexPath(row: row, section: 0)
                 switch layoutStatus {
                 case .blur:
@@ -106,6 +108,7 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
             .disposed(by: disposeBag)
     }
 }
+
 extension ChampionDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
@@ -134,7 +137,6 @@ extension ChampionDetailViewController: UICollectionViewDelegateFlowLayout {
             let skillImageHeight: CGFloat = 56
             let between: CGFloat = 16
             let skillDescription = skill.skillDescription.getRegularHeightSize(size: .small, width: width - 32, numberOfLines: 0)
-//            let avPlayerContainerHeight: CGFloat = 216
             let height: CGFloat = skillImageHeight + between + skillDescription + between + 32
             return CGSize(width: width, height: height)
         }

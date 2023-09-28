@@ -1,6 +1,6 @@
 //
 //  ChampionDefailSkinListView.swift
-//  nextStep
+//  nextStep/Users/dohagtae/Desktop/next-step/nextStep/nextStep/Feature/Detail/Champion/Component/Thumbnail/Skin/ChampionDetailSkinListView.swift
 //
 //  Created by 도학태 on 2023/09/26.
 //
@@ -17,6 +17,12 @@ final class ChampionDetailSkinListView: UIView {
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let allCountLabel = UILabel()
     private let currentCountLabel = UILabel()
+
+    override var intrinsicContentSize: CGSize {
+        let width = UIScreen.main.bounds.width
+        let height: CGFloat = 324 + 32
+        return CGSize(width: width, height: height)
+    }
     init(frame: CGRect = .zero, viewModel: ChampionDetailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
@@ -45,14 +51,14 @@ final class ChampionDetailSkinListView: UIView {
             forCellWithReuseIdentifier: ChampionDetailSkinCollectionViewCell.identifier
         )
 
-        allCountLabel.font = .nestStepBold(size: .medium)
-        currentCountLabel.font = .nestStepRegular(size: .medium)
+        allCountLabel.font = .nestStepBold(size: .small)
+        currentCountLabel.font = .nestStepRegular(size: .small)
     }
 
     private func layout() {
         snp.makeConstraints {
-            $0.width.equalTo(UIScreen.main.bounds.width)
-            $0.height.equalTo(324 + 32)
+            $0.width.equalTo(intrinsicContentSize.height)
+            $0.height.equalTo(intrinsicContentSize.height)
         }
         addSubViews(collectionView, allCountLabel, currentCountLabel)
         collectionView.snp.makeConstraints {
@@ -72,6 +78,12 @@ final class ChampionDetailSkinListView: UIView {
     }
 
     private func bind(_ viewModel: ChampionDetailViewModel) {
+        viewModel.skinListSwipeGesture
+            .bind(onNext: { [weak self] gesture in
+                self?.swipeSkinList(gesture: gesture)
+            })
+            .disposed(by: disposeBag)
+
         viewModel.getSkinImageURLList()
             .bind(to: collectionView.rx.items) { collectionView, row, data in
                 let indexPath = IndexPath(row: row, section: 0)
@@ -110,6 +122,22 @@ final class ChampionDetailSkinListView: UIView {
 
 }
 extension ChampionDetailSkinListView {
+    func swipeSkinList(gesture: UISwipeGestureRecognizer) {
+        let value = collectionView.contentOffset.x / collectionView.frame.width
+        let indexRow = Int(round(value))
+        switch gesture.direction {
+        case .left:
+            if indexRow + 1 <= viewModel.getSkinImageURLListPrimitvie().count - 1 {
+                collectionView.scrollToItem(at: IndexPath(row: indexRow + 1, section: 0), at: .left, animated: true)
+            }
+        case .right:
+            if indexRow - 1 >= 0 {
+                collectionView.scrollToItem(at: IndexPath(row: indexRow - 1, section: 0), at: .left, animated: true)
+            }
+        default: break
+        }
+    }
+
     func getCurrentCount() -> Int {
         let value = collectionView.contentOffset.x / collectionView.frame.width
         let result = Int(round(value))
