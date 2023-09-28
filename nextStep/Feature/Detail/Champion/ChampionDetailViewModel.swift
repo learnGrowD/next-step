@@ -16,7 +16,7 @@ final class ChampionDetailViewModel: BaseViewModel {
     let championDetailData = BehaviorRelay<ChampionDetailPageAttribute?>(value: nil)
 
     let skinListSwipeGesture = PublishRelay<UISwipeGestureRecognizer>()
-    let skillButtonTap = PublishRelay<ChampionDetailSkillAttribute>()
+    let skillButtonTap = PublishRelay<LOLSkillStatus>()
 
     init(championID: String) {
         self.championID = championID
@@ -122,7 +122,10 @@ final class ChampionDetailViewModel: BaseViewModel {
 
     func getSkillButtonTapWithSkillAttribute() -> Observable<ChampionDetailSkillAttribute> {
         skillButtonTap
-            .asObservable()
+            .flatMap { [weak self] status in
+                guard let self = self else { return Observable<ChampionDetailSkillAttribute>.empty() }
+                return self.getChampionSkill(skillStatus: status)
+            }
     }
 
     private func bind(_ repository: ChampionDetailRepository = ChampionDetailRepository()) {
