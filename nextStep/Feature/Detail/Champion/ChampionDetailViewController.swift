@@ -117,7 +117,9 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
 
 extension ChampionDetailViewController {
     func presentPanModalSkillDetailViewController(skillAttribute: ChampionDetailSkillAttribute) {
-
+        let skillDetailViewModel = SkillDetailViewModel(skillAttribute: skillAttribute)
+        let skillDetailViewController = SkillDetailViewController(viewModel: skillDetailViewModel)
+        presentPanModal(skillDetailViewController)
     }
 }
 

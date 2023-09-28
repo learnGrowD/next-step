@@ -67,6 +67,10 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
     }
 
     func bind(skillstatus: LOLSkillStatus, viewModel: ChampionDetailViewModel) {
+        contentView.rx.tapGesture()
+            .when(.recognized)
+            .bind(to: viewModel.skillButtonTap)
+            .disposed(by: prepareDisposeBag)
 
         viewModel.getChampionSkill(skillStatus: skillstatus)
             .map { $0.skillImageURL }
