@@ -34,7 +34,7 @@ final class LookAroundInterestedCollectionViewCell: UICollectionViewCell {
         backgroundImageView.clipsToBounds = true
         backgroundImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
 
-        titleLabel.font = .nestStepRegular(size: .medium)
+        titleLabel.font = .nestStepBold(size: .small)
     }
 
     private func layout() {

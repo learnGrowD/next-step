@@ -83,15 +83,17 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
             collectionView,
             pageController
         )
+        
+        containerView.snp.makeConstraints {
+            $0.top.equalTo(headerLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalTo(pageController).offset(8)
+        }
+
         headerLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview().inset(16)
             $0.trailing.lessThanOrEqualToSuperview().inset(16)
-        }
-        containerView.snp.makeConstraints {
-            $0.top.equalTo(headerLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalTo(pageController).inset(-8)
         }
 
         titleLabel.snp.makeConstraints {
@@ -118,6 +120,7 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
         }
 
         pageController.snp.makeConstraints {
+            $0.height.equalTo(24)
             $0.top.equalTo(collectionView.snp.bottom).offset(8)
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(56)
@@ -141,9 +144,7 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
             .disposed(by: prepareDisposeBag)
 
         viewModel.getChartChampionList(champioTagCategory: data.championTagCategory)
-            .map {
-                $0.count % 5 == 0 ? $0.count / 5 : $0.count / 5 + 1
-            }
+            .map { $0.count % 5 == 0 ? $0.count / 5 : $0.count / 5 + 1 }
             .bind(to: pageController.rx.numberOfPages)
             .disposed(by: prepareDisposeBag)
 
