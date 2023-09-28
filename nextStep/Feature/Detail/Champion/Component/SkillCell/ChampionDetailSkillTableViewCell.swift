@@ -32,6 +32,9 @@ final class ChampionDetailSkillCollectionViewCell: UICollectionViewCell {
     }
 
     private func attribute() {
+        skillImageView.clipsToBounds = true
+        skillImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
+        
         skillKeyLabel.layer.cornerRadius = 12
         skillKeyLabel.clipsToBounds = true
         skillKeyLabel.backgroundColor = R.color.nestStepLightBlack()

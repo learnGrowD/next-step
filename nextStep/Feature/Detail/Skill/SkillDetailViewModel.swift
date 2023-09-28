@@ -25,6 +25,11 @@ final class SkillDetailViewModel: BaseViewModel {
             .map { $0.skillImageURL }
     }
 
+    func getSkillKey() -> Observable<String> {
+        Observable.just(skillAttribute)
+            .map { $0.skillStatus.rawValue }
+    }
+
     func getSkillName() -> Observable<String> {
         Observable.just(skillAttribute)
             .map { $0.skillName }

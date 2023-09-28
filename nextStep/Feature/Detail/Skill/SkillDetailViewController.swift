@@ -8,8 +8,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import PanModal
 
 final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>, BasePanModalPresentable {
+    var shortFormHeight: PanModalHeight { .contentHeight(624) }
+    var longFormHeight: PanModalHeight { .contentHeight(624) }
     private let titleLabel = UILabel()
     private let avPlayerContainer = UIView()
     private let skillImageView = UIImageView()
@@ -23,6 +26,12 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
         titleLabel.font = .nestStepRegular(size: .small)
 
         avPlayerContainer.backgroundColor = .systemBlue
+        avPlayerContainer.clipsToBounds = true
+        avPlayerContainer.layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
+
+        skillImageView.clipsToBounds = true
+        skillImageView.layer.cornerRadius = NestStepCornerRadiusCategory.small.rawValue
+
         skillNameLabel.font = .nestStepRegular(size: .medium)
 
         skillKeyLabel.layer.cornerRadius = 12
@@ -40,17 +49,19 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
         super.layout()
         view.addSubViews(titleLabel, avPlayerContainer, skillImageView, skillKeyLabel, skillNameLabel, skillDescriptionLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16)
+            let height = "A".getRegularHeightSize(size: .small, width: 100, numberOfLines: 1)
+            $0.height.equalTo(height)
+            $0.top.equalToSuperview().inset(24)
             $0.centerX.equalToSuperview()
         }
         avPlayerContainer.snp.makeConstraints {
             $0.height.equalTo(216)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(24)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         skillImageView.snp.makeConstraints {
             $0.size.equalTo(56)
-            $0.top.equalTo(avPlayerContainer.snp.bottom)
+            $0.top.equalTo(avPlayerContainer.snp.bottom).offset(24)
             $0.leading.equalToSuperview().inset(16)
         }
         skillKeyLabel.snp.makeConstraints {
@@ -64,7 +75,6 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
         skillDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(skillImageView.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(32)
         }
     }
 
@@ -72,6 +82,26 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
         super.bind(viewModel)
         viewModel.getSkillTitle()
             .bind(to: titleLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.getSkillImageURL()
+            .bind(to: skillImageView.rx.imageURLString)
+            .disposed(by: disposeBag)
+
+        viewModel.getSkillKey()
+            .bind(to: skillKeyLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.getSkillName()
+            .bind(to: skillNameLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.getSkillDescription()
+            .bind(to: skillDescriptionLabel.rx.text)
+            .disposed(by: disposeBag)
+
+        viewModel.getSkillName()
+            .bind(to: skillNameLabel.rx.text)
             .disposed(by: disposeBag)
     }
 }
