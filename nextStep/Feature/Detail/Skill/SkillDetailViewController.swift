@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 import RxSwift
 import RxCocoa
 import PanModal
@@ -14,18 +15,26 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
     var shortFormHeight: PanModalHeight { .contentHeight(624) }
     var longFormHeight: PanModalHeight { .contentHeight(624) }
     private let titleLabel = UILabel()
+
     private let avPlayerContainer = UIView()
+    private var avPlayer: AVPlayer?
+    private let avController = AVPlayerViewController()
+
+
     private let skillImageView = UIImageView()
     private let skillKeyLabel = UILabel()
     private let skillNameLabel = UILabel()
     private let skillDescriptionLabel = UILabel()
+
+    deinit {
+        dismissAVPlayer()
+    }
 
     override func attribute() {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
         titleLabel.font = .nestStepRegular(size: .small)
 
-        avPlayerContainer.backgroundColor = .systemBlue
         avPlayerContainer.clipsToBounds = true
         avPlayerContainer.layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
 
@@ -84,6 +93,12 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
             .bind(to: titleLabel.rx.text)
             .disposed(by: disposeBag)
 
+        viewModel.getSkillVideoURLWithMp4()
+            .bind(onNext: { [weak self] vedioURL in
+                self?.playAVPlayer(vedioURL: vedioURL)
+            })
+            .disposed(by: disposeBag)
+
         viewModel.getSkillImageURL()
             .bind(to: skillImageView.rx.imageURLString)
             .disposed(by: disposeBag)
@@ -103,5 +118,26 @@ final class SkillDetailViewController: BaseViewController<SkillDetailViewModel>,
         viewModel.getSkillName()
             .bind(to: skillNameLabel.rx.text)
             .disposed(by: disposeBag)
+    }
+}
+
+extension SkillDetailViewController {
+    func playAVPlayer(vedioURL: String?) {
+        guard let vedioURL = vedioURL,
+              let url = URL(string: vedioURL) else { return }
+        avPlayer = AVPlayer(url: url)
+        avController.player = avPlayer
+        avController.view.frame.size = CGSize(
+            width: avPlayerContainer.frame.width,
+            height: avPlayerContainer.frame.height
+        )
+        avPlayerContainer.addSubview(avController.view)
+        avPlayer?.play()
+    }
+
+    func dismissAVPlayer() {
+        avPlayer?.pause()
+        avPlayer?.rate = 0.0
+        avPlayer = nil
     }
 }
