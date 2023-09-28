@@ -18,7 +18,7 @@ struct LookAroundChartAttribute {
             LookAroundChartAttribute(
                 title: "will_d 차트",
                 subTitle: "\(Date().toString(format: "yyyy-MM-dd")) 기준",
-                description: "will_d가 추천하는 assass",
+                description: "will_d가 추천하는 어쌔신",
                 championTagCategory: .assassin
             ),
             LookAroundChartAttribute(

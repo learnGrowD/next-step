@@ -49,7 +49,7 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
         subTitleLabel.font = .nestStepRegular(size: .extraSmall)
         subTitleLabel.textColor = .white.withAlphaComponent(0.5)
 
-        descriptionLabel.font = .nestStepRegular(size: .small)
+        descriptionLabel.font = .nestStepRegular(size: .extraSmall)
         descriptionLabel.textColor = .white.withAlphaComponent(0.5)
 
         flowLayout.scrollDirection = .horizontal
@@ -108,7 +108,7 @@ final class LookAroundChartListTableViewCell: UITableViewCell {
         }
 
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
             $0.leading.equalTo(titleLabel)
             $0.trailing.lessThanOrEqualTo(containerView)
         }
