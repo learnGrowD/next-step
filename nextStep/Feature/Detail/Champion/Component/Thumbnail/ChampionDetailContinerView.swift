@@ -64,14 +64,14 @@ extension ChampionDetailContinerView {
     func skinListAlphaFromScroll(offsetY: CGFloat) {
         let maxAlpha: CGFloat = 1.0
         let minAlpha: CGFloat = 0.0
-        let alpha = max(minAlpha, min(maxAlpha, 1 - offsetY / 500))
+        let alpha = max(minAlpha, min(maxAlpha, 1 - offsetY / 600))
 
         skinListView.alpha = alpha
     }
 
     func skinListSizeAndPositionFromScroll(offsetY: CGFloat) {
         let maxSize: CGFloat = 324.0
-        let minSize: CGFloat = 144.0
+        let minSize: CGFloat = 124.0
         let size = max(minSize, maxSize - offsetY / 4)
 
         skinListView.snp.removeConstraints()
