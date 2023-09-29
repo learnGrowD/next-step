@@ -14,17 +14,18 @@ struct LookAroundChartAttribute {
     let championTagCategory: LOLChampionTagCategory
 
     static func getMockupList() -> [LookAroundChartAttribute] {
-        [
+        let dateString = Date().toString(format: "yyyy-MM-dd")
+        return [
             LookAroundChartAttribute(
-                title: "will_d 차트",
-                subTitle: "\(Date().toString(format: "yyyy-MM-dd")) 기준",
-                description: "will_d가 추천하는 어쌔신",
+                title: R.string.localizable.lookAroundWilldChartTitle(),
+                subTitle: R.string.localizable.lookAroundWilldChartBaseOnTheDate(dateString),
+                description: R.string.localizable.lookAroundWilldChartDescription(),
                 championTagCategory: .assassin
             ),
             LookAroundChartAttribute(
-                title: "서포터는 뭐가 좋을까?",
-                subTitle: "\(Date().toString(format: "yyyy-MM-dd")) 기준",
-                description: "좋은 서포터를 한 눈에!",
+                title: R.string.localizable.lookAroundSupportChartTitle(),
+                subTitle: R.string.localizable.lookAroundSupportChartBaseOnTheDate(dateString),
+                description: R.string.localizable.lookAroundSupportChartDescription(),
                 championTagCategory: .support
             ),
         ]

@@ -33,17 +33,17 @@ final class HomeViewModel: BaseViewModel {
     func getTitle(category: LOLChampionTagCategory?) -> String {
         switch category {
         case .assassin:
-            return R.string.localizable.homeViewModelAssassin()
+            return R.string.localizable.homeAssassin()
         case .fighter:
-            return R.string.localizable.homeViewModelFighter()
+            return R.string.localizable.homeFighter()
         case .mage:
-            return R.string.localizable.homeViewModelMage()
+            return R.string.localizable.homeMage()
         case .marksman:
-            return R.string.localizable.homeViewModelMarksman()
+            return R.string.localizable.homeMarksman()
         case .support:
-            return R.string.localizable.homeViewModelSupport()
+            return R.string.localizable.homeSupport()
         case .tank:
-            return R.string.localizable.homeViewModelTank()
+            return R.string.localizable.homeTank()
         default: return ""
         }
 

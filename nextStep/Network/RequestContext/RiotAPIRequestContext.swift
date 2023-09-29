@@ -15,7 +15,7 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         : "https://test-ddragon.leagueoflegends.com"
     }
     private static var version = "13.16.1"
-    private static var local = "ko_KR"
+    private static var local = Locale.current.identifier
     private static let championFullImgPath   = RiotAPIRequestContext.baseURL + "/cdn/img/champion/splash"
     private static let championMiddleImgPath = RiotAPIRequestContext.baseURL + "/cdn/img/champion/loading"
     private static let championSmallImgPath  = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/champion"

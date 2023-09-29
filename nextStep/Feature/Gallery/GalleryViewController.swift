@@ -8,22 +8,21 @@
 import UIKit
 import PanModal
 
-final class GalleryViewController: BaseViewController<GalleryViewModel>, BasePanModalPresentable {
-    private let headerLabel = UILabel()
-    var shortFormHeight: PanModalHeight { .contentHeight(516) }
-    var longFormHeight: PanModalHeight { .contentHeight(516) }
+final class GalleryViewController: BaseViewController<GalleryViewModel> {
+    private let titleNavigationLabel = UILabel()
+
+    private let profileImageView = UIImageView()
 
     override func attribute() {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
-        headerLabel.text = "갤러리"
+        titleNavigationLabel.font = .nestStepBold(size: .large)
+        titleNavigationLabel.text = R.string.localizable.galleryTitle()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleNavigationLabel)
+
     }
 
     override func layout() {
         super.layout()
-        view.addSubview(headerLabel)
-        headerLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
     }
 }

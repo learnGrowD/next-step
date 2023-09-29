@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  nextStep
+
+  Created by 도학태 on 2023/09/09.
+  
+*/
+
+//CommonRESTfulAPIService
+"apiServiceResponseToErrorWithUIMessage" = "A temporary error has currently occurred.\noccurred.Please contact the person in charge
+.\n[010-8705-1693]\n[%@]";
+
+//MainTabBar
+"homeTabTitle" = "Home";
+"lookAroundTabTitle" = "arround";
+"galleryTabTitle" = "gallery";
+
+//Home
+"homeAssassin" = "Assassin";
+"homeFighter" = "Fighter";
+"homeMage" = "Mage";
+"homeMarksman" = "Marksman";
+"homeSupport" = "Support";
+"homeTank" = "Tank";
+"homeRecommend" = "%@ Recommendation";
+"homeSkinCount" = "%d skins %@";
+"homeLetsTakeCloserLook" = "Shall we take a closer look?";
+"homeTalonRecommend" = "Daily";
+"homeTalonTitle" = "the Blade's Shadow";
+"homeEzrealRecommend" = "will_d";
+"homeEzrealTitle" = "the Prodigal Explorer";
+"homeDianaRecommend" = "will_d";
+"homeDianaTitle" = "Scorn of the Moon";
+
+//LookAround
+"lookAroundTitle" = "Around";
+"lookAroundChartCategoryAssassinTitle" = "Assassin";
+"lookAroundChartCategoryFighterTitle" = "Fighter";
+"lookAroundChartCategoryMageTitle" = "Mage";
+"lookAroundChartCategoryMarksmanTitle" = "Marksman";
+"lookAroundChartCategorySupportTitle" = "Support";
+"lookAroundChartCategoryTankTitle" = "Tank";
+"lookAroundInterestedStatusPositionTitle" = "Position";
+"lookAroundInterestedStatusTierTitle" = "Tier";
+"lookAroundWilldChartTitle" = "will_d Chart";
+"lookAroundWilldChartBaseOnTheDate" = "As of %@";
+"lookAroundWilldChartDescription" = "will_d's recommendation";
+
+"lookAroundSupportChartTitle" = "Good supporter
+";
+"lookAroundSupportChartBaseOnTheDate" = "As of %@";
+"lookAroundSupportChartDescription" = "Good supporters at a glance!";
+
+"lookAroundIron" = "Iron";
+"lookAroundBronze" = "Bronze";
+"lookAroundSilver" = "Silver";
+"lookAroundGold" = "Gold";
+"lookAroundPlatinum" = "Platinum";
+"lookAroundDiamond" = "Diamond";
+"lookAroundGrandmaster" = "Grandmaster";
+"lookAroundMaster" = "Master";
+"lookAroundChallenger" = "Challenger";
+
+"lookAroundTop" = "Top";
+"lookAroundJungle" = "Jungle";
+"lookAroundMiddle" = "Mid";
+"lookAroundBottom" = "Bottom";
+"lookAroundSupport" = "Support";
+
+//ChampionDetail
+"championDetailInformationTitle" = "Do you like this champion?";
+
+//Gallery
+"galleryTitle" = "Gallery";

@@ -9,36 +9,66 @@
 //CommonRESTfulAPIService
 "apiServiceResponseToErrorWithUIMessage" = "현재 일시적인 오류가 발생했습니다.\n담당자에게 문의해주세요.\n[010-8705-1693]\n[%@]";
 
-//MainTabBarController
+//MainTabBar
 "homeTabTitle" = "Home";
 "lookAroundTabTitle" = "둘러보기";
 "galleryTabTitle" = "갤러리";
 
-//HomeViewModel
-"homeViewModelAssassin" = "어썌신";
-"homeViewModelFighter" = "파이터";
-"homeViewModelMage" = "메이지";
-"homeViewModelMarksman" = "마크맨";
-"homeViewModelSupport" = "서포터";
-"homeViewModelTank" = "탱커";
+//Home
+"homeAssassin" = "어썌신";
+"homeFighter" = "파이터";
+"homeMage" = "메이지";
+"homeMarksman" = "마크맨";
+"homeSupport" = "서포터";
+"homeTank" = "탱커";
+"homeRecommend" = "%@ 추천";
+"homeSkinCount" = "스킨 %d 개 %@";
+"homeLetsTakeCloserLook" = "자세히 한번 알아볼까요?";
+"homeTalonRecommend" = "데일리 추천";
+"homeTalonTitle" = "검의 그림자";
+"homeEzrealRecommend" = "will_d 추천";
+"homeEzrealTitle" = "무모한 탐험가";
+"homeDianaRecommend" = "will_d 추천";
+"homeDianaTitle" = "차가운 달의 분노";
 
-//HomeBannerCollectionViewCell
-"homeBannerCollectionViewCellRecommend" = "%@ 추천";
-"homeBannerCollectionViewCellSkinCount" = "스킨 %d 개 %@";
+//LookAround
+"lookAroundTitle" = "둘러보기";
+"lookAroundChartCategoryAssassinTitle" = "어쌔신";
+"lookAroundChartCategoryFighterTitle" = "파이트";
+"lookAroundChartCategoryMageTitle" = "메이지";
+"lookAroundChartCategoryMarksmanTitle" = "마크맨";
+"lookAroundChartCategorySupportTitle" = "서포트";
+"lookAroundChartCategoryTankTitle" = "탱커";
+"lookAroundInterestedStatusPositionTitle" = "포지션";
+"lookAroundInterestedStatusTierTitle" = "티어";
+"lookAroundWilldChartTitle" = "will_d 차트";
+"lookAroundWilldChartBaseOnTheDate" = "%@ 기준";
+"lookAroundWilldChartDescription" = "will_d가 추천하는 어쌔신";
 
-//LookAroundViewController
-"lookAroundViewControllerTitle" = "둘러보기";
+"lookAroundSupportChartTitle" = "서포터는 뭐가 좋을까?";
+"lookAroundSupportChartBaseOnTheDate" = "%@ 기준";
+"lookAroundSupportChartDescription" = "좋은 서포터를 한 눈에!";
 
-//LookAroundViewModel
-"lookAroundViewModelChartCategoryAssassinTitle" = "어쌔신";
-"lookAroundViewModelChartCategoryFighterTitle" = "파이트";
-"lookAroundViewModelChartCategoryMageTitle" = "메이지";
-"lookAroundViewModelChartCategoryMarksmanTitle" = "마크맨";
-"lookAroundViewModelChartCategorySupportTitle" = "서포트";
-"lookAroundViewModelChartCategoryTankTitle" = "탱커";
+"lookAroundIron" = "아이언";
+"lookAroundBronze" = "브론즈";
+"lookAroundSilver" = "실버";
+"lookAroundGold" = "골드";
+"lookAroundPlatinum" = "플래티넘";
+"lookAroundDiamond" = "다이아몬드";
+"lookAroundGrandmaster" = "그랜드마스터";
+"lookAroundMaster" = "마스터";
+"lookAroundChallenger" = "챌린저";
 
-"lookAroundViewModelInterestedStatusPositionTitle" = "포지션";
-"lookAroundViewModelInterestedStatusTierTitle" = "티어";
+"lookAroundTop" = "탑";
+"lookAroundJungle" = "정글";
+"lookAroundMiddle" = "미드";
+"lookAroundBottom" = "바텀";
+"lookAroundSupport" = "서포터";
 
-//ChampionDetailBlurCollectionViewCell
-"championDetailInformationViewTitle" = "이 챔피언이 마음에 드시나요?";
+
+
+//ChampionDetail
+"championDetailInformationTitle" = "이 챔피언이 마음에 드시나요?";
+
+//Gallery
+"galleryTitle" = "갤러리";

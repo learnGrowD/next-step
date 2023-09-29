@@ -112,26 +112,26 @@ final class LookAroundViewModel: BaseViewModel {
     func getChartCategoryTitle(chartCategory: LOLChampionTagCategory) -> String? {
         switch chartCategory {
         case .assassin:
-            return R.string.localizable.lookAroundViewModelChartCategoryAssassinTitle()
+            return R.string.localizable.lookAroundChartCategoryAssassinTitle()
         case .fighter:
-            return R.string.localizable.lookAroundViewModelChartCategoryFighterTitle()
+            return R.string.localizable.lookAroundChartCategoryFighterTitle()
         case .mage:
-            return R.string.localizable.lookAroundViewModelChartCategoryMageTitle()
+            return R.string.localizable.lookAroundChartCategoryMageTitle()
         case .marksman:
-            return R.string.localizable.lookAroundViewModelChartCategoryMarksmanTitle()
+            return R.string.localizable.lookAroundChartCategoryMarksmanTitle()
         case .support:
-            return R.string.localizable.lookAroundViewModelChartCategorySupportTitle()
+            return R.string.localizable.lookAroundChartCategorySupportTitle()
         case .tank:
-            return R.string.localizable.lookAroundViewModelChartCategoryTankTitle()
+            return R.string.localizable.lookAroundChartCategoryTankTitle()
         }
     }
 
     func getInterestedStatusTitle(interestedState: LookAroundInterestedStatus) -> String? {
         switch interestedState {
         case .position:
-            return R.string.localizable.lookAroundViewModelInterestedStatusPositionTitle()
+            return R.string.localizable.lookAroundInterestedStatusPositionTitle()
         case .tier:
-            return R.string.localizable.lookAroundViewModelInterestedStatusTierTitle()
+            return R.string.localizable.lookAroundInterestedStatusTierTitle()
         }
     }
     

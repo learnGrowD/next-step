@@ -77,163 +77,359 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 22 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 50 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
-      /// ko translation: 현재 일시적인 오류가 발생했습니다. 담당자에게 문의해주세요. [010-8705-1693] [%@]
+      /// en translation: A temporary error has currently occurred. occurred.Please contact the person in charge . [010-8705-1693] [%@]
       ///
       /// Key: apiServiceResponseToErrorWithUIMessage
       ///
-      /// Locales: ko
-      var apiServiceResponseToErrorWithUIMessage: RswiftResources.StringResource1<String> { .init(key: "apiServiceResponseToErrorWithUIMessage", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var apiServiceResponseToErrorWithUIMessage: RswiftResources.StringResource1<String> { .init(key: "apiServiceResponseToErrorWithUIMessage", tableName: "Localizable", source: source, developmentValue: "A temporary error has currently occurred.\noccurred.Please contact the person in charge\n.\n[010-8705-1693]\n[%@]", comment: nil) }
 
-      /// ko translation: 이 챔피언이 마음에 드시나요?
+      /// en translation: Do you like this champion?
       ///
-      /// Key: championDetailInformationViewTitle
+      /// Key: championDetailInformationTitle
       ///
-      /// Locales: ko
-      var championDetailInformationViewTitle: RswiftResources.StringResource { .init(key: "championDetailInformationViewTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var championDetailInformationTitle: RswiftResources.StringResource { .init(key: "championDetailInformationTitle", tableName: "Localizable", source: source, developmentValue: "Do you like this champion?", comment: nil) }
 
-      /// ko translation: 갤러리
+      /// en translation: gallery
       ///
       /// Key: galleryTabTitle
       ///
-      /// Locales: ko
-      var galleryTabTitle: RswiftResources.StringResource { .init(key: "galleryTabTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var galleryTabTitle: RswiftResources.StringResource { .init(key: "galleryTabTitle", tableName: "Localizable", source: source, developmentValue: "gallery", comment: nil) }
 
-      /// ko translation: %@ 추천
+      /// en translation: Gallery
       ///
-      /// Key: homeBannerCollectionViewCellRecommend
+      /// Key: galleryTitle
       ///
-      /// Locales: ko
-      var homeBannerCollectionViewCellRecommend: RswiftResources.StringResource1<String> { .init(key: "homeBannerCollectionViewCellRecommend", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var galleryTitle: RswiftResources.StringResource { .init(key: "galleryTitle", tableName: "Localizable", source: source, developmentValue: "Gallery", comment: nil) }
 
-      /// ko translation: 스킨 %d 개 %@
+      /// en translation: Assassin
       ///
-      /// Key: homeBannerCollectionViewCellSkinCount
+      /// Key: homeAssassin
       ///
-      /// Locales: ko
-      var homeBannerCollectionViewCellSkinCount: RswiftResources.StringResource2<Int, String> { .init(key: "homeBannerCollectionViewCellSkinCount", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var homeAssassin: RswiftResources.StringResource { .init(key: "homeAssassin", tableName: "Localizable", source: source, developmentValue: "Assassin", comment: nil) }
 
-      /// ko translation: Home
+      /// en translation: will_d
+      ///
+      /// Key: homeDianaRecommend
+      ///
+      /// Locales: ko, en
+      var homeDianaRecommend: RswiftResources.StringResource { .init(key: "homeDianaRecommend", tableName: "Localizable", source: source, developmentValue: "will_d", comment: nil) }
+
+      /// en translation: Scorn of the Moon
+      ///
+      /// Key: homeDianaTitle
+      ///
+      /// Locales: ko, en
+      var homeDianaTitle: RswiftResources.StringResource { .init(key: "homeDianaTitle", tableName: "Localizable", source: source, developmentValue: "Scorn of the Moon", comment: nil) }
+
+      /// en translation: will_d
+      ///
+      /// Key: homeEzrealRecommend
+      ///
+      /// Locales: ko, en
+      var homeEzrealRecommend: RswiftResources.StringResource { .init(key: "homeEzrealRecommend", tableName: "Localizable", source: source, developmentValue: "will_d", comment: nil) }
+
+      /// en translation: the Prodigal Explorer
+      ///
+      /// Key: homeEzrealTitle
+      ///
+      /// Locales: ko, en
+      var homeEzrealTitle: RswiftResources.StringResource { .init(key: "homeEzrealTitle", tableName: "Localizable", source: source, developmentValue: "the Prodigal Explorer", comment: nil) }
+
+      /// en translation: Fighter
+      ///
+      /// Key: homeFighter
+      ///
+      /// Locales: ko, en
+      var homeFighter: RswiftResources.StringResource { .init(key: "homeFighter", tableName: "Localizable", source: source, developmentValue: "Fighter", comment: nil) }
+
+      /// en translation: Shall we take a closer look?
+      ///
+      /// Key: homeLetsTakeCloserLook
+      ///
+      /// Locales: ko, en
+      var homeLetsTakeCloserLook: RswiftResources.StringResource { .init(key: "homeLetsTakeCloserLook", tableName: "Localizable", source: source, developmentValue: "Shall we take a closer look?", comment: nil) }
+
+      /// en translation: Mage
+      ///
+      /// Key: homeMage
+      ///
+      /// Locales: ko, en
+      var homeMage: RswiftResources.StringResource { .init(key: "homeMage", tableName: "Localizable", source: source, developmentValue: "Mage", comment: nil) }
+
+      /// en translation: Marksman
+      ///
+      /// Key: homeMarksman
+      ///
+      /// Locales: ko, en
+      var homeMarksman: RswiftResources.StringResource { .init(key: "homeMarksman", tableName: "Localizable", source: source, developmentValue: "Marksman", comment: nil) }
+
+      /// en translation: %@ Recommendation
+      ///
+      /// Key: homeRecommend
+      ///
+      /// Locales: ko, en
+      var homeRecommend: RswiftResources.StringResource1<String> { .init(key: "homeRecommend", tableName: "Localizable", source: source, developmentValue: "%@ Recommendation", comment: nil) }
+
+      /// en translation: %d skins %@
+      ///
+      /// Key: homeSkinCount
+      ///
+      /// Locales: ko, en
+      var homeSkinCount: RswiftResources.StringResource2<Int, String> { .init(key: "homeSkinCount", tableName: "Localizable", source: source, developmentValue: "%d skins %@", comment: nil) }
+
+      /// en translation: Support
+      ///
+      /// Key: homeSupport
+      ///
+      /// Locales: ko, en
+      var homeSupport: RswiftResources.StringResource { .init(key: "homeSupport", tableName: "Localizable", source: source, developmentValue: "Support", comment: nil) }
+
+      /// en translation: Home
       ///
       /// Key: homeTabTitle
       ///
-      /// Locales: ko
-      var homeTabTitle: RswiftResources.StringResource { .init(key: "homeTabTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var homeTabTitle: RswiftResources.StringResource { .init(key: "homeTabTitle", tableName: "Localizable", source: source, developmentValue: "Home", comment: nil) }
 
-      /// ko translation: 어썌신
+      /// en translation: Daily
       ///
-      /// Key: homeViewModelAssassin
+      /// Key: homeTalonRecommend
       ///
-      /// Locales: ko
-      var homeViewModelAssassin: RswiftResources.StringResource { .init(key: "homeViewModelAssassin", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var homeTalonRecommend: RswiftResources.StringResource { .init(key: "homeTalonRecommend", tableName: "Localizable", source: source, developmentValue: "Daily", comment: nil) }
 
-      /// ko translation: 파이터
+      /// en translation: the Blade's Shadow
       ///
-      /// Key: homeViewModelFighter
+      /// Key: homeTalonTitle
       ///
-      /// Locales: ko
-      var homeViewModelFighter: RswiftResources.StringResource { .init(key: "homeViewModelFighter", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var homeTalonTitle: RswiftResources.StringResource { .init(key: "homeTalonTitle", tableName: "Localizable", source: source, developmentValue: "the Blade's Shadow", comment: nil) }
 
-      /// ko translation: 메이지
+      /// en translation: Tank
       ///
-      /// Key: homeViewModelMage
+      /// Key: homeTank
       ///
-      /// Locales: ko
-      var homeViewModelMage: RswiftResources.StringResource { .init(key: "homeViewModelMage", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var homeTank: RswiftResources.StringResource { .init(key: "homeTank", tableName: "Localizable", source: source, developmentValue: "Tank", comment: nil) }
 
-      /// ko translation: 마크맨
+      /// en translation: Bottom
       ///
-      /// Key: homeViewModelMarksman
+      /// Key: lookAroundBottom
       ///
-      /// Locales: ko
-      var homeViewModelMarksman: RswiftResources.StringResource { .init(key: "homeViewModelMarksman", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundBottom: RswiftResources.StringResource { .init(key: "lookAroundBottom", tableName: "Localizable", source: source, developmentValue: "Bottom", comment: nil) }
 
-      /// ko translation: 서포터
+      /// en translation: Bronze
       ///
-      /// Key: homeViewModelSupport
+      /// Key: lookAroundBronze
       ///
-      /// Locales: ko
-      var homeViewModelSupport: RswiftResources.StringResource { .init(key: "homeViewModelSupport", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundBronze: RswiftResources.StringResource { .init(key: "lookAroundBronze", tableName: "Localizable", source: source, developmentValue: "Bronze", comment: nil) }
 
-      /// ko translation: 탱커
+      /// en translation: Challenger
       ///
-      /// Key: homeViewModelTank
+      /// Key: lookAroundChallenger
       ///
-      /// Locales: ko
-      var homeViewModelTank: RswiftResources.StringResource { .init(key: "homeViewModelTank", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundChallenger: RswiftResources.StringResource { .init(key: "lookAroundChallenger", tableName: "Localizable", source: source, developmentValue: "Challenger", comment: nil) }
 
-      /// ko translation: 둘러보기
+      /// en translation: Assassin
+      ///
+      /// Key: lookAroundChartCategoryAssassinTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundChartCategoryAssassinTitle: RswiftResources.StringResource { .init(key: "lookAroundChartCategoryAssassinTitle", tableName: "Localizable", source: source, developmentValue: "Assassin", comment: nil) }
+
+      /// en translation: Fighter
+      ///
+      /// Key: lookAroundChartCategoryFighterTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundChartCategoryFighterTitle: RswiftResources.StringResource { .init(key: "lookAroundChartCategoryFighterTitle", tableName: "Localizable", source: source, developmentValue: "Fighter", comment: nil) }
+
+      /// en translation: Mage
+      ///
+      /// Key: lookAroundChartCategoryMageTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundChartCategoryMageTitle: RswiftResources.StringResource { .init(key: "lookAroundChartCategoryMageTitle", tableName: "Localizable", source: source, developmentValue: "Mage", comment: nil) }
+
+      /// en translation: Marksman
+      ///
+      /// Key: lookAroundChartCategoryMarksmanTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundChartCategoryMarksmanTitle: RswiftResources.StringResource { .init(key: "lookAroundChartCategoryMarksmanTitle", tableName: "Localizable", source: source, developmentValue: "Marksman", comment: nil) }
+
+      /// en translation: Support
+      ///
+      /// Key: lookAroundChartCategorySupportTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundChartCategorySupportTitle: RswiftResources.StringResource { .init(key: "lookAroundChartCategorySupportTitle", tableName: "Localizable", source: source, developmentValue: "Support", comment: nil) }
+
+      /// en translation: Tank
+      ///
+      /// Key: lookAroundChartCategoryTankTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundChartCategoryTankTitle: RswiftResources.StringResource { .init(key: "lookAroundChartCategoryTankTitle", tableName: "Localizable", source: source, developmentValue: "Tank", comment: nil) }
+
+      /// en translation: Diamond
+      ///
+      /// Key: lookAroundDiamond
+      ///
+      /// Locales: ko, en
+      var lookAroundDiamond: RswiftResources.StringResource { .init(key: "lookAroundDiamond", tableName: "Localizable", source: source, developmentValue: "Diamond", comment: nil) }
+
+      /// en translation: Gold
+      ///
+      /// Key: lookAroundGold
+      ///
+      /// Locales: ko, en
+      var lookAroundGold: RswiftResources.StringResource { .init(key: "lookAroundGold", tableName: "Localizable", source: source, developmentValue: "Gold", comment: nil) }
+
+      /// en translation: Grandmaster
+      ///
+      /// Key: lookAroundGrandmaster
+      ///
+      /// Locales: ko, en
+      var lookAroundGrandmaster: RswiftResources.StringResource { .init(key: "lookAroundGrandmaster", tableName: "Localizable", source: source, developmentValue: "Grandmaster", comment: nil) }
+
+      /// en translation: Position
+      ///
+      /// Key: lookAroundInterestedStatusPositionTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundInterestedStatusPositionTitle: RswiftResources.StringResource { .init(key: "lookAroundInterestedStatusPositionTitle", tableName: "Localizable", source: source, developmentValue: "Position", comment: nil) }
+
+      /// en translation: Tier
+      ///
+      /// Key: lookAroundInterestedStatusTierTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundInterestedStatusTierTitle: RswiftResources.StringResource { .init(key: "lookAroundInterestedStatusTierTitle", tableName: "Localizable", source: source, developmentValue: "Tier", comment: nil) }
+
+      /// en translation: Iron
+      ///
+      /// Key: lookAroundIron
+      ///
+      /// Locales: ko, en
+      var lookAroundIron: RswiftResources.StringResource { .init(key: "lookAroundIron", tableName: "Localizable", source: source, developmentValue: "Iron", comment: nil) }
+
+      /// en translation: Jungle
+      ///
+      /// Key: lookAroundJungle
+      ///
+      /// Locales: ko, en
+      var lookAroundJungle: RswiftResources.StringResource { .init(key: "lookAroundJungle", tableName: "Localizable", source: source, developmentValue: "Jungle", comment: nil) }
+
+      /// en translation: Master
+      ///
+      /// Key: lookAroundMaster
+      ///
+      /// Locales: ko, en
+      var lookAroundMaster: RswiftResources.StringResource { .init(key: "lookAroundMaster", tableName: "Localizable", source: source, developmentValue: "Master", comment: nil) }
+
+      /// en translation: Mid
+      ///
+      /// Key: lookAroundMiddle
+      ///
+      /// Locales: ko, en
+      var lookAroundMiddle: RswiftResources.StringResource { .init(key: "lookAroundMiddle", tableName: "Localizable", source: source, developmentValue: "Mid", comment: nil) }
+
+      /// en translation: Platinum
+      ///
+      /// Key: lookAroundPlatinum
+      ///
+      /// Locales: ko, en
+      var lookAroundPlatinum: RswiftResources.StringResource { .init(key: "lookAroundPlatinum", tableName: "Localizable", source: source, developmentValue: "Platinum", comment: nil) }
+
+      /// en translation: Silver
+      ///
+      /// Key: lookAroundSilver
+      ///
+      /// Locales: ko, en
+      var lookAroundSilver: RswiftResources.StringResource { .init(key: "lookAroundSilver", tableName: "Localizable", source: source, developmentValue: "Silver", comment: nil) }
+
+      /// en translation: Support
+      ///
+      /// Key: lookAroundSupport
+      ///
+      /// Locales: ko, en
+      var lookAroundSupport: RswiftResources.StringResource { .init(key: "lookAroundSupport", tableName: "Localizable", source: source, developmentValue: "Support", comment: nil) }
+
+      /// en translation: As of %@
+      ///
+      /// Key: lookAroundSupportChartBaseOnTheDate
+      ///
+      /// Locales: ko, en
+      var lookAroundSupportChartBaseOnTheDate: RswiftResources.StringResource1<String> { .init(key: "lookAroundSupportChartBaseOnTheDate", tableName: "Localizable", source: source, developmentValue: "As of %@", comment: nil) }
+
+      /// en translation: Good supporters at a glance!
+      ///
+      /// Key: lookAroundSupportChartDescription
+      ///
+      /// Locales: ko, en
+      var lookAroundSupportChartDescription: RswiftResources.StringResource { .init(key: "lookAroundSupportChartDescription", tableName: "Localizable", source: source, developmentValue: "Good supporters at a glance!", comment: nil) }
+
+      /// en translation: Good supporter 
+      ///
+      /// Key: lookAroundSupportChartTitle
+      ///
+      /// Locales: ko, en
+      var lookAroundSupportChartTitle: RswiftResources.StringResource { .init(key: "lookAroundSupportChartTitle", tableName: "Localizable", source: source, developmentValue: "Good supporter\n", comment: nil) }
+
+      /// en translation: arround
       ///
       /// Key: lookAroundTabTitle
       ///
-      /// Locales: ko
-      var lookAroundTabTitle: RswiftResources.StringResource { .init(key: "lookAroundTabTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundTabTitle: RswiftResources.StringResource { .init(key: "lookAroundTabTitle", tableName: "Localizable", source: source, developmentValue: "arround", comment: nil) }
 
-      /// ko translation: 둘러보기
+      /// en translation: Around
       ///
-      /// Key: lookAroundViewControllerTitle
+      /// Key: lookAroundTitle
       ///
-      /// Locales: ko
-      var lookAroundViewControllerTitle: RswiftResources.StringResource { .init(key: "lookAroundViewControllerTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundTitle: RswiftResources.StringResource { .init(key: "lookAroundTitle", tableName: "Localizable", source: source, developmentValue: "Around", comment: nil) }
 
-      /// ko translation: 어쌔신
+      /// en translation: Top
       ///
-      /// Key: lookAroundViewModelChartCategoryAssassinTitle
+      /// Key: lookAroundTop
       ///
-      /// Locales: ko
-      var lookAroundViewModelChartCategoryAssassinTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryAssassinTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundTop: RswiftResources.StringResource { .init(key: "lookAroundTop", tableName: "Localizable", source: source, developmentValue: "Top", comment: nil) }
 
-      /// ko translation: 파이트
+      /// en translation: As of %@
       ///
-      /// Key: lookAroundViewModelChartCategoryFighterTitle
+      /// Key: lookAroundWilldChartBaseOnTheDate
       ///
-      /// Locales: ko
-      var lookAroundViewModelChartCategoryFighterTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryFighterTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundWilldChartBaseOnTheDate: RswiftResources.StringResource1<String> { .init(key: "lookAroundWilldChartBaseOnTheDate", tableName: "Localizable", source: source, developmentValue: "As of %@", comment: nil) }
 
-      /// ko translation: 메이지
+      /// en translation: will_d's recommendation
       ///
-      /// Key: lookAroundViewModelChartCategoryMageTitle
+      /// Key: lookAroundWilldChartDescription
       ///
-      /// Locales: ko
-      var lookAroundViewModelChartCategoryMageTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryMageTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundWilldChartDescription: RswiftResources.StringResource { .init(key: "lookAroundWilldChartDescription", tableName: "Localizable", source: source, developmentValue: "will_d's recommendation", comment: nil) }
 
-      /// ko translation: 마크맨
+      /// en translation: will_d Chart
       ///
-      /// Key: lookAroundViewModelChartCategoryMarksmanTitle
+      /// Key: lookAroundWilldChartTitle
       ///
-      /// Locales: ko
-      var lookAroundViewModelChartCategoryMarksmanTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryMarksmanTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
-
-      /// ko translation: 서포트
-      ///
-      /// Key: lookAroundViewModelChartCategorySupportTitle
-      ///
-      /// Locales: ko
-      var lookAroundViewModelChartCategorySupportTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategorySupportTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
-
-      /// ko translation: 탱커
-      ///
-      /// Key: lookAroundViewModelChartCategoryTankTitle
-      ///
-      /// Locales: ko
-      var lookAroundViewModelChartCategoryTankTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelChartCategoryTankTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
-
-      /// ko translation: 포지션
-      ///
-      /// Key: lookAroundViewModelInterestedStatusPositionTitle
-      ///
-      /// Locales: ko
-      var lookAroundViewModelInterestedStatusPositionTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelInterestedStatusPositionTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
-
-      /// ko translation: 티어
-      ///
-      /// Key: lookAroundViewModelInterestedStatusTierTitle
-      ///
-      /// Locales: ko
-      var lookAroundViewModelInterestedStatusTierTitle: RswiftResources.StringResource { .init(key: "lookAroundViewModelInterestedStatusTierTitle", tableName: "Localizable", source: source, developmentValue: nil, comment: nil) }
+      /// Locales: ko, en
+      var lookAroundWilldChartTitle: RswiftResources.StringResource { .init(key: "lookAroundWilldChartTitle", tableName: "Localizable", source: source, developmentValue: "will_d Chart", comment: nil) }
     }
   }
 

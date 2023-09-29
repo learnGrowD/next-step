@@ -24,8 +24,8 @@ struct HomeBannerItemAttribute {
                 id: "Talon",
                 key: "91",
                 backgroundImageURL: RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Talon"),
-                categoryText: "데일리 추천",
-                title: "검의 그림자",
+                categoryText: R.string.localizable.homeTalonRecommend(),
+                title: R.string.localizable.homeTalonTitle(),
                 allCount: 11,
                 date: Date(),
                 skinImageURLList: [
@@ -33,14 +33,14 @@ struct HomeBannerItemAttribute {
                     RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Talon", skinIndexNumber: 29),
                     RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Talon", skinIndexNumber: 20),
                 ],
-                championInformation: "Talon - 검의 그림자"
+                championInformation: "Talon - \(R.string.localizable.homeTalonTitle())"
             ),
             HomeBannerItemAttribute(
                 id: "Ezreal",
                 key: "81",
                 backgroundImageURL: RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Ezreal"),
-                categoryText: "will_d 추천",
-                title: "무모한 탐험가",
+                categoryText: R.string.localizable.homeEzrealRecommend(),
+                title: R.string.localizable.homeEzrealTitle(),
                 allCount: 18,
                 date: Date(),
                 skinImageURLList: [
@@ -48,14 +48,14 @@ struct HomeBannerItemAttribute {
                     RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Ezreal", skinIndexNumber: 25),
                     RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Ezreal", skinIndexNumber: 19),
                 ],
-                championInformation: "Ezreal - 무모한 탐험가"
+                championInformation: "Ezreal - \(R.string.localizable.homeEzrealTitle())"
             ),
             HomeBannerItemAttribute(
                 id: "Diana",
                 key: "131",
                 backgroundImageURL: RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Diana"),
-                categoryText: "will_d 추천",
-                title: "차가운 달의 분노",
+                categoryText: R.string.localizable.homeDianaRecommend(),
+                title: R.string.localizable.homeDianaTitle(),
                 allCount: 12,
                 date: Date(),
                 skinImageURLList: [
@@ -63,7 +63,7 @@ struct HomeBannerItemAttribute {
                     RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Diana", skinIndexNumber: 37),
                     RiotAPIRequestContext.getChampionImageURL(championImageSizeStatus: .full, championID: "Diana", skinIndexNumber: 47),
                 ],
-                championInformation: "Diana - 차가운 달의 분노"
+                championInformation: "Diana - \(R.string.localizable.homeDianaTitle())"
             ),
         ]
     }

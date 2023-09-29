@@ -16,7 +16,7 @@ final class LookAroundViewController: BaseViewController<LookAroundViewModel> {
         super.attribute()
         view.backgroundColor = R.color.nestStepBlack()
         titleNavigationLabel.font = .nestStepBold(size: .large)
-        titleNavigationLabel.text = R.string.localizable.lookAroundViewControllerTitle()
+        titleNavigationLabel.text = R.string.localizable.lookAroundTitle()
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleNavigationLabel)
 
         tableView.register(

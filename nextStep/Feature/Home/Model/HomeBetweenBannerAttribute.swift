@@ -23,7 +23,7 @@ struct HomeBetweenBannerAttribute {
             ),
             webURL: "https://velog.io/@will_d/about",
             title: "will_d",
-            description: "자세히 한번 알아볼까요?",
+            description: R.string.localizable.homeLetsTakeCloserLook(),
             decorateIconImage: R.image.tierDiamond()
         )
     }

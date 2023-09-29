@@ -36,7 +36,7 @@ final class ChampionDetailInformationView: UIView {
 
     private func attribute() {
         titleLable.font = .nestStepRegular(size: .small)
-        titleLable.text = R.string.localizable.championDetailInformationViewTitle()
+        titleLable.text = R.string.localizable.championDetailInformationTitle()
 
         likeButton.tintColor = .systemRed
         likeButton.image = UIImage(systemName: "heart")
