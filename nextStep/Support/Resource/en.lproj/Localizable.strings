@@ -12,8 +12,8 @@
 
 //MainTabBar
 "homeTabTitle" = "Home";
-"lookAroundTabTitle" = "arround";
-"galleryTabTitle" = "gallery";
+"lookAroundTabTitle" = "Arround";
+"galleryTabTitle" = "Gallery";
 
 //Home
 "homeAssassin" = "Assassin";
