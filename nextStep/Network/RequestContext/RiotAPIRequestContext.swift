@@ -15,7 +15,22 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         : "https://test-ddragon.leagueoflegends.com"
     }
     private static var version = "13.16.1"
-    private static var local = Locale.current.identifier
+    private static var local: String {
+
+        let currentLocal = Locale.current.identifier
+        print("currentLocal: \(currentLocal)")
+        let localSplit = currentLocal.split(separator: "_")
+        let languageCode = localSplit[safe: 0]
+        print("nation: \(languageCode)")
+        if languageCode == "ko-Kore" {
+            return "ko_KR"
+        }
+        if languageCode == "en" {
+            return "en_US"
+        }
+        return "en_US"
+    }
+
     private static let championFullImgPath   = RiotAPIRequestContext.baseURL + "/cdn/img/champion/splash"
     private static let championMiddleImgPath = RiotAPIRequestContext.baseURL + "/cdn/img/champion/loading"
     private static let championSmallImgPath  = RiotAPIRequestContext.baseURL + "/cdn/\(RiotAPIRequestContext.version)/img/champion"

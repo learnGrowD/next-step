@@ -56,7 +56,12 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol 
                     introView = CommonLoadingView()
                 }
                 introView?.show()
-            }).map { [self] in
+            }).catch { error in
+                introView?.dismiss()
+                introView = nil
+                throw resultUnknownError(statusCode: 888)
+            }
+            .map { [self] in
                 introView?.dismiss()
                 introView = nil
                 do {
@@ -225,7 +230,7 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol 
             CommonModal.Builder()
                 .setMessage(message)
                 .setImage(UIImage(systemName: "exclamationmark.circle.fill"), width: 44, height: 44)
-                .setPositiveButton("확인") {
+                .setPositiveButton(R.string.localizable.apiServiceResponseToErrorWithUIOK()) {
                     $0.dismiss(animated: true)
                 }
                 .build()
@@ -246,9 +251,9 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol 
     }
 
     private func errorMessagePrint(message: String) {
-        #if DEBUG
+#if DEBUG
         print(message)
-        #endif
+#endif
     }
 
     private func errorInformation(

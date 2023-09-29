@@ -77,7 +77,7 @@ struct _R {
       let source: RswiftResources.StringResource.Source
     }
 
-    /// This `_R.string.localizable` struct is generated, and contains static references to 50 localization keys.
+    /// This `_R.string.localizable` struct is generated, and contains static references to 51 localization keys.
     struct localizable {
       let source: RswiftResources.StringResource.Source
 
@@ -88,6 +88,13 @@ struct _R {
       /// Locales: ko, en
       var apiServiceResponseToErrorWithUIMessage: RswiftResources.StringResource1<String> { .init(key: "apiServiceResponseToErrorWithUIMessage", tableName: "Localizable", source: source, developmentValue: "A temporary error has currently occurred.\noccurred.Please contact the person in charge\n.\n[010-8705-1693]\n[%@]", comment: nil) }
 
+      /// en translation: Ok
+      ///
+      /// Key: apiServiceResponseToErrorWithUIOK
+      ///
+      /// Locales: ko, en
+      var apiServiceResponseToErrorWithUIOK: RswiftResources.StringResource { .init(key: "apiServiceResponseToErrorWithUIOK", tableName: "Localizable", source: source, developmentValue: "Ok", comment: nil) }
+
       /// en translation: Do you like this champion?
       ///
       /// Key: championDetailInformationTitle
@@ -95,12 +102,12 @@ struct _R {
       /// Locales: ko, en
       var championDetailInformationTitle: RswiftResources.StringResource { .init(key: "championDetailInformationTitle", tableName: "Localizable", source: source, developmentValue: "Do you like this champion?", comment: nil) }
 
-      /// en translation: gallery
+      /// en translation: Gallery
       ///
       /// Key: galleryTabTitle
       ///
       /// Locales: ko, en
-      var galleryTabTitle: RswiftResources.StringResource { .init(key: "galleryTabTitle", tableName: "Localizable", source: source, developmentValue: "gallery", comment: nil) }
+      var galleryTabTitle: RswiftResources.StringResource { .init(key: "galleryTabTitle", tableName: "Localizable", source: source, developmentValue: "Gallery", comment: nil) }
 
       /// en translation: Gallery
       ///
@@ -389,12 +396,12 @@ struct _R {
       /// Locales: ko, en
       var lookAroundSupportChartTitle: RswiftResources.StringResource { .init(key: "lookAroundSupportChartTitle", tableName: "Localizable", source: source, developmentValue: "Good supporter\n", comment: nil) }
 
-      /// en translation: arround
+      /// en translation: Arround
       ///
       /// Key: lookAroundTabTitle
       ///
       /// Locales: ko, en
-      var lookAroundTabTitle: RswiftResources.StringResource { .init(key: "lookAroundTabTitle", tableName: "Localizable", source: source, developmentValue: "arround", comment: nil) }
+      var lookAroundTabTitle: RswiftResources.StringResource { .init(key: "lookAroundTabTitle", tableName: "Localizable", source: source, developmentValue: "Arround", comment: nil) }
 
       /// en translation: Around
       ///
