@@ -99,24 +99,9 @@ extension MainTabBarController {
             return ("person", R.string.localizable.galleryTabTitle())
         }
     }
-
-    private func presentPanModalGalleryViewControlelr() {
-        let galleryViewModel = GalleryViewModel()
-        let galleryViewController = GalleryViewController(viewModel: galleryViewModel)
-        presentPanModal(galleryViewController)
-    }
 }
 
 extension MainTabBarController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        let index = tabBarController.viewControllers?.firstIndex(of: viewController)
-        let category = MainTapBarCategory.getCategory(index: index)
-        if category == .gallery {
-            presentPanModalGalleryViewControlelr()
-            return false
-        }
-        return true
-    }
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let index = tabBarController.viewControllers?.firstIndex(of: viewController)
         let category = MainTapBarCategory.getCategory(index: index)
