@@ -16,12 +16,9 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
     }
     private static var version = "13.16.1"
     private static var local: String {
-
         let currentLocal = Locale.current.identifier
-        print("currentLocal: \(currentLocal)")
         let localSplit = currentLocal.split(separator: "_")
         let languageCode = localSplit[safe: 0]
-        print("nation: \(languageCode)")
         if languageCode == "ko-Kore" {
             return "ko_KR"
         }
@@ -93,4 +90,6 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
         let key = championKey?.convertNumberWithZeros() ?? ""
         return "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/\(key)/ability_\(key)_\(skillStatus.rawValue)1.mp4"
     }
+
+    
 }
