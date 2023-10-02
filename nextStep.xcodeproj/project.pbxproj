@@ -67,6 +67,7 @@
 		B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */; };
 		B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411102AB5D78000957BB1 /* CommonLoadingView.swift */; };
 		B85411132AB5D7AA00957BB1 /* CommonBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */; };
+		B865E0E82ACA814000CD71A5 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B865E0E72ACA814000CD71A5 /* TestViewController.swift */; };
 		B887C17E2ABEA27E008257A0 /* HomeChampionCatogoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B887C17D2ABEA27E008257A0 /* HomeChampionCatogoryListTableViewCell.swift */; };
 		B887C1812ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B887C1802ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift */; };
 		B887C1832ABEA4B5008257A0 /* HomeChampionCategoryAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B887C1822ABEA4B5008257A0 /* HomeChampionCategoryAttribute.swift */; };
@@ -187,6 +188,7 @@
 		B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewProtocol.swift; sourceTree = "<group>"; };
 		B85411102AB5D78000957BB1 /* CommonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLoadingView.swift; sourceTree = "<group>"; };
 		B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBlurView.swift; sourceTree = "<group>"; };
+		B865E0E72ACA814000CD71A5 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		B887C17D2ABEA27E008257A0 /* HomeChampionCatogoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChampionCatogoryListTableViewCell.swift; sourceTree = "<group>"; };
 		B887C1802ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChampionSmallCatogoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B887C1822ABEA4B5008257A0 /* HomeChampionCategoryAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChampionCategoryAttribute.swift; sourceTree = "<group>"; };
@@ -864,6 +866,7 @@
 			children = (
 				B837ADF82AC2C75900BE7D2C /* Champion */,
 				B808FCC92AC5A44100EAF39A /* Skill */,
+				B865E0E72ACA814000CD71A5 /* TestViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1195,6 +1198,7 @@
 				B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */,
 				B8DDB8FF2AC1AB990068C7C0 /* LookAroundInterestedCollectionViewCell.swift in Sources */,
 				B837A8EA2AAC7F6300A5F407 /* AppConfigure.swift in Sources */,
+				B865E0E82ACA814000CD71A5 /* TestViewController.swift in Sources */,
 				B83A99202AAC5540004C0A42 /* SceneDelegate.swift in Sources */,
 				B8E7C0432AB91BC000E310AF /* NestStepCornerRadius.swift in Sources */,
 				B8DDB8BD2ABEB7810068C7C0 /* LOLChampionTagCategory.swift in Sources */,

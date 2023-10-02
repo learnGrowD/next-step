@@ -17,12 +17,10 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
     private static var version = "13.16.1"
     private static var local: String {
         let currentLocal = Locale.current.identifier
-        let localSplit = currentLocal.split(separator: "_")
-        let languageCode = localSplit[safe: 0]
-        if languageCode == "ko-Kore" {
+        if currentLocal.contains("ko") {
             return "ko_KR"
         }
-        if languageCode == "en" {
+        if currentLocal.contains("en") {
             return "en_US"
         }
         return "en_US"
