@@ -470,5 +470,4 @@ final class CommonModal: BaseViewController<BaseViewModel> {
             }
         }
     }
-
 }

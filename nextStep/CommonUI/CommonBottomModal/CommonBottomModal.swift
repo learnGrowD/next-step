@@ -71,9 +71,9 @@ final class CommonBottomModal: BaseViewController<BaseViewModel>, BasePanModalPr
                 label.rx.tapGesture()
                 .when(.recognized)
                 .bind(onNext: { [weak self] _ in
-                    guard let self = self else { return }
-                    self.dismiss(animated: true) {
-                        guard let safeAction = actions[safe: index] else { return }
+                    self?.dismiss(animated: true) { [weak self] in
+                        guard let self = self,
+                              let safeAction = actions[safe: index] else { return }
                         safeAction.action(self)
                     }
                 })

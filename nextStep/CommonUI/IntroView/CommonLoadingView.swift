@@ -39,7 +39,6 @@ final class CommonLoadingView: IntroViewProtocol, AppStorageProtocol {
                 guard let self = self else { return }
                 if $0 == 0 {
                     self.loadingView?.isHidden = false
-                    self.loadingView?.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
                     self.disposeBag = nil
                 }
             })
@@ -62,6 +61,7 @@ final class CommonLoadingView: IntroViewProtocol, AppStorageProtocol {
     }
 
     private func attribute() {
+        loadingView?.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
         loadingView?.alpha = 0
         loadingView?.isHidden = true
         loadingView?.contentMode = .scaleAspectFill

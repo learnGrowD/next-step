@@ -48,7 +48,7 @@ final class HomeRepository: CommonRepositoryProtocol {
                 }
                 return result.shuffled()
             }
-            .catch { _ in
+            .catch { error in
                 Observable<[HomeChampionCategoryAttribute]>.empty()
             }
 
