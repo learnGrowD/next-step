@@ -94,6 +94,7 @@ extension HomeViewController {
     func pushChampionDetailViewController(championID: String) {
         let championDetailViewModel = ChampionDetailViewModel(championID: championID)
         let championDetailViewController = ChampionDetailViewController(viewModel: championDetailViewModel)
+        championDetailViewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(championDetailViewController, animated: true)
     }
 

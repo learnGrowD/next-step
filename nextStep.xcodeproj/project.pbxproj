@@ -68,6 +68,11 @@
 		B854110F2AB5D77000957BB1 /* IntroViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */; };
 		B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411102AB5D78000957BB1 /* CommonLoadingView.swift */; };
 		B85411132AB5D7AA00957BB1 /* CommonBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */; };
+		B86DAE7F2AD7C346002CCED8 /* GalleryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DAE7E2AD7C346002CCED8 /* GalleryHeaderView.swift */; };
+		B86DAE812AD7C846002CCED8 /* GalleyInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DAE802AD7C846002CCED8 /* GalleyInformationTableViewCell.swift */; };
+		B86DAE842AD7C91B002CCED8 /* GalleyInformationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DAE832AD7C91B002CCED8 /* GalleyInformationStatus.swift */; };
+		B86DAE862AD7CA20002CCED8 /* GalleryInformationAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DAE852AD7CA20002CCED8 /* GalleryInformationAttribute.swift */; };
+		B86DAE892AD7CDD1002CCED8 /* GalleyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DAE882AD7CDD1002CCED8 /* GalleyRepository.swift */; };
 		B887C17E2ABEA27E008257A0 /* HomeChampionCatogoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B887C17D2ABEA27E008257A0 /* HomeChampionCatogoryListTableViewCell.swift */; };
 		B887C1812ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B887C1802ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift */; };
 		B887C1832ABEA4B5008257A0 /* HomeChampionCategoryAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = B887C1822ABEA4B5008257A0 /* HomeChampionCategoryAttribute.swift */; };
@@ -189,6 +194,11 @@
 		B854110E2AB5D77000957BB1 /* IntroViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewProtocol.swift; sourceTree = "<group>"; };
 		B85411102AB5D78000957BB1 /* CommonLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLoadingView.swift; sourceTree = "<group>"; };
 		B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBlurView.swift; sourceTree = "<group>"; };
+		B86DAE7E2AD7C346002CCED8 /* GalleryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryHeaderView.swift; sourceTree = "<group>"; };
+		B86DAE802AD7C846002CCED8 /* GalleyInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyInformationTableViewCell.swift; sourceTree = "<group>"; };
+		B86DAE832AD7C91B002CCED8 /* GalleyInformationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyInformationStatus.swift; sourceTree = "<group>"; };
+		B86DAE852AD7CA20002CCED8 /* GalleryInformationAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryInformationAttribute.swift; sourceTree = "<group>"; };
+		B86DAE882AD7CDD1002CCED8 /* GalleyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyRepository.swift; sourceTree = "<group>"; };
 		B887C17D2ABEA27E008257A0 /* HomeChampionCatogoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChampionCatogoryListTableViewCell.swift; sourceTree = "<group>"; };
 		B887C1802ABEA391008257A0 /* HomeChampionSmallCatogoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChampionSmallCatogoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B887C1822ABEA4B5008257A0 /* HomeChampionCategoryAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChampionCategoryAttribute.swift; sourceTree = "<group>"; };
@@ -315,6 +325,9 @@
 			children = (
 				B80E741E2AB71D51007440D6 /* GalleryViewController.swift */,
 				B80E74202AB71D5F007440D6 /* GalleryViewModel.swift */,
+				B86DAE822AD7C90B002CCED8 /* Model */,
+				B86DAE872AD7CDC6002CCED8 /* Repository */,
+				B86DAE7D2AD7C329002CCED8 /* Component */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -604,6 +617,32 @@
 				B85411122AB5D7AA00957BB1 /* CommonBlurView.swift */,
 			);
 			path = IntroView;
+			sourceTree = "<group>";
+		};
+		B86DAE7D2AD7C329002CCED8 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B86DAE7E2AD7C346002CCED8 /* GalleryHeaderView.swift */,
+				B86DAE802AD7C846002CCED8 /* GalleyInformationTableViewCell.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B86DAE822AD7C90B002CCED8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B86DAE832AD7C91B002CCED8 /* GalleyInformationStatus.swift */,
+				B86DAE852AD7CA20002CCED8 /* GalleryInformationAttribute.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B86DAE872AD7CDC6002CCED8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B86DAE882AD7CDD1002CCED8 /* GalleyRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		B887C17C2ABEA1ED008257A0 /* Category */ = {
@@ -1102,6 +1141,7 @@
 				B8DDB8DF2AC051D00068C7C0 /* LookAroundCategoryAttribute.swift in Sources */,
 				B837A9002AACAA2F00A5F407 /* RiotWrapper.swift in Sources */,
 				B80E74292AB71F04007440D6 /* MainTapBarCategory.swift in Sources */,
+				B86DAE812AD7C846002CCED8 /* GalleyInformationTableViewCell.swift in Sources */,
 				B887C18C2ABEB26D008257A0 /* RiotAPI.swift in Sources */,
 				B808FCBA2AC4033000EAF39A /* ChampionDetailInformationAttribute.swift in Sources */,
 				B8DDB8CA2AC024C80068C7C0 /* HomeBetweenBannerTableViewCell.swift in Sources */,
@@ -1124,14 +1164,18 @@
 				B837AE132AC307FC00BE7D2C /* ChampionDetailPageAttribute.swift in Sources */,
 				B85411112AB5D78000957BB1 /* CommonLoadingView.swift in Sources */,
 				B8BDDD6D2ABA5E21003D863D /* UICollectionView+extension.swift in Sources */,
+				B86DAE842AD7C91B002CCED8 /* GalleyInformationStatus.swift in Sources */,
 				B85410ED2AB5BCBB00957BB1 /* AppStorageProtocol.swift in Sources */,
 				B8DDB8F32AC1627F0068C7C0 /* LookAroundInterestedStatus.swift in Sources */,
+				B86DAE862AD7CA20002CCED8 /* GalleryInformationAttribute.swift in Sources */,
 				B8DDB8C52ABF10B50068C7C0 /* String+extension.swift in Sources */,
 				B8E7C0472AB9204100E310AF /* HomeBannerItemAttribute.swift in Sources */,
 				B89F51E12AAC575E00C8AE64 /* BaseViewControllerProtocol.swift in Sources */,
 				B89F51E62AAC57D500C8AE64 /* BaseViewModel.swift in Sources */,
 				B8BDDD702ABA617E003D863D /* UIImageView+extension.swift in Sources */,
+				B86DAE7F2AD7C346002CCED8 /* GalleryHeaderView.swift in Sources */,
 				B89F51F02AAC5AD000C8AE64 /* UIView+extension.swift in Sources */,
+				B86DAE892AD7CDD1002CCED8 /* GalleyRepository.swift in Sources */,
 				B837AE012AC2E20700BE7D2C /* ChampionDetailSkinListView.swift in Sources */,
 				B837AE152AC3085500BE7D2C /* ChampionDetailSkillAttribute.swift in Sources */,
 				B8DDB8FC2AC1A9AE0068C7C0 /* LookAroundInterestedTableViewCell.swift in Sources */,
