@@ -13,5 +13,6 @@ struct ChampionDetailPageAttribute {
     let championTitle: String
     let championDescription: String
     let championTagList: [String]
+    var isLike: Bool
     let skillList: [ChampionDetailSkillAttribute]
 }

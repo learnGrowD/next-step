@@ -61,5 +61,9 @@ final class ChampionDetailInformationView: UIView {
         }
     }
     
-    private func bind(_ viewModel: ChampionDetailViewModel) {}
+    private func bind(_ viewModel: ChampionDetailViewModel) {
+        viewModel.getLikeImage()
+            .bind(to: likeButton.rx.image)
+            .disposed(by: disposeBag)
+    }
 }

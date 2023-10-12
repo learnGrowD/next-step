@@ -16,6 +16,9 @@ final class ChampionDetailViewModel: BaseViewModel {
     let championDetailData = BehaviorRelay<ChampionDetailPageAttribute?>(value: nil)
 
     let skinListSwipeGesture = PublishRelay<UISwipeGestureRecognizer>()
+    let isLike = BehaviorRelay<Bool>(value: false)
+    let likeButtonTap = PublishRelay<Bool>()
+
     let skillButtonTap = PublishRelay<LOLSkillStatus>()
 
     init(championID: String) {
@@ -55,6 +58,17 @@ final class ChampionDetailViewModel: BaseViewModel {
 
     func getLayout(indexPath: IndexPath) -> ChampionDetailLayoutStatus {
         layoutStatusList.value[indexPath.row]
+    }
+
+    func getLikeImage() -> Observable<UIImage?> {
+        isLike
+            .map { $0 ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart") }
+    }
+
+    func getIsLikeWithToastMessage() -> Observable<String> {
+        isLike
+            .skip(2)
+            .map { $0 ? "좋아요가 반영되었습니다 : )" : "좋아요 반영이 해제되었습니다 : )" }
     }
 
     func getSkinImageURLList() -> Observable<[ChampionDetailSkinAttribute]> {
@@ -138,6 +152,16 @@ final class ChampionDetailViewModel: BaseViewModel {
         repository.getChampionDetailPageAttribute(championID: championID)
             .take(1)
             .bind(to: championDetailData)
+            .disposed(by: disposeBag)
+
+        championDetailData
+            .take(1)
+            .map { $0?.isLike ?? false }
+            .bind(to: isLike)
+            .disposed(by: disposeBag)
+
+        likeButtonTap
+            .bind(to: isLike)
             .disposed(by: disposeBag)
     }
 }

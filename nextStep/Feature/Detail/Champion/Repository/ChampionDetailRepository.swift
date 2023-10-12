@@ -38,6 +38,7 @@ struct ChampionDetailRepository: CommonRepositoryProtocol {
                     championTitle: championDetail.title ?? "",
                     championDescription: championDetail.lore ?? "",
                     championTagList: tagList,
+                    isLike: false,
                     skillList: skills
                 )
                 return Observable.just(result)

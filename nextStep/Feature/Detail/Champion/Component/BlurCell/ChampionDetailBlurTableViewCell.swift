@@ -71,9 +71,11 @@ final class ChampionDetailBlurCollectionViewCell: UICollectionViewCell {
 
         likeButton.rx.tapGesture()
             .when(.recognized)
-            .bind(onNext: { _ in
-                print("like Button Tap")
-            })
+            .map { _ in
+                var isLike = viewModel.isLike.value
+                return !isLike
+            }
+            .bind(to: viewModel.likeButtonTap)
             .disposed(by: prepareDisposeBag)
     }
 }

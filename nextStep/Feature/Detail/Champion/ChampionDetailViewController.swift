@@ -107,6 +107,15 @@ final class ChampionDetailViewController: BaseViewController<ChampionDetailViewM
             }
             .disposed(by: disposeBag)
 
+        viewModel.getIsLikeWithToastMessage()
+            .bind(onNext: { message in
+                CommonToast.Builder()
+                    .setMessage(message: message)
+                    .build(status: .bottom)
+                    .show()
+            })
+            .disposed(by: disposeBag)
+
         viewModel.getSkillButtonTapWithSkillAttribute()
             .bind(onNext: { [weak self] skillAttribute in
                 self?.presentPanModalSkillDetailViewController(skillAttribute: skillAttribute)
