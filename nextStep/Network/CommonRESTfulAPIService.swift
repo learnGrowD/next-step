@@ -13,7 +13,7 @@ import RxCocoa
 
 // 한건의 Request를 담당
 // *** API Request 추상화
-struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol {
+struct CommonRESTAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol {
     private let requestContext: APIRequestContextProtocol
     init(requestContext: APIRequestContextProtocol) {
         self.requestContext = requestContext
@@ -39,27 +39,53 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol 
         request(method: .patch, encoding: JSONEncoding.default)
     }
 
+    func multipartFormMapping() -> Observable<Wrapper.Data> {
+        request()
+    }
+
     private func request(method: HTTPMethod, encoding: ParameterEncoding) -> Observable<Wrapper.Data> {
-        var introView: IntroViewProtocol? = nil
         let subject = PublishSubject<Wrapper.Data>()
 
         _ = subject
             .take(1)
             .subscribe()
 
-        _ = responseData(methode: method, encoding: encoding)
-            .do(onSubscribe: {
-                switch requestContext.requestUIMode {
+        let responseData = responseData(methode: method, encoding: encoding)
+        _ = requestTransaction(responseData: responseData)
+            .subscribe(subject)
+
+        return subject
+    }
+
+    private func request() -> Observable<Wrapper.Data> {
+        let subject = PublishSubject<Wrapper.Data>()
+
+        _ = subject
+            .take(1)
+            .subscribe()
+
+        let responseData = responseData()
+        _ = requestTransaction(responseData: responseData)
+            .subscribe(subject)
+
+        return subject
+    }
+
+    private func requestTransaction(responseData: Observable<(HTTPURLResponse, Data)>) -> Observable<Wrapper.Data> {
+        var introView: IntroViewProtocol?
+        return responseData
+            .do(onSubscribe: { [self] in
+                switch self.requestContext.requestUIMode {
                 case .blur:
                     introView = CommonBlurView()
                 case .loading:
                     introView = CommonLoadingView()
                 }
                 introView?.show()
-            }).catch { error in
+            }).catch { [self] error in
                 introView?.dismiss()
                 introView = nil
-                throw resultUnknownError(statusCode: 888)
+                throw self.resultUnknownError(error: error)
             }
             .map { [self] in
                 introView?.dismiss()
@@ -70,9 +96,6 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol 
                     throw error
                 }
             }
-            .subscribe(subject)
-
-        return subject
     }
 
     private func responseData(methode: HTTPMethod, encoding: ParameterEncoding) -> Observable<(HTTPURLResponse, Data)> {
@@ -83,6 +106,20 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol 
             encoding: encoding,
             headers: requestContext.headers
         ).rx.responseData()
+    }
+
+    private func responseData() -> Observable<(HTTPURLResponse, Data)> {
+        AF.upload(multipartFormData: { multipartFormData in
+            requestContext.multipartFormDatas.forEach { multipartForm in
+                multipartFormData.append(multipartForm.data,
+                                         withName: multipartForm.withName,
+                                         fileName: multipartForm.fileName,
+                                         mimeType: multipartForm.mimeType)
+            }
+        },to: requestContext.requestURL,
+                  method: .post,
+                  headers: requestContext.headers)
+        .rx.responseData()
     }
 
     private func result(statusCode: Int, data: Data) throws -> Wrapper.Data {
@@ -221,6 +258,19 @@ struct CommonRESTfulAPIService<Wrapper: APIWrapperProtocol>: AppStorageProtocol 
         """
         errorMessagePrint(message: message)
         return NetworkError.unkownError(message)
+    }
+    
+    private func resultUnknownError(error: Error) -> Error {
+        respondToErrorsWithUI(errorCodeShownInClient: 0009)
+        let message = """
+        🚨 \(requestContext.serverName) - result unknownError error:
+        \(errorInformation(
+        statusCode: 8888,
+        requestURL: requestContext.requestURL
+        ))
+        """
+        errorMessagePrint(message: message)
+        return error
     }
 
     private func respondToErrorsWithUI(errorCodeShownInClient: Int) {

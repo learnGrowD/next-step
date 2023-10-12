@@ -20,7 +20,7 @@ struct RiotAPI {
             requestUIMode: .blur,
             resultUIMode: .showWarning
         )
-        let service = CommonRESTfulAPIService<RiotWrapper<[String: RiotChampionResult]>>(requestContext: context)
+        let service = CommonRESTAPIService<RiotWrapper<[String: RiotChampionResult]>>(requestContext: context)
         return service.getMapping()
             .map { championDictionary in
                 var result: [RiotChampionResult] = []
@@ -38,7 +38,7 @@ struct RiotAPI {
             requestUIMode: .blur,
             resultUIMode: .showWarning
         )
-        let service = CommonRESTfulAPIService<RiotWrapper<[String: RiotChampionDetailResult]>>(requestContext: context)
+        let service = CommonRESTAPIService<RiotWrapper<[String: RiotChampionDetailResult]>>(requestContext: context)
         return service.getMapping()
             .map { championDictionary in
                 championDictionary[championID]

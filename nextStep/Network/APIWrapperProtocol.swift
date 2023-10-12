@@ -13,3 +13,5 @@ protocol APIWrapperProtocol: Codable {
     var resultMessage: String? {get set}
     var data: Data? {get set}
 }
+
+

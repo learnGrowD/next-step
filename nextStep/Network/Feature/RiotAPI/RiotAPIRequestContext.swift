@@ -37,7 +37,9 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
 
     var requestURL: String
 
-    var params: [String : Any]
+    var params: [String : Any] = [:]
+
+    var multipartFormDatas: [MultipartFormData] = []
 
     var requestUIMode: APIRequestUIMode
 
@@ -54,6 +56,20 @@ struct RiotAPIRequestContext: APIRequestContextProtocol {
     ) {
         self.requestURL = "\(RiotAPIRequestContext.baseURL)/cdn/\(RiotAPIRequestContext.version)/data/\(RiotAPIRequestContext.local)\(path)"
         self.params = params
+        self.requestUIMode = requestUIMode
+        self.resultUIMode = resultUIMode
+        self.headers = headers
+    }
+
+    init(
+        path: String,
+        multipartFormDatas: [MultipartFormData],
+        requestUIMode: APIRequestUIMode,
+        resultUIMode: APIResultUIMode,
+        headers: HTTPHeaders = ["Content-Type": "multipart/form-data"]
+    ) {
+        self.requestURL = "\(RiotAPIRequestContext.baseURL)/cdn/\(RiotAPIRequestContext.version)/data/\(RiotAPIRequestContext.local)\(path)"
+        self.multipartFormDatas = multipartFormDatas
         self.requestUIMode = requestUIMode
         self.resultUIMode = resultUIMode
         self.headers = headers

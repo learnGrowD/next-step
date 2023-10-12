@@ -12,6 +12,8 @@ import RxCocoa
  AppDelegate에서 단 하나만 생성하도록 하자
  App Life cycle 시작과 끝을 담당하는 객체다 (앱 전체의 전역을 담당한다.)
  */
-class AppContext {
+final class AppContext {
     let judgeViewController = BehaviorRelay<UIViewController?>(value: nil)
 }
+
+
