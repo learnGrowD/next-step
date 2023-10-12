@@ -99,6 +99,17 @@ extension HomeViewController {
     }
 
     func presentWebViewController(webURL: String?) {
-        print("Present Web View: \(webURL)")
+        guard let webURL = webURL else {
+            CommonToast.Builder()
+                .setMessage(message: "URL 경로가 잘못되었습니다.")
+                .build(status: .bottom)
+                .show()
+            return
+        }
+        let webContext = WebContext(title: "velog", link: webURL)
+        let commonWebViewModel = CommonWebViewModel(webContext: webContext)
+        let commonWebViewController = CommonWebViewController(viewModel: commonWebViewModel)
+        commonWebViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(commonWebViewController, animated: true)
     }
 }

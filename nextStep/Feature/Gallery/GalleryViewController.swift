@@ -62,7 +62,7 @@ extension GalleryViewController {
         case .phone:
             translateCall(link: data.link)
         case .web:
-            translateWebPage(link: data.link)
+            translateWebPage(title: data.description, link: data.link)
         }
     }
 
@@ -74,7 +74,11 @@ extension GalleryViewController {
         }
     }
 
-    private func translateWebPage(link: String) {
-
+    private func translateWebPage(title: String, link: String) {
+        let webContext = WebContext(title: title, link: link)
+        let commonWebViewModel = CommonWebViewModel(webContext: webContext)
+        let commonWebViewController = CommonWebViewController(viewModel: commonWebViewModel)
+        commonWebViewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(commonWebViewController, animated: true)
     }
 }

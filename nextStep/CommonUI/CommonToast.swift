@@ -179,7 +179,7 @@ private final class CenterCommonToast: CommonToast {
 private final class BottomCommonToast: CommonToast {
 
     override var intrinsicContentSize: CGSize {
-        let width: CGFloat = UIScreen.main.bounds.width
+        let width: CGFloat = UIScreen.main.bounds.width - 32
         let height: CGFloat = 16 + messageLabel.intrinsicContentSize.height + 16
         return CGSize(width: width, height: height)
     }
@@ -190,7 +190,8 @@ private final class BottomCommonToast: CommonToast {
     }
     override func attribute() {
         super.attribute()
-        backgroundColor = .systemRed
+        layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
+        backgroundColor = R.color.nestStepBrand()
     }
     override func layout() {
         super.layout()

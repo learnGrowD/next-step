@@ -132,5 +132,9 @@ extension LookAroundViewController {
     }
     private func showInterestedTitleToast(title: String) {
         print("title: \(title)")
+        CommonToast.Builder()
+            .setMessage(message: "\(title)에 대한 내용은 조금만 기다려주세요 : )")
+            .build(status: .bottom)
+            .show()
     }
 }
