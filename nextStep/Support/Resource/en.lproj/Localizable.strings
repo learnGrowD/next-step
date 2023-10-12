@@ -6,7 +6,7 @@
   
 */
 
-//CommonRESTfulAPIService
+//CommonRESTAPIService
 "apiServiceResponseToErrorWithUIMessage" = "A temporary error has currently occurred.\noccurred.Please contact the person in charge
 .\n[010-8705-1693]\n[%@]";
 "apiServiceResponseToErrorWithUIOK" = "Ok";

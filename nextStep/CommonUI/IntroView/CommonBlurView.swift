@@ -60,6 +60,8 @@ final class CommonBlurView: UIView, IntroViewProtocol {
             .disposed(by: disposeBag)
     }
 
+
+
     private func attribute() {
         layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
         isHidden = true

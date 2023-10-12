@@ -15,8 +15,11 @@ protocol APIRequestContextProtocol {
 
     var requestURL: String { get set }
     var params: [String: Any] { get set }
+    var multipartFormDatas: [MultipartFormData] { get set }
     var requestUIMode: APIRequestUIMode { get set }
     var resultUIMode: APIResultUIMode { get set }
     
     var headers: HTTPHeaders { get set }
 }
+
+

@@ -19,3 +19,5 @@ class BaseViewModel: NSObject {
         print("🍎 ViewModel deinit: \(className)")
     }
 }
+
+

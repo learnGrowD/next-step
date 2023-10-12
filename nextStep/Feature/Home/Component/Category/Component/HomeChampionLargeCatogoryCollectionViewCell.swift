@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class HomeChampionLargeCatogoryCollectionViewCell: HomeChampionCatogoryCollectionViewCell {
+
     override func attribute() {
         super.attribute()
         contentView.layer.borderWidth = 1

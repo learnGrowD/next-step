@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 class LookAroundRepository: CommonRepositoryProtocol {
+
     func getLayoutList() -> Observable<[LookAroundLayoutStatus]> {
         let chartListMockupList = LookAroundChartAttribute.getMockupList()
         return Observable.just([

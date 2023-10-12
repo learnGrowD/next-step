@@ -109,6 +109,7 @@ final class ChampionDetailViewModel: BaseViewModel {
             .map { $0[0] }
     }
 
+
     func getChampionSkillPrimitive(skillStatus: LOLSkillStatus) -> ChampionDetailSkillAttribute? {
         let mapList = championDetailData.value
             .map { $0.skillList }
@@ -140,3 +141,6 @@ final class ChampionDetailViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
 }
+
+
+
