@@ -31,7 +31,8 @@ final class GalleyInformationTableViewCell: UITableViewCell {
     }
 
     private func attribute() {
-        iconImageView.image = UIImage(systemName: "")
+
+        iconImageView.tintColor = .white
 
         informationLabel.font = .nestStepRegular(size: .small)
         informationLabel.textColor = .systemBlue

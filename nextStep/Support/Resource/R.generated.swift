@@ -457,7 +457,7 @@ struct _R {
     var nestStepLightBlack: RswiftResources.ColorResource { .init(name: "nestStepLightBlack", path: [], bundle: bundle) }
   }
 
-  /// This `_R.image` struct is generated, and contains static references to 14 images.
+  /// This `_R.image` struct is generated, and contains static references to 15 images.
   struct image {
     let bundle: Foundation.Bundle
 
@@ -502,6 +502,9 @@ struct _R {
 
     /// Image `tierSilver`.
     var tierSilver: RswiftResources.ImageResource { .init(name: "tierSilver", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
+
+    /// Image `will_d`.
+    var will_d: RswiftResources.ImageResource { .init(name: "will_d", path: [], bundle: bundle, locale: nil, onDemandResourceTags: nil) }
   }
 
   /// This `_R.info` struct is generated, and contains static references to 1 properties.

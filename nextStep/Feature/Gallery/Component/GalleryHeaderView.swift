@@ -26,7 +26,7 @@ final class GalleryHeaderView: UIView {
 
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = NestStepCornerRadiusCategory.middle.rawValue
-        profileImageView.image = UIImage(systemName: "square.and.arrow.up")
+        profileImageView.image = UIImage(named: "will_d")
 
         nickNameLabel.font = .nestStepRegular(size: .medium)
         nickNameLabel.text = "will_d"
