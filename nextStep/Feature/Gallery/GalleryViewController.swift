@@ -1,5 +1,5 @@
 //
-//  GalleryViewController.swift
+//  IntroViewController.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/17.
@@ -9,7 +9,7 @@
 import UIKit
 import PanModal
 
-final class GalleryViewController: BaseViewController<GalleryViewModel> {
+final class IntroViewController: BaseViewController<GalleryViewModel> {
     private let titleNavigationLabel = UILabel()
     private let tableView = UITableView()
     private lazy var headerView = GalleryHeaderView(viewModel: viewModel)
@@ -57,7 +57,7 @@ final class GalleryViewController: BaseViewController<GalleryViewModel> {
     }
 }
 
-extension GalleryViewController {
+extension IntroViewController {
     private func translateLink(data: GalleryInformationAttribute) {
         switch data.informationStatus {
         case .phone:

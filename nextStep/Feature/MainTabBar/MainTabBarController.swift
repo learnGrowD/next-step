@@ -13,7 +13,7 @@ import PanModal
 final class MainTabBarController: UITabBarController {
     var homeViewController: HomeViewController?
     var lookAroundViewController: LookAroundViewController?
-    var gallertViewController: GalleryViewController?
+    var gallertViewController: IntroViewController?
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         attribute()
@@ -84,7 +84,7 @@ extension MainTabBarController {
         case .gallery:
             if gallertViewController == nil {
                 let gallertViewModel = GalleryViewModel()
-                gallertViewController = GalleryViewController(viewModel: gallertViewModel)
+                gallertViewController = IntroViewController(viewModel: gallertViewModel)
             }
         }
     }
