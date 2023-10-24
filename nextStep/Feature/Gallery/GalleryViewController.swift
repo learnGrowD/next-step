@@ -9,6 +9,7 @@
 import UIKit
 import PanModal
 
+//with flutter
 final class IntroViewController: BaseViewController<GalleryViewModel> {
     private let titleNavigationLabel = UILabel()
     private let tableView = UITableView()
