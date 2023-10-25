@@ -1,5 +1,5 @@
 //
-//  GalleryViewModel.swift
+//  IntroViewModel.swift
 //  nextStep
 //
 //  Created by 도학태 on 2023/09/17.
@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class GalleryViewModel: BaseViewModel {
+final class IntroViewModel: BaseViewModel {
     let list = BehaviorRelay<[GalleryInformationAttribute]>(value: [])
     let informationButtonTap = PublishRelay<GalleryInformationAttribute>()
 

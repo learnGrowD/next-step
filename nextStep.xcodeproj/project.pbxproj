@@ -16,8 +16,8 @@
 		B808FCCD2AC5A46500EAF39A /* SkillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B808FCCC2AC5A46500EAF39A /* SkillDetailViewController.swift */; };
 		B80E741B2AB71CF2007440D6 /* LookAroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */; };
 		B80E741D2AB71CFB007440D6 /* LookAroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */; };
-		B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741E2AB71D51007440D6 /* GalleryViewController.swift */; };
-		B80E74212AB71D5F007440D6 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E74202AB71D5F007440D6 /* GalleryViewModel.swift */; };
+		B80E741F2AB71D51007440D6 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E741E2AB71D51007440D6 /* IntroViewController.swift */; };
+		B80E74212AB71D5F007440D6 /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E74202AB71D5F007440D6 /* IntroViewModel.swift */; };
 		B80E74232AB71D7B007440D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E74222AB71D7B007440D6 /* HomeViewController.swift */; };
 		B80E74252AB71D8C007440D6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E74242AB71D8C007440D6 /* HomeViewModel.swift */; };
 		B80E74292AB71F04007440D6 /* MainTapBarCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80E74282AB71F04007440D6 /* MainTapBarCategory.swift */; };
@@ -142,8 +142,8 @@
 		B808FCCC2AC5A46500EAF39A /* SkillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailViewController.swift; sourceTree = "<group>"; };
 		B80E741A2AB71CF2007440D6 /* LookAroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewController.swift; sourceTree = "<group>"; };
 		B80E741C2AB71CFB007440D6 /* LookAroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookAroundViewModel.swift; sourceTree = "<group>"; };
-		B80E741E2AB71D51007440D6 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		B80E74202AB71D5F007440D6 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		B80E741E2AB71D51007440D6 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		B80E74202AB71D5F007440D6 /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		B80E74222AB71D7B007440D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B80E74242AB71D8C007440D6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B80E74282AB71F04007440D6 /* MainTapBarCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTapBarCategory.swift; sourceTree = "<group>"; };
@@ -331,8 +331,8 @@
 		B80E74182AB71C7E007440D6 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
-				B80E741E2AB71D51007440D6 /* GalleryViewController.swift */,
-				B80E74202AB71D5F007440D6 /* GalleryViewModel.swift */,
+				B80E741E2AB71D51007440D6 /* IntroViewController.swift */,
+				B80E74202AB71D5F007440D6 /* IntroViewModel.swift */,
 				B86DAE822AD7C90B002CCED8 /* Model */,
 				B86DAE872AD7CDC6002CCED8 /* Repository */,
 				B86DAE7D2AD7C329002CCED8 /* Component */,
@@ -1227,7 +1227,7 @@
 				B837AE062AC2EE5600BE7D2C /* ChampionDetailDescriptionTableViewCell.swift in Sources */,
 				B837A8F42AAC80AC00A5F407 /* APIResultUIMode.swift in Sources */,
 				B8DDB8DC2AC04B9A0068C7C0 /* LookAroundCategoryListTableViewCell.swift in Sources */,
-				B80E74212AB71D5F007440D6 /* GalleryViewModel.swift in Sources */,
+				B80E74212AB71D5F007440D6 /* IntroViewModel.swift in Sources */,
 				B887C1862ABEB03B008257A0 /* HomeRepository.swift in Sources */,
 				B8DDB8BF2ABEC4320068C7C0 /* LOLChampionImageSizeStatus.swift in Sources */,
 				B8DDB8E42AC05D280068C7C0 /* LookAroundCategoryView.swift in Sources */,
@@ -1252,7 +1252,7 @@
 				B86DAE8D2AD7D7C4002CCED8 /* WebContext.swift in Sources */,
 				B808FCC82AC589D700EAF39A /* ChampionDetailContinerView.swift in Sources */,
 				B82A947D2AD7BF5400440DE8 /* MultipartFormData.swift in Sources */,
-				B80E741F2AB71D51007440D6 /* GalleryViewController.swift in Sources */,
+				B80E741F2AB71D51007440D6 /* IntroViewController.swift in Sources */,
 				B808FCCD2AC5A46500EAF39A /* SkillDetailViewController.swift in Sources */,
 				B8DDB8CC2AC0263D0068C7C0 /* HomeBetweenBannerAttribute.swift in Sources */,
 				B8D9AC1C2AB6C618007A12E3 /* CommonModal.swift in Sources */,
@@ -1421,7 +1421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BXV27XC6DZ;
+				DEVELOPMENT_TEAM = WM9W532AJA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nextStep/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Nest-step";
@@ -1451,7 +1451,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BXV27XC6DZ;
+				DEVELOPMENT_TEAM = WM9W532AJA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = nextStep/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Nest-step";

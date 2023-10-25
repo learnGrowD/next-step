@@ -10,7 +10,7 @@ import UIKit
 import PanModal
 
 //with flutter
-final class IntroViewController: BaseViewController<GalleryViewModel> {
+final class IntroViewController: BaseViewController<IntroViewModel> {
     private let titleNavigationLabel = UILabel()
     private let tableView = UITableView()
     private lazy var headerView = GalleryHeaderView(viewModel: viewModel)
@@ -37,7 +37,7 @@ final class IntroViewController: BaseViewController<GalleryViewModel> {
         }
     }
 
-    override func bind(_ viewModel: GalleryViewModel) {
+    override func bind(_ viewModel: IntroViewModel) {
         super.bind(viewModel)
         viewModel.getGalleyInformationList()
             .bind(to: tableView.rx.items) { tableView, row, data in

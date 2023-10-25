@@ -65,7 +65,7 @@ final class GalleyInformationTableViewCell: UITableViewCell {
         informationLabel.text = " \(data.description): \(data.link)"
     }
 
-    func bind(data: GalleryInformationAttribute, viewModel: GalleryViewModel) {
+    func bind(data: GalleryInformationAttribute, viewModel: IntroViewModel) {
         setUI(data: data)
         Observable.merge(
             informationLabel.rx.tapGesture().when(.recognized),

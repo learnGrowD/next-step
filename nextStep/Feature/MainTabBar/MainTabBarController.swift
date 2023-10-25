@@ -83,7 +83,7 @@ extension MainTabBarController {
             }
         case .gallery:
             if gallertViewController == nil {
-                let gallertViewModel = GalleryViewModel()
+                let gallertViewModel = IntroViewModel()
                 gallertViewController = IntroViewController(viewModel: gallertViewModel)
             }
         }

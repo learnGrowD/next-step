@@ -8,10 +8,10 @@
 import UIKit
 
 final class GalleryHeaderView: UIView {
-    private let viewModel: GalleryViewModel
+    private let viewModel: IntroViewModel
     private let profileImageView = UIImageView()
     private let nickNameLabel = UILabel()
-    init(frame: CGRect = .zero, viewModel: GalleryViewModel) {
+    init(frame: CGRect = .zero, viewModel: IntroViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
         attribute()
